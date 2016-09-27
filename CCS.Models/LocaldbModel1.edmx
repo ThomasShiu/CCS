@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CCSlocalDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CS_ACTIONLOG">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Operator" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Refer" Type="varchar" MaxLength="300" />
+          <Property Name="Destination" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Method" Type="varchar" MaxLength="5" />
+          <Property Name="MobleDevices" Type="bit" Nullable="false" />
+          <Property Name="Browser" Type="varchar" MaxLength="50" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="40" />
+          <Property Name="RequestTime" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CS_COMT">
+          <Key>
+            <PropertyRef Name="VCH_NO" />
+          </Key>
+          <Property Name="VCH_NO" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VCH_DT" Type="smalldatetime" Nullable="false" />
+          <Property Name="FA_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="CS_NO" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DEPM_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="EMP_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="CS_VCH_NO" Type="nvarchar" MaxLength="20" />
+          <Property Name="CONTACTER" Type="nvarchar" MaxLength="30" />
+          <Property Name="TAX_TY" Type="nvarchar" MaxLength="1" />
+          <Property Name="TAX_RT" Type="decimal" Precision="15" Scale="4" />
+          <Property Name="PRC_CDT" Type="nvarchar" MaxLength="30" />
+          <Property Name="PAY_CDT" Type="nvarchar" MaxLength="30" />
+          <Property Name="TO_ADDR" Type="nvarchar" MaxLength="80" />
+          <Property Name="TO_ADDR2" Type="nvarchar" MaxLength="80" />
+          <Property Name="CURRENCY" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="EXCH_RATE" Type="decimal" Precision="12" Scale="6" />
+          <Property Name="WAHO_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="LC_NO" Type="nvarchar" MaxLength="20" />
+          <Property Name="SHIP_TY" Type="nvarchar" MaxLength="1" />
+          <Property Name="STR_PORT" Type="nvarchar" MaxLength="30" />
+          <Property Name="DES_PORT" Type="nvarchar" MaxLength="30" />
+          <Property Name="AGT_CORP" Type="nvarchar" MaxLength="10" />
+          <Property Name="CLR_CORP" Type="nvarchar" MaxLength="10" />
+          <Property Name="INSP_CORP" Type="nvarchar" MaxLength="10" />
+          <Property Name="SHIP_CORP" Type="nvarchar" MaxLength="10" />
+          <Property Name="MARK_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="FL_MARK" Type="nvarchar" MaxLength="255" />
+          <Property Name="SL_MARK" Type="nvarchar" MaxLength="255" />
+          <Property Name="CONSIGNEE" Type="nvarchar" MaxLength="10" />
+          <Property Name="NOTIFY" Type="nvarchar" MaxLength="10" />
+          <Property Name="DES_PLACE" Type="nvarchar" MaxLength="30" />
+          <Property Name="BANK_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="PACK_REMK" Type="nvarchar" MaxLength="255" />
+          <Property Name="IVC_REMK" Type="nvarchar" MaxLength="255" />
+          <Property Name="REMK" Type="nvarchar" MaxLength="255" />
+          <Property Name="COMS_RATE" Type="decimal" Precision="15" Scale="4" />
+          <Property Name="COMS_AMT" Type="decimal" Precision="15" Scale="4" />
+          <Property Name="DPAY_RT" Type="decimal" Precision="15" Scale="4" />
+          <Property Name="DPAY_AMT" Type="decimal" Precision="15" Scale="4" />
+          <Property Name="ATTR_NO1" Type="nvarchar" MaxLength="10" />
+          <Property Name="ATTR_NO2" Type="nvarchar" MaxLength="10" />
+          <Property Name="ATTR_NO3" Type="nvarchar" MaxLength="10" />
+          <Property Name="AMT" Type="decimal" Precision="15" Scale="4" />
+          <Property Name="TAX" Type="decimal" Precision="15" Scale="4" />
+          <Property Name="QTY" Type="decimal" Precision="15" Scale="4" />
+          <Property Name="N_PRT" Type="int" />
+          <Property Name="C_SIGN" Type="nvarchar" MaxLength="1" />
+          <Property Name="C_CFM" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="CFM_DT" Type="smalldatetime" />
+          <Property Name="EXC_INSDBID" Type="nvarchar" MaxLength="13" />
+          <Property Name="EXC_INSDATE" Type="smalldatetime" />
+          <Property Name="EXC_UPDDBID" Type="nvarchar" MaxLength="13" />
+          <Property Name="EXC_UPDDATE" Type="smalldatetime" />
+          <Property Name="EXC_SYSOWNR" Type="nvarchar" MaxLength="5" />
+          <Property Name="EXC_ISLOCKED" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="CS_SYSEXCEPTION">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HelpLink" Type="varchar" MaxLength="500" />
+          <Property Name="Message" Type="varchar" MaxLength="500" />
+          <Property Name="Source" Type="varchar" MaxLength="500" />
+          <Property Name="StackTrace" Type="text" />
+          <Property Name="TargetSite" Type="varchar" MaxLength="500" />
+          <Property Name="Data" Type="varchar" MaxLength="500" />
+          <Property Name="CreateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CS_SYSLOG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Operator" Type="nvarchar" MaxLength="50" />
+          <Property Name="Message" Type="nvarchar" MaxLength="500" />
+          <Property Name="Result" Type="nvarchar" MaxLength="20" />
+          <Property Name="Type" Type="nvarchar" MaxLength="20" />
+          <Property Name="Module" Type="nvarchar" MaxLength="20" />
+          <Property Name="CreateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CS_SYSMODULE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="EnglishName" Type="nvarchar" MaxLength="200" />
+          <Property Name="ParentId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Url" Type="nvarchar" MaxLength="200" />
+          <Property Name="Iconic" Type="nvarchar" MaxLength="200" />
+          <Property Name="Sort" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+          <Property Name="State" Type="bit" />
+          <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="IsLast" Type="bit" Nullable="false" />
+          <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityContainer Name="CCSlocalDBModelStoreContainer">
+          <EntitySet Name="CS_ACTIONLOG" EntityType="Self.CS_ACTIONLOG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CS_COMT" EntityType="Self.CS_COMT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CS_SYSEXCEPTION" EntityType="Self.CS_SYSEXCEPTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CS_SYSLOG" EntityType="Self.CS_SYSLOG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CS_SYSMODULE" EntityType="Self.CS_SYSMODULE" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CCSlocalDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CS_ACTIONLOG">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Operator" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Refer" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Destination" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Method" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="MobleDevices" Type="Boolean" Nullable="false" />
+          <Property Name="Browser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IPAddress" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RequestTime" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="CS_COMT">
+          <Key>
+            <PropertyRef Name="VCH_NO" />
+          </Key>
+          <Property Name="VCH_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VCH_DT" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FA_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CS_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DEPM_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="EMP_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CS_VCH_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CONTACTER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TAX_TY" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="TAX_RT" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="PRC_CDT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PAY_CDT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TO_ADDR" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="TO_ADDR2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="CURRENCY" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EXCH_RATE" Type="Decimal" Precision="12" Scale="6" />
+          <Property Name="WAHO_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LC_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SHIP_TY" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="STR_PORT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DES_PORT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="AGT_CORP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CLR_CORP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="INSP_CORP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SHIP_CORP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MARK_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FL_MARK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SL_MARK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CONSIGNEE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NOTIFY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DES_PLACE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BANK_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PACK_REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IVC_REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="COMS_RATE" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="COMS_AMT" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="DPAY_RT" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="DPAY_AMT" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="ATTR_NO1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ATTR_NO2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ATTR_NO3" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AMT" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="TAX" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="QTY" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="N_PRT" Type="Int32" />
+          <Property Name="C_SIGN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="C_CFM" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CFM_DT" Type="DateTime" Precision="0" />
+          <Property Name="EXC_INSDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="EXC_INSDATE" Type="DateTime" Precision="0" />
+          <Property Name="EXC_UPDDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="EXC_UPDDATE" Type="DateTime" Precision="0" />
+          <Property Name="EXC_SYSOWNR" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="EXC_ISLOCKED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CS_SYSEXCEPTION">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HelpLink" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Source" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TargetSite" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Data" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="CS_SYSLOG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Result" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Module" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="CS_SYSMODULE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EnglishName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Iconic" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Sort" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="Boolean" />
+          <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsLast" Type="Boolean" Nullable="false" />
+          <Property Name="Version" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityContainer Name="CCSlocalDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CS_ACTIONLOG" EntityType="Self.CS_ACTIONLOG" />
+          <EntitySet Name="CS_COMT" EntityType="Self.CS_COMT" />
+          <EntitySet Name="CS_SYSEXCEPTION" EntityType="Self.CS_SYSEXCEPTION" />
+          <EntitySet Name="CS_SYSLOG" EntityType="Self.CS_SYSLOG" />
+          <EntitySet Name="CS_SYSMODULE" EntityType="Self.CS_SYSMODULE" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CCSlocalDBModelStoreContainer" CdmEntityContainer="CCSlocalDBEntities">
+          <EntitySetMapping Name="CS_ACTIONLOG">
+            <EntityTypeMapping TypeName="CCSlocalDBModel.CS_ACTIONLOG">
+              <MappingFragment StoreEntitySet="CS_ACTIONLOG">
+                <ScalarProperty Name="LogId" ColumnName="LogId" />
+                <ScalarProperty Name="Operator" ColumnName="Operator" />
+                <ScalarProperty Name="Refer" ColumnName="Refer" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="Method" ColumnName="Method" />
+                <ScalarProperty Name="MobleDevices" ColumnName="MobleDevices" />
+                <ScalarProperty Name="Browser" ColumnName="Browser" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="RequestTime" ColumnName="RequestTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CS_COMT">
+            <EntityTypeMapping TypeName="CCSlocalDBModel.CS_COMT">
+              <MappingFragment StoreEntitySet="CS_COMT">
+                <ScalarProperty Name="VCH_NO" ColumnName="VCH_NO" />
+                <ScalarProperty Name="VCH_DT" ColumnName="VCH_DT" />
+                <ScalarProperty Name="FA_NO" ColumnName="FA_NO" />
+                <ScalarProperty Name="CS_NO" ColumnName="CS_NO" />
+                <ScalarProperty Name="DEPM_NO" ColumnName="DEPM_NO" />
+                <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
+                <ScalarProperty Name="CS_VCH_NO" ColumnName="CS_VCH_NO" />
+                <ScalarProperty Name="CONTACTER" ColumnName="CONTACTER" />
+                <ScalarProperty Name="TAX_TY" ColumnName="TAX_TY" />
+                <ScalarProperty Name="TAX_RT" ColumnName="TAX_RT" />
+                <ScalarProperty Name="PRC_CDT" ColumnName="PRC_CDT" />
+                <ScalarProperty Name="PAY_CDT" ColumnName="PAY_CDT" />
+                <ScalarProperty Name="TO_ADDR" ColumnName="TO_ADDR" />
+                <ScalarProperty Name="TO_ADDR2" ColumnName="TO_ADDR2" />
+                <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+                <ScalarProperty Name="EXCH_RATE" ColumnName="EXCH_RATE" />
+                <ScalarProperty Name="WAHO_NO" ColumnName="WAHO_NO" />
+                <ScalarProperty Name="LC_NO" ColumnName="LC_NO" />
+                <ScalarProperty Name="SHIP_TY" ColumnName="SHIP_TY" />
+                <ScalarProperty Name="STR_PORT" ColumnName="STR_PORT" />
+                <ScalarProperty Name="DES_PORT" ColumnName="DES_PORT" />
+                <ScalarProperty Name="AGT_CORP" ColumnName="AGT_CORP" />
+                <ScalarProperty Name="CLR_CORP" ColumnName="CLR_CORP" />
+                <ScalarProperty Name="INSP_CORP" ColumnName="INSP_CORP" />
+                <ScalarProperty Name="SHIP_CORP" ColumnName="SHIP_CORP" />
+                <ScalarProperty Name="MARK_NO" ColumnName="MARK_NO" />
+                <ScalarProperty Name="FL_MARK" ColumnName="FL_MARK" />
+                <ScalarProperty Name="SL_MARK" ColumnName="SL_MARK" />
+                <ScalarProperty Name="CONSIGNEE" ColumnName="CONSIGNEE" />
+                <ScalarProperty Name="NOTIFY" ColumnName="NOTIFY" />
+                <ScalarProperty Name="DES_PLACE" ColumnName="DES_PLACE" />
+                <ScalarProperty Name="BANK_NO" ColumnName="BANK_NO" />
+                <ScalarProperty Name="PACK_REMK" ColumnName="PACK_REMK" />
+                <ScalarProperty Name="IVC_REMK" ColumnName="IVC_REMK" />
+                <ScalarProperty Name="REMK" ColumnName="REMK" />
+                <ScalarProperty Name="COMS_RATE" ColumnName="COMS_RATE" />
+                <ScalarProperty Name="COMS_AMT" ColumnName="COMS_AMT" />
+                <ScalarProperty Name="DPAY_RT" ColumnName="DPAY_RT" />
+                <ScalarProperty Name="DPAY_AMT" ColumnName="DPAY_AMT" />
+                <ScalarProperty Name="ATTR_NO1" ColumnName="ATTR_NO1" />
+                <ScalarProperty Name="ATTR_NO2" ColumnName="ATTR_NO2" />
+                <ScalarProperty Name="ATTR_NO3" ColumnName="ATTR_NO3" />
+                <ScalarProperty Name="AMT" ColumnName="AMT" />
+                <ScalarProperty Name="TAX" ColumnName="TAX" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="N_PRT" ColumnName="N_PRT" />
+                <ScalarProperty Name="C_SIGN" ColumnName="C_SIGN" />
+                <ScalarProperty Name="C_CFM" ColumnName="C_CFM" />
+                <ScalarProperty Name="CFM_DT" ColumnName="CFM_DT" />
+                <ScalarProperty Name="EXC_INSDBID" ColumnName="EXC_INSDBID" />
+                <ScalarProperty Name="EXC_INSDATE" ColumnName="EXC_INSDATE" />
+                <ScalarProperty Name="EXC_UPDDBID" ColumnName="EXC_UPDDBID" />
+                <ScalarProperty Name="EXC_UPDDATE" ColumnName="EXC_UPDDATE" />
+                <ScalarProperty Name="EXC_SYSOWNR" ColumnName="EXC_SYSOWNR" />
+                <ScalarProperty Name="EXC_ISLOCKED" ColumnName="EXC_ISLOCKED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CS_SYSEXCEPTION">
+            <EntityTypeMapping TypeName="CCSlocalDBModel.CS_SYSEXCEPTION">
+              <MappingFragment StoreEntitySet="CS_SYSEXCEPTION">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="HelpLink" ColumnName="HelpLink" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="TargetSite" ColumnName="TargetSite" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CS_SYSLOG">
+            <EntityTypeMapping TypeName="CCSlocalDBModel.CS_SYSLOG">
+              <MappingFragment StoreEntitySet="CS_SYSLOG">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Operator" ColumnName="Operator" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CS_SYSMODULE">
+            <EntityTypeMapping TypeName="CCSlocalDBModel.CS_SYSMODULE">
+              <MappingFragment StoreEntitySet="CS_SYSMODULE">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Iconic" ColumnName="Iconic" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsLast" ColumnName="IsLast" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

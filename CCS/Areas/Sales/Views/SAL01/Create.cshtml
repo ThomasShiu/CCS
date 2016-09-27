@@ -1,0 +1,139 @@
+﻿@model CCS.Models.SAL.cs_comtModel
+@using CCS.Common;
+@using CCS.Models.SAL;
+
+@{
+    ViewBag.Title = "創建";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+}
+
+
+
+
+<div class="mvctool bgb">
+    <a id="btnSave" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-save" style="padding-left: 20px;">保存</span></span></a>
+</div>
+@using (Html.BeginForm("Create", "SAL01", new { Area="Sales"}, FormMethod.Post, new { Id = "CreateForm" }))
+{
+    @Html.ValidationSummary(true)
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.VCH_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.VCH_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.VCH_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.VCH_DT)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.VCH_DT , new { htmlAttributes = new { @class = "easyui-datebox", data_options = "formatter:myformatter,parser:myparser" } })
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.VCH_DT)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CS_NO)：
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.CS_NO)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.CS_NO)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CURRENCY)：
+                </td>
+
+                <td>
+                    @Html.TextBoxFor(model => model.CURRENCY)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.CURRENCY)
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.C_CFM)：
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.C_CFM)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.C_CFM)
+                </td>
+            </tr>
+          
+        </tbody>
+    </table>
+}
+
+
+@section scripts{
+    
+ <script type="text/javascript">
+    $(function () {
+        $("#btnSave").click(function () {
+                $.ajax({
+                    url: "/Sales/SAL01/Create",
+                    type: "Post",
+                    data: $("#CreateForm").serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                        //if (data == 1) {
+                        //    window.parent.frameReturnByMes("成功");
+                        //    window.parent.frameReturnByReload(true);
+                        //    window.parent.frameReturnByClose()
+                        //}
+                        //else {
+                        //    window.parent.frameReturnByMes("失敗");
+                        //}
+
+                        if (data.type == 1) {
+                            window.parent.frameReturnByMes(data.message);
+                            window.parent.frameReturnByReload(true);
+                            window.parent.frameReturnByClose()
+                        }
+                        else {
+                            window.parent.frameReturnByMes(data.message);
+                        }
+                    }
+                });
+        });
+    });
+
+
+        function myformatter(date){
+            var y = date.getFullYear();
+            var m = date.getMonth()+1;
+            var d = date.getDate();
+            return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+        }
+        function myparser(s){
+            if (!s) return new Date();
+            var ss = (s.split('-'));
+            var y = parseInt(ss[0],10);
+            var m = parseInt(ss[1],10);
+            var d = parseInt(ss[2],10);
+            if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+                return new Date(y,m-1,d);
+            } else {
+                return new Date();
+            }
+        }
+
+</script>
+       
+ }

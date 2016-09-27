@@ -1,0 +1,174 @@
+﻿@model CCS.Controllers.BaseException
+
+@{
+    ViewBag.Title = "異常處理頁面异常处理页面";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+}
+@section styles{
+<style>
+.fancytable{border:1px solid #cccccc; width:100%;border-collapse:collapse;}
+.fancytable td{border:1px solid #cccccc; color:#555555;text-align:center;line-height:28px;}
+.headerrow{ background-color:#0066cc;}
+.headerrow td{ color:#ffffff; text-align:center;}
+.datarowodd{background-color:#ffffff;}
+.dataroweven{ background-color:#efefef;}
+.datarowodd td{background-color:#ffffff;}
+.dataroweven td{ background-color:#efefef;}
+.dataColdd{background-color:#ffb3b3;color:#ffffff; text-align:center;}
+
+    .sexyborder{
+     border:1px solid #0066cc; padding:5px;
+     -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+     border-radius: 5px;
+}
+
+ section {
+  width: 700px;
+  height: 600px;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  margin: -150px 0 0 -250px;
+  display: table;
+}
+
+</style>
+    }
+
+<link href="~/Content/easyui-1.5/themes/metro/easyui.css" rel="stylesheet" />
+@Scripts.Render("~/bundles/jquery")
+<script src="~/Content/easyui-1.5/jquery.easyui.min.js"></script>
+
+    <section>
+        <div class="sexyborder">
+            <table class="fancytable">
+                <tr>
+                    <td class="dataColdd" colspan="2"><div style="font-size:14px">錯誤處理頁面</div></td>
+                </tr>
+                <tr>
+                    <td class="" colspan="2">
+                        &nbsp;欢迎您光临本网站！网站运行发生错误，请与管理员联系。错误原因可能如下:
+                        <br />
+                        &nbsp;&nbsp;&nbsp;1.非法访问页面.
+                        <br />
+                        &nbsp;&nbsp;&nbsp;2.您输入的数据错误.
+                        <br />
+                        &nbsp;&nbsp;&nbsp;3.您访问的页面不存在.
+                        <br />
+                        &nbsp;&nbsp;&nbsp;4.内容不存在,或已被删除.
+                        <br />
+                        &nbsp;&nbsp;&nbsp;5.系统忙,请稍候再试.
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tbody id="detailInformation" style="display: none;">
+                    <tr>
+                        <td class="alignRight dataColdd">出錯頁面</td>
+                        <td>@Html.DisplayFor(model => model.ErrorPageUrl)</td>
+                    </tr>
+                    <tr>
+                        <td class="alignRight dataColdd" nowrap>
+                            <strong>异常名称：</strong>
+                        </td>
+                        <td class="alignLeft">
+                            @Html.DisplayFor(model => model.ExceptionName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="alignRight dataColdd" nowrap>
+                            <strong>异常信息：</strong>
+                        </td>
+                        <td class="alignLeft">
+                            @Html.DisplayFor(model => model.ExceptionMessage)
+                        </td>
+                    </tr>
+                    <tr id="trInnerExceptionName" runat="server">
+                        <td class="alignRight dataColdd" nowrap>
+                            <strong>内部异常名称：</strong>
+                        </td>
+                        <td class="alignLeft">
+                            @Html.DisplayFor(model => model.InnerExceptionName)
+                        </td>
+                    </tr>
+                    <tr id="trInnerExceptionMessage" runat="server">
+                        <td class="alignRight dataColdd" nowrap>
+                            <strong>内部异常信息：</strong>
+                        </td>
+                        <td class="alignLeft">
+                            @Html.DisplayFor(model => model.InnerExceptionMessage)
+                        </td>
+                    </tr>
+                    <tr id="trExceptionMethod" runat="server">
+                        <td class="alignRight dataColdd" nowrap>
+                            <strong>方法名称：</strong>
+                        </td>
+                        <td class="alignLeft" style="background-color: #ffffcc;">
+                            &nbsp;@Html.DisplayFor(model => model.TargetSite)
+                        </td>
+                    </tr>
+                    <tr id="trExceptionSource" runat="server">
+                        <td class="alignRight dataColdd" nowrap>
+                            <strong>源文件：</strong>
+                        </td>
+                        <td class="alignLeft" style="background-color: #ffffcc;">
+                            @Html.DisplayFor(model => model.SourceErrorFile)
+                        </td>
+                    </tr>
+                    <tr id="trExceptionRowId" runat="server">
+                        <td class="alignRight dataColdd" nowrap>
+                            <strong>行号：</strong>
+                        </td>
+                        <td class="alignLeft" style="background-color: #ffffcc; color: Red">
+                            &nbsp;@Html.DisplayFor(model => model.SourceErrorRowID)
+                        </td>
+                    </tr>
+                    <tr runat="server" id="trStack" visible="false">
+                        <td class="alignRight dataColdd">
+                            <strong>堆栈跟踪：</strong>
+                        </td>
+                        <td class="alignLeft" style="background-color: #ffffcc;">
+                            <code>
+                                <pre id="litStack"><textarea name="errormsg" cols="80" rows="30" readonly="readonly">@Html.DisplayFor(model => model.StackInfo) </textarea> </pre>
+                            </code>
+                        </td>
+                    </tr>
+                </tbody>
+                <tr>
+                    <td colspan="2">
+                        <a id="showMessage" href="#" onclick="ShowErrorMessage();return false;">显示详细信息</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+</section>
+ 
+
+    
+
+    <script type="text/javascript">
+
+        var isShowMessage = true;
+
+        function ShowErrorMessage() {
+
+            var obj = document.getElementById("showMessage")
+            var detailInformation = document.getElementById("detailInformation");
+            var youhaotishi = document.getElementById("youhaotishi");
+
+            if (isShowMessage) {
+                obj.innerText = "隐藏详细信息";
+                isShowMessage = false;
+                detailInformation.style.display = "block";
+                youhaotishi.style.display = "none";
+            }
+            else {
+                obj.innerText = "显示详细信息";
+                isShowMessage = true;
+                detailInformation.style.display = "none";
+                youhaotishi.style.display = "block";
+            }
+
+        }
+    </script>
