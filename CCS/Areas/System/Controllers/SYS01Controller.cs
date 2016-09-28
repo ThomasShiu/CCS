@@ -1,5 +1,4 @@
 ﻿using CCS.App_Start;
-using CCS.BLL;
 using CCS.Common;
 using CCS.IBLL;
 using CCS.Models;
@@ -18,7 +17,7 @@ using System.Web.Mvc;
 namespace CCS.Areas.System.Controllers
 {
     [UserTraceLog]
-    public class SYS01Controller : Controller
+    public class SYS01Controller : BaseController
     {
         // GET: Admin/ADM01
 

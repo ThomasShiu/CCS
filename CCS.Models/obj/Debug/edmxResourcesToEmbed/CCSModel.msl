@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CCSModelStoreContainer" CdmEntityContainer="CCSEntities">
+    <EntitySetMapping Name="CS_COMT">
+      <EntityTypeMapping TypeName="CCSModel.CS_COMT">
+        <MappingFragment StoreEntitySet="CS_COMT">
+          <ScalarProperty Name="VCH_NO" ColumnName="VCH_NO" />
+          <ScalarProperty Name="VCH_DT" ColumnName="VCH_DT" />
+          <ScalarProperty Name="FA_NO" ColumnName="FA_NO" />
+          <ScalarProperty Name="CS_NO" ColumnName="CS_NO" />
+          <ScalarProperty Name="DEPM_NO" ColumnName="DEPM_NO" />
+          <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
+          <ScalarProperty Name="CS_VCH_NO" ColumnName="CS_VCH_NO" />
+          <ScalarProperty Name="CONTACTER" ColumnName="CONTACTER" />
+          <ScalarProperty Name="TAX_TY" ColumnName="TAX_TY" />
+          <ScalarProperty Name="TAX_RT" ColumnName="TAX_RT" />
+          <ScalarProperty Name="PRC_CDT" ColumnName="PRC_CDT" />
+          <ScalarProperty Name="PAY_CDT" ColumnName="PAY_CDT" />
+          <ScalarProperty Name="TO_ADDR" ColumnName="TO_ADDR" />
+          <ScalarProperty Name="TO_ADDR2" ColumnName="TO_ADDR2" />
+          <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+          <ScalarProperty Name="EXCH_RATE" ColumnName="EXCH_RATE" />
+          <ScalarProperty Name="WAHO_NO" ColumnName="WAHO_NO" />
+          <ScalarProperty Name="LC_NO" ColumnName="LC_NO" />
+          <ScalarProperty Name="SHIP_TY" ColumnName="SHIP_TY" />
+          <ScalarProperty Name="STR_PORT" ColumnName="STR_PORT" />
+          <ScalarProperty Name="DES_PORT" ColumnName="DES_PORT" />
+          <ScalarProperty Name="AGT_CORP" ColumnName="AGT_CORP" />
+          <ScalarProperty Name="CLR_CORP" ColumnName="CLR_CORP" />
+          <ScalarProperty Name="INSP_CORP" ColumnName="INSP_CORP" />
+          <ScalarProperty Name="SHIP_CORP" ColumnName="SHIP_CORP" />
+          <ScalarProperty Name="MARK_NO" ColumnName="MARK_NO" />
+          <ScalarProperty Name="FL_MARK" ColumnName="FL_MARK" />
+          <ScalarProperty Name="SL_MARK" ColumnName="SL_MARK" />
+          <ScalarProperty Name="CONSIGNEE" ColumnName="CONSIGNEE" />
+          <ScalarProperty Name="NOTIFY" ColumnName="NOTIFY" />
+          <ScalarProperty Name="DES_PLACE" ColumnName="DES_PLACE" />
+          <ScalarProperty Name="BANK_NO" ColumnName="BANK_NO" />
+          <ScalarProperty Name="PACK_REMK" ColumnName="PACK_REMK" />
+          <ScalarProperty Name="IVC_REMK" ColumnName="IVC_REMK" />
+          <ScalarProperty Name="REMK" ColumnName="REMK" />
+          <ScalarProperty Name="COMS_RATE" ColumnName="COMS_RATE" />
+          <ScalarProperty Name="COMS_AMT" ColumnName="COMS_AMT" />
+          <ScalarProperty Name="DPAY_RT" ColumnName="DPAY_RT" />
+          <ScalarProperty Name="DPAY_AMT" ColumnName="DPAY_AMT" />
+          <ScalarProperty Name="ATTR_NO1" ColumnName="ATTR_NO1" />
+          <ScalarProperty Name="ATTR_NO2" ColumnName="ATTR_NO2" />
+          <ScalarProperty Name="ATTR_NO3" ColumnName="ATTR_NO3" />
+          <ScalarProperty Name="AMT" ColumnName="AMT" />
+          <ScalarProperty Name="TAX" ColumnName="TAX" />
+          <ScalarProperty Name="QTY" ColumnName="QTY" />
+          <ScalarProperty Name="N_PRT" ColumnName="N_PRT" />
+          <ScalarProperty Name="C_SIGN" ColumnName="C_SIGN" />
+          <ScalarProperty Name="C_CFM" ColumnName="C_CFM" />
+          <ScalarProperty Name="CFM_DT" ColumnName="CFM_DT" />
+          <ScalarProperty Name="EXC_INSDBID" ColumnName="EXC_INSDBID" />
+          <ScalarProperty Name="EXC_INSDATE" ColumnName="EXC_INSDATE" />
+          <ScalarProperty Name="EXC_UPDDBID" ColumnName="EXC_UPDDBID" />
+          <ScalarProperty Name="EXC_UPDDATE" ColumnName="EXC_UPDDATE" />
+          <ScalarProperty Name="EXC_SYSOWNR" ColumnName="EXC_SYSOWNR" />
+          <ScalarProperty Name="EXC_ISLOCKED" ColumnName="EXC_ISLOCKED" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_SYSMODULE">
+      <EntityTypeMapping TypeName="CCSModel.CS_SYSMODULE">
+        <MappingFragment StoreEntitySet="CS_SYSMODULE">
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="IsLast" ColumnName="IsLast" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="Iconic" ColumnName="Iconic" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_SYSLOG">
+      <EntityTypeMapping TypeName="CCSModel.CS_SYSLOG">
+        <MappingFragment StoreEntitySet="CS_SYSLOG">
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Module" ColumnName="Module" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_SYSEXCEPTION">
+      <EntityTypeMapping TypeName="CCSModel.CS_SYSEXCEPTION">
+        <MappingFragment StoreEntitySet="CS_SYSEXCEPTION">
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="TargetSite" ColumnName="TargetSite" />
+          <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="HelpLink" ColumnName="HelpLink" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_ACTIONLOG">
+      <EntityTypeMapping TypeName="CCSModel.CS_ACTIONLOG">
+        <MappingFragment StoreEntitySet="CS_ACTIONLOG">
+          <ScalarProperty Name="RequestTime" ColumnName="RequestTime" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="Browser" ColumnName="Browser" />
+          <ScalarProperty Name="MobleDevices" ColumnName="MobleDevices" />
+          <ScalarProperty Name="Method" ColumnName="Method" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="Refer" ColumnName="Refer" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="LogId" ColumnName="LogId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_SYSMODULEOPERATE">
+      <EntityTypeMapping TypeName="CCSModel.CS_SYSMODULEOPERATE">
+        <MappingFragment StoreEntitySet="CS_SYSMODULEOPERATE">
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+          <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+          <ScalarProperty Name="KeyCode" ColumnName="KeyCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_SYSRIGHT">
+      <EntityTypeMapping TypeName="CCSModel.CS_SYSRIGHT">
+        <MappingFragment StoreEntitySet="CS_SYSRIGHT">
+          <ScalarProperty Name="Rightflag" ColumnName="Rightflag" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_SYSRIGHTOPERATE">
+      <EntityTypeMapping TypeName="CCSModel.CS_SYSRIGHTOPERATE">
+        <MappingFragment StoreEntitySet="CS_SYSRIGHTOPERATE">
+          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+          <ScalarProperty Name="KeyCode" ColumnName="KeyCode" />
+          <ScalarProperty Name="RightId" ColumnName="RightId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_SYSROLE">
+      <EntityTypeMapping TypeName="CCSModel.CS_SYSROLE">
+        <MappingFragment StoreEntitySet="CS_SYSROLE">
+          <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_SYSUSER">
+      <EntityTypeMapping TypeName="CCSModel.CS_SYSUSER">
+        <MappingFragment StoreEntitySet="CS_SYSUSER">
+          <ScalarProperty Name="Attach" ColumnName="Attach" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="JobState" ColumnName="JobState" />
+          <ScalarProperty Name="Expertise" ColumnName="Expertise" />
+          <ScalarProperty Name="PosId" ColumnName="PosId" />
+          <ScalarProperty Name="DepId" ColumnName="DepId" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="Professional" ColumnName="Professional" />
+          <ScalarProperty Name="School" ColumnName="School" />
+          <ScalarProperty Name="Native" ColumnName="Native" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="Political" ColumnName="Political" />
+          <ScalarProperty Name="Marital" ColumnName="Marital" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Village" ColumnName="Village" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="OtherContact" ColumnName="OtherContact" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="QQ" ColumnName="QQ" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Card" ColumnName="Card" />
+          <ScalarProperty Name="TrueName" ColumnName="TrueName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CS_SYSROLESYSUSER" TypeName="CCSModel.CS_SYSROLESYSUSER" StoreEntitySet="CS_SYSROLESYSUSER">
+      <EndProperty Name="CS_SYSUSER">
+        <ScalarProperty Name="Id" ColumnName="SysUserId" />
+      </EndProperty>
+      <EndProperty Name="CS_SYSROLE">
+        <ScalarProperty Name="Id" ColumnName="SysRoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

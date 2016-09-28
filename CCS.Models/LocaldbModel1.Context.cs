@@ -27,8 +27,13 @@ namespace CCS.Models
     
         public virtual DbSet<CS_ACTIONLOG> CS_ACTIONLOG { get; set; }
         public virtual DbSet<CS_COMT> CS_COMT { get; set; }
-        public virtual DbSet<CS_SYSEXCEPTION> CS_SYSEXCEPTION { get; set; }
         public virtual DbSet<CS_SYSLOG> CS_SYSLOG { get; set; }
+        public virtual DbSet<CS_SYSEXCEPTION> CS_SYSEXCEPTION { get; set; }
         public virtual DbSet<CS_SYSMODULE> CS_SYSMODULE { get; set; }
+        public virtual DbSet<CS_SYSMODULEOPERATE> CS_SYSMODULEOPERATE { get; set; }
+        public virtual DbSet<CS_SYSRIGHT> CS_SYSRIGHT { get; set; }
+        public virtual DbSet<CS_SYSRIGHTOPERATE> CS_SYSRIGHTOPERATE { get; set; }
+        public virtual DbSet<CS_SYSROLE> CS_SYSROLE { get; set; }
+        public virtual DbSet<CS_SYSUSER> CS_SYSUSER { get; set; }
     }
 }

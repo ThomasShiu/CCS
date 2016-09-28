@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CCSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CS_COMT">
+    <Key>
+      <PropertyRef Name="VCH_NO" />
+    </Key>
+    <Property Name="VCH_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VCH_DT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FA_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CS_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DEPM_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EMP_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CS_VCH_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CONTACTER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TAX_TY" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="TAX_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="PRC_CDT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="PAY_CDT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TO_ADDR" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="TO_ADDR2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="CURRENCY" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EXCH_RATE" Type="Decimal" Precision="12" Scale="6" />
+    <Property Name="WAHO_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LC_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SHIP_TY" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="STR_PORT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="DES_PORT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="AGT_CORP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CLR_CORP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="INSP_CORP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="SHIP_CORP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MARK_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FL_MARK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SL_MARK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CONSIGNEE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="NOTIFY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DES_PLACE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="BANK_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PACK_REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IVC_REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="COMS_RATE" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="COMS_AMT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="DPAY_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="DPAY_AMT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="ATTR_NO1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ATTR_NO2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ATTR_NO3" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="AMT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="TAX" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="N_PRT" Type="Int32" />
+    <Property Name="C_SIGN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="C_CFM" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CFM_DT" Type="DateTime" Precision="0" />
+    <Property Name="EXC_INSDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_INSDATE" Type="DateTime" Precision="0" />
+    <Property Name="EXC_UPDDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_UPDDATE" Type="DateTime" Precision="0" />
+    <Property Name="EXC_SYSOWNR" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_ISLOCKED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="CCSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CS_COMT" EntityType="Self.CS_COMT" />
+    <EntitySet Name="CS_SYSMODULE" EntityType="CCSModel.CS_SYSMODULE" />
+    <EntitySet Name="CS_SYSLOG" EntityType="CCSModel.CS_SYSLOG" />
+    <EntitySet Name="CS_SYSEXCEPTION" EntityType="CCSModel.CS_SYSEXCEPTION" />
+    <EntitySet Name="CS_ACTIONLOG" EntityType="CCSModel.CS_ACTIONLOG" />
+    <EntitySet Name="CS_SYSMODULEOPERATE" EntityType="CCSModel.CS_SYSMODULEOPERATE" />
+    <EntitySet Name="CS_SYSRIGHT" EntityType="CCSModel.CS_SYSRIGHT" />
+    <EntitySet Name="CS_SYSRIGHTOPERATE" EntityType="CCSModel.CS_SYSRIGHTOPERATE" />
+    <EntitySet Name="CS_SYSROLE" EntityType="CCSModel.CS_SYSROLE" />
+    <EntitySet Name="CS_SYSUSER" EntityType="CCSModel.CS_SYSUSER" />
+    <AssociationSet Name="FK_CS_SysModule_SysModule" Association="CCSModel.FK_CS_SysModule_SysModule">
+      <End Role="CS_SYSMODULE" EntitySet="CS_SYSMODULE" />
+      <End Role="CS_SYSMODULE1" EntitySet="CS_SYSMODULE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CS_SysModuleOperate_SysModule" Association="CCSModel.FK_CS_SysModuleOperate_SysModule">
+      <End Role="CS_SYSMODULE" EntitySet="CS_SYSMODULE" />
+      <End Role="CS_SYSMODULEOPERATE" EntitySet="CS_SYSMODULEOPERATE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CS_SysRight_SysModule" Association="CCSModel.FK_CS_SysRight_SysModule">
+      <End Role="CS_SYSMODULE" EntitySet="CS_SYSMODULE" />
+      <End Role="CS_SYSRIGHT" EntitySet="CS_SYSRIGHT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CS_SysRight_SysRole" Association="CCSModel.FK_CS_SysRight_SysRole">
+      <End Role="CS_SYSROLE" EntitySet="CS_SYSROLE" />
+      <End Role="CS_SYSRIGHT" EntitySet="CS_SYSRIGHT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CS_SysRightOperate_SysRight" Association="CCSModel.FK_CS_SysRightOperate_SysRight">
+      <End Role="CS_SYSRIGHT" EntitySet="CS_SYSRIGHT" />
+      <End Role="CS_SYSRIGHTOPERATE" EntitySet="CS_SYSRIGHTOPERATE" />
+    </AssociationSet>
+    <AssociationSet Name="CS_SYSROLESYSUSER" Association="CCSModel.CS_SYSROLESYSUSER">
+      <End Role="CS_SYSROLE" EntitySet="CS_SYSROLE" />
+      <End Role="CS_SYSUSER" EntitySet="CS_SYSUSER" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CS_SYSMODULE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="EnglishName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ParentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Iconic" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Sort" Type="Int32" />
+    <Property Name="Remark" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="Boolean" />
+    <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="IsLast" Type="Boolean" Nullable="false" />
+    <Property Name="Version" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="CS_SYSMODULE1" Relationship="CCSModel.FK_CS_SysModule_SysModule" FromRole="CS_SYSMODULE" ToRole="CS_SYSMODULE1" />
+    <NavigationProperty Name="CS_SYSMODULE2" Relationship="CCSModel.FK_CS_SysModule_SysModule" FromRole="CS_SYSMODULE1" ToRole="CS_SYSMODULE" />
+    <NavigationProperty Name="CS_SYSMODULEOPERATE" Relationship="CCSModel.FK_CS_SysModuleOperate_SysModule" FromRole="CS_SYSMODULE" ToRole="CS_SYSMODULEOPERATE" />
+    <NavigationProperty Name="CS_SYSRIGHT" Relationship="CCSModel.FK_CS_SysRight_SysModule" FromRole="CS_SYSMODULE" ToRole="CS_SYSRIGHT" />
+  </EntityType>
+  <EntityType Name="CS_SYSLOG">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Result" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Module" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CS_SYSEXCEPTION">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HelpLink" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Source" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TargetSite" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Data" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CS_ACTIONLOG">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Operator" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Refer" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Destination" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Method" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="MobleDevices" Type="Boolean" Nullable="false" />
+    <Property Name="Browser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IPAddress" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RequestTime" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="CS_SYSMODULEOPERATE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="KeyCode" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ModuleId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsValid" Type="Boolean" Nullable="false" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CS_SYSMODULE" Relationship="CCSModel.FK_CS_SysModuleOperate_SysModule" FromRole="CS_SYSMODULEOPERATE" ToRole="CS_SYSMODULE" />
+  </EntityType>
+  <EntityType Name="CS_SYSRIGHT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ModuleId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Rightflag" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CS_SYSMODULE" Relationship="CCSModel.FK_CS_SysRight_SysModule" FromRole="CS_SYSRIGHT" ToRole="CS_SYSMODULE" />
+    <NavigationProperty Name="CS_SYSROLE" Relationship="CCSModel.FK_CS_SysRight_SysRole" FromRole="CS_SYSRIGHT" ToRole="CS_SYSROLE" />
+    <NavigationProperty Name="CS_SYSRIGHTOPERATE" Relationship="CCSModel.FK_CS_SysRightOperate_SysRight" FromRole="CS_SYSRIGHT" ToRole="CS_SYSRIGHTOPERATE" />
+  </EntityType>
+  <EntityType Name="CS_SYSRIGHTOPERATE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="RightId" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="KeyCode" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsValid" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CS_SYSRIGHT" Relationship="CCSModel.FK_CS_SysRightOperate_SysRight" FromRole="CS_SYSRIGHTOPERATE" ToRole="CS_SYSRIGHT" />
+  </EntityType>
+  <EntityType Name="CS_SYSROLE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatePerson" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CS_SYSRIGHT" Relationship="CCSModel.FK_CS_SysRight_SysRole" FromRole="CS_SYSROLE" ToRole="CS_SYSRIGHT" />
+    <NavigationProperty Name="CS_SYSUSER" Relationship="CCSModel.CS_SYSROLESYSUSER" FromRole="CS_SYSROLE" ToRole="CS_SYSUSER" />
+  </EntityType>
+  <EntityType Name="CS_SYSUSER">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TrueName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Card" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="QQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="OtherContact" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Province" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Village" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="Boolean" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="3" />
+    <Property Name="JoinDate" Type="DateTime" Precision="3" />
+    <Property Name="Marital" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Political" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nationality" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Native" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Professional" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Degree" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DepId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PosId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Expertise" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="JobState" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Attach" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CS_SYSROLE" Relationship="CCSModel.CS_SYSROLESYSUSER" FromRole="CS_SYSUSER" ToRole="CS_SYSROLE" />
+  </EntityType>
+  <Association Name="FK_CS_SysModule_SysModule">
+    <End Type="CCSModel.CS_SYSMODULE" Role="CS_SYSMODULE" Multiplicity="0..1" />
+    <End Type="CCSModel.CS_SYSMODULE" Role="CS_SYSMODULE1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSMODULE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSMODULE1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CS_SysModuleOperate_SysModule">
+    <End Type="CCSModel.CS_SYSMODULE" Role="CS_SYSMODULE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CCSModel.CS_SYSMODULEOPERATE" Role="CS_SYSMODULEOPERATE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSMODULE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSMODULEOPERATE">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CS_SysRight_SysModule">
+    <End Type="CCSModel.CS_SYSMODULE" Role="CS_SYSMODULE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CCSModel.CS_SYSRIGHT" Role="CS_SYSRIGHT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSMODULE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSRIGHT">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CS_SysRight_SysRole">
+    <End Type="CCSModel.CS_SYSROLE" Role="CS_SYSROLE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CCSModel.CS_SYSRIGHT" Role="CS_SYSRIGHT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSROLE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSRIGHT">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CS_SysRightOperate_SysRight">
+    <End Type="CCSModel.CS_SYSRIGHT" Role="CS_SYSRIGHT" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CCSModel.CS_SYSRIGHTOPERATE" Role="CS_SYSRIGHTOPERATE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSRIGHT">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSRIGHTOPERATE">
+        <PropertyRef Name="RightId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CS_SYSROLESYSUSER">
+    <End Type="CCSModel.CS_SYSROLE" Role="CS_SYSROLE" Multiplicity="*" />
+    <End Type="CCSModel.CS_SYSUSER" Role="CS_SYSUSER" Multiplicity="*" />
+  </Association>
+</Schema>

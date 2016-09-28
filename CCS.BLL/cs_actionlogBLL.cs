@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CCS.BLL
 {
-    class cs_actionlogBLL
+    public class cs_actionlogBLL
     {
     }
 }

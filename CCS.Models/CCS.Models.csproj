@@ -11,6 +11,7 @@
     <AssemblyName>CCS.Models</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>發行\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -98,19 +98,34 @@
       <DependentUpon>CCSModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="CS_ACTIONLOG.cs">
-      <DependentUpon>LocaldbModel1.tt</DependentUpon>
+      <DependentUpon>CCSModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_COMT.cs">
-      <DependentUpon>LocaldbModel1.tt</DependentUpon>
+      <DependentUpon>CCSModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_SYSEXCEPTION.cs">
-      <DependentUpon>LocaldbModel1.tt</DependentUpon>
+      <DependentUpon>CCSModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_SYSLOG.cs">
-      <DependentUpon>LocaldbModel1.tt</DependentUpon>
+      <DependentUpon>CCSModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_SYSMODULE.cs">
-      <DependentUpon>LocaldbModel1.tt</DependentUpon>
+      <DependentUpon>CCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CS_SYSMODULEOPERATE.cs">
+      <DependentUpon>CCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CS_SYSRIGHT.cs">
+      <DependentUpon>CCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CS_SYSRIGHTOPERATE.cs">
+      <DependentUpon>CCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CS_SYSROLE.cs">
+      <DependentUpon>CCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CS_SYSUSER.cs">
+      <DependentUpon>CCSModel.tt</DependentUpon>
     </Compile>
     <Compile Include="LocaldbModel1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -157,13 +172,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CCSlocalDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="CCSlocalDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>CCSlocalDB.mdf</DependentUpon>
-    </Content>
     <Content Include="CCSModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CCSModel.edmx</DependentUpon>

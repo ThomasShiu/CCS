@@ -33,6 +33,10 @@ namespace CCS.Core
             // CS_SYSEXCEPTION
             container.RegisterType<ISysExceptionBLL, SysExceptionBLL>();
             container.RegisterType<ISysExceptionRepository, SysExceptionRepository>();
+
+            // CS_SYSUSER
+            container.RegisterType<IAccountBLL, AccountBLL>();
+            container.RegisterType<IAccountRepository, AccountRepository>();
         }
     }
 }

@@ -7,9 +7,20 @@
       <Diagram DiagramId="d7b44274270b4fd6817b67f8944d1da9" Name="Diagram1">
         <EntityTypeShape EntityType="CCSlocalDBModel.CS_ACTIONLOG" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CCSlocalDBModel.CS_COMT" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCSlocalDBModel.CS_SYSEXCEPTION" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CCSlocalDBModel.CS_SYSLOG" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCSlocalDBModel.CS_SYSMODULE" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCSlocalDBModel.CS_SYSEXCEPTION" Width="1.875" PointX="4.625" PointY="0.75" />
+        <EntityTypeShape EntityType="CCSlocalDBModel.CS_SYSMODULE" Width="1.75" PointX="7.375" PointY="1.75" />
+        <EntityTypeShape EntityType="CCSlocalDBModel.CS_SYSMODULEOPERATE" Width="1.5" PointX="10" PointY="1.625" />
+        <EntityTypeShape EntityType="CCSlocalDBModel.CS_SYSRIGHT" Width="1.5" PointX="10" PointY="4.375" />
+        <EntityTypeShape EntityType="CCSlocalDBModel.CS_SYSRIGHTOPERATE" Width="1.5" PointX="12.125" PointY="5.25" />
+        <EntityTypeShape EntityType="CCSlocalDBModel.CS_SYSROLE" Width="1.5" PointX="12.125" PointY="1.625" />
+        <EntityTypeShape EntityType="CCSlocalDBModel.CS_SYSUSER" Width="1.5" PointX="14.125" PointY="3.125" />
+        <AssociationConnector Association="CCSlocalDBModel.FK_CS_SysModule_SysModule" />
+        <AssociationConnector Association="CCSlocalDBModel.FK_CS_SysModuleOperate_SysModule" />
+        <AssociationConnector Association="CCSlocalDBModel.FK_CS_SysRight_SysModule" />
+        <AssociationConnector Association="CCSlocalDBModel.FK_CS_SysRight_SysRole" />
+        <AssociationConnector Association="CCSlocalDBModel.FK_CS_SysRightOperate_SysRight" />
+        <AssociationConnector Association="CCSlocalDBModel.CS_SYSROLESYSUSER" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

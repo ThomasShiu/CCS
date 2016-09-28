@@ -12,20 +12,12 @@
 <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
 <div class="mvctool">
     <input id="txtQuery" type="text" class="searchText">
-    <a id="btnQuery" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;vertical-align :bottom">查詢</span></span></a><div class="datagrid-btn-separator"></div>
-    <a id="btnCreate" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 20px;white-space : nowrap">新增</span></span></a><div class="datagrid-btn-separator"></div>
-    <a id="btnEdit" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 20px;white-space : nowrap">編輯</span></span></a><div class="datagrid-btn-separator"></div>
-    <a id="btnDetails" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 20px;">詳細</span></span></a><div class="datagrid-btn-separator"></div>
-    <a id="btnDelete" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;white-space : nowrap">刪除</span></span></a><div class="datagrid-btn-separator"></div>
-    <a id="btnExport" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-export" style="padding-left: 20px;white-space : nowrap">匯出</span></span></a>
-    <a id="btnReload" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 20px;white-space : nowrap">刷新</span></span></a>
-
-    @Html.ToolButton("btnQuery", "icon-search", "查詢", true)
-    @Html.ToolButton("btnCreate", "icon-add", "新增", true)
-    @Html.ToolButton("btnEdit", "icon-edit", "編輯", true)
-    @Html.ToolButton("btnDetails", "icon-details", "詳細", true)
-    @Html.ToolButton("btnDelete", "icon-remove", "刪除", true)
-    @Html.ToolButton("btnExport", "icon-export", "匯出", true)
+    @Html.ToolButton("btnQuery", "icon-search", @Suggestion.Query, true)
+    @Html.ToolButton("btnCreate", "icon-add", @Suggestion.Create, true)
+    @Html.ToolButton("btnEdit", "icon-edit", @Suggestion.Edit, true)
+    @Html.ToolButton("btnDetails", "icon-details", @Suggestion.Details, true)
+    @Html.ToolButton("btnDelete", "icon-remove", @Suggestion.Delete, true)
+    @Html.ToolButton("btnExport", "icon-export", @Suggestion.Export, true)
 
 
 
@@ -35,7 +27,17 @@
 @section scripts{
 
   <script type="text/javascript">
-    $(function () {
+      $(function () {
+          $(window).resize(function () {
+              $('#List').datagrid('resize', {
+                  width: $(window).width() - 10,
+                  height: $(window).height() - 35
+              }).datagrid('resize', {
+                  width: $(window).width() - 10,
+                  height: $(window).height() - 35
+              });
+          });
+
         $('#List').datagrid({
             url: '/Sales/SAL01/GetList',
             width: $(window).width() - 10,

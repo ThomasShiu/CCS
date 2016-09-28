@@ -1,6 +1,10 @@
-﻿using CCS.IBLL;
+﻿using CCS.App_Start;
+using CCS.Common;
+using CCS.Core;
+using CCS.IBLL;
 using CCS.Models;
 using CCS.Models.SAL;
+using CCS.Models.SYS;
 using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
@@ -13,10 +17,11 @@ namespace CCS.Controllers
     public class HomeController : Controller
     {
 
-        
 
         [Dependency]
         public Ics_sysmoduleBLL homeBLL { get; set; }
+       
+
         public ActionResult Index()
         {
             return View();
@@ -27,7 +32,9 @@ namespace CCS.Controllers
             return View();
         }
 
-
+        // GET: /Account/Login
+ 
+       
         /// <summary>
         /// 獲取導航選單
         /// </summary>
@@ -35,26 +42,37 @@ namespace CCS.Controllers
         /// <returns>树</returns>
         public JsonResult GetTree(string id)
         {
-
-            List<CS_SYSMODULE> menus = homeBLL.GetMenuByPersonId(id);
-            var jsonData = (
-                    from m in menus
-                    select new
-                    {
-                        id = m.Id,
-                        text = m.Name,
-                        value = m.Url,
-                        showcheck = false,
-                        complete = false,
-                        isexpand = false,
-                        checkstate = 0,
-                        hasChildren = m.IsLast ? false : true,
-                        Icon = m.Iconic
-                    }
-                ).ToArray();
-            return Json(jsonData, JsonRequestBehavior.AllowGet);
+            if (Session["Account"] != null)
+            {
+                AccountModel account = (AccountModel)Session["Account"];
+                List<CS_SYSMODULE> menus = homeBLL.GetMenuByPersonId(account.Id, id);
+                var jsonData = (
+                        from m in menus
+                        select new
+                        {
+                            id = m.Id,
+                            text = m.Name,
+                            value = m.Url,
+                            showcheck = false,
+                            complete = false,
+                            isexpand = false,
+                            checkstate = 0,
+                            hasChildren = m.IsLast ? false : true,
+                            Icon = m.Iconic
+                        }
+                    ).ToArray();
+                return Json(jsonData, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json("0", JsonRequestBehavior.AllowGet);
+            }
+             
+ 
 
         }
+       
+
 
 
         public ActionResult About()

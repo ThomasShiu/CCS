@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CCS.Models;
+using Microsoft.Ajax.Utilities;
 
 namespace CCS.Controllers
 {
@@ -67,6 +68,8 @@ namespace CCS.Controllers
             }
         }
 
+       
+         
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -75,16 +78,7 @@ namespace CCS.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-
-        //
-        // GET: /Account/Login
-        [AllowAnonymous]
-        public ActionResult LoginAccount(string returnUrl)
-        {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
-        }
-
+ 
         //
         // POST: /Account/Login
         [HttpPost]

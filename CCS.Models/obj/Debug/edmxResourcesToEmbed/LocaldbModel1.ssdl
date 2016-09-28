@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CCSlocalDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CS_ACTIONLOG">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Operator" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Refer" Type="varchar" MaxLength="300" />
+    <Property Name="Destination" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="Method" Type="varchar" MaxLength="5" />
+    <Property Name="MobleDevices" Type="bit" Nullable="false" />
+    <Property Name="Browser" Type="varchar" MaxLength="50" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="40" />
+    <Property Name="RequestTime" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CS_COMT">
+    <Key>
+      <PropertyRef Name="VCH_NO" />
+    </Key>
+    <Property Name="VCH_NO" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="VCH_DT" Type="smalldatetime" Nullable="false" />
+    <Property Name="FA_NO" Type="nvarchar" MaxLength="10" />
+    <Property Name="CS_NO" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="DEPM_NO" Type="nvarchar" MaxLength="10" />
+    <Property Name="EMP_NO" Type="nvarchar" MaxLength="10" />
+    <Property Name="CS_VCH_NO" Type="nvarchar" MaxLength="20" />
+    <Property Name="CONTACTER" Type="nvarchar" MaxLength="30" />
+    <Property Name="TAX_TY" Type="nvarchar" MaxLength="1" />
+    <Property Name="TAX_RT" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="PRC_CDT" Type="nvarchar" MaxLength="30" />
+    <Property Name="PAY_CDT" Type="nvarchar" MaxLength="30" />
+    <Property Name="TO_ADDR" Type="nvarchar" MaxLength="80" />
+    <Property Name="TO_ADDR2" Type="nvarchar" MaxLength="80" />
+    <Property Name="CURRENCY" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="EXCH_RATE" Type="decimal" Precision="12" Scale="6" />
+    <Property Name="WAHO_NO" Type="nvarchar" MaxLength="10" />
+    <Property Name="LC_NO" Type="nvarchar" MaxLength="20" />
+    <Property Name="SHIP_TY" Type="nvarchar" MaxLength="1" />
+    <Property Name="STR_PORT" Type="nvarchar" MaxLength="30" />
+    <Property Name="DES_PORT" Type="nvarchar" MaxLength="30" />
+    <Property Name="AGT_CORP" Type="nvarchar" MaxLength="10" />
+    <Property Name="CLR_CORP" Type="nvarchar" MaxLength="10" />
+    <Property Name="INSP_CORP" Type="nvarchar" MaxLength="10" />
+    <Property Name="SHIP_CORP" Type="nvarchar" MaxLength="10" />
+    <Property Name="MARK_NO" Type="nvarchar" MaxLength="10" />
+    <Property Name="FL_MARK" Type="nvarchar" MaxLength="255" />
+    <Property Name="SL_MARK" Type="nvarchar" MaxLength="255" />
+    <Property Name="CONSIGNEE" Type="nvarchar" MaxLength="10" />
+    <Property Name="NOTIFY" Type="nvarchar" MaxLength="10" />
+    <Property Name="DES_PLACE" Type="nvarchar" MaxLength="30" />
+    <Property Name="BANK_NO" Type="nvarchar" MaxLength="10" />
+    <Property Name="PACK_REMK" Type="nvarchar" MaxLength="255" />
+    <Property Name="IVC_REMK" Type="nvarchar" MaxLength="255" />
+    <Property Name="REMK" Type="nvarchar" MaxLength="255" />
+    <Property Name="COMS_RATE" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="COMS_AMT" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="DPAY_RT" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="DPAY_AMT" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="ATTR_NO1" Type="nvarchar" MaxLength="10" />
+    <Property Name="ATTR_NO2" Type="nvarchar" MaxLength="10" />
+    <Property Name="ATTR_NO3" Type="nvarchar" MaxLength="10" />
+    <Property Name="AMT" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="TAX" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="QTY" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="N_PRT" Type="int" />
+    <Property Name="C_SIGN" Type="nvarchar" MaxLength="1" />
+    <Property Name="C_CFM" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CFM_DT" Type="smalldatetime" />
+    <Property Name="EXC_INSDBID" Type="nvarchar" MaxLength="13" />
+    <Property Name="EXC_INSDATE" Type="smalldatetime" />
+    <Property Name="EXC_UPDDBID" Type="nvarchar" MaxLength="13" />
+    <Property Name="EXC_UPDDATE" Type="smalldatetime" />
+    <Property Name="EXC_SYSOWNR" Type="nvarchar" MaxLength="5" />
+    <Property Name="EXC_ISLOCKED" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="CS_SYSEXCEPTION">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HelpLink" Type="nvarchar" MaxLength="500" />
+    <Property Name="Message" Type="nvarchar" MaxLength="500" />
+    <Property Name="Source" Type="nvarchar" MaxLength="500" />
+    <Property Name="StackTrace" Type="nvarchar(max)" />
+    <Property Name="TargetSite" Type="varchar" MaxLength="500" />
+    <Property Name="Data" Type="varchar" MaxLength="500" />
+    <Property Name="CreateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CS_SYSLOG">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Operator" Type="nvarchar" MaxLength="50" />
+    <Property Name="Message" Type="nvarchar" MaxLength="500" />
+    <Property Name="Result" Type="nvarchar" MaxLength="20" />
+    <Property Name="Type" Type="nvarchar" MaxLength="20" />
+    <Property Name="Module" Type="nvarchar" MaxLength="20" />
+    <Property Name="CreateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CS_SYSMODULE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="EnglishName" Type="nvarchar" MaxLength="200" />
+    <Property Name="ParentId" Type="varchar" MaxLength="50" />
+    <Property Name="Url" Type="varchar" MaxLength="200" />
+    <Property Name="Iconic" Type="varchar" MaxLength="200" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="Remark" Type="varchar" MaxLength="4000" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="IsLast" Type="bit" Nullable="false" />
+    <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="CS_SYSMODULEOPERATE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="KeyCode" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ModuleId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsValid" Type="bit" Nullable="false" />
+    <Property Name="Sort" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CS_SYSRIGHT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="ModuleId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RoleId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rightflag" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CS_SYSRIGHTOPERATE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="RightId" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="KeyCode" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="IsValid" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CS_SYSROLE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CS_SYSROLESYSUSER">
+    <Key>
+      <PropertyRef Name="SysUserId" />
+      <PropertyRef Name="SysRoleId" />
+    </Key>
+    <Property Name="SysUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SysRoleId" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CS_SYSUSER">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="TrueName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Card" Type="varchar" MaxLength="50" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="200" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="200" />
+    <Property Name="QQ" Type="varchar" MaxLength="50" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="200" />
+    <Property Name="OtherContact" Type="varchar" MaxLength="200" />
+    <Property Name="Province" Type="varchar" MaxLength="200" />
+    <Property Name="City" Type="nvarchar" MaxLength="200" />
+    <Property Name="Village" Type="nvarchar" MaxLength="200" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="varchar" MaxLength="200" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="10" />
+    <Property Name="Birthday" Type="datetime" />
+    <Property Name="JoinDate" Type="datetime" />
+    <Property Name="Marital" Type="nvarchar" MaxLength="10" />
+    <Property Name="Political" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nationality" Type="nvarchar" MaxLength="20" />
+    <Property Name="Native" Type="nvarchar" MaxLength="20" />
+    <Property Name="School" Type="nvarchar" MaxLength="50" />
+    <Property Name="Professional" Type="nvarchar" MaxLength="100" />
+    <Property Name="Degree" Type="nvarchar" MaxLength="20" />
+    <Property Name="DepId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PosId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Expertise" Type="varchar" MaxLength="3000" />
+    <Property Name="JobState" Type="nvarchar" MaxLength="20" />
+    <Property Name="Photo" Type="varchar" MaxLength="200" />
+    <Property Name="Attach" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK_CS_SysModule_SysModule">
+    <End Role="CS_SYSMODULE" Type="Self.CS_SYSMODULE" Multiplicity="0..1" />
+    <End Role="CS_SYSMODULE1" Type="Self.CS_SYSMODULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSMODULE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSMODULE1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CS_SysModuleOperate_SysModule">
+    <End Role="CS_SYSMODULE" Type="Self.CS_SYSMODULE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CS_SYSMODULEOPERATE" Type="Self.CS_SYSMODULEOPERATE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSMODULE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSMODULEOPERATE">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CS_SysRight_SysModule">
+    <End Role="CS_SYSMODULE" Type="Self.CS_SYSMODULE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CS_SYSRIGHT" Type="Self.CS_SYSRIGHT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSMODULE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSRIGHT">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CS_SysRight_SysRole">
+    <End Role="CS_SYSROLE" Type="Self.CS_SYSROLE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CS_SYSRIGHT" Type="Self.CS_SYSRIGHT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSROLE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSRIGHT">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CS_SysRightOperate_SysRight">
+    <End Role="CS_SYSRIGHT" Type="Self.CS_SYSRIGHT" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CS_SYSRIGHTOPERATE" Type="Self.CS_SYSRIGHTOPERATE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSRIGHT">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSRIGHTOPERATE">
+        <PropertyRef Name="RightId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CS_SysRoleSysUser_SysRole">
+    <End Role="CS_SYSROLE" Type="Self.CS_SYSROLE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CS_SYSROLESYSUSER" Type="Self.CS_SYSROLESYSUSER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSROLE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSROLESYSUSER">
+        <PropertyRef Name="SysRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CS_SysRoleSysUser_SysUser">
+    <End Role="CS_SYSUSER" Type="Self.CS_SYSUSER" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CS_SYSROLESYSUSER" Type="Self.CS_SYSROLESYSUSER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSUSER">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSROLESYSUSER">
+        <PropertyRef Name="SysUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CCSlocalDBModelStoreContainer">
+    <EntitySet Name="CS_ACTIONLOG" EntityType="Self.CS_ACTIONLOG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CS_COMT" EntityType="Self.CS_COMT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CS_SYSEXCEPTION" EntityType="Self.CS_SYSEXCEPTION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CS_SYSLOG" EntityType="Self.CS_SYSLOG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CS_SYSMODULE" EntityType="Self.CS_SYSMODULE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CS_SYSMODULEOPERATE" EntityType="Self.CS_SYSMODULEOPERATE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CS_SYSRIGHT" EntityType="Self.CS_SYSRIGHT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CS_SYSRIGHTOPERATE" EntityType="Self.CS_SYSRIGHTOPERATE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CS_SYSROLE" EntityType="Self.CS_SYSROLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CS_SYSROLESYSUSER" EntityType="Self.CS_SYSROLESYSUSER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CS_SYSUSER" EntityType="Self.CS_SYSUSER" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CS_SysModule_SysModule" Association="Self.FK_CS_SysModule_SysModule">
+      <End Role="CS_SYSMODULE" EntitySet="CS_SYSMODULE" />
+      <End Role="CS_SYSMODULE1" EntitySet="CS_SYSMODULE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CS_SysModuleOperate_SysModule" Association="Self.FK_CS_SysModuleOperate_SysModule">
+      <End Role="CS_SYSMODULE" EntitySet="CS_SYSMODULE" />
+      <End Role="CS_SYSMODULEOPERATE" EntitySet="CS_SYSMODULEOPERATE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CS_SysRight_SysModule" Association="Self.FK_CS_SysRight_SysModule">
+      <End Role="CS_SYSMODULE" EntitySet="CS_SYSMODULE" />
+      <End Role="CS_SYSRIGHT" EntitySet="CS_SYSRIGHT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CS_SysRight_SysRole" Association="Self.FK_CS_SysRight_SysRole">
+      <End Role="CS_SYSROLE" EntitySet="CS_SYSROLE" />
+      <End Role="CS_SYSRIGHT" EntitySet="CS_SYSRIGHT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CS_SysRightOperate_SysRight" Association="Self.FK_CS_SysRightOperate_SysRight">
+      <End Role="CS_SYSRIGHT" EntitySet="CS_SYSRIGHT" />
+      <End Role="CS_SYSRIGHTOPERATE" EntitySet="CS_SYSRIGHTOPERATE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CS_SysRoleSysUser_SysRole" Association="Self.FK_CS_SysRoleSysUser_SysRole">
+      <End Role="CS_SYSROLE" EntitySet="CS_SYSROLE" />
+      <End Role="CS_SYSROLESYSUSER" EntitySet="CS_SYSROLESYSUSER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CS_SysRoleSysUser_SysUser" Association="Self.FK_CS_SysRoleSysUser_SysUser">
+      <End Role="CS_SYSUSER" EntitySet="CS_SYSUSER" />
+      <End Role="CS_SYSROLESYSUSER" EntitySet="CS_SYSROLESYSUSER" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

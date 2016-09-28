@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAccountBLL.cs" />
     <Compile Include="Ics_syslogBLL.cs" />
     <Compile Include="Ics_actionlogBLL.cs" />
     <Compile Include="Ics_comtBLL.cs" />

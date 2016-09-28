@@ -37,6 +37,16 @@
     }
 
     $(function () {
+        $(window).resize(function () {
+            $('#List').datagrid('resize', {
+                width: $(window).width() - 10,
+                height: $(window).height() - 35
+            }).datagrid('resize', {
+                width: $(window).width() - 10,
+                height: $(window).height() - 35
+            });
+        });
+
         $('#List').datagrid({
             url: 'SYS01/GetList',
             width: $(window).width() - 10,

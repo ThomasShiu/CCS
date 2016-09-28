@@ -16,7 +16,7 @@ using System.Web.Mvc;
 namespace CCS.Areas.System.Controllers
 {
     [UserTraceLog]
-    public class SYS02Controller : Controller
+    public class SYS02Controller : BaseController
     {
         [Dependency]
         public ISysExceptionBLL exceptionBLL { get; set; }

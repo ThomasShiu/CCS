@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAccountRepository.cs" />
     <Compile Include="Ics_syslogRepository.cs" />
     <Compile Include="Ics_actionlogRepository.cs" />
     <Compile Include="Ics_comtRepository.cs" />
@@ -64,6 +65,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CCS.IBLL\CCS.IBLL.csproj">
+      <Project>{90E54EDA-3DF4-43E6-9A87-496BCC1F3758}</Project>
+      <Name>CCS.IBLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CCS.Models\CCS.Models.csproj">
       <Project>{9AF41A96-2843-42A9-8901-5BAEE2930D31}</Project>
       <Name>CCS.Models</Name>

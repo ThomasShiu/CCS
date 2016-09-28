@@ -9,6 +9,7 @@ namespace CCS.IBLL
 {
     public interface Ics_sysmoduleBLL
     {
-        List<CS_SYSMODULE> GetMenuByPersonId(string moduleId);
+        //List<CS_SYSMODULE> GetMenuByPersonId(string moduleId);
+        List<CS_SYSMODULE> GetMenuByPersonId(string personId, string moduleId);
     }
 }

@@ -38,37 +38,39 @@ namespace CCS.BLL
             queryData = Rep.GetList(db);
 
             //排序 由大到小
-            if (pager.order == "desc")
-            {
-                switch (pager.order)
-                {
-                    case "VCH_NO":
-                        queryData = queryData.OrderByDescending(c => c.VCH_NO);
-                        break;
-                    case "VCH_DT":
-                        queryData = queryData.OrderByDescending(c => c.VCH_DT);
-                        break;
-                    default:
-                        queryData = queryData.OrderByDescending(c => c.VCH_NO);
-                        break;
-                }
-            }
-            else
-            {
-                // 由小到大
-                switch (pager.order)
-                {
-                    case "VCH_NO":
-                        queryData = queryData.OrderBy(c => c.VCH_NO);
-                        break;
-                    case "VCH_DT":
-                        queryData = queryData.OrderBy(c => c.VCH_DT);
-                        break;
-                    default:
-                        queryData = queryData.OrderBy(c => c.VCH_NO);
-                        break;
-                }
-            }
+            queryData = LinqHelper.DataSorting(queryData, pager.sort, pager.order);
+
+            //if (pager.order == "desc")
+            //{
+            //    switch (pager.order)
+            //    {
+            //        case "VCH_NO":
+            //            queryData = queryData.OrderByDescending(c => c.VCH_NO);
+            //            break;
+            //        case "VCH_DT":
+            //            queryData = queryData.OrderByDescending(c => c.VCH_DT);
+            //            break;
+            //        default:
+            //            queryData = queryData.OrderByDescending(c => c.VCH_NO);
+            //            break;
+            //    }
+            //}
+            //else
+            //{
+            //    // 由小到大
+            //    switch (pager.order)
+            //    {
+            //        case "VCH_NO":
+            //            queryData = queryData.OrderBy(c => c.VCH_NO);
+            //            break;
+            //        case "VCH_DT":
+            //            queryData = queryData.OrderBy(c => c.VCH_DT);
+            //            break;
+            //        default:
+            //            queryData = queryData.OrderBy(c => c.VCH_NO);
+            //            break;
+            //    }
+            //}
 
             if (queryStr != null & queryStr != "")
             {

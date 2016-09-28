@@ -66,9 +66,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountBLL.cs" />
+    <Compile Include="BaseBLL.cs" />
     <Compile Include="Core\ExceptionHander.cs" />
-    <Compile Include="cs_syslogBLL.cs" />
     <Compile Include="cs_actionlogBLL.cs" />
+    <Compile Include="cs_syslogBLL.cs" />
     <Compile Include="cs_comtBLL.cs" />
     <Compile Include="cs_sysmoduleBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

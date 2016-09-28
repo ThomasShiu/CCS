@@ -9,6 +9,7 @@ namespace CCS.IDAL
 {
     public interface Ics_sysmoduleRepository
     {
-        List<CS_SYSMODULE> GetMenuByPersonId(string moduleId);
+        //List<CS_SYSMODULE> GetMenuByPersonId(string moduleId);
+        List<CS_SYSMODULE> GetMenuByPersonId(string personId, string moduleId);
     }
 }

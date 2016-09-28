@@ -220,10 +220,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\BaseController .cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
-    <Compile Include="App_Start\LogHandler.cs" />
+    <Compile Include="Core\LogHandler.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\UserTraceLog.cs" />
@@ -239,8 +240,13 @@
     <Compile Include="Controllers\BaseException.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\SysExceptionController.cs" />
     <Compile Include="Core\ExtendMvcHtml.cs" />
+    <Compile Include="Core\ValueConvert.cs" />
+    <Compile Include="Core\verify_code.ashx.cs">
+      <DependentUpon>verify_code.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1878,6 +1884,7 @@
     <Content Include="Areas\System\Views\SYS01\Details.cshtml" />
     <Content Include="Areas\System\Views\SYS02\Index.cshtml" />
     <Content Include="Areas\System\Views\SYS02\Details.cshtml" />
+    <Content Include="Core\verify_code.ashx" />
     <None Include="Properties\PublishProfiles\CCS_13.pubxml" />
     <None Include="Properties\PublishProfiles\CCS_207.pubxml" />
     <Content Include="Scripts\jquery-2.2.4.min.map" />
@@ -1993,11 +2000,12 @@
     <Content Include="Views\Shared\_CCSMenu.cshtml" />
     <Content Include="Views\Shared\_easyuiLayout.cshtml" />
     <Content Include="Views\Home\Portal.cshtml" />
-    <Content Include="Views\Account\LoginAccount.cshtml" />
+    <Content Include="Views\Member\Login.cshtml" />
     <Content Include="Views\Shared\_Index_Layout.cshtml" />
     <Content Include="Views\Shared\_PortalLayout.cshtml" />
     <Content Include="Views\Shared\_Index_LayoutEdit.cshtml" />
     <Content Include="Views\SysException\Error.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Inventory\Controllers\" />

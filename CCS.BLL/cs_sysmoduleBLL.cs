@@ -13,10 +13,10 @@ namespace CCS.BLL
     public class cs_sysmoduleBLL : Ics_sysmoduleBLL
     {
         [Dependency]
-        public Ics_sysmoduleRepository cs_moduleRepository { get; set; }
-        public List<CS_SYSMODULE> GetMenuByPersonId(string moduleId)
+        public Ics_sysmoduleRepository cs_sysmoduleRepository { get; set; }
+        public List<CS_SYSMODULE> GetMenuByPersonId(string personId, string moduleId)
         {
-            return cs_moduleRepository.GetMenuByPersonId(moduleId);
+            return cs_sysmoduleRepository.GetMenuByPersonId(personId, moduleId);
         }
     }
 }

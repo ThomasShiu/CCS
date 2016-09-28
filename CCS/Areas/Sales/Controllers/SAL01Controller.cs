@@ -14,7 +14,7 @@ using System.Web.Mvc;
 namespace CCS.Areas.Sales.Controllers
 {
     [UserTraceLog]
-    public class SAL01Controller : Controller
+    public class SAL01Controller : BaseController
     {
 
         ValidationErrors errors = new ValidationErrors();
@@ -73,10 +73,10 @@ namespace CCS.Areas.Sales.Controllers
         [HttpPost]
         public JsonResult Create(cs_comtModel model)
         {
-
-            account.Id = "admin";
-            account.TrueName = "admin";
-            Session["Account"] = account;
+            AccountModel account = (AccountModel)Session["Account"];
+            //account.Id = "admin";
+            //account.TrueName = "admin";
+            //Session["Account"] = account;
 
             if (m_BLL.Create(ref errors, model))
             {
@@ -105,9 +105,11 @@ namespace CCS.Areas.Sales.Controllers
         [HttpPost]
         public JsonResult Edit(cs_comtModel model)
         {
-            account.Id = "admin";
-            account.TrueName = "admin";
-            Session["Account"] = account;
+            AccountModel account = (AccountModel)Session["Account"];
+
+            //account.Id = "admin";
+            //account.TrueName = "admin";
+            //Session["Account"] = account;
 
             if (m_BLL.Edit(ref errors, model))
             {
@@ -137,9 +139,11 @@ namespace CCS.Areas.Sales.Controllers
         [HttpPost]
         public JsonResult Delete(string id)
         {
-            account.Id = "admin";
-            account.TrueName = "admin";
-            Session["Account"] = account;
+            AccountModel account = (AccountModel)Session["Account"];
+
+            //account.Id = "admin";
+            //account.TrueName = "admin";
+            //Session["Account"] = account;
 
             if (!string.IsNullOrWhiteSpace(id))
             {
@@ -151,7 +155,7 @@ namespace CCS.Areas.Sales.Controllers
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog("虛用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "刪除", "範例程序");
+                    LogHandler.WriteServiceLog("虛用用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "刪除", "範例程序");
                     return Json(0, JsonRequestBehavior.AllowGet);
                 }
             }
