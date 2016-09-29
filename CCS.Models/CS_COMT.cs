@@ -56,13 +56,32 @@ namespace CCS.Models
         public string ATTR_NO1 { get; set; }
         public string ATTR_NO2 { get; set; }
         public string ATTR_NO3 { get; set; }
-        public Nullable<decimal> AMT { get; set; }
         public Nullable<decimal> TAX { get; set; }
-        public Nullable<decimal> QTY { get; set; }
         public Nullable<int> N_PRT { get; set; }
         public string C_SIGN { get; set; }
         public string C_CFM { get; set; }
         public Nullable<System.DateTime> CFM_DT { get; set; }
+        public string ITEM_NO { get; set; }
+        public string CS_ITEM_NO { get; set; }
+        public string UNIT { get; set; }
+        public Nullable<decimal> QTY { get; set; }
+        public Nullable<decimal> A_QTY { get; set; }
+        public Nullable<decimal> RCV_QTY { get; set; }
+        public Nullable<decimal> RTN_QTY { get; set; }
+        public Nullable<decimal> FREE_QTY { get; set; }
+        public Nullable<decimal> FREC_QTY { get; set; }
+        public Nullable<decimal> PRC { get; set; }
+        public Nullable<decimal> AMT { get; set; }
+        public string PL { get; set; }
+        public Nullable<System.DateTime> PRCV_DT { get; set; }
+        public string CO_WAHO_NO { get; set; }
+        public string SVCH_TY { get; set; }
+        public string SVCH_NO { get; set; }
+        public Nullable<int> SVCH_SR { get; set; }
+        public string PRJ_NO { get; set; }
+        public string C_OUT { get; set; }
+        public Nullable<decimal> OUT_RT { get; set; }
+        public string C_CLS { get; set; }
         public string EXC_INSDBID { get; set; }
         public Nullable<System.DateTime> EXC_INSDATE { get; set; }
         public string EXC_UPDDBID { get; set; }

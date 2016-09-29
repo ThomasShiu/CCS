@@ -18,8 +18,8 @@
     @Html.ToolButton("btnDetails", "icon-details", @Suggestion.Details, true)
     @Html.ToolButton("btnDelete", "icon-remove", @Suggestion.Delete, true)
     @Html.ToolButton("btnExport", "icon-export", @Suggestion.Export, true)
-
-
+    @Html.ToolButton("btnReload", "icon-reload", @Suggestion.Reload, true)
+    @Html.ToolButton("btnHyperlink", "icon-details", @Suggestion.Details, true)
 
 </div>
 <table id="List" style="width:100%;height:100%"></table>
@@ -47,18 +47,25 @@
             sortName: 'VCH_NO',
             sortOrder: 'desc',
             idField: 'Id',
-            pageSize: 15,
+            pageSize: 20,
             pageList: [15, 20, 30, 40, 50],
             pagination: true,
             striped: true, // 奇偶行是否區分
             singleSelect: true,// 單選模式
             rownumbers: true,// 行號
             columns: [[
-                { field: 'VCH_NO', title: '訂單號碼', width: 80 },
-                { field: 'VCH_DT_STR', title: '訂單日期', width: 120 },
-                { field: 'CS_NO', title: '客戶', width: 80, align: 'right' },
-                { field: 'CURRENCY', title: '幣別', width: 80, align: 'right' },
-                { field: 'C_CFM', title: '確認碼', width: 250 }
+                { field: 'VCH_NO', title: '訂單號碼', width: 50 },
+                { field: 'VCH_DT', title: '訂單日期', width: 50 },
+                { field: 'FA_NO', title: '廠別', width: 30 },
+                { field: 'CS_NO', title: '客戶', width: 30, align: 'right' },
+                { field: 'CURRENCY', title: '幣別', width: 30, align: 'right' },
+                { field: 'ITEM_NO', title: '品號', width: 60 },
+                { field: 'PL', title: '鍍別', width: 60 },
+                { field: 'UNIT', title: '單位', width: 30, align: 'center' },
+                { field: 'QTY', title: '數量', width: 50, align: 'right' },
+                { field: 'PRC', title: '單價', width: 50, align: 'right' },
+                { field: 'AMT', title: '金額', width: 50 ,align:'right'},
+                { field: 'RCV_QTY', title: '已交數量', width: 50, align: 'right' }
             ]]
         });
 
@@ -93,7 +100,17 @@
         $.messageBox5s('提示', mes);
     }
     $(function () {
-
+        $("#btnHyperlink").click(function () {
+            var row = $('#List').datagrid('getSelected');
+            if (row != null) {
+                window.location="/Sales/SAL01/Details/"+row.VCH_NO;
+            } else { $.messageBox5s('提示', '請選擇要操作的紀錄'); }
+        });
+           
+     
+        $("#btnReload").click(function () {
+            frameReturnByReload();
+        });
         $("#btnCreate").click(function () {
             $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/Sales/SAL01/Create'></iframe>");
             $("#modalwindow").window({ title: '新增', width: 700, height: 400, iconCls: 'icon-add' }).window('open');

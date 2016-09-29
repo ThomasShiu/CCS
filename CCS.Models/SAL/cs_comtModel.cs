@@ -8,17 +8,8 @@ namespace CCS.Models.SAL
     {
         [Display(Name = "訂單號碼")]
         public string VCH_NO { get; set; }
-
-        [Display(Name = "訂單日期")]
         public System.DateTime VCH_DT { get; set; }
-
-        [Display(Name = "訂單日期")]
-        public string VCH_DT_STR { get; set; }
-
-        [Display(Name = "訂單日期")]
         public string FA_NO { get; set; }
-
-        [Display(Name = "客戶")]
         public string CS_NO { get; set; }
         public string DEPM_NO { get; set; }
         public string EMP_NO { get; set; }
@@ -30,10 +21,7 @@ namespace CCS.Models.SAL
         public string PAY_CDT { get; set; }
         public string TO_ADDR { get; set; }
         public string TO_ADDR2 { get; set; }
-
-        [Display(Name = "幣別")]
         public string CURRENCY { get; set; }
-
         public Nullable<decimal> EXCH_RATE { get; set; }
         public string WAHO_NO { get; set; }
         public string LC_NO { get; set; }
@@ -61,15 +49,32 @@ namespace CCS.Models.SAL
         public string ATTR_NO1 { get; set; }
         public string ATTR_NO2 { get; set; }
         public string ATTR_NO3 { get; set; }
-        public Nullable<decimal> AMT { get; set; }
         public Nullable<decimal> TAX { get; set; }
-        public Nullable<decimal> QTY { get; set; }
         public Nullable<int> N_PRT { get; set; }
         public string C_SIGN { get; set; }
-
-        [Display(Name = "確認碼")]
         public string C_CFM { get; set; }
         public Nullable<System.DateTime> CFM_DT { get; set; }
+        public string ITEM_NO { get; set; }
+        public string CS_ITEM_NO { get; set; }
+        public string UNIT { get; set; }
+        public Nullable<decimal> QTY { get; set; }
+        public Nullable<decimal> A_QTY { get; set; }
+        public Nullable<decimal> RCV_QTY { get; set; }
+        public Nullable<decimal> RTN_QTY { get; set; }
+        public Nullable<decimal> FREE_QTY { get; set; }
+        public Nullable<decimal> FREC_QTY { get; set; }
+        public Nullable<decimal> PRC { get; set; }
+        public Nullable<decimal> AMT { get; set; }
+        public string PL { get; set; }
+        public Nullable<System.DateTime> PRCV_DT { get; set; }
+        public string CO_WAHO_NO { get; set; }
+        public string SVCH_TY { get; set; }
+        public string SVCH_NO { get; set; }
+        public Nullable<int> SVCH_SR { get; set; }
+        public string PRJ_NO { get; set; }
+        public string C_OUT { get; set; }
+        public Nullable<decimal> OUT_RT { get; set; }
+        public string C_CLS { get; set; }
         public string EXC_INSDBID { get; set; }
         public Nullable<System.DateTime> EXC_INSDATE { get; set; }
         public string EXC_UPDDBID { get; set; }

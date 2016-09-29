@@ -99,9 +99,19 @@ namespace CCS.BLL
                                               {
                                                   VCH_NO = r.VCH_NO,
                                                   VCH_DT = r.VCH_DT,
+                                                  FA_NO = r.FA_NO,
                                                   CS_NO = r.CS_NO,
+                                                  DEPM_NO = r.DEPM_NO,
+                                                  EMP_NO = r.EMP_NO,
                                                   CURRENCY = r.CURRENCY,
-                                                  C_CFM = r.C_CFM
+                                                  C_CFM = r.C_CFM,
+                                                  ITEM_NO = r.ITEM_NO,
+                                                  QTY = r.QTY,
+                                                  UNIT = r.UNIT,
+                                                  PRC = r.PRC,
+                                                  AMT = r.AMT,
+                                                  RCV_QTY = r.RCV_QTY,
+                                                  PL = r.PL
                                               }).ToList();
             return modelList;
         }

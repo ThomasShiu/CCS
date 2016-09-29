@@ -5,22 +5,22 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="da142b7224794eb782dbb162bbec29d9" Name="Diagram1" ZoomLevel="55">
-        <EntityTypeShape EntityType="CCSModel.CS_COMT" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCSModel.CS_SYSMODULE" Width="1.5" PointX="3.375" PointY="0.75" />
-        <EntityTypeShape EntityType="CCSModel.CS_SYSLOG" Width="1.5" PointX="5.375" PointY="0.75" />
-        <EntityTypeShape EntityType="CCSModel.CS_SYSEXCEPTION" Width="1.5" PointX="3.375" PointY="5.75" />
-        <EntityTypeShape EntityType="CCSModel.CS_ACTIONLOG" Width="1.5" PointX="5.375" PointY="4.75" />
-        <EntityTypeShape EntityType="CCSModel.CS_SYSMODULEOPERATE" Width="1.5" PointX="5.625" PointY="8.75" />
+        <EntityTypeShape EntityType="CCSModel.CS_SYSMODULE" Width="1.5" PointX="6.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CCSModel.CS_SYSMODULEOPERATE" Width="1.5" PointX="6.5" PointY="5.625" />
         <EntityTypeShape EntityType="CCSModel.CS_SYSRIGHT" Width="1.5" PointX="9.625" PointY="2.125" />
         <EntityTypeShape EntityType="CCSModel.CS_SYSRIGHTOPERATE" Width="1.5" PointX="11.875" PointY="2.375" />
-        <EntityTypeShape EntityType="CCSModel.CS_SYSROLE" Width="1.5" PointX="7.375" PointY="5.5" />
-        <EntityTypeShape EntityType="CCSModel.CS_SYSUSER" Width="1.5" PointX="9.625" PointY="6" />
+        <EntityTypeShape EntityType="CCSModel.CS_SYSROLE" Width="1.5" PointX="9.125" PointY="5.125" />
+        <EntityTypeShape EntityType="CCSModel.CS_SYSUSER" Width="1.5" PointX="12.125" PointY="5.125" />
         <AssociationConnector Association="CCSModel.FK_CS_SysModule_SysModule" />
         <AssociationConnector Association="CCSModel.FK_CS_SysModuleOperate_SysModule" />
         <AssociationConnector Association="CCSModel.FK_CS_SysRight_SysModule" />
         <AssociationConnector Association="CCSModel.FK_CS_SysRight_SysRole" />
         <AssociationConnector Association="CCSModel.FK_CS_SysRightOperate_SysRight" />
         <AssociationConnector Association="CCSModel.CS_SYSROLESYSUSER" />
+        <EntityTypeShape EntityType="CCSModel.CS_ACTIONLOG" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CCSModel.CS_SYSEXCEPTION" Width="1.5" PointX="3.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CCSModel.CS_SYSLOG" Width="1.5" PointX="3.375" PointY="8.75" />
+        <EntityTypeShape EntityType="CCSModel.CS_COMT" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
