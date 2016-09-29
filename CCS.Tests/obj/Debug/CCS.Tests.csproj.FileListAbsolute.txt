@@ -181,3 +181,4 @@ D:\Git_Source\CCS\CCS.Tests\bin\Debug\zh-Hant\Microsoft.Owin.Host.SystemWeb.reso
 D:\Git_Source\CCS\CCS.Tests\bin\Debug\zh-Hant\System.Net.Http.Formatting.resources.dll
 D:\Git_Source\CCS\CCS.Tests\obj\Debug\CCS.Tests.dll
 D:\Git_Source\CCS\CCS.Tests\obj\Debug\CCS.Tests.pdb
+D:\Git_Source\CCS\CCS.Tests\bin\Debug\CCSlocalDB_log.ldf

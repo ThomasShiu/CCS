@@ -61,6 +61,8 @@
     <Compile Include="Ics_actionlogBLL.cs" />
     <Compile Include="Ics_comtBLL.cs" />
     <Compile Include="Ics_sysmoduleBLL.cs" />
+    <Compile Include="Ics_sysmoduleoperateBLL.cs" />
+    <Compile Include="Ics_sysuserBLL.cs" />
     <Compile Include="ISysExceptionBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

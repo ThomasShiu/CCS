@@ -12,6 +12,8 @@ namespace CCS.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class CCSEntities : DbContext
     {
@@ -25,15 +27,38 @@ namespace CCS.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CS_COMT> CS_COMT { get; set; }
-        public virtual DbSet<CS_SYSMODULE> CS_SYSMODULE { get; set; }
-        public virtual DbSet<CS_SYSLOG> CS_SYSLOG { get; set; }
-        public virtual DbSet<CS_SYSEXCEPTION> CS_SYSEXCEPTION { get; set; }
         public virtual DbSet<CS_ACTIONLOG> CS_ACTIONLOG { get; set; }
+        public virtual DbSet<CS_COMT> CS_COMT { get; set; }
+        public virtual DbSet<CS_SYSEXCEPTION> CS_SYSEXCEPTION { get; set; }
+        public virtual DbSet<CS_SYSLOG> CS_SYSLOG { get; set; }
+        public virtual DbSet<CS_SYSMODULE> CS_SYSMODULE { get; set; }
         public virtual DbSet<CS_SYSMODULEOPERATE> CS_SYSMODULEOPERATE { get; set; }
         public virtual DbSet<CS_SYSRIGHT> CS_SYSRIGHT { get; set; }
         public virtual DbSet<CS_SYSRIGHTOPERATE> CS_SYSRIGHTOPERATE { get; set; }
         public virtual DbSet<CS_SYSROLE> CS_SYSROLE { get; set; }
         public virtual DbSet<CS_SYSUSER> CS_SYSUSER { get; set; }
+    
+        public virtual int SP_SYS_ClearUnusedRIGHTOPERATE()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_SYS_ClearUnusedRIGHTOPERATE");
+        }
+    
+        public virtual ObjectResult<SP_SYS_GETRIGHTOPERATE_Result> SP_SYS_GETRIGHTOPERATE(string userId, string url)
+        {
+            var userIdParameter = userId != null ?
+                new ObjectParameter("userId", userId) :
+                new ObjectParameter("userId", typeof(string));
+    
+            var urlParameter = url != null ?
+                new ObjectParameter("url", url) :
+                new ObjectParameter("url", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SYS_GETRIGHTOPERATE_Result>("SP_SYS_GETRIGHTOPERATE", userIdParameter, urlParameter);
+        }
+    
+        public virtual int SP_SYS_INSERTSYSRIGHT()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_SYS_INSERTSYSRIGHT");
+        }
     }
 }

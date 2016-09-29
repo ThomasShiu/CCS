@@ -12,7 +12,7 @@ namespace CCS.BLL
         //用base類去做統一的產生實體
         private CCSEntities _entity = new CCSEntities();
 
-        public CCSEntities entity
+        public CCSEntities db
         {
             get { return _entity; }
         }

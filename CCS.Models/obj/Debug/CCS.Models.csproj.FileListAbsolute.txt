@@ -18,3 +18,4 @@ D:\Git_Source\CCS\CCS.Models\bin\Debug\zh-Hant\EntityFramework.resources.dll
 D:\Git_Source\CCS\CCS.Models\bin\Debug\zh-Hant\EntityFramework.SqlServer.resources.dll
 D:\Git_Source\CCS\CCS.Models\obj\Debug\CCS.Models.dll
 D:\Git_Source\CCS\CCS.Models\obj\Debug\CCS.Models.pdb
+D:\Git_Source\CCS\CCS.Models\bin\Debug\CCSlocalDB_log.ldf

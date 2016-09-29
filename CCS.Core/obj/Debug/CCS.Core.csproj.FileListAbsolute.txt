@@ -46,3 +46,4 @@ D:\Git_Source\CCS\CCS.Core\bin\Debug\zh-Hant\System.Web.WebPages.Razor.resources
 D:\Git_Source\CCS\CCS.Core\bin\Debug\zh-Hant\EntityFramework.resources.dll
 D:\Git_Source\CCS\CCS.Core\obj\Debug\CCS.Core.dll
 D:\Git_Source\CCS\CCS.Core\obj\Debug\CCS.Core.pdb
+D:\Git_Source\CCS\CCS.Core\bin\Debug\CCSlocalDB_log.ldf

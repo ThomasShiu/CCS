@@ -23,3 +23,4 @@ D:\Git_Source\CCS\CCS.DAL\bin\Debug\zh-Hant\EntityFramework.SqlServer.resources.
 D:\Git_Source\CCS\CCS.DAL\obj\Debug\CCS.DAL.csprojResolveAssemblyReference.cache
 D:\Git_Source\CCS\CCS.DAL\obj\Debug\CCS.DAL.dll
 D:\Git_Source\CCS\CCS.DAL\obj\Debug\CCS.DAL.pdb
+D:\Git_Source\CCS\CCS.DAL\bin\Debug\CCSlocalDB_log.ldf

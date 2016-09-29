@@ -240,3 +240,4 @@ D:\Git_Source\CCS\CCS\bin\zh-Hant\Microsoft.Owin.Security.Twitter.resources.dll
 D:\Git_Source\CCS\CCS\bin\zh-Hant\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 D:\Git_Source\CCS\CCS\obj\Debug\CCS.dll
 D:\Git_Source\CCS\CCS\obj\Debug\CCS.pdb
+D:\Git_Source\CCS\CCS\bin\CCSlocalDB_log.ldf

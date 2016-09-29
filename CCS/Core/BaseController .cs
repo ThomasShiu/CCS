@@ -12,6 +12,20 @@ namespace CCS.App_Start
     public class BaseController : Controller
     {
         /// <summary>
+        /// 獲取當前頁或操作存取權限
+        /// </summary>
+        /// <returns>許可權列表</returns>
+        public List<permModel> GetPermission()
+        {
+            string filePath = HttpContext.Request.FilePath;
+
+            List<permModel> perm = (List<permModel>)Session[filePath];
+            return perm;
+        }
+
+
+
+        /// <summary>
         /// 獲取當前用戶Id
         /// </summary>
         /// <returns></returns>
