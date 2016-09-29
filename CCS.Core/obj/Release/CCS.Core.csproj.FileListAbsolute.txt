@@ -46,5 +46,3 @@ D:\Git_Source\CCM3S_Project\CCS\CCS.Core\bin\Release\zh-Hant\System.Web.WebPages
 D:\Git_Source\CCM3S_Project\CCS\CCS.Core\bin\Release\zh-Hant\EntityFramework.resources.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Core\bin\Release\CCS.Common.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Core\bin\Release\CCS.Common.pdb
-D:\Git_Source\CCM3S_Project\CCS\CCS.Core\bin\Release\CCSlocalDB.mdf
-D:\Git_Source\CCM3S_Project\CCS\CCS.Core\bin\Release\CCSlocalDB_log.ldf

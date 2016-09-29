@@ -127,6 +127,15 @@
     <Compile Include="CS_SYSUSER.cs">
       <DependentUpon>CCSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CURRENCY.cs">
+      <DependentUpon>CCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customer.cs">
+      <DependentUpon>CCSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ITEM.cs">
+      <DependentUpon>CCSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="LocaldbModel1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -142,11 +151,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LocaldbModel1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="SAL\customerModel.cs" />
     <Compile Include="SYS\AccountModel.cs" />
     <Compile Include="SAL\cs_comtModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SYS\cs_sysexceptionModel.cs" />
     <Compile Include="SYS\cs_syslogModel.cs" />
+    <Compile Include="VENDOR.cs">
+      <DependentUpon>CCSModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

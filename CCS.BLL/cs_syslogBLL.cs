@@ -22,6 +22,7 @@ namespace CCS.BLL
             CCSEntities db = new CCSEntities();
             List<CS_SYSLOG> query = null;
             IQueryable<CS_SYSLOG> list = logRepository.GetList(db);
+
             if (!string.IsNullOrWhiteSpace(queryStr))
             {
                 list = list.Where(a => a.Message.Contains(queryStr) || a.Module.Contains(queryStr));

@@ -70,6 +70,7 @@
     <Compile Include="cs_actionlogRepository.cs" />
     <Compile Include="cs_comtRepository .cs" />
     <Compile Include="cs_sysmoduleRepository .cs" />
+    <Compile Include="customerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SysExceptionRepository.cs" />
   </ItemGroup>

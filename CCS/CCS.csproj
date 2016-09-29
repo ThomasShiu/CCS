@@ -1873,7 +1873,6 @@
     <Content Include="Content\easyui-1.5\demo\treegrid\treegrid_data3.json" />
     <Content Include="Content\easyui-1.5\demo\tree\tree_data1.json" />
     <Content Include="Content\easyui-1.5\demo\tree\tree_data2.json" />
-    <Content Include="Content\easyui-1.5\themes\material\images\Thumbs.db" />
     <Content Include="Content\images\Logo.psd" />
     <Content Include="Content\images\sunny\Logo.psd" />
     <Content Include="Content\images\sunny\未标题-1.psd" />
@@ -1909,7 +1908,6 @@
     <Content Include="Content\bootstrap\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap\bootstrap.css.map" />
     <Content Include="Content\Chart.js\LICENSE.md" />
-    <Content Include="Content\easyui\themes\material\images\Thumbs.db" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />

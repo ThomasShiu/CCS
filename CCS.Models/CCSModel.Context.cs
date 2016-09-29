@@ -35,5 +35,9 @@ namespace CCS.Models
         public virtual DbSet<CS_SYSEXCEPTION> CS_SYSEXCEPTION { get; set; }
         public virtual DbSet<CS_SYSLOG> CS_SYSLOG { get; set; }
         public virtual DbSet<CS_COMT> CS_COMT { get; set; }
+        public virtual DbSet<ITEM> ITEM { get; set; }
+        public virtual DbSet<VENDOR> VENDOR { get; set; }
+        public virtual DbSet<customer> customer { get; set; }
+        public virtual DbSet<CURRENCY> CURRENCY { get; set; }
     }
 }

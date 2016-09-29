@@ -1,155 +1,194 @@
 ﻿@model CCS.Controllers.BaseException
 
 @{
-    ViewBag.Title = "異常處理頁面异常处理页面";
+    ViewBag.Title = "異常處理頁面異常處理頁面";
     Layout = "~/Views/Shared/_Index_Layout.cshtml";
 }
 @section styles{
-<style>
-.fancytable{border:1px solid #cccccc; width:100%;border-collapse:collapse;}
-.fancytable td{border:1px solid #cccccc; color:#555555;text-align:center;line-height:28px;}
-.headerrow{ background-color:#0066cc;}
-.headerrow td{ color:#ffffff; text-align:center;}
-.datarowodd{background-color:#ffffff;}
-.dataroweven{ background-color:#efefef;}
-.datarowodd td{background-color:#ffffff;}
-.dataroweven td{ background-color:#efefef;}
-.dataColdd{background-color:#ffb3b3;color:#ffffff; text-align:center;}
+    <style>
+        .fancytable {
+            border: 1px solid #cccccc;
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-    .sexyborder{
-     border:1px solid #0066cc; padding:5px;
-     -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-     border-radius: 5px;
+            .fancytable td {
+                border: 1px solid #cccccc;
+                color: #555555;
+                text-align: center;
+                line-height: 28px;
+            }
+
+        .headerrow {
+            background-color: #0066cc;
+        }
+
+            .headerrow td {
+                color: #ffffff;
+                text-align: center;
+            }
+
+        .datarowodd {
+            background-color: #ffffff;
+        }
+
+        .dataroweven {
+            background-color: #efefef;
+        }
+
+        .datarowodd td {
+            background-color: #ffffff;
+        }
+
+        .dataroweven td {
+            background-color: #efefef;
+        }
+
+        .dataColdd {
+            background-color: #efefef;
+            color: #000;
+            text-align: center;
+        }
+
+        .sexyborder {
+            border: 1px solid #0066cc;
+            padding: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+        section {
+            width: 700px;
+            height: 600px;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            margin: -150px 0 0 -250px;
+            display: table;
+        }
+    </style>
 }
-
- section {
-  width: 700px;
-  height: 600px;
-  position: absolute;
-  top: 40%;
-  left: 40%;
-  margin: -150px 0 0 -250px;
-  display: table;
-}
-
-</style>
-    }
 
 <link href="~/Content/easyui-1.5/themes/metro/easyui.css" rel="stylesheet" />
 @Scripts.Render("~/bundles/jquery")
 <script src="~/Content/easyui-1.5/jquery.easyui.min.js"></script>
 
-    <section>
-        <div class="sexyborder">
-            <table class="fancytable">
+<section>
+    <div class="sexyborder">
+        <table class="fancytable">
+            <tr>
+                <td class="alignRight dataColdd" colspan="2"><div style="font-size:14px">錯誤處理頁面</div></td>
+            </tr>
+            <tr>
+                <td class="" colspan="2">
+                    &nbsp;歡迎您光臨本網站！網站運行發生錯誤，請與管理員聯繫。錯誤原因可能如下:
+                    <br />
+                    &nbsp;&nbsp;&nbsp;1.非法訪問頁面.
+                    <br />
+                    &nbsp;&nbsp;&nbsp;2.您輸入的資料錯誤.
+                    <br />
+                    &nbsp;&nbsp;&nbsp;3.您訪問的頁面不存在.
+                    <br />
+                    &nbsp;&nbsp;&nbsp;4.內容不存在,或已被刪除.
+                    <br />
+                    &nbsp;&nbsp;&nbsp;5.系統忙,請稍候再試.
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tbody id="detailInformation" style="display: none;">
                 <tr>
-                    <td class="dataColdd" colspan="2"><div style="font-size:14px">錯誤處理頁面</div></td>
+                    <td class="alignRight dataColdd">出錯頁面</td>
+                    <td>@Html.DisplayFor(model => model.ErrorPageUrl)</td>
                 </tr>
                 <tr>
-                    <td class="" colspan="2">
-                        &nbsp;欢迎您光临本网站！网站运行发生错误，请与管理员联系。错误原因可能如下:
-                        <br />
-                        &nbsp;&nbsp;&nbsp;1.非法访问页面.
-                        <br />
-                        &nbsp;&nbsp;&nbsp;2.您输入的数据错误.
-                        <br />
-                        &nbsp;&nbsp;&nbsp;3.您访问的页面不存在.
-                        <br />
-                        &nbsp;&nbsp;&nbsp;4.内容不存在,或已被删除.
-                        <br />
-                        &nbsp;&nbsp;&nbsp;5.系统忙,请稍候再试.
+                    <td class="alignRight dataColdd" nowrap>
+                        <strong>異常名稱：</strong>
+                    </td>
+                    <td class="alignLeft">
+                        @Html.DisplayFor(model => model.ExceptionName)
                     </td>
                 </tr>
-            </table>
-            <table>
-                <tbody id="detailInformation" style="display: none;">
-                    <tr>
-                        <td class="alignRight dataColdd">出錯頁面</td>
-                        <td>@Html.DisplayFor(model => model.ErrorPageUrl)</td>
-                    </tr>
-                    <tr>
-                        <td class="alignRight dataColdd" nowrap>
-                            <strong>异常名称：</strong>
-                        </td>
-                        <td class="alignLeft">
-                            @Html.DisplayFor(model => model.ExceptionName)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="alignRight dataColdd" nowrap>
-                            <strong>异常信息：</strong>
-                        </td>
-                        <td class="alignLeft">
-                            @Html.DisplayFor(model => model.ExceptionMessage)
-                        </td>
-                    </tr>
-                    <tr id="trInnerExceptionName" runat="server">
-                        <td class="alignRight dataColdd" nowrap>
-                            <strong>内部异常名称：</strong>
-                        </td>
-                        <td class="alignLeft">
-                            @Html.DisplayFor(model => model.InnerExceptionName)
-                        </td>
-                    </tr>
-                    <tr id="trInnerExceptionMessage" runat="server">
-                        <td class="alignRight dataColdd" nowrap>
-                            <strong>内部异常信息：</strong>
-                        </td>
-                        <td class="alignLeft">
-                            @Html.DisplayFor(model => model.InnerExceptionMessage)
-                        </td>
-                    </tr>
-                    <tr id="trExceptionMethod" runat="server">
-                        <td class="alignRight dataColdd" nowrap>
-                            <strong>方法名称：</strong>
-                        </td>
-                        <td class="alignLeft" style="background-color: #ffffcc;">
-                            &nbsp;@Html.DisplayFor(model => model.TargetSite)
-                        </td>
-                    </tr>
-                    <tr id="trExceptionSource" runat="server">
-                        <td class="alignRight dataColdd" nowrap>
-                            <strong>源文件：</strong>
-                        </td>
-                        <td class="alignLeft" style="background-color: #ffffcc;">
-                            @Html.DisplayFor(model => model.SourceErrorFile)
-                        </td>
-                    </tr>
-                    <tr id="trExceptionRowId" runat="server">
-                        <td class="alignRight dataColdd" nowrap>
-                            <strong>行号：</strong>
-                        </td>
-                        <td class="alignLeft" style="background-color: #ffffcc; color: Red">
-                            &nbsp;@Html.DisplayFor(model => model.SourceErrorRowID)
-                        </td>
-                    </tr>
-                    <tr runat="server" id="trStack" visible="false">
-                        <td class="alignRight dataColdd">
-                            <strong>堆栈跟踪：</strong>
-                        </td>
-                        <td class="alignLeft" style="background-color: #ffffcc;">
-                            <code>
-                                <pre id="litStack"><textarea name="errormsg" cols="80" rows="30" readonly="readonly">@Html.DisplayFor(model => model.StackInfo) </textarea> </pre>
-                            </code>
-                        </td>
-                    </tr>
-                </tbody>
                 <tr>
-                    <td colspan="2">
-                        <a id="showMessage" href="#" onclick="ShowErrorMessage();return false;">显示详细信息</a>
+                    <td class="alignRight dataColdd" nowrap>
+                        <strong>異常資訊：</strong>
+                    </td>
+                    <td class="alignLeft">
+                        @Html.DisplayFor(model => model.ExceptionMessage)
                     </td>
                 </tr>
-            </table>
-        </div>
+                <tr id="trInnerExceptionName" runat="server">
+                    <td class="alignRight dataColdd" nowrap>
+                        <strong>內部異常名稱：</strong>
+                    </td>
+                    <td class="alignLeft">
+                        @Html.DisplayFor(model => model.InnerExceptionName)
+                    </td>
+                </tr>
+                <tr id="trInnerExceptionMessage" runat="server">
+                    <td class="alignRight dataColdd" nowrap>
+                        <strong>內部異常資訊：</strong>
+                    </td>
+                    <td class="alignLeft">
+                        @Html.DisplayFor(model => model.InnerExceptionMessage)
+                    </td>
+                </tr>
+                <tr id="trExceptionMethod" runat="server">
+                    <td class="alignRight dataColdd" nowrap>
+                        <strong>方法名稱：</strong>
+                    </td>
+                    <td class="alignLeft" style="background-color: #ffffcc;">
+                        &nbsp;@Html.DisplayFor(model => model.TargetSite)
+                    </td>
+                </tr>
+                <tr id="trExceptionSource" runat="server">
+                    <td class="alignRight dataColdd" nowrap>
+                        <strong>原始檔案：</strong>
+                    </td>
+                    <td class="alignLeft" style="background-color: #ffffcc;">
+                        @Html.DisplayFor(model => model.SourceErrorFile)
+                    </td>
+                </tr>
+                <tr id="trExceptionRowId" runat="server">
+                    <td class="alignRight dataColdd" nowrap>
+                        <strong>行號：</strong>
+                    </td>
+                    <td class="alignLeft" style="background-color: #ffffcc; color: Red">
+                        &nbsp;@Html.DisplayFor(model => model.SourceErrorRowID)
+                    </td>
+                </tr>
+                <tr runat="server" id="trStack" visible="false">
+                    <td class="alignRight dataColdd">
+                        <strong>堆疊跟蹤：</strong>
+                    </td>
+                    <td class="alignLeft" style="background-color: #ffffcc;">
+                        <code>
+                            <pre id="litStack"><textarea name="errormsg" cols="80" rows="30" readonly="readonly">@Html.DisplayFor(model => model.StackInfo) </textarea> </pre>
+                        </code>
+                    </td>
+                </tr>
+            </tbody>
+            <tr>
+                <td colspan="2">
+                    <a class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="回上一頁"
+                       href="javascript:void(0);" onclick="history.go(-1);" role="button">
+                        <i class="glyphicon glyphicon-level-up" aria-hidden="true">上一頁</i>
+                    </a>
+                    <a id="showMessage" href="#" onclick="ShowErrorMessage();return false;">顯示詳細資訊</a>
+                  
+                </td>
+            </tr>
+        </table>
+    </div>
 </section>
- 
 
-    
 
-    <script type="text/javascript">
 
-        var isShowMessage = true;
+
+<script type="text/javascript">
+
+        var isShowMessage = false;
 
         function ShowErrorMessage() {
 
@@ -158,17 +197,18 @@
             var youhaotishi = document.getElementById("youhaotishi");
 
             if (isShowMessage) {
-                obj.innerText = "隐藏详细信息";
+                obj.innerText = "隱藏詳細資訊";
                 isShowMessage = false;
                 detailInformation.style.display = "block";
                 youhaotishi.style.display = "none";
             }
             else {
-                obj.innerText = "显示详细信息";
+                obj.innerText = "顯示詳細資訊";
                 isShowMessage = true;
                 detailInformation.style.display = "none";
                 youhaotishi.style.display = "block";
             }
 
         }
-    </script>
+</script>
+

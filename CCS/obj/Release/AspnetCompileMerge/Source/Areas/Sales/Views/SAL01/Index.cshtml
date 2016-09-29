@@ -1,4 +1,6 @@
-﻿@{
+﻿@using CCS.Core
+@using CCS.Common
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Index_Layout.cshtml";
 }
@@ -10,20 +12,34 @@
 <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
 <div class="mvctool">
     <input id="txtQuery" type="text" class="searchText">
-    <a id="btnQuery" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;vertical-align :bottom">查詢</span></span></a><div class="datagrid-btn-separator"></div>
-    <a id="btnCreate" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 20px;white-space : nowrap">新增</span></span></a><div class="datagrid-btn-separator"></div>
-    <a id="btnEdit" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 20px;white-space : nowrap">編輯</span></span></a><div class="datagrid-btn-separator"></div>
-    <a id="btnDetails" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 20px;">詳細</span></span></a><div class="datagrid-btn-separator"></div>
-    <a id="btnDelete" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;white-space : nowrap">刪除</span></span></a><div class="datagrid-btn-separator"></div>
-    <a id="btnExport" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-export" style="padding-left: 20px;white-space : nowrap">匯出</span></span></a>
-    <a id="btnReload" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 20px;white-space : nowrap">刷新</span></span></a>
+    @Html.ToolButton("btnQuery", "icon-search", @Suggestion.Query, true)
+    @Html.ToolButton("btnCreate", "icon-add", @Suggestion.Create, true)
+    @Html.ToolButton("btnEdit", "icon-edit", @Suggestion.Edit, true)
+    @Html.ToolButton("btnDetails", "icon-details", @Suggestion.Details, true)
+    @Html.ToolButton("btnDelete", "icon-remove", @Suggestion.Delete, true)
+    @Html.ToolButton("btnExport", "icon-export", @Suggestion.Export, true)
+    @Html.ToolButton("btnReload", "icon-reload", @Suggestion.Reload, true)
+    @Html.ToolButton("btnHyperlink", "icon-details", @Suggestion.Details, true)
+
 </div>
 <table id="List" style="width:100%;height:100%"></table>
 
 @section scripts{
 
   <script type="text/javascript">
-    $(function () {
+      $(function () {
+          $(window).resize(function () {
+              $('#List').datagrid('resize', {
+                  width: $(window).width() - 10,
+                  height: $(window).height() - 35
+              }).datagrid('resize', {
+                  width: $(window).width() - 10,
+                  height: $(window).height() - 35
+              });
+          });
+
+          
+
         $('#List').datagrid({
             url: '/Sales/SAL01/GetList',
             width: $(window).width() - 10,
@@ -33,18 +49,25 @@
             sortName: 'VCH_NO',
             sortOrder: 'desc',
             idField: 'Id',
-            pageSize: 15,
+            pageSize: 20,
             pageList: [15, 20, 30, 40, 50],
             pagination: true,
             striped: true, // 奇偶行是否區分
             singleSelect: true,// 單選模式
             rownumbers: true,// 行號
             columns: [[
-                { field: 'VCH_NO', title: '訂單號碼', width: 80 },
-                { field: 'VCH_DT_STR', title: '訂單日期', width: 120 },
-                { field: 'CS_NO', title: '客戶', width: 80, align: 'right' },
-                { field: 'CURRENCY', title: '幣別', width: 80, align: 'right' },
-                { field: 'C_CFM', title: '確認碼', width: 250 }
+                { field: 'VCH_NO', title: '訂單號碼', width: 50 },
+                { field: 'VCH_DT', title: '訂單日期', width: 50 },
+                { field: 'FA_NO', title: '廠別', width: 30 },
+                { field: 'CS_NO', title: '客戶', width: 30, align: 'right' },
+                { field: 'CURRENCY', title: '幣別', width: 30, align: 'right' },
+                { field: 'ITEM_NO', title: '品號', width: 60 },
+                { field: 'PL', title: '鍍別', width: 60 },
+                { field: 'UNIT', title: '單位', width: 30, align: 'center' },
+                { field: 'QTY', title: '數量', width: 50, align: 'right' },
+                { field: 'PRC', title: '單價', width: 50, align: 'right' },
+                { field: 'AMT', title: '金額', width: 50 ,align:'right'},
+                { field: 'RCV_QTY', title: '已交數量', width: 50, align: 'right' }
             ]]
         });
 
@@ -56,7 +79,8 @@
             beforePageText: '第',
             afterPageText: '頁,共{pages}頁',
             displayMsg: '顯示 {from} 到 {to} 筆資料,共 {total} 筆資料'
-        });
+        });
+
     });
 </script>  
 
@@ -78,10 +102,20 @@
         $.messageBox5s('提示', mes);
     }
     $(function () {
-
+        $("#btnHyperlink").click(function () {
+            var row = $('#List').datagrid('getSelected');
+            if (row != null) {
+                window.location="/Sales/SAL01/Details/"+row.VCH_NO;
+            } else { $.messageBox5s('提示', '請選擇要操作的紀錄'); }
+        });
+           
+     
+        $("#btnReload").click(function () {
+            frameReturnByReload();
+        });
         $("#btnCreate").click(function () {
             $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/Sales/SAL01/Create'></iframe>");
-            $("#modalwindow").window({ title: '新增', width: 700, height: 400, iconCls: 'icon-add' }).window('open');
+            $("#modalwindow").window({ title: '新增', width: 850, height: 400, iconCls: 'icon-add' }).window('open');
         });
         $("#btnEdit").click(function () {
             var row = $('#List').datagrid('getSelected');
@@ -112,7 +146,7 @@
         $("#btnDelete").click(function () {
             var row = $('#List').datagrid('getSelected');
             if (row != null) {
-                $.messager.confirm('提示', '確定刪除?', function (r) {
+                $.messager.confirm('提示', '@Suggestion.YouWantToDeleteTheSelectedRecords', function (r) {
                         if (r) {
                             $.post("/Sales/SAL01/Delete?id=" + row.VCH_NO, function (data) {
                                 if (data == 1){

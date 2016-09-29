@@ -37,6 +37,10 @@ namespace CCS.Core
             // CS_SYSUSER
             container.RegisterType<IAccountBLL, AccountBLL>();
             container.RegisterType<IAccountRepository, AccountRepository>();
+
+            // CS_SYSUSER
+            container.RegisterType<IcustomerBLL, customerBLL>();
+            container.RegisterType<IcustomerRepository, customerRepository>();
         }
     }
 }

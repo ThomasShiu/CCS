@@ -25,7 +25,10 @@ namespace CCS.Areas.Sales.Controllers
         /// 業務層注入
         /// </summary>
         [Dependency]
-        public Ics_comtBLL m_BLL { get; set; }
+        public Ics_comtBLL comt_BLL { get; set; }
+
+        [Dependency]
+        public IcustomerBLL cust_BLL { get; set; }
 
         // GET: Sales/SAL01
         public ActionResult Index()
@@ -43,7 +46,7 @@ namespace CCS.Areas.Sales.Controllers
         public JsonResult GetList(GridPager pager,String queryStr)
         {
             //int total = pager.totalRows;
-            List<cs_comtModel> list = m_BLL.GetList(ref pager, queryStr);
+            List<cs_comtModel> list = comt_BLL.GetList(ref pager, queryStr);
             var json = new
             {
                 total = pager.totalRows,
@@ -87,8 +90,10 @@ namespace CCS.Areas.Sales.Controllers
             //account.Id = "admin";
             //account.TrueName = "admin";
             //Session["Account"] = account;
+            model.C_CFM = "Y";
+            model.C_CLS = "N";
 
-            if (m_BLL.Create(ref errors, model))
+            if (comt_BLL.Create(ref errors, model))
             {
                 LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "創建", "範例程序");
                 return Json(JsonHandler.CreateMessage(1, "新增成功"), JsonRequestBehavior.AllowGet);
@@ -108,7 +113,7 @@ namespace CCS.Areas.Sales.Controllers
         public ActionResult Edit(string id)
         {
 
-            cs_comtModel entity = m_BLL.GetById(id);
+            cs_comtModel entity = comt_BLL.GetById(id);
             return View(entity);
         }
 
@@ -121,7 +126,7 @@ namespace CCS.Areas.Sales.Controllers
             //account.TrueName = "admin";
             //Session["Account"] = account;
 
-            if (m_BLL.Edit(ref errors, model))
+            if (comt_BLL.Edit(ref errors, model))
             {
                 LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "編輯", "範例程序");
                 return Json(1, JsonRequestBehavior.AllowGet);
@@ -139,7 +144,7 @@ namespace CCS.Areas.Sales.Controllers
         #region 詳細
         public ActionResult Details(string id)
         {
-            cs_comtModel entity = m_BLL.GetById(id);
+            cs_comtModel entity = comt_BLL.GetById(id);
             return View(entity);
         }
 
@@ -157,7 +162,7 @@ namespace CCS.Areas.Sales.Controllers
 
             if (!string.IsNullOrWhiteSpace(id))
             {
-                if (m_BLL.Delete(ref errors, id))
+                if (comt_BLL.Delete(ref errors, id))
                 {
                     LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "刪除", "範例程序");
                     return Json(1, JsonRequestBehavior.AllowGet);
@@ -174,6 +179,32 @@ namespace CCS.Areas.Sales.Controllers
                 return Json(0, JsonRequestBehavior.AllowGet);
             }
 
+
+        }
+        #endregion
+
+        #region
+
+        //[HttpPost]
+        public JsonResult GetCustList()
+        {
+            String queryStr = "";
+            //int total = pager.totalRows;
+            List<customerModel> list = cust_BLL.GetList(queryStr);
+            var json = (from r in list
+                        select new customerModel()
+                        {
+                            CS_NO = r.CS_NO,
+                            SHORT_NM = r.SHORT_NM,
+                            ADDR_IVC = r.ADDR_IVC,
+                            CONTACTER = r.CONTACTER,
+                            TEL_NO = r.TEL_NO,
+                            FAX_NO = r.FAX_NO
+
+                        }).ToArray();
+           
+
+            return Json(json, JsonRequestBehavior.AllowGet);
 
         }
         #endregion

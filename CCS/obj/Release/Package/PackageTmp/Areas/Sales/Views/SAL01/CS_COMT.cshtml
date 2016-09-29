@@ -1,0 +1,67 @@
+﻿@model List<CCS.Models.SAL.cs_comtModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                單號
+            </th>
+            <th>
+                訂單日期
+            </th>
+            <th>
+                客戶
+            </th>
+            <th>
+                幣別
+            </th>
+            <th>
+                確認碼
+            </th>
+ 
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VCH_NO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VCH_DT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CS_NO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CURRENCY)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.C_CFM)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.VCH_NO }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.VCH_NO }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.VCH_NO })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

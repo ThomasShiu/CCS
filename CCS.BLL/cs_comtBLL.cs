@@ -24,12 +24,12 @@ namespace CCS.BLL
         public Ics_comtRepository Rep { get; set; }
 
         /// <summary>
-        /// 获取列表
+        /// 獲取列表
         /// </summary>
-        /// <param name="pager">JQgrid分页</param>
-        /// <param name="queryStr">搜索条件</param>
+        /// <param name="pager">JQgrid分頁</param>
+        /// <param name="queryStr">搜索條件</param>
         /// <returns>列表</returns>
-        public List<cs_comtModel> GetList(ref GridPager pager,string queryStr)
+        public List<cs_comtModel> GetList(ref GridPager pager, string queryStr)
         {
             IQueryable<CS_COMT> queryData = null;
             //queryData = Rep.GetList(db);
@@ -79,7 +79,7 @@ namespace CCS.BLL
             return CreateModelList(ref pager, ref queryData);
 
         }
-        private List<cs_comtModel> CreateModelList(ref GridPager pager, ref IQueryable<CS_COMT> queryData )
+        private List<cs_comtModel> CreateModelList(ref GridPager pager, ref IQueryable<CS_COMT> queryData)
         {
             pager.totalRows = queryData.Count();
             if (pager.totalRows > 0)
@@ -95,30 +95,30 @@ namespace CCS.BLL
             }
 
             List<cs_comtModel> modelList = (from r in queryData
-                                              select new cs_comtModel
-                                              {
-                                                  VCH_NO = r.VCH_NO,
-                                                  VCH_DT = r.VCH_DT,
-                                                  FA_NO = r.FA_NO,
-                                                  CS_NO = r.CS_NO,
-                                                  DEPM_NO = r.DEPM_NO,
-                                                  EMP_NO = r.EMP_NO,
-                                                  CURRENCY = r.CURRENCY,
-                                                  C_CFM = r.C_CFM,
-                                                  ITEM_NO = r.ITEM_NO,
-                                                  QTY = r.QTY,
-                                                  UNIT = r.UNIT,
-                                                  PRC = r.PRC,
-                                                  AMT = r.AMT,
-                                                  RCV_QTY = r.RCV_QTY,
-                                                  PL = r.PL
-                                              }).ToList();
+                                            select new cs_comtModel
+                                            {
+                                                VCH_NO = r.VCH_NO,
+                                                VCH_DT = r.VCH_DT,
+                                                FA_NO = r.FA_NO,
+                                                CS_NO = r.CS_NO,
+                                                DEPM_NO = r.DEPM_NO,
+                                                EMP_NO = r.EMP_NO,
+                                                CURRENCY = r.CURRENCY,
+                                                C_CFM = r.C_CFM,
+                                                ITEM_NO = r.ITEM_NO,
+                                                QTY = r.QTY,
+                                                UNIT = r.UNIT,
+                                                PRC = r.PRC,
+                                                AMT = r.AMT,
+                                                RCV_QTY = r.RCV_QTY,
+                                                PL = r.PL
+                                            }).ToList();
             return modelList;
         }
         /// <summary>
-        /// 创建一个实体
+        /// 創建一個實體
         /// </summary>
-        /// <param name="errors">持久的错误信息</param>
+        /// <param name="errors">持久的錯誤資訊</param>
         /// <param name="model">模型</param>
         /// <returns>是否成功</returns>
         public bool Create(ref ValidationErrors errors, cs_comtModel model)
@@ -128,15 +128,26 @@ namespace CCS.BLL
                 CS_COMT entity = Rep.GetById(model.VCH_NO);
                 if (entity != null)
                 {
-                    errors.Add("主键重复");
+                    errors.Add("主鍵重複");
                     return false;
                 }
                 entity = new CS_COMT();
                 entity.VCH_NO = model.VCH_NO;
                 entity.VCH_DT = model.VCH_DT;
+                entity.FA_NO = model.FA_NO;
                 entity.CS_NO = model.CS_NO;
                 entity.CURRENCY = model.CURRENCY;
+                entity.ITEM_NO = model.ITEM_NO;
+                entity.PL = model.PL;
+                entity.QTY = model.QTY;
+                entity.UNIT = model.UNIT;
+                entity.PRC = model.PRC;
+                entity.AMT = model.AMT;
+
                 entity.C_CFM = model.C_CFM;
+                entity.C_CLS = model.C_CLS;
+               
+
 
                 if (Rep.Create(entity) == 1)
                 {
@@ -144,7 +155,7 @@ namespace CCS.BLL
                 }
                 else
                 {
-                    errors.Add("插入失败");
+                    errors.Add("插入失敗");
                     return false;
                 }
             }
@@ -157,9 +168,9 @@ namespace CCS.BLL
         }
 
         /// <summary>
-        /// 删除一个实体
+        /// 刪除一個實體
         /// </summary>
-        /// <param name="errors">持久的错误信息</param>
+        /// <param name="errors">持久的錯誤資訊</param>
         /// <param name="id">id</param>
         /// <returns>是否成功</returns>
         public bool Delete(ref ValidationErrors errors, string id)
@@ -172,7 +183,7 @@ namespace CCS.BLL
                 }
                 else
                 {
-                    errors.Add("刪除失败");
+                    errors.Add("刪除失敗");
                     return false;
                 }
             }
@@ -185,9 +196,9 @@ namespace CCS.BLL
         }
 
         /// <summary>
-        /// 修改一个实体
+        /// 修改一個實體
         /// </summary>
-        /// <param name="errors">持久的错误信息</param>
+        /// <param name="errors">持久的錯誤資訊</param>
         /// <param name="model">模型</param>
         /// <returns>是否成功</returns>
         public bool Edit(ref ValidationErrors errors, cs_comtModel model)
@@ -197,13 +208,17 @@ namespace CCS.BLL
                 CS_COMT entity = Rep.GetById(model.VCH_NO);
                 if (entity == null)
                 {
-                    errors.Add("主键重复");
+                    errors.Add("主鍵重複");
                     return false;
                 }
+
+                entity.VCH_NO = model.VCH_NO;
                 entity.VCH_DT = model.VCH_DT;
                 entity.CS_NO = model.CS_NO;
                 entity.CURRENCY = model.CURRENCY;
                 entity.C_CFM = model.C_CFM;
+                entity.ITEM_NO = model.ITEM_NO;
+                entity.C_CLS = model.C_CLS;
 
                 if (Rep.Edit(entity) == 1)
                 {
@@ -211,7 +226,7 @@ namespace CCS.BLL
                 }
                 else
                 {
-                    errors.Add("編輯失败");
+                    errors.Add("編輯失敗");
                     return false;
                 }
 
@@ -224,9 +239,9 @@ namespace CCS.BLL
             }
         }
         /// <summary>
-        /// 判断是否存在实体
+        /// 判斷是否存在實體
         /// </summary>
-        /// <param name="id">主键ID</param>
+        /// <param name="id">主鍵ID</param>
         /// <returns>是否存在</returns>
         public bool IsExists(string id)
         {
@@ -238,21 +253,24 @@ namespace CCS.BLL
 
         }
         /// <summary>
-        /// 根据ID获得一个实体
+        /// 根據ID獲得一個實體
         /// </summary>
         /// <param name="id">id</param>
-        /// <returns>实体</returns>
+        /// <returns>實體</returns>
         public cs_comtModel GetById(string id)
         {
             if (IsExist(id))
             {
                 CS_COMT entity = Rep.GetById(id);
                 cs_comtModel model = new cs_comtModel();
+
                 model.VCH_NO = entity.VCH_NO;
                 model.VCH_DT = entity.VCH_DT;
                 model.CS_NO = entity.CS_NO;
                 model.CURRENCY = entity.CURRENCY;
                 model.C_CFM = entity.C_CFM;
+                model.ITEM_NO = entity.ITEM_NO;
+                model.C_CLS = entity.C_CLS;
 
                 return model;
             }
@@ -263,7 +281,7 @@ namespace CCS.BLL
         }
 
         /// <summary>
-        /// 判断一个实体是否存在
+        /// 判斷一個實體是否存在
         /// </summary>
         /// <param name="id">id</param>
         /// <returns>是否存在 true or false</returns>
@@ -271,5 +289,6 @@ namespace CCS.BLL
         {
             return Rep.IsExist(id);
         }
+
     }
 }

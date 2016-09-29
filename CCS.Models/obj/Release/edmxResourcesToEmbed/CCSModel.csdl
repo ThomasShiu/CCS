@@ -1,13 +1,271 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="CCSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CCSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CS_SYSMODULE" EntityType="CCSModel.CS_SYSMODULE" />
+    <EntitySet Name="CS_SYSMODULEOPERATE" EntityType="CCSModel.CS_SYSMODULEOPERATE" />
+    <EntitySet Name="CS_SYSRIGHT" EntityType="CCSModel.CS_SYSRIGHT" />
+    <EntitySet Name="CS_SYSRIGHTOPERATE" EntityType="CCSModel.CS_SYSRIGHTOPERATE" />
+    <EntitySet Name="CS_SYSROLE" EntityType="CCSModel.CS_SYSROLE" />
+    <EntitySet Name="CS_SYSUSER" EntityType="CCSModel.CS_SYSUSER" />
+    <AssociationSet Name="FK_CS_SysModule_SysModule" Association="CCSModel.FK_CS_SysModule_SysModule">
+      <End Role="CS_SYSMODULE" EntitySet="CS_SYSMODULE" />
+      <End Role="CS_SYSMODULE1" EntitySet="CS_SYSMODULE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CS_SysModuleOperate_SysModule" Association="CCSModel.FK_CS_SysModuleOperate_SysModule">
+      <End Role="CS_SYSMODULE" EntitySet="CS_SYSMODULE" />
+      <End Role="CS_SYSMODULEOPERATE" EntitySet="CS_SYSMODULEOPERATE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CS_SysRight_SysModule" Association="CCSModel.FK_CS_SysRight_SysModule">
+      <End Role="CS_SYSMODULE" EntitySet="CS_SYSMODULE" />
+      <End Role="CS_SYSRIGHT" EntitySet="CS_SYSRIGHT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CS_SysRight_SysRole" Association="CCSModel.FK_CS_SysRight_SysRole">
+      <End Role="CS_SYSROLE" EntitySet="CS_SYSROLE" />
+      <End Role="CS_SYSRIGHT" EntitySet="CS_SYSRIGHT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CS_SysRightOperate_SysRight" Association="CCSModel.FK_CS_SysRightOperate_SysRight">
+      <End Role="CS_SYSRIGHT" EntitySet="CS_SYSRIGHT" />
+      <End Role="CS_SYSRIGHTOPERATE" EntitySet="CS_SYSRIGHTOPERATE" />
+    </AssociationSet>
+    <AssociationSet Name="CS_SYSROLESYSUSER" Association="CCSModel.CS_SYSROLESYSUSER">
+      <End Role="CS_SYSROLE" EntitySet="CS_SYSROLE" />
+      <End Role="CS_SYSUSER" EntitySet="CS_SYSUSER" />
+    </AssociationSet>
+    <EntitySet Name="CS_ACTIONLOG" EntityType="CCSModel.CS_ACTIONLOG" />
+    <EntitySet Name="CS_SYSEXCEPTION" EntityType="CCSModel.CS_SYSEXCEPTION" />
+    <EntitySet Name="CS_SYSLOG" EntityType="CCSModel.CS_SYSLOG" />
+    <EntitySet Name="CS_COMT" EntityType="CCSModel.CS_COMT" />
+    <EntitySet Name="ITEM" EntityType="CCSModel.ITEM" />
+    <EntitySet Name="VENDOR" EntityType="CCSModel.VENDOR" />
+    <EntitySet Name="customer" EntityType="CCSModel.customer" />
+    <EntitySet Name="CURRENCY" EntityType="CCSModel.CURRENCY" />
+  </EntityContainer>
+  <EntityType Name="CS_SYSMODULE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="EnglishName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ParentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Iconic" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Sort" Type="Int32" />
+    <Property Name="Remark" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="Boolean" />
+    <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="IsLast" Type="Boolean" Nullable="false" />
+    <Property Name="Version" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="CS_SYSMODULE1" Relationship="CCSModel.FK_CS_SysModule_SysModule" FromRole="CS_SYSMODULE" ToRole="CS_SYSMODULE1" />
+    <NavigationProperty Name="CS_SYSMODULE2" Relationship="CCSModel.FK_CS_SysModule_SysModule" FromRole="CS_SYSMODULE1" ToRole="CS_SYSMODULE" />
+    <NavigationProperty Name="CS_SYSMODULEOPERATE" Relationship="CCSModel.FK_CS_SysModuleOperate_SysModule" FromRole="CS_SYSMODULE" ToRole="CS_SYSMODULEOPERATE" />
+    <NavigationProperty Name="CS_SYSRIGHT" Relationship="CCSModel.FK_CS_SysRight_SysModule" FromRole="CS_SYSMODULE" ToRole="CS_SYSRIGHT" />
+  </EntityType>
+  <EntityType Name="CS_SYSMODULEOPERATE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="KeyCode" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ModuleId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsValid" Type="Boolean" Nullable="false" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CS_SYSMODULE" Relationship="CCSModel.FK_CS_SysModuleOperate_SysModule" FromRole="CS_SYSMODULEOPERATE" ToRole="CS_SYSMODULE" />
+  </EntityType>
+  <EntityType Name="CS_SYSRIGHT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ModuleId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Rightflag" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CS_SYSMODULE" Relationship="CCSModel.FK_CS_SysRight_SysModule" FromRole="CS_SYSRIGHT" ToRole="CS_SYSMODULE" />
+    <NavigationProperty Name="CS_SYSROLE" Relationship="CCSModel.FK_CS_SysRight_SysRole" FromRole="CS_SYSRIGHT" ToRole="CS_SYSROLE" />
+    <NavigationProperty Name="CS_SYSRIGHTOPERATE" Relationship="CCSModel.FK_CS_SysRightOperate_SysRight" FromRole="CS_SYSRIGHT" ToRole="CS_SYSRIGHTOPERATE" />
+  </EntityType>
+  <EntityType Name="CS_SYSRIGHTOPERATE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="RightId" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="KeyCode" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsValid" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CS_SYSRIGHT" Relationship="CCSModel.FK_CS_SysRightOperate_SysRight" FromRole="CS_SYSRIGHTOPERATE" ToRole="CS_SYSRIGHT" />
+  </EntityType>
+  <EntityType Name="CS_SYSROLE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatePerson" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CS_SYSRIGHT" Relationship="CCSModel.FK_CS_SysRight_SysRole" FromRole="CS_SYSROLE" ToRole="CS_SYSRIGHT" />
+    <NavigationProperty Name="CS_SYSUSER" Relationship="CCSModel.CS_SYSROLESYSUSER" FromRole="CS_SYSROLE" ToRole="CS_SYSUSER" />
+  </EntityType>
+  <EntityType Name="CS_SYSUSER">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TrueName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Card" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="QQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="OtherContact" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Province" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Village" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="Boolean" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="3" />
+    <Property Name="JoinDate" Type="DateTime" Precision="3" />
+    <Property Name="Marital" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Political" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nationality" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Native" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Professional" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Degree" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DepId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PosId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Expertise" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+    <Property Name="JobState" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Attach" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CS_SYSROLE" Relationship="CCSModel.CS_SYSROLESYSUSER" FromRole="CS_SYSUSER" ToRole="CS_SYSROLE" />
+  </EntityType>
+  <Association Name="FK_CS_SysModule_SysModule">
+    <End Type="CCSModel.CS_SYSMODULE" Role="CS_SYSMODULE" Multiplicity="0..1" />
+    <End Type="CCSModel.CS_SYSMODULE" Role="CS_SYSMODULE1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSMODULE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSMODULE1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CS_SysModuleOperate_SysModule">
+    <End Type="CCSModel.CS_SYSMODULE" Role="CS_SYSMODULE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CCSModel.CS_SYSMODULEOPERATE" Role="CS_SYSMODULEOPERATE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSMODULE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSMODULEOPERATE">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CS_SysRight_SysModule">
+    <End Type="CCSModel.CS_SYSMODULE" Role="CS_SYSMODULE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CCSModel.CS_SYSRIGHT" Role="CS_SYSRIGHT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSMODULE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSRIGHT">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CS_SysRight_SysRole">
+    <End Type="CCSModel.CS_SYSROLE" Role="CS_SYSROLE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CCSModel.CS_SYSRIGHT" Role="CS_SYSRIGHT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSROLE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSRIGHT">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CS_SysRightOperate_SysRight">
+    <End Type="CCSModel.CS_SYSRIGHT" Role="CS_SYSRIGHT" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CCSModel.CS_SYSRIGHTOPERATE" Role="CS_SYSRIGHTOPERATE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CS_SYSRIGHT">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CS_SYSRIGHTOPERATE">
+        <PropertyRef Name="RightId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CS_SYSROLESYSUSER">
+    <End Type="CCSModel.CS_SYSROLE" Role="CS_SYSROLE" Multiplicity="*" />
+    <End Type="CCSModel.CS_SYSUSER" Role="CS_SYSUSER" Multiplicity="*" />
+  </Association>
+  <EntityType Name="CS_ACTIONLOG">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Operator" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Refer" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Destination" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Method" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="MobleDevices" Type="Boolean" Nullable="false" />
+    <Property Name="Browser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IPAddress" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RequestTime" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="CS_SYSEXCEPTION">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HelpLink" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Source" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TargetSite" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Data" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CS_SYSLOG">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Result" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Module" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+  </EntityType>
   <EntityType Name="CS_COMT">
     <Key>
       <PropertyRef Name="VCH_NO" />
     </Key>
-    <Property Name="VCH_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VCH_NO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="VCH_DT" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="FA_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="CS_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CS_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="DEPM_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="EMP_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="CS_VCH_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -18,7 +276,7 @@
     <Property Name="PAY_CDT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="TO_ADDR" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
     <Property Name="TO_ADDR2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
-    <Property Name="CURRENCY" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CURRENCY" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
     <Property Name="EXCH_RATE" Type="Decimal" Precision="12" Scale="6" />
     <Property Name="WAHO_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="LC_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -46,13 +304,32 @@
     <Property Name="ATTR_NO1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="ATTR_NO2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="ATTR_NO3" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="AMT" Type="Decimal" Precision="15" Scale="4" />
     <Property Name="TAX" Type="Decimal" Precision="15" Scale="4" />
-    <Property Name="QTY" Type="Decimal" Precision="15" Scale="4" />
     <Property Name="N_PRT" Type="Int32" />
     <Property Name="C_SIGN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-    <Property Name="C_CFM" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="C_CFM" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
     <Property Name="CFM_DT" Type="DateTime" Precision="0" />
+    <Property Name="ITEM_NO" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="CS_ITEM_NO" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="UNIT" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="A_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="RCV_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="RTN_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="FREE_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="FREC_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="PRC" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="AMT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="PL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PRCV_DT" Type="DateTime" Precision="0" />
+    <Property Name="CO_WAHO_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="SVCH_TY" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="SVCH_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="SVCH_SR" Type="Int32" />
+    <Property Name="PRJ_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="C_OUT" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="OUT_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="C_CLS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
     <Property Name="EXC_INSDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
     <Property Name="EXC_INSDATE" Type="DateTime" Precision="0" />
     <Property Name="EXC_UPDDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
@@ -60,68 +337,342 @@
     <Property Name="EXC_SYSOWNR" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
     <Property Name="EXC_ISLOCKED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityContainer Name="CCSEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="CS_COMT" EntityType="Self.CS_COMT" />
-    <EntitySet Name="CS_SYSMODULE" EntityType="CCSModel.CS_SYSMODULE" />
-    <EntitySet Name="CS_SYSLOG" EntityType="CCSModel.CS_SYSLOG" />
-    <EntitySet Name="CS_SYSEXCEPTION" EntityType="CCSModel.CS_SYSEXCEPTION" />
-    <EntitySet Name="CS_ACTIONLOG" EntityType="CCSModel.CS_ACTIONLOG" />
-  </EntityContainer>
-  <EntityType Name="CS_SYSMODULE">
+  <EntityType Name="ITEM">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="ITEM_NO" />
     </Key>
-    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="EnglishName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="ParentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Iconic" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Sort" Type="Int32" />
-    <Property Name="Remark" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
-    <Property Name="State" Type="Boolean" />
-    <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="CreateTime" Type="DateTime" Precision="3" />
-    <Property Name="IsLast" Type="Boolean" Nullable="false" />
-    <Property Name="Version" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ITEM_NO" Type="String" Nullable="false" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="ITEM_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="ITEM_SP" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="ITEM_NM_E" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ITEM_SP_E" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ITEM_NO_O" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="C_STA" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="GRAT_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO5" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO6" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO7" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO8" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO9" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO11" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO12" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="INV_TY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="FIN_ITEM_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="UNIT" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="UNIT1" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="UNIT2" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="UNIT3" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="EXCH_RATE1" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="EXCH_RATE2" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="EXCH_RATE3" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="C_AU" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="A_UNIT" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="W_UNIT" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="L_UNIT" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="S_UNIT" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="V_UNIT" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="WEIGHT" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="WEIGHT_DNN" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="LENGTH" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="LENGTH_DNN" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="AREA" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="AREA_DNN" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="VOLUMN" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="VOLUMN_DNN" Type="Decimal" Precision="15" Scale="5" />
+    <Property Name="SAFE_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="ROR_POT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="SUP_POT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="MIN_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="PCH_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="ISS_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="UNIT_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="FIX_LT" Type="Int32" />
+    <Property Name="LEAD_TIME" Type="Int32" />
+    <Property Name="INSP_LT" Type="Int32" />
+    <Property Name="LOT_QTY" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="C_LT" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="WAHO_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="LOCA_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="VD_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PLINE_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="INV_EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PUR_EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="MOC_EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="TIN_CODE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="LLC_BOM" Type="Int32" />
+    <Property Name="LLC_CST" Type="Int32" />
+    <Property Name="C_SOURCE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_BONDED" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_PHANT" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_BCH" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_SR" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_LOCA" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_ROR" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_CYC" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_ISS" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_INSP" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="VLD_DAY" Type="Int32" />
+    <Property Name="CHK_DAY" Type="Int32" />
+    <Property Name="C_ABC" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="MTR_CST" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="LAB_CST" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="OVH_CST" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="SBC_CST" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="LAB_ADD" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="OVH_ADD" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="SBC_ADD" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="MTR_ADD" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="MTR_RT" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="LAB_RT" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="OVH_RT" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="SBC_RT" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="STD_PCHPRC" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="STD_SALPRC" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="STD_SALEXP" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="SAL_PRC" Type="Decimal" Precision="15" Scale="6" />
+    <Property Name="C_TAX" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="PACK_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="C_CTL" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_INV" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="ITEM_DSCP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ITEM_DSCP1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ITEM_DSCP2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ITEM_DSCP3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IMG_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="IMG_NO1" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="IMG_NO2" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="IMG_NO3" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="RT_ITEM_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="RT_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="DOC_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="BAR_CODE" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="EFF_DT" Type="DateTime" Precision="0" />
+    <Property Name="EXP_DT" Type="DateTime" Precision="0" />
+    <Property Name="C_MPS" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_OUT" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="OUT_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="C_OVR" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="OVR_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="QM_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="PINE_DAY" Type="Int32" />
+    <Property Name="PURE_DAY" Type="Int32" />
+    <Property Name="GD_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="SIZE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CTS_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="PO_TY" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="MO_TY" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="C_COST" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="OWNER_USR_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="OWNER_GRP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ADD_DT" Type="DateTime" Precision="0" />
+    <Property Name="MDY_USR_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="MDY_DT" Type="DateTime" Precision="0" />
+    <Property Name="IP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="CP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
   </EntityType>
-  <EntityType Name="CS_SYSLOG">
+  <EntityType Name="VENDOR">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="VD_NO" />
     </Key>
-    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="Result" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="Module" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="VD_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SHORT_NM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="UNIQUE_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="TAX_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="OPEN_DT" Type="DateTime" Precision="0" />
+    <Property Name="FST_DT" Type="DateTime" Precision="0" />
+    <Property Name="LST_DT" Type="DateTime" Precision="0" />
+    <Property Name="CAPITAL" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EMP_TOT" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="C_ABC" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_DUE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_QLY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="FULL_NM" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="FULL_NM2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_OFC" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_OFC2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_IVC" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_IVC2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ZNO_OFC" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ZNO_IVC" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PROPRIETOR" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="CONTACTER" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="CONTACTER2" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="CONTACTER3" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="CURRENCY" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="PRC_CDT" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="PAY_CDT" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="TEL_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="TEL_NO2" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="TEL_NO3" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="FAX_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="E_MAIL" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="WWW" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="AP_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="AP_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="SP_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="SP_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="NP_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="NP_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="PP_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="PP_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="EAP_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="EAP_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="AP_MM" Type="Int32" />
+    <Property Name="AP_DD" Type="Int32" />
+    <Property Name="NP_MM" Type="Int32" />
+    <Property Name="NP_DD" Type="Int32" />
+    <Property Name="CASH_MM" Type="Int32" />
+    <Property Name="CASH_DD" Type="Int32" />
+    <Property Name="ACC_TY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PAY_TY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IVC_PAGE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="TAX_TY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="TAX_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="AREA_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NATION_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="BANK" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="ACC_NO" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="NOT_TY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_APF" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="EFF_DT" Type="DateTime" Precision="0" />
+    <Property Name="EXP_DT" Type="DateTime" Precision="0" />
+    <Property Name="BANK_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="DAP_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="PP_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="ID_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="ACC_NM" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="OVD_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
   </EntityType>
-  <EntityType Name="CS_SYSEXCEPTION">
+  <EntityType Name="customer">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="CS_NO" />
     </Key>
-    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="HelpLink" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="Source" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="TargetSite" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="Data" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CS_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SHORT_NM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLAS_NO" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="FULL_NM" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="FULL_NM2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_IVC" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_IVC2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_OFC" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_OFC2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="TO_ADDR" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="TO_ADDR2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_DOC" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ADDR_DOC2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ZNO_IVC" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ZNO_OFC" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ZNO_TO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ZNO_DOC" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PROPRIETOR" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="CONTACTER" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="CONTACTER2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="CONTACTER3" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="TEL_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="TEL_NO2" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="TEL_NO3" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="FAX_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="E_MAIL" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="WWW" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="UNIQUE_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="TAX_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="DEPM_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SCHL_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CS_TY_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SLN_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NATION_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AREA_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PRC_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PRC_NO1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PRC_NO2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PRC_NO3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="OPEN_DT" Type="DateTime" Precision="0" />
+    <Property Name="FST_DT" Type="DateTime" Precision="0" />
+    <Property Name="LST_DT" Type="DateTime" Precision="0" />
+    <Property Name="CAPITAL" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EMP_TOT" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="C_SAL" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="C_CRD" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="AR_CS_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AR_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="AR_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="NR_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="NR_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="PR_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="PR_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="EAR_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="EAR_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+    <Property Name="CURRENCY" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="TAX_TY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="TAX_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="IVC_PAGE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="PRC_CDT" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="PAY_CDT" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="C_CTL" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="MAX_CRD" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="OVER_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="AR_DAY" Type="Int32" />
+    <Property Name="NR_DAY" Type="Int32" />
+    <Property Name="CASH_DAY" Type="Int32" />
+    <Property Name="BRAND" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="DESTINATION" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="SEA_PORT" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="SEA_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AIR_PORT" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="AIR_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SHIP_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AGT_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CLR_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="INSP_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="COMS_RATE" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="INSU_RATE" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="PRICING_SEQ" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="C_PRICING" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="DISC_RT" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="C_VCH" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="ACC_TY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="RCV_TY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NOT_TY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SHIP_TY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="BANK" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="BANK2" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="BANK3" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="ACC_NO" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ACC_NO2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ACC_NO3" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="C_APF" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EFF_DT" Type="DateTime" Precision="0" />
+    <Property Name="EXP_DT" Type="DateTime" Precision="0" />
+    <Property Name="OWNER_USR_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="OWNER_GRP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ADD_DT" Type="DateTime" Precision="0" />
+    <Property Name="IP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="CP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
   </EntityType>
-  <EntityType Name="CS_ACTIONLOG">
+  <EntityType Name="CURRENCY">
     <Key>
-      <PropertyRef Name="LogId" />
+      <PropertyRef Name="CURRENCY1" />
     </Key>
-    <Property Name="LogId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Operator" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="Refer" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-    <Property Name="Destination" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-    <Property Name="Method" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-    <Property Name="MobleDevices" Type="Boolean" Nullable="false" />
-    <Property Name="Browser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="IPAddress" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="RequestTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CURRENCY1" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="CURR_NM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CURR_NM_E" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="EXCH_RATE" Type="Decimal" Precision="12" Scale="6" />
+    <Property Name="ROUND_PRC" Type="Int32" />
+    <Property Name="ROUND_AMT_MT" Type="Int32" />
+    <Property Name="ROUND_AMT_DL" Type="Int32" />
   </EntityType>
 </Schema>

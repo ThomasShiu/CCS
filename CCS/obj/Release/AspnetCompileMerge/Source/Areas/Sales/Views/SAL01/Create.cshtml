@@ -19,72 +19,161 @@
     <table class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:right;">
                     @Html.LabelFor(model => model.VCH_NO)：
                 </td>
-                <td style="width:310px">
-                    @Html.EditorFor(model => model.VCH_NO)
+                <td >
+                    @Html.EditorFor(model => model.VCH_NO ,new { htmlAttributes = new { @class = "easyui-textbox", style= "width:150px; " } })
                 </td>
-                <td>@Html.ValidationMessageFor(model => model.VCH_NO)</td>
-            </tr>
-            <tr>
-                <td style="width:100px; text-align:right;">
+                <td >
+                    @Html.ValidationMessageFor(model => model.VCH_NO)
+                </td>
+                <td style="text-align:right;">
                     @Html.LabelFor(model => model.VCH_DT)：
                 </td>
-                <td>
-                    @Html.EditorFor(model => model.VCH_DT , new { htmlAttributes = new { @class = "easyui-datebox", data_options = "formatter:myformatter,parser:myparser" } })
+                <td >
+                    @Html.EditorFor(model => model.VCH_DT, new { htmlAttributes = new { @class = "easyui-datebox", style = "width:150px; ", data_options = "formatter:myformatter,parser:myparser" } })
                 </td>
-                <td>
+                <td >
                     @Html.ValidationMessageFor(model => model.VCH_DT)
                 </td>
-            </tr>
-            <tr>
-                <td style="width:100px; text-align:right;">
+                <td style="text-align:right;">
                     @Html.LabelFor(model => model.CS_NO)：
                 </td>
 
                 <td>
-                    @Html.EditorFor(model => model.CS_NO)
+                    @*@Html.EditorFor(model => model.CS_NO)*@
+                    <select id="CS_NO" name="CS_NO" class="easyui-combogrid" style="width:150px" data-options=""></select>
                 </td>
                 <td>
                     @Html.ValidationMessageFor(model => model.CS_NO)
                 </td>
             </tr>
-            <tr>
-                <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.CURRENCY)：
-                </td>
-
-                <td>
-                    @Html.TextBoxFor(model => model.CURRENCY)
-                </td>
-                <td>
-                    @Html.ValidationMessageFor(model => model.CURRENCY)
-                </td>
-            </tr>
 
             <tr>
-                <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.C_CFM)：
+                <td style="text-align:right;">
+                    @Html.LabelFor(model => model.FA_NO)：
                 </td>
 
-                <td>
-                    @Html.EditorFor(model => model.C_CFM)
+                <td >
+                    @Html.EditorFor(model => model.FA_NO, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:150px; " } })
                 </td>
                 <td>
-                    @Html.ValidationMessageFor(model => model.C_CFM)
+                    @Html.ValidationMessageFor(model => model.FA_NO)
+                </td>
+                <td style="text-align:right;">
+                    @Html.LabelFor(model => model.DEPM_NO)：
+                </td>
+
+                <td >
+                    @Html.EditorFor(model => model.DEPM_NO, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:150px; " } })
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.DEPM_NO)
+                </td>
+                <td style="text-align:right;">
+                    @Html.LabelFor(model => model.EMP_NO)：
+                </td>
+
+                <td >
+                    @Html.EditorFor(model => model.EMP_NO, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:150px; " } })
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.EMP_NO)
                 </td>
             </tr>
           
+           <tr>
+               <td style="text-align:right;">
+                   @Html.LabelFor(model => model.CURRENCY)：
+               </td>
+
+               <td >
+                   @Html.EditorFor(model => model.CURRENCY, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:150px; " } })
+               </td>
+               <td>
+                   @Html.ValidationMessageFor(model => model.CURRENCY)
+               </td>
+               <td style="text-align:right;">
+                   @Html.LabelFor(model => model.C_CFM)：
+               </td>
+
+               <td >
+                   @Html.EditorFor(model => model.C_CFM, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:150px; " } })
+               </td>
+               <td>
+                   @Html.ValidationMessageFor(model => model.C_CFM)
+               </td>
+               <td style="text-align:right;">
+                   @Html.LabelFor(model => model.C_CLS)：
+               </td>
+
+               <td >
+                   @Html.EditorFor(model => model.C_CLS, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:150px; " } })
+               </td>
+               <td>
+                   @Html.ValidationMessageFor(model => model.C_CLS)
+               </td>
+           </tr>
+            <tr>
+                <td colspan="9">
+                    <table>
+                        <tr>
+                            <td style="text-align:center;">@Html.LabelFor(model => model.ITEM_NO)</td>
+                            <td style="text-align:center;">@Html.LabelFor(model => model.PL)</td>
+                            <td style="text-align:center;">@Html.LabelFor(model => model.UNIT)</td>
+                            <td style="text-align:center;">@Html.LabelFor(model => model.QTY)</td>
+                            <td style="text-align:center;">@Html.LabelFor(model => model.PRC)</td>
+                            <td style="text-align:center;">@Html.LabelFor(model => model.AMT)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.EditorFor(model => model.ITEM_NO, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:200px; " } })</td>
+                            <td>@Html.EditorFor(model => model.PL, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:120px; " } })</td>
+                            <td>@Html.EditorFor(model => model.UNIT, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:120px; " } })</td>
+                            <td>@Html.EditorFor(model => model.QTY, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:120px; " } })</td>
+                            <td>@Html.EditorFor(model => model.PRC, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:120px; " } })</td>
+                            <td>@Html.EditorFor(model => model.AMT, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:120px; " } })</td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+           
+    
+           
         </tbody>
     </table>
+    
 }
 
 
 @section scripts{
     
  <script type="text/javascript">
+     $(document).ready(function () {
+         // 下拉選單，收圖單位
+         $('#CS_NO').combogrid({
+             panelWidth: 600,
+             idField: 'CS_NO',
+             textField: 'SHORT_NM',
+             url: 'GetCustList',
+             method: 'get',
+             columns: [[
+             { field: 'CS_NO', title: '客戶編號', width: 80 },
+             { field: 'SHORT_NM', title: '客戶簡稱', width: 80 },
+             { field: 'CONTACTER', title: '聯絡人', width: 80, align: 'left' },
+             { field: 'TEL_NO', title: '電話', width: 80, align: 'left' },
+             { field: 'FAX_NO', title: '傳真', width: 80 },
+             { field: 'ADDR_IVC', title: '地址', width: 150, align: 'left' }
+             ]],
+             fitColumns: true
+
+         });
+     });
+
     $(function () {
+
+       
         $("#btnSave").click(function () {
                 $.ajax({
                     url: "/Sales/SAL01/Create",

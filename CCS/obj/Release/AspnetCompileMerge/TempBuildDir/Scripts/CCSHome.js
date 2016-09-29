@@ -19,7 +19,7 @@ $(function () {
     $.post("/Home/GetTree", { "id": "0" },
         function (data) {
             if (data == "0") {
-                window.location = "/Account";
+                window.location = "/Member/Login";
             }
             o.data = data;
             $("#RightTree").treeview(o);

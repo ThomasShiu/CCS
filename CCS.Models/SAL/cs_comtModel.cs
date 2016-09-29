@@ -8,10 +8,18 @@ namespace CCS.Models.SAL
     {
         [Display(Name = "訂單號碼")]
         public string VCH_NO { get; set; }
+
+        [Display(Name = "訂單日期")]
         public System.DateTime VCH_DT { get; set; }
+
+        [Display(Name = "廠別")]
         public string FA_NO { get; set; }
+
+        [Display(Name = "客戶")]
         public string CS_NO { get; set; }
+        [Display(Name = "部門")]
         public string DEPM_NO { get; set; }
+        [Display(Name = "業務")]
         public string EMP_NO { get; set; }
         public string CS_VCH_NO { get; set; }
         public string CONTACTER { get; set; }
@@ -21,6 +29,7 @@ namespace CCS.Models.SAL
         public string PAY_CDT { get; set; }
         public string TO_ADDR { get; set; }
         public string TO_ADDR2 { get; set; }
+        [Display(Name = "幣別")]
         public string CURRENCY { get; set; }
         public Nullable<decimal> EXCH_RATE { get; set; }
         public string WAHO_NO { get; set; }
@@ -52,19 +61,26 @@ namespace CCS.Models.SAL
         public Nullable<decimal> TAX { get; set; }
         public Nullable<int> N_PRT { get; set; }
         public string C_SIGN { get; set; }
+        [Display(Name = "確認碼")]
         public string C_CFM { get; set; }
         public Nullable<System.DateTime> CFM_DT { get; set; }
+        [Display(Name = "品名")]
         public string ITEM_NO { get; set; }
         public string CS_ITEM_NO { get; set; }
+        [Display(Name = "單位")]
         public string UNIT { get; set; }
+        [Display(Name = "數量")]
         public Nullable<decimal> QTY { get; set; }
         public Nullable<decimal> A_QTY { get; set; }
         public Nullable<decimal> RCV_QTY { get; set; }
         public Nullable<decimal> RTN_QTY { get; set; }
         public Nullable<decimal> FREE_QTY { get; set; }
         public Nullable<decimal> FREC_QTY { get; set; }
+        [Display(Name = "單價")]
         public Nullable<decimal> PRC { get; set; }
+        [Display(Name = "金額")]
         public Nullable<decimal> AMT { get; set; }
+        [Display(Name = "鍍別")]
         public string PL { get; set; }
         public Nullable<System.DateTime> PRCV_DT { get; set; }
         public string CO_WAHO_NO { get; set; }
@@ -74,6 +90,7 @@ namespace CCS.Models.SAL
         public string PRJ_NO { get; set; }
         public string C_OUT { get; set; }
         public Nullable<decimal> OUT_RT { get; set; }
+        [Display(Name = "結案碼")]
         public string C_CLS { get; set; }
         public string EXC_INSDBID { get; set; }
         public Nullable<System.DateTime> EXC_INSDATE { get; set; }

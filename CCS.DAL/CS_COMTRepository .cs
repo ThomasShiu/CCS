@@ -9,20 +9,20 @@ namespace CCS.DAL
     public  class CS_COMTRepository : Ics_comtRepository, IDisposable
     {
         /// <summary>
-        /// 获取列表
+        /// 獲取列表
         /// </summary>
-        /// <param name="db">数据库上下文</param>
-        /// <returns>数据列表</returns>
+        /// <param name="db">資料庫上下文</param>
+        /// <returns>數據清單</returns>
         public IQueryable<CS_COMT> GetList(CCSEntities db)
         {
             IQueryable<CS_COMT> list = db.CS_COMT.AsQueryable();
             return list;
         }
         /// <summary>
-        /// 创建一个实体
+        /// 創建一個實體
         /// </summary>
-        /// <param name="db">数据库上下文</param>
-        /// <param name="entity">实体</param>
+        /// <param name="db">資料庫上下文</param>
+        /// <param name="entity">實體</param>
         public int Create(CS_COMT entity)
         {
             using (CCSEntities db = new CCSEntities())
@@ -32,10 +32,10 @@ namespace CCS.DAL
             }
         }
         /// <summary>
-        /// 删除一个实体
+        /// 刪除一個實體
         /// </summary>
-        /// <param name="db">数据库上下文</param>
-        /// <param name="entity">主键ID</param>
+        /// <param name="db">資料庫上下文</param>
+        /// <param name="entity">主鍵ID</param>
         public int Delete(string id)
         {
             using (CCSEntities db = new CCSEntities())
@@ -51,10 +51,10 @@ namespace CCS.DAL
         }
 
         /// <summary>
-        /// 修改一个实体
+        /// 修改一個實體
         /// </summary>
-        /// <param name="db">数据库上下文</param>
-        /// <param name="entity">实体</param>
+        /// <param name="db">資料庫上下文</param>
+        /// <param name="entity">實體</param>
         public int Edit(CS_COMT entity)
         {
             using (CCSEntities db = new CCSEntities())
@@ -68,10 +68,10 @@ namespace CCS.DAL
             }
         }
         /// <summary>
-        /// 获得一个实体
+        /// 獲得一個實體
         /// </summary>
         /// <param name="id">id</param>
-        /// <returns>实体</returns>
+        /// <returns>實體</returns>
         public CS_COMT GetById(string id)
         {
             using (CCSEntities db = new CCSEntities())
@@ -80,7 +80,7 @@ namespace CCS.DAL
             }
         }
         /// <summary>
-        /// 判断一个实体是否存在
+        /// 判斷一個實體是否存在
         /// </summary>
         /// <param name="id">id</param>
         /// <returns>是否存在 true or false</returns>
@@ -99,6 +99,7 @@ namespace CCS.DAL
 
         }
 
-      
+
+
     }
 }
