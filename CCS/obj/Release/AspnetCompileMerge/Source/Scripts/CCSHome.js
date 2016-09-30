@@ -1,6 +1,12 @@
 ﻿// 樹狀選單
 $(function () {
-
+    //生成唯一的GUID
+    function GetGuid() {
+        var s4 = function () {
+            return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+        };
+        return s4() + s4() + s4() + "-" + s4();
+    }
     var o = {
         showcheck: false,
         url: "/Home/GetTree",
@@ -19,7 +25,7 @@ $(function () {
     $.post("/Home/GetTree", { "id": "0" },
         function (data) {
             if (data == "0") {
-                window.location = "/Member/Login";
+                window.location = "/Account/Login";
             }
             o.data = data;
             $("#RightTree").treeview(o);
@@ -150,3 +156,4 @@ function createFrame(url) {
             });
         });
     });
+

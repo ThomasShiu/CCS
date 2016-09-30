@@ -220,15 +220,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\BaseController .cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
-    <Compile Include="Core\LogHandler.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\UserTraceLog.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\SysModule\Controllers\CSSysModuleController.cs" />
+    <Compile Include="Areas\SysModule\SysModuleAreaRegistration.cs" />
     <Compile Include="Areas\System\SystemAreaRegistration.cs" />
     <Compile Include="Areas\System\Controllers\SYS01Controller.cs" />
     <Compile Include="Areas\System\Controllers\SYS02Controller.cs" />
@@ -239,10 +239,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseException.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\SysExceptionController.cs" />
+    <Compile Include="Core\BaseController .cs" />
     <Compile Include="Core\ExtendMvcHtml.cs" />
+    <Compile Include="Core\LogHandler.cs" />
+    <Compile Include="Core\SupportFilterAttribute .cs" />
     <Compile Include="Core\ValueConvert.cs" />
     <Compile Include="Core\verify_code.ashx.cs">
       <DependentUpon>verify_code.ashx</DependentUpon>
@@ -1884,6 +1885,11 @@
     <Content Include="Areas\System\Views\SYS02\Index.cshtml" />
     <Content Include="Areas\System\Views\SYS02\Details.cshtml" />
     <Content Include="Core\verify_code.ashx" />
+    <Content Include="Areas\SysModule\Views\web.config" />
+    <Content Include="Areas\SysModule\Views\CSSysModule\Index.cshtml" />
+    <Content Include="Areas\SysModule\Views\CSSysModule\Create.cshtml" />
+    <Content Include="Areas\SysModule\Views\CSSysModule\Edit.cshtml" />
+    <Content Include="Areas\SysModule\Views\CSSysModule\CreateOpt.cshtml" />
     <None Include="Properties\PublishProfiles\CCS_13.pubxml" />
     <None Include="Properties\PublishProfiles\CCS_207.pubxml" />
     <Content Include="Scripts\jquery-2.2.4.min.map" />
@@ -1981,16 +1987,9 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index_old.cshtml" />
@@ -1998,12 +1997,11 @@
     <Content Include="Views\Shared\_CCSMenu.cshtml" />
     <Content Include="Views\Shared\_easyuiLayout.cshtml" />
     <Content Include="Views\Home\Portal.cshtml" />
-    <Content Include="Views\Member\Login.cshtml" />
     <Content Include="Views\Shared\_Index_Layout.cshtml" />
     <Content Include="Views\Shared\_PortalLayout.cshtml" />
     <Content Include="Views\Shared\_Index_LayoutEdit.cshtml" />
     <Content Include="Views\SysException\Error.cshtml" />
-    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Inventory\Controllers\" />
@@ -2013,6 +2011,8 @@
     <Folder Include="Areas\Manufact\Models\" />
     <Folder Include="Areas\Manufact\Views\Shared\" />
     <Folder Include="Areas\Sales\Models\" />
+    <Folder Include="Areas\SysModule\Models\" />
+    <Folder Include="Areas\SysModule\Views\Shared\" />
     <Folder Include="Areas\System\Models\" />
   </ItemGroup>
   <ItemGroup>

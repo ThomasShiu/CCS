@@ -131,3 +131,4 @@ D:\Git_Source\CCM3S_Project\CCS\CCS\bin\CCS.IDAL.pdb
 D:\Git_Source\CCM3S_Project\CCS\CCS\bin\CCS.DAL.pdb
 D:\Git_Source\CCM3S_Project\CCS\CCS\bin\CCS.Common.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS\bin\CCS.Common.pdb
+D:\Git_Source\CCM3S_Project\CCS\CCS\bin\CCSlocalDB_log.ldf

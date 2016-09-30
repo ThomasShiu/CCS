@@ -60,8 +60,10 @@
     <Compile Include="Ics_syslogRepository.cs" />
     <Compile Include="Ics_actionlogRepository.cs" />
     <Compile Include="Ics_comtRepository.cs" />
+    <Compile Include="Ics_sysmoduleoperateRepository.cs" />
     <Compile Include="Ics_sysmoduleRepository.cs.cs" />
     <Compile Include="IcustomerRepository.cs" />
+    <Compile Include="Ics_sysrightRepository.cs" />
     <Compile Include="ISysExceptionRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

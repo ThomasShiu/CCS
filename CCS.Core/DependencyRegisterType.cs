@@ -34,11 +34,16 @@ namespace CCS.Core
             container.RegisterType<ISysExceptionBLL, SysExceptionBLL>();
             container.RegisterType<ISysExceptionRepository, SysExceptionRepository>();
 
+            // CS_SYSMODULEOPERATE
+            container.RegisterType<Ics_sysmoduleoperateBLL, cs_sysmoduleoperateBLL>();
+            container.RegisterType<Ics_sysmoduleoperateRepository, cs_sysmoduleoperateRepository>();
+
             // CS_SYSUSER
             container.RegisterType<IAccountBLL, AccountBLL>();
             container.RegisterType<IAccountRepository, AccountRepository>();
 
-            // CS_SYSUSER
+
+            // customer
             container.RegisterType<IcustomerBLL, customerBLL>();
             container.RegisterType<IcustomerRepository, customerRepository>();
         }

@@ -94,8 +94,8 @@ namespace CCS.Common
 
             dt = dt.ToLocalTime();
 
-            result = dt.ToString("yyyy-MM-dd");
-            //result = dt.ToString("yyyy-MM-dd HH:mm:ss");
+            //result = dt.ToString("yyyy-MM-dd");
+            result = dt.ToString("yyyy-MM-dd HH:mm");
 
             return result;
 

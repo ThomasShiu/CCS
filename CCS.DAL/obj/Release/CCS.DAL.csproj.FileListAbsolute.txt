@@ -23,3 +23,4 @@ D:\Git_Source\CCM3S_Project\CCS\CCS.DAL\bin\Release\Microsoft.Practices.ServiceL
 D:\Git_Source\CCM3S_Project\CCS\CCS.DAL\bin\Release\Microsoft.Practices.Unity.xml
 D:\Git_Source\CCM3S_Project\CCS\CCS.DAL\bin\Release\Microsoft.Practices.Unity.Configuration.xml
 D:\Git_Source\CCM3S_Project\CCS\CCS.DAL\bin\Release\Microsoft.Practices.Unity.RegistrationByConvention.xml
+D:\Git_Source\CCM3S_Project\CCS\CCS.DAL\bin\Release\CCSlocalDB_log.ldf

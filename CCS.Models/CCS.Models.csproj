@@ -100,6 +100,9 @@
     <Compile Include="CS_ACTIONLOG.cs">
       <DependentUpon>CCSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CS_CODL.cs">
+      <DependentUpon>CCSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CS_COMT.cs">
       <DependentUpon>CCSModel.tt</DependentUpon>
     </Compile>
@@ -127,13 +130,7 @@
     <Compile Include="CS_SYSUSER.cs">
       <DependentUpon>CCSModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CURRENCY.cs">
-      <DependentUpon>CCSModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="customer.cs">
-      <DependentUpon>CCSModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ITEM.cs">
       <DependentUpon>CCSModel.tt</DependentUpon>
     </Compile>
     <Compile Include="LocaldbModel1.Context.cs">
@@ -152,11 +149,17 @@
       <DependentUpon>LocaldbModel1.edmx</DependentUpon>
     </Compile>
     <Compile Include="SAL\customerModel.cs" />
+    <Compile Include="SP_SYS_GetRightOperate_Result.cs">
+      <DependentUpon>CCSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="SYS\AccountModel.cs" />
     <Compile Include="SAL\cs_comtModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SYS\cs_sysexceptionModel.cs" />
     <Compile Include="SYS\cs_syslogModel.cs" />
+    <Compile Include="SYS\cs_sysmoduleModel.cs" />
+    <Compile Include="SYS\cs_sysmoduleopertaeModel.cs" />
+    <Compile Include="SYS\permModel.cs" />
     <Compile Include="VENDOR.cs">
       <DependentUpon>CCSModel.tt</DependentUpon>
     </Compile>
@@ -165,6 +168,10 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <EntityDeploy Include="LocaldbModel1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LocaldbModel1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <EntityDeploy Include="CCSModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CCSModel.Designer.cs</LastGenOutput>
@@ -172,10 +179,6 @@
     <None Include="CCSModel.edmx.diagram">
       <DependentUpon>CCSModel.edmx</DependentUpon>
     </None>
-    <EntityDeploy Include="LocaldbModel1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LocaldbModel1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="LocaldbModel1.edmx.diagram">
       <DependentUpon>LocaldbModel1.edmx</DependentUpon>
     </None>
@@ -185,6 +188,11 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CCSlocalDB.mdf" />
+    <Content Include="CCSlocalDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>CCSlocalDB.mdf</DependentUpon>
+    </Content>
     <Content Include="CCSModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CCSModel.edmx</DependentUpon>

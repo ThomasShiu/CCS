@@ -1,5 +1,6 @@
 ﻿using CCS.App_Start;
 using CCS.Common;
+using CCS.Core;
 using CCS.IBLL;
 using CCS.Models;
 using CCS.Models.SAL;
@@ -26,11 +27,11 @@ namespace CCS.Areas.Sales.Controllers
         /// </summary>
         [Dependency]
         public Ics_comtBLL comt_BLL { get; set; }
-
         [Dependency]
         public IcustomerBLL cust_BLL { get; set; }
 
         // GET: Sales/SAL01
+        [SupportFilter]
         public ActionResult Index()
         {
             return View();
