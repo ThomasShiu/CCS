@@ -1,0 +1,562 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CCSModel1StoreContainer" CdmEntityContainer="CCSEntities">
+    <EntitySetMapping Name="CS_ACTIONLOG">
+      <EntityTypeMapping TypeName="CCSModel1.CS_ACTIONLOG">
+        <MappingFragment StoreEntitySet="CS_ACTIONLOG">
+          <ScalarProperty Name="LogId" ColumnName="LogId" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="Refer" ColumnName="Refer" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="Method" ColumnName="Method" />
+          <ScalarProperty Name="MobleDevices" ColumnName="MobleDevices" />
+          <ScalarProperty Name="Browser" ColumnName="Browser" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="RequestTime" ColumnName="RequestTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_SYSEXCEPTION">
+      <EntityTypeMapping TypeName="CCSModel1.CS_SYSEXCEPTION">
+        <MappingFragment StoreEntitySet="CS_SYSEXCEPTION">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HelpLink" ColumnName="HelpLink" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+          <ScalarProperty Name="TargetSite" ColumnName="TargetSite" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_SYSLOG">
+      <EntityTypeMapping TypeName="CCSModel1.CS_SYSLOG">
+        <MappingFragment StoreEntitySet="CS_SYSLOG">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Module" ColumnName="Module" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_SYSMODULE">
+      <EntityTypeMapping TypeName="CCSModel1.CS_SYSMODULE">
+        <MappingFragment StoreEntitySet="CS_SYSMODULE">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Iconic" ColumnName="Iconic" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Enable" ColumnName="Enable" />
+          <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="IsLast" ColumnName="IsLast" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_SYSMODULEOPERATE">
+      <EntityTypeMapping TypeName="CCSModel1.CS_SYSMODULEOPERATE">
+        <MappingFragment StoreEntitySet="CS_SYSMODULEOPERATE">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="KeyCode" ColumnName="KeyCode" />
+          <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_SYSRIGHT">
+      <EntityTypeMapping TypeName="CCSModel1.CS_SYSRIGHT">
+        <MappingFragment StoreEntitySet="CS_SYSRIGHT">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Rightflag" ColumnName="Rightflag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_SYSRIGHTOPERATE">
+      <EntityTypeMapping TypeName="CCSModel1.CS_SYSRIGHTOPERATE">
+        <MappingFragment StoreEntitySet="CS_SYSRIGHTOPERATE">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RightId" ColumnName="RightId" />
+          <ScalarProperty Name="KeyCode" ColumnName="KeyCode" />
+          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_SYSROLE">
+      <EntityTypeMapping TypeName="CCSModel1.CS_SYSROLE">
+        <MappingFragment StoreEntitySet="CS_SYSROLE">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_SYSUSER">
+      <EntityTypeMapping TypeName="CCSModel1.CS_SYSUSER">
+        <MappingFragment StoreEntitySet="CS_SYSUSER">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="TrueName" ColumnName="TrueName" />
+          <ScalarProperty Name="Card" ColumnName="Card" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="QQ" ColumnName="QQ" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="OtherContact" ColumnName="OtherContact" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Village" ColumnName="Village" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="Marital" ColumnName="Marital" />
+          <ScalarProperty Name="Political" ColumnName="Political" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="Native" ColumnName="Native" />
+          <ScalarProperty Name="School" ColumnName="School" />
+          <ScalarProperty Name="Professional" ColumnName="Professional" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="DepId" ColumnName="DepId" />
+          <ScalarProperty Name="PosId" ColumnName="PosId" />
+          <ScalarProperty Name="Expertise" ColumnName="Expertise" />
+          <ScalarProperty Name="JobState" ColumnName="JobState" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Attach" ColumnName="Attach" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer">
+      <EntityTypeMapping TypeName="CCSModel1.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="CS_NO" ColumnName="CS_NO" />
+          <ScalarProperty Name="SHORT_NM" ColumnName="SHORT_NM" />
+          <ScalarProperty Name="CLAS_NO" ColumnName="CLAS_NO" />
+          <ScalarProperty Name="FULL_NM" ColumnName="FULL_NM" />
+          <ScalarProperty Name="FULL_NM2" ColumnName="FULL_NM2" />
+          <ScalarProperty Name="ADDR_IVC" ColumnName="ADDR_IVC" />
+          <ScalarProperty Name="ADDR_IVC2" ColumnName="ADDR_IVC2" />
+          <ScalarProperty Name="ADDR_OFC" ColumnName="ADDR_OFC" />
+          <ScalarProperty Name="ADDR_OFC2" ColumnName="ADDR_OFC2" />
+          <ScalarProperty Name="TO_ADDR" ColumnName="TO_ADDR" />
+          <ScalarProperty Name="TO_ADDR2" ColumnName="TO_ADDR2" />
+          <ScalarProperty Name="ADDR_DOC" ColumnName="ADDR_DOC" />
+          <ScalarProperty Name="ADDR_DOC2" ColumnName="ADDR_DOC2" />
+          <ScalarProperty Name="ZNO_IVC" ColumnName="ZNO_IVC" />
+          <ScalarProperty Name="ZNO_OFC" ColumnName="ZNO_OFC" />
+          <ScalarProperty Name="ZNO_TO" ColumnName="ZNO_TO" />
+          <ScalarProperty Name="ZNO_DOC" ColumnName="ZNO_DOC" />
+          <ScalarProperty Name="PROPRIETOR" ColumnName="PROPRIETOR" />
+          <ScalarProperty Name="CONTACTER" ColumnName="CONTACTER" />
+          <ScalarProperty Name="CONTACTER2" ColumnName="CONTACTER2" />
+          <ScalarProperty Name="CONTACTER3" ColumnName="CONTACTER3" />
+          <ScalarProperty Name="TEL_NO" ColumnName="TEL_NO" />
+          <ScalarProperty Name="TEL_NO2" ColumnName="TEL_NO2" />
+          <ScalarProperty Name="TEL_NO3" ColumnName="TEL_NO3" />
+          <ScalarProperty Name="FAX_NO" ColumnName="FAX_NO" />
+          <ScalarProperty Name="E_MAIL" ColumnName="E_MAIL" />
+          <ScalarProperty Name="WWW" ColumnName="WWW" />
+          <ScalarProperty Name="UNIQUE_NO" ColumnName="UNIQUE_NO" />
+          <ScalarProperty Name="TAX_NO" ColumnName="TAX_NO" />
+          <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
+          <ScalarProperty Name="DEPM_NO" ColumnName="DEPM_NO" />
+          <ScalarProperty Name="SCHL_NO" ColumnName="SCHL_NO" />
+          <ScalarProperty Name="CS_TY_NO" ColumnName="CS_TY_NO" />
+          <ScalarProperty Name="SLN_NO" ColumnName="SLN_NO" />
+          <ScalarProperty Name="NATION_NO" ColumnName="NATION_NO" />
+          <ScalarProperty Name="AREA_NO" ColumnName="AREA_NO" />
+          <ScalarProperty Name="PRC_NO" ColumnName="PRC_NO" />
+          <ScalarProperty Name="PRC_NO1" ColumnName="PRC_NO1" />
+          <ScalarProperty Name="PRC_NO2" ColumnName="PRC_NO2" />
+          <ScalarProperty Name="PRC_NO3" ColumnName="PRC_NO3" />
+          <ScalarProperty Name="OPEN_DT" ColumnName="OPEN_DT" />
+          <ScalarProperty Name="FST_DT" ColumnName="FST_DT" />
+          <ScalarProperty Name="LST_DT" ColumnName="LST_DT" />
+          <ScalarProperty Name="CAPITAL" ColumnName="CAPITAL" />
+          <ScalarProperty Name="EMP_TOT" ColumnName="EMP_TOT" />
+          <ScalarProperty Name="C_SAL" ColumnName="C_SAL" />
+          <ScalarProperty Name="C_CRD" ColumnName="C_CRD" />
+          <ScalarProperty Name="AR_CS_NO" ColumnName="AR_CS_NO" />
+          <ScalarProperty Name="AR_ACT_NO" ColumnName="AR_ACT_NO" />
+          <ScalarProperty Name="AR_BCH_NO" ColumnName="AR_BCH_NO" />
+          <ScalarProperty Name="NR_ACT_NO" ColumnName="NR_ACT_NO" />
+          <ScalarProperty Name="NR_BCH_NO" ColumnName="NR_BCH_NO" />
+          <ScalarProperty Name="PR_ACT_NO" ColumnName="PR_ACT_NO" />
+          <ScalarProperty Name="PR_BCH_NO" ColumnName="PR_BCH_NO" />
+          <ScalarProperty Name="EAR_ACT_NO" ColumnName="EAR_ACT_NO" />
+          <ScalarProperty Name="EAR_BCH_NO" ColumnName="EAR_BCH_NO" />
+          <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+          <ScalarProperty Name="TAX_TY" ColumnName="TAX_TY" />
+          <ScalarProperty Name="TAX_RT" ColumnName="TAX_RT" />
+          <ScalarProperty Name="IVC_PAGE" ColumnName="IVC_PAGE" />
+          <ScalarProperty Name="PRC_CDT" ColumnName="PRC_CDT" />
+          <ScalarProperty Name="PAY_CDT" ColumnName="PAY_CDT" />
+          <ScalarProperty Name="C_CTL" ColumnName="C_CTL" />
+          <ScalarProperty Name="MAX_CRD" ColumnName="MAX_CRD" />
+          <ScalarProperty Name="OVER_RT" ColumnName="OVER_RT" />
+          <ScalarProperty Name="AR_DAY" ColumnName="AR_DAY" />
+          <ScalarProperty Name="NR_DAY" ColumnName="NR_DAY" />
+          <ScalarProperty Name="CASH_DAY" ColumnName="CASH_DAY" />
+          <ScalarProperty Name="BRAND" ColumnName="BRAND" />
+          <ScalarProperty Name="DESTINATION" ColumnName="DESTINATION" />
+          <ScalarProperty Name="SEA_PORT" ColumnName="SEA_PORT" />
+          <ScalarProperty Name="SEA_CORP" ColumnName="SEA_CORP" />
+          <ScalarProperty Name="AIR_PORT" ColumnName="AIR_PORT" />
+          <ScalarProperty Name="AIR_CORP" ColumnName="AIR_CORP" />
+          <ScalarProperty Name="SHIP_CORP" ColumnName="SHIP_CORP" />
+          <ScalarProperty Name="AGT_CORP" ColumnName="AGT_CORP" />
+          <ScalarProperty Name="CLR_CORP" ColumnName="CLR_CORP" />
+          <ScalarProperty Name="INSP_CORP" ColumnName="INSP_CORP" />
+          <ScalarProperty Name="COMS_RATE" ColumnName="COMS_RATE" />
+          <ScalarProperty Name="INSU_RATE" ColumnName="INSU_RATE" />
+          <ScalarProperty Name="PRICING_SEQ" ColumnName="PRICING_SEQ" />
+          <ScalarProperty Name="C_PRICING" ColumnName="C_PRICING" />
+          <ScalarProperty Name="DISC_RT" ColumnName="DISC_RT" />
+          <ScalarProperty Name="C_VCH" ColumnName="C_VCH" />
+          <ScalarProperty Name="ACC_TY" ColumnName="ACC_TY" />
+          <ScalarProperty Name="RCV_TY" ColumnName="RCV_TY" />
+          <ScalarProperty Name="NOT_TY" ColumnName="NOT_TY" />
+          <ScalarProperty Name="SHIP_TY" ColumnName="SHIP_TY" />
+          <ScalarProperty Name="BANK" ColumnName="BANK" />
+          <ScalarProperty Name="BANK2" ColumnName="BANK2" />
+          <ScalarProperty Name="BANK3" ColumnName="BANK3" />
+          <ScalarProperty Name="ACC_NO" ColumnName="ACC_NO" />
+          <ScalarProperty Name="ACC_NO2" ColumnName="ACC_NO2" />
+          <ScalarProperty Name="ACC_NO3" ColumnName="ACC_NO3" />
+          <ScalarProperty Name="C_APF" ColumnName="C_APF" />
+          <ScalarProperty Name="REMK" ColumnName="REMK" />
+          <ScalarProperty Name="EFF_DT" ColumnName="EFF_DT" />
+          <ScalarProperty Name="EXP_DT" ColumnName="EXP_DT" />
+          <ScalarProperty Name="OWNER_USR_NO" ColumnName="OWNER_USR_NO" />
+          <ScalarProperty Name="OWNER_GRP_NO" ColumnName="OWNER_GRP_NO" />
+          <ScalarProperty Name="ADD_DT" ColumnName="ADD_DT" />
+          <ScalarProperty Name="IP_NM" ColumnName="IP_NM" />
+          <ScalarProperty Name="CP_NM" ColumnName="CP_NM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employee">
+      <EntityTypeMapping TypeName="CCSModel1.employee">
+        <MappingFragment StoreEntitySet="employee">
+          <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
+          <ScalarProperty Name="EMP_NM" ColumnName="EMP_NM" />
+          <ScalarProperty Name="ENG_NM" ColumnName="ENG_NM" />
+          <ScalarProperty Name="C_STA" ColumnName="C_STA" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="BRD_DT" ColumnName="BRD_DT" />
+          <ScalarProperty Name="EDU_NO" ColumnName="EDU_NO" />
+          <ScalarProperty Name="SCH_NO" ColumnName="SCH_NO" />
+          <ScalarProperty Name="MJR_NO" ColumnName="MJR_NO" />
+          <ScalarProperty Name="RGS" ColumnName="RGS" />
+          <ScalarProperty Name="ID_NO" ColumnName="ID_NO" />
+          <ScalarProperty Name="MRD" ColumnName="MRD" />
+          <ScalarProperty Name="BLOOD" ColumnName="BLOOD" />
+          <ScalarProperty Name="ADDR_RGS" ColumnName="ADDR_RGS" />
+          <ScalarProperty Name="ZNO_RGS" ColumnName="ZNO_RGS" />
+          <ScalarProperty Name="ADDR_MAL" ColumnName="ADDR_MAL" />
+          <ScalarProperty Name="ZNO_MAL" ColumnName="ZNO_MAL" />
+          <ScalarProperty Name="CONTACTER" ColumnName="CONTACTER" />
+          <ScalarProperty Name="TEL_NO" ColumnName="TEL_NO" />
+          <ScalarProperty Name="TEL_NO2" ColumnName="TEL_NO2" />
+          <ScalarProperty Name="TEL_NO3" ColumnName="TEL_NO3" />
+          <ScalarProperty Name="E_MAIL" ColumnName="E_MAIL" />
+          <ScalarProperty Name="FA_NO" ColumnName="FA_NO" />
+          <ScalarProperty Name="DEPM_NO" ColumnName="DEPM_NO" />
+          <ScalarProperty Name="JOB_NO" ColumnName="JOB_NO" />
+          <ScalarProperty Name="JOB_RK" ColumnName="JOB_RK" />
+          <ScalarProperty Name="ACT_NO" ColumnName="ACT_NO" />
+          <ScalarProperty Name="ARV_DT" ColumnName="ARV_DT" />
+          <ScalarProperty Name="LEV_DT" ColumnName="LEV_DT" />
+          <ScalarProperty Name="SPS_DT" ColumnName="SPS_DT" />
+          <ScalarProperty Name="RSU_DT" ColumnName="RSU_DT" />
+          <ScalarProperty Name="CHK_DT" ColumnName="CHK_DT" />
+          <ScalarProperty Name="ETR_DT" ColumnName="ETR_DT" />
+          <ScalarProperty Name="RTN_DT" ColumnName="RTN_DT" />
+          <ScalarProperty Name="DUE_DT" ColumnName="DUE_DT" />
+          <ScalarProperty Name="WYR_DT" ColumnName="WYR_DT" />
+          <ScalarProperty Name="DOC_NO" ColumnName="DOC_NO" />
+          <ScalarProperty Name="REMK" ColumnName="REMK" />
+          <ScalarProperty Name="BANK_NO" ColumnName="BANK_NO" />
+          <ScalarProperty Name="ACC_NO" ColumnName="ACC_NO" />
+          <ScalarProperty Name="BANK2_NO" ColumnName="BANK2_NO" />
+          <ScalarProperty Name="ACC2_NO" ColumnName="ACC2_NO" />
+          <ScalarProperty Name="BANK3_NO" ColumnName="BANK3_NO" />
+          <ScalarProperty Name="ACC3_NO" ColumnName="ACC3_NO" />
+          <ScalarProperty Name="C_TAX" ColumnName="C_TAX" />
+          <ScalarProperty Name="FIX_TAX" ColumnName="FIX_TAX" />
+          <ScalarProperty Name="FIX_RT" ColumnName="FIX_RT" />
+          <ScalarProperty Name="C_OVT" ColumnName="C_OVT" />
+          <ScalarProperty Name="OVT_RT" ColumnName="OVT_RT" />
+          <ScalarProperty Name="SFT_NO" ColumnName="SFT_NO" />
+          <ScalarProperty Name="C_TKT" ColumnName="C_TKT" />
+          <ScalarProperty Name="TKT_NO" ColumnName="TKT_NO" />
+          <ScalarProperty Name="IID_NO" ColumnName="IID_NO" />
+          <ScalarProperty Name="SSD_NO" ColumnName="SSD_NO" />
+          <ScalarProperty Name="BRG_MS" ColumnName="BRG_MS" />
+          <ScalarProperty Name="BAS_SLY" ColumnName="BAS_SLY" />
+          <ScalarProperty Name="ALP_RWD" ColumnName="ALP_RWD" />
+          <ScalarProperty Name="C_SAL_TY" ColumnName="C_SAL_TY" />
+          <ScalarProperty Name="C_SAL_TM" ColumnName="C_SAL_TM" />
+          <ScalarProperty Name="C_LPS_TY" ColumnName="C_LPS_TY" />
+          <ScalarProperty Name="CP_LPS_EXP" ColumnName="CP_LPS_EXP" />
+          <ScalarProperty Name="LPS_EXP" ColumnName="LPS_EXP" />
+          <ScalarProperty Name="RELA" ColumnName="RELA" />
+          <ScalarProperty Name="IMG_GRP" ColumnName="IMG_GRP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VENDOR">
+      <EntityTypeMapping TypeName="CCSModel1.VENDOR">
+        <MappingFragment StoreEntitySet="VENDOR">
+          <ScalarProperty Name="VD_NO" ColumnName="VD_NO" />
+          <ScalarProperty Name="SHORT_NM" ColumnName="SHORT_NM" />
+          <ScalarProperty Name="CLAS_NO" ColumnName="CLAS_NO" />
+          <ScalarProperty Name="UNIQUE_NO" ColumnName="UNIQUE_NO" />
+          <ScalarProperty Name="TAX_NO" ColumnName="TAX_NO" />
+          <ScalarProperty Name="OPEN_DT" ColumnName="OPEN_DT" />
+          <ScalarProperty Name="FST_DT" ColumnName="FST_DT" />
+          <ScalarProperty Name="LST_DT" ColumnName="LST_DT" />
+          <ScalarProperty Name="CAPITAL" ColumnName="CAPITAL" />
+          <ScalarProperty Name="EMP_TOT" ColumnName="EMP_TOT" />
+          <ScalarProperty Name="C_ABC" ColumnName="C_ABC" />
+          <ScalarProperty Name="C_DUE" ColumnName="C_DUE" />
+          <ScalarProperty Name="C_QLY" ColumnName="C_QLY" />
+          <ScalarProperty Name="FULL_NM" ColumnName="FULL_NM" />
+          <ScalarProperty Name="FULL_NM2" ColumnName="FULL_NM2" />
+          <ScalarProperty Name="ADDR_OFC" ColumnName="ADDR_OFC" />
+          <ScalarProperty Name="ADDR_OFC2" ColumnName="ADDR_OFC2" />
+          <ScalarProperty Name="ADDR_IVC" ColumnName="ADDR_IVC" />
+          <ScalarProperty Name="ADDR_IVC2" ColumnName="ADDR_IVC2" />
+          <ScalarProperty Name="ZNO_OFC" ColumnName="ZNO_OFC" />
+          <ScalarProperty Name="ZNO_IVC" ColumnName="ZNO_IVC" />
+          <ScalarProperty Name="PROPRIETOR" ColumnName="PROPRIETOR" />
+          <ScalarProperty Name="CONTACTER" ColumnName="CONTACTER" />
+          <ScalarProperty Name="CONTACTER2" ColumnName="CONTACTER2" />
+          <ScalarProperty Name="CONTACTER3" ColumnName="CONTACTER3" />
+          <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+          <ScalarProperty Name="PRC_CDT" ColumnName="PRC_CDT" />
+          <ScalarProperty Name="PAY_CDT" ColumnName="PAY_CDT" />
+          <ScalarProperty Name="TEL_NO" ColumnName="TEL_NO" />
+          <ScalarProperty Name="TEL_NO2" ColumnName="TEL_NO2" />
+          <ScalarProperty Name="TEL_NO3" ColumnName="TEL_NO3" />
+          <ScalarProperty Name="FAX_NO" ColumnName="FAX_NO" />
+          <ScalarProperty Name="E_MAIL" ColumnName="E_MAIL" />
+          <ScalarProperty Name="WWW" ColumnName="WWW" />
+          <ScalarProperty Name="AP_ACT_NO" ColumnName="AP_ACT_NO" />
+          <ScalarProperty Name="AP_BCH_NO" ColumnName="AP_BCH_NO" />
+          <ScalarProperty Name="SP_ACT_NO" ColumnName="SP_ACT_NO" />
+          <ScalarProperty Name="SP_BCH_NO" ColumnName="SP_BCH_NO" />
+          <ScalarProperty Name="NP_ACT_NO" ColumnName="NP_ACT_NO" />
+          <ScalarProperty Name="NP_BCH_NO" ColumnName="NP_BCH_NO" />
+          <ScalarProperty Name="PP_ACT_NO" ColumnName="PP_ACT_NO" />
+          <ScalarProperty Name="PP_BCH_NO" ColumnName="PP_BCH_NO" />
+          <ScalarProperty Name="EAP_ACT_NO" ColumnName="EAP_ACT_NO" />
+          <ScalarProperty Name="EAP_BCH_NO" ColumnName="EAP_BCH_NO" />
+          <ScalarProperty Name="AP_MM" ColumnName="AP_MM" />
+          <ScalarProperty Name="AP_DD" ColumnName="AP_DD" />
+          <ScalarProperty Name="NP_MM" ColumnName="NP_MM" />
+          <ScalarProperty Name="NP_DD" ColumnName="NP_DD" />
+          <ScalarProperty Name="CASH_MM" ColumnName="CASH_MM" />
+          <ScalarProperty Name="CASH_DD" ColumnName="CASH_DD" />
+          <ScalarProperty Name="ACC_TY" ColumnName="ACC_TY" />
+          <ScalarProperty Name="PAY_TY" ColumnName="PAY_TY" />
+          <ScalarProperty Name="IVC_PAGE" ColumnName="IVC_PAGE" />
+          <ScalarProperty Name="TAX_TY" ColumnName="TAX_TY" />
+          <ScalarProperty Name="TAX_RT" ColumnName="TAX_RT" />
+          <ScalarProperty Name="AREA_NO" ColumnName="AREA_NO" />
+          <ScalarProperty Name="NATION_NO" ColumnName="NATION_NO" />
+          <ScalarProperty Name="BANK" ColumnName="BANK" />
+          <ScalarProperty Name="ACC_NO" ColumnName="ACC_NO" />
+          <ScalarProperty Name="NOT_TY" ColumnName="NOT_TY" />
+          <ScalarProperty Name="C_APF" ColumnName="C_APF" />
+          <ScalarProperty Name="REMK" ColumnName="REMK" />
+          <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
+          <ScalarProperty Name="EFF_DT" ColumnName="EFF_DT" />
+          <ScalarProperty Name="EXP_DT" ColumnName="EXP_DT" />
+          <ScalarProperty Name="BANK_NO" ColumnName="BANK_NO" />
+          <ScalarProperty Name="DAP_RT" ColumnName="DAP_RT" />
+          <ScalarProperty Name="PP_RT" ColumnName="PP_RT" />
+          <ScalarProperty Name="ID_NO" ColumnName="ID_NO" />
+          <ScalarProperty Name="ACC_NM" ColumnName="ACC_NM" />
+          <ScalarProperty Name="OVD_NO" ColumnName="OVD_NO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WAHO">
+      <EntityTypeMapping TypeName="CCSModel1.WAHO">
+        <MappingFragment StoreEntitySet="WAHO">
+          <ScalarProperty Name="WAHO_NO" ColumnName="WAHO_NO" />
+          <ScalarProperty Name="WAHO_NM" ColumnName="WAHO_NM" />
+          <ScalarProperty Name="FA_NO" ColumnName="FA_NO" />
+          <ScalarProperty Name="TEL_NO" ColumnName="TEL_NO" />
+          <ScalarProperty Name="FAX_NO" ColumnName="FAX_NO" />
+          <ScalarProperty Name="ADDR" ColumnName="ADDR" />
+          <ScalarProperty Name="ADDR2" ColumnName="ADDR2" />
+          <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
+          <ScalarProperty Name="C_INV" ColumnName="C_INV" />
+          <ScalarProperty Name="C_SC" ColumnName="C_SC" />
+          <ScalarProperty Name="C_MRP" ColumnName="C_MRP" />
+          <ScalarProperty Name="C_CTL" ColumnName="C_CTL" />
+          <ScalarProperty Name="C_LOCA" ColumnName="C_LOCA" />
+          <ScalarProperty Name="REMK" ColumnName="REMK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CS_SYSROLESYSUSER" TypeName="CCSModel1.CS_SYSROLESYSUSER" StoreEntitySet="CS_SYSROLESYSUSER">
+      <EndProperty Name="CS_SYSROLE">
+        <ScalarProperty Name="Id" ColumnName="SysRoleId" />
+      </EndProperty>
+      <EndProperty Name="CS_SYSUSER">
+        <ScalarProperty Name="Id" ColumnName="SysUserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="SP_SYS_ClearUnusedRIGHTOPERATE" FunctionName="CCSModel1.Store.SP_SYS_ClearUnusedRIGHTOPERATE" />
+    <FunctionImportMapping FunctionImportName="SP_SYS_GetRightOperate" FunctionName="CCSModel1.Store.SP_SYS_GetRightOperate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCSModel1.SP_SYS_GetRightOperate_Result">
+          <ScalarProperty Name="KeyCode" ColumnName="KeyCode" />
+          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_SYS_InsertSysRIGHT" FunctionName="CCSModel1.Store.SP_SYS_InsertSysRIGHT" />
+    <FunctionImportMapping FunctionImportName="SP_Sys_UpdateSysRightRightFlag" FunctionName="CCSModel1.Store.SP_Sys_UpdateSysRightRightFlag" />
+    <FunctionImportMapping FunctionImportName="SP_Sys_GetRightByRoleAndModule" FunctionName="CCSModel1.Store.SP_Sys_GetRightByRoleAndModule">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCSModel1.SP_Sys_GetRightByRoleAndModule_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="KeyCode" ColumnName="KeyCode" />
+          <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+          <ScalarProperty Name="isvalid" ColumnName="isvalid" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="RightId" ColumnName="RightId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="CS_CODL">
+      <EntityTypeMapping TypeName="CCSModel1.CS_CODL">
+        <MappingFragment StoreEntitySet="CS_CODL">
+          <ScalarProperty Name="PDT_ITEM_NO" ColumnName="PDT_ITEM_NO" />
+          <ScalarProperty Name="PDT_WAHO_NO" ColumnName="PDT_WAHO_NO" />
+          <ScalarProperty Name="PDT_DT" ColumnName="PDT_DT" />
+          <ScalarProperty Name="MKT_CODE" ColumnName="MKT_CODE" />
+          <ScalarProperty Name="C_CFM" ColumnName="C_CFM" />
+          <ScalarProperty Name="CS_NO" ColumnName="CS_NO" />
+          <ScalarProperty Name="PQA_MM" ColumnName="PQA_MM" />
+          <ScalarProperty Name="TQA_MM" ColumnName="TQA_MM" />
+          <ScalarProperty Name="CUS_FLD6" ColumnName="CUS_FLD6" />
+          <ScalarProperty Name="CUS_FLD5" ColumnName="CUS_FLD5" />
+          <ScalarProperty Name="CUS_FLD4" ColumnName="CUS_FLD4" />
+          <ScalarProperty Name="CUS_FLD3" ColumnName="CUS_FLD3" />
+          <ScalarProperty Name="CUS_FLD2" ColumnName="CUS_FLD2" />
+          <ScalarProperty Name="CUS_FLD1" ColumnName="CUS_FLD1" />
+          <ScalarProperty Name="REMK" ColumnName="REMK" />
+          <ScalarProperty Name="C_CLS" ColumnName="C_CLS" />
+          <ScalarProperty Name="OUT_RT" ColumnName="OUT_RT" />
+          <ScalarProperty Name="C_OUT" ColumnName="C_OUT" />
+          <ScalarProperty Name="PRJ_NO" ColumnName="PRJ_NO" />
+          <ScalarProperty Name="SVCH_SR" ColumnName="SVCH_SR" />
+          <ScalarProperty Name="SVCH_NO" ColumnName="SVCH_NO" />
+          <ScalarProperty Name="SVCH_TY" ColumnName="SVCH_TY" />
+          <ScalarProperty Name="CO_WAHO_NO" ColumnName="CO_WAHO_NO" />
+          <ScalarProperty Name="PRCV_DT" ColumnName="PRCV_DT" />
+          <ScalarProperty Name="AMT" ColumnName="AMT" />
+          <ScalarProperty Name="PRC" ColumnName="PRC" />
+          <ScalarProperty Name="FREC_QTY" ColumnName="FREC_QTY" />
+          <ScalarProperty Name="FREE_QTY" ColumnName="FREE_QTY" />
+          <ScalarProperty Name="RTN_QTY" ColumnName="RTN_QTY" />
+          <ScalarProperty Name="RCV_QTY" ColumnName="RCV_QTY" />
+          <ScalarProperty Name="A_QTY" ColumnName="A_QTY" />
+          <ScalarProperty Name="QTY" ColumnName="QTY" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="CS_ITEM_NO" ColumnName="CS_ITEM_NO" />
+          <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
+          <ScalarProperty Name="VCH_SR" ColumnName="VCH_SR" />
+          <ScalarProperty Name="VCH_NO" ColumnName="VCH_NO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_COMT">
+      <EntityTypeMapping TypeName="CCSModel1.CS_COMT">
+        <MappingFragment StoreEntitySet="CS_COMT">
+          <ScalarProperty Name="CP_NM" ColumnName="CP_NM" />
+          <ScalarProperty Name="IP_NM" ColumnName="IP_NM" />
+          <ScalarProperty Name="MDY_DT" ColumnName="MDY_DT" />
+          <ScalarProperty Name="MDY_USR_NO" ColumnName="MDY_USR_NO" />
+          <ScalarProperty Name="CFM_USR_NO" ColumnName="CFM_USR_NO" />
+          <ScalarProperty Name="ADD_DT" ColumnName="ADD_DT" />
+          <ScalarProperty Name="OWNER_GRP_NO" ColumnName="OWNER_GRP_NO" />
+          <ScalarProperty Name="OWNER_USR_NO" ColumnName="OWNER_USR_NO" />
+          <ScalarProperty Name="CFM_DT" ColumnName="CFM_DT" />
+          <ScalarProperty Name="C_CFM" ColumnName="C_CFM" />
+          <ScalarProperty Name="C_SIGN" ColumnName="C_SIGN" />
+          <ScalarProperty Name="N_PRT" ColumnName="N_PRT" />
+          <ScalarProperty Name="QTY" ColumnName="QTY" />
+          <ScalarProperty Name="TAX" ColumnName="TAX" />
+          <ScalarProperty Name="AMT" ColumnName="AMT" />
+          <ScalarProperty Name="ATTR_NO3" ColumnName="ATTR_NO3" />
+          <ScalarProperty Name="ATTR_NO2" ColumnName="ATTR_NO2" />
+          <ScalarProperty Name="ATTR_NO1" ColumnName="ATTR_NO1" />
+          <ScalarProperty Name="DPAY_AMT" ColumnName="DPAY_AMT" />
+          <ScalarProperty Name="DPAY_RT" ColumnName="DPAY_RT" />
+          <ScalarProperty Name="COMS_AMT" ColumnName="COMS_AMT" />
+          <ScalarProperty Name="COMS_RATE" ColumnName="COMS_RATE" />
+          <ScalarProperty Name="REMK" ColumnName="REMK" />
+          <ScalarProperty Name="IVC_REMK" ColumnName="IVC_REMK" />
+          <ScalarProperty Name="PACK_REMK" ColumnName="PACK_REMK" />
+          <ScalarProperty Name="BANK_NO" ColumnName="BANK_NO" />
+          <ScalarProperty Name="DES_PLACE" ColumnName="DES_PLACE" />
+          <ScalarProperty Name="NOTIFY" ColumnName="NOTIFY" />
+          <ScalarProperty Name="CONSIGNEE" ColumnName="CONSIGNEE" />
+          <ScalarProperty Name="SL_MARK" ColumnName="SL_MARK" />
+          <ScalarProperty Name="FL_MARK" ColumnName="FL_MARK" />
+          <ScalarProperty Name="MARK_NO" ColumnName="MARK_NO" />
+          <ScalarProperty Name="SHIP_CORP" ColumnName="SHIP_CORP" />
+          <ScalarProperty Name="INSP_CORP" ColumnName="INSP_CORP" />
+          <ScalarProperty Name="CLR_CORP" ColumnName="CLR_CORP" />
+          <ScalarProperty Name="AGT_CORP" ColumnName="AGT_CORP" />
+          <ScalarProperty Name="DES_PORT" ColumnName="DES_PORT" />
+          <ScalarProperty Name="STR_PORT" ColumnName="STR_PORT" />
+          <ScalarProperty Name="SHIP_TY" ColumnName="SHIP_TY" />
+          <ScalarProperty Name="LC_NO" ColumnName="LC_NO" />
+          <ScalarProperty Name="WAHO_NO" ColumnName="WAHO_NO" />
+          <ScalarProperty Name="EXCH_RATE" ColumnName="EXCH_RATE" />
+          <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+          <ScalarProperty Name="TO_ADDR2" ColumnName="TO_ADDR2" />
+          <ScalarProperty Name="TO_ADDR" ColumnName="TO_ADDR" />
+          <ScalarProperty Name="PAY_CDT" ColumnName="PAY_CDT" />
+          <ScalarProperty Name="PRC_CDT" ColumnName="PRC_CDT" />
+          <ScalarProperty Name="TAX_RT" ColumnName="TAX_RT" />
+          <ScalarProperty Name="TAX_TY" ColumnName="TAX_TY" />
+          <ScalarProperty Name="CONTACTER" ColumnName="CONTACTER" />
+          <ScalarProperty Name="CS_VCH_NO" ColumnName="CS_VCH_NO" />
+          <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
+          <ScalarProperty Name="DEPM_NO" ColumnName="DEPM_NO" />
+          <ScalarProperty Name="CS_NO" ColumnName="CS_NO" />
+          <ScalarProperty Name="FA_NO" ColumnName="FA_NO" />
+          <ScalarProperty Name="VCH_DT" ColumnName="VCH_DT" />
+          <ScalarProperty Name="VCH_NO" ColumnName="VCH_NO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

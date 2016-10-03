@@ -99,3 +99,5 @@ D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Debug\zh-Hant\System.Net.Http.Form
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\obj\Debug\CCS.Tests.csprojResolveAssemblyReference.cache
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\obj\Debug\CCS.Tests.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\obj\Debug\CCS.Tests.pdb
+D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Debug\Microsoft.ReportViewer.WebForms.dll
+D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Debug\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll

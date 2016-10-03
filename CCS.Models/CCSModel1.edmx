@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="CCSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CCSModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CS_ACTIONLOG">
           <Key>
             <PropertyRef Name="LogId" />
@@ -66,38 +66,38 @@
           <Key>
             <PropertyRef Name="VCH_NO" />
           </Key>
-          <Property Name="VCH_NO" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VCH_NO" Type="nchar" MaxLength="15" Nullable="false" />
           <Property Name="VCH_DT" Type="smalldatetime" Nullable="false" />
-          <Property Name="FA_NO" Type="nvarchar" MaxLength="10" />
-          <Property Name="CS_NO" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="DEPM_NO" Type="nvarchar" MaxLength="10" />
-          <Property Name="EMP_NO" Type="nvarchar" MaxLength="10" />
-          <Property Name="CS_VCH_NO" Type="nvarchar" MaxLength="20" />
-          <Property Name="CONTACTER" Type="nvarchar" MaxLength="30" />
-          <Property Name="TAX_TY" Type="nvarchar" MaxLength="1" />
+          <Property Name="FA_NO" Type="nchar" MaxLength="10" />
+          <Property Name="CS_NO" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="DEPM_NO" Type="nchar" MaxLength="10" />
+          <Property Name="EMP_NO" Type="nchar" MaxLength="10" />
+          <Property Name="CS_VCH_NO" Type="nchar" MaxLength="20" />
+          <Property Name="CONTACTER" Type="nchar" MaxLength="30" />
+          <Property Name="TAX_TY" Type="nchar" MaxLength="1" />
           <Property Name="TAX_RT" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="PRC_CDT" Type="nvarchar" MaxLength="30" />
-          <Property Name="PAY_CDT" Type="nvarchar" MaxLength="30" />
+          <Property Name="PRC_CDT" Type="nchar" MaxLength="30" />
+          <Property Name="PAY_CDT" Type="nchar" MaxLength="30" />
           <Property Name="TO_ADDR" Type="nvarchar" MaxLength="80" />
           <Property Name="TO_ADDR2" Type="nvarchar" MaxLength="80" />
-          <Property Name="CURRENCY" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="CURRENCY" Type="nchar" MaxLength="4" Nullable="false" />
           <Property Name="EXCH_RATE" Type="decimal" Precision="12" Scale="6" />
-          <Property Name="WAHO_NO" Type="nvarchar" MaxLength="10" />
-          <Property Name="LC_NO" Type="nvarchar" MaxLength="20" />
-          <Property Name="SHIP_TY" Type="nvarchar" MaxLength="1" />
-          <Property Name="STR_PORT" Type="nvarchar" MaxLength="30" />
-          <Property Name="DES_PORT" Type="nvarchar" MaxLength="30" />
-          <Property Name="AGT_CORP" Type="nvarchar" MaxLength="10" />
-          <Property Name="CLR_CORP" Type="nvarchar" MaxLength="10" />
-          <Property Name="INSP_CORP" Type="nvarchar" MaxLength="10" />
-          <Property Name="SHIP_CORP" Type="nvarchar" MaxLength="10" />
-          <Property Name="MARK_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="WAHO_NO" Type="nchar" MaxLength="10" />
+          <Property Name="LC_NO" Type="nchar" MaxLength="20" />
+          <Property Name="SHIP_TY" Type="nchar" MaxLength="1" />
+          <Property Name="STR_PORT" Type="nchar" MaxLength="30" />
+          <Property Name="DES_PORT" Type="nchar" MaxLength="30" />
+          <Property Name="AGT_CORP" Type="nchar" MaxLength="10" />
+          <Property Name="CLR_CORP" Type="nchar" MaxLength="10" />
+          <Property Name="INSP_CORP" Type="nchar" MaxLength="10" />
+          <Property Name="SHIP_CORP" Type="nchar" MaxLength="10" />
+          <Property Name="MARK_NO" Type="nchar" MaxLength="10" />
           <Property Name="FL_MARK" Type="nvarchar" MaxLength="255" />
           <Property Name="SL_MARK" Type="nvarchar" MaxLength="255" />
-          <Property Name="CONSIGNEE" Type="nvarchar" MaxLength="10" />
-          <Property Name="NOTIFY" Type="nvarchar" MaxLength="10" />
-          <Property Name="DES_PLACE" Type="nvarchar" MaxLength="30" />
-          <Property Name="BANK_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="CONSIGNEE" Type="nchar" MaxLength="10" />
+          <Property Name="NOTIFY" Type="nchar" MaxLength="10" />
+          <Property Name="DES_PLACE" Type="nchar" MaxLength="30" />
+          <Property Name="BANK_NO" Type="nchar" MaxLength="10" />
           <Property Name="PACK_REMK" Type="nvarchar" MaxLength="255" />
           <Property Name="IVC_REMK" Type="nvarchar" MaxLength="255" />
           <Property Name="REMK" Type="nvarchar" MaxLength="255" />
@@ -105,41 +105,24 @@
           <Property Name="COMS_AMT" Type="decimal" Precision="15" Scale="4" />
           <Property Name="DPAY_RT" Type="decimal" Precision="15" Scale="4" />
           <Property Name="DPAY_AMT" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="ATTR_NO1" Type="nvarchar" MaxLength="10" />
-          <Property Name="ATTR_NO2" Type="nvarchar" MaxLength="10" />
-          <Property Name="ATTR_NO3" Type="nvarchar" MaxLength="10" />
-          <Property Name="TAX" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="N_PRT" Type="int" />
-          <Property Name="C_SIGN" Type="nvarchar" MaxLength="1" />
-          <Property Name="C_CFM" Type="nvarchar" MaxLength="1" />
-          <Property Name="CFM_DT" Type="smalldatetime" />
-          <Property Name="ITEM_NO" Type="nvarchar" MaxLength="24" Nullable="false" />
-          <Property Name="CS_ITEM_NO" Type="nvarchar" MaxLength="24" />
-          <Property Name="UNIT" Type="nvarchar" MaxLength="4" />
-          <Property Name="QTY" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="A_QTY" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="RCV_QTY" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="RTN_QTY" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="FREE_QTY" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="FREC_QTY" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="PRC" Type="decimal" Precision="15" Scale="6" />
+          <Property Name="ATTR_NO1" Type="nchar" MaxLength="10" />
+          <Property Name="ATTR_NO2" Type="nchar" MaxLength="10" />
+          <Property Name="ATTR_NO3" Type="nchar" MaxLength="10" />
           <Property Name="AMT" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="PL" Type="nvarchar" MaxLength="50" />
-          <Property Name="PRCV_DT" Type="smalldatetime" />
-          <Property Name="CO_WAHO_NO" Type="nvarchar" MaxLength="10" />
-          <Property Name="SVCH_TY" Type="nvarchar" MaxLength="4" />
-          <Property Name="SVCH_NO" Type="nvarchar" MaxLength="15" />
-          <Property Name="SVCH_SR" Type="int" />
-          <Property Name="PRJ_NO" Type="nvarchar" MaxLength="20" />
-          <Property Name="C_OUT" Type="nvarchar" MaxLength="1" />
-          <Property Name="OUT_RT" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="C_CLS" Type="nvarchar" MaxLength="1" Nullable="false" />
-          <Property Name="EXC_INSDBID" Type="nvarchar" MaxLength="13" />
-          <Property Name="EXC_INSDATE" Type="smalldatetime" />
-          <Property Name="EXC_UPDDBID" Type="nvarchar" MaxLength="13" />
-          <Property Name="EXC_UPDDATE" Type="smalldatetime" />
-          <Property Name="EXC_SYSOWNR" Type="nvarchar" MaxLength="5" />
-          <Property Name="EXC_ISLOCKED" Type="nvarchar" MaxLength="1" />
+          <Property Name="TAX" Type="decimal" Precision="15" Scale="4" />
+          <Property Name="QTY" Type="decimal" Precision="15" Scale="4" />
+          <Property Name="N_PRT" Type="int" />
+          <Property Name="C_SIGN" Type="nchar" MaxLength="1" />
+          <Property Name="C_CFM" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="CFM_DT" Type="smalldatetime" />
+          <Property Name="OWNER_USR_NO" Type="nchar" MaxLength="10" />
+          <Property Name="OWNER_GRP_NO" Type="nchar" MaxLength="10" />
+          <Property Name="ADD_DT" Type="smalldatetime" />
+          <Property Name="CFM_USR_NO" Type="nchar" MaxLength="10" />
+          <Property Name="MDY_USR_NO" Type="nchar" MaxLength="10" />
+          <Property Name="MDY_DT" Type="smalldatetime" />
+          <Property Name="IP_NM" Type="nchar" MaxLength="30" />
+          <Property Name="CP_NM" Type="nchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="CS_SYSEXCEPTION">
           <Key>
@@ -377,6 +360,75 @@
           <Property Name="IP_NM" Type="nchar" MaxLength="30" />
           <Property Name="CP_NM" Type="nchar" MaxLength="30" />
         </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="EMP_NO" />
+          </Key>
+          <Property Name="EMP_NO" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="EMP_NM" Type="nchar" MaxLength="10" />
+          <Property Name="ENG_NM" Type="nchar" MaxLength="30" />
+          <Property Name="C_STA" Type="nchar" MaxLength="1" />
+          <Property Name="SEX" Type="nchar" MaxLength="1" />
+          <Property Name="BRD_DT" Type="smalldatetime" />
+          <Property Name="EDU_NO" Type="nchar" MaxLength="10" />
+          <Property Name="SCH_NO" Type="nchar" MaxLength="10" />
+          <Property Name="MJR_NO" Type="nchar" MaxLength="10" />
+          <Property Name="RGS" Type="nchar" MaxLength="20" />
+          <Property Name="ID_NO" Type="nchar" MaxLength="20" />
+          <Property Name="MRD" Type="nchar" MaxLength="1" />
+          <Property Name="BLOOD" Type="nchar" MaxLength="10" />
+          <Property Name="ADDR_RGS" Type="nvarchar" MaxLength="80" />
+          <Property Name="ZNO_RGS" Type="nchar" MaxLength="10" />
+          <Property Name="ADDR_MAL" Type="nvarchar" MaxLength="80" />
+          <Property Name="ZNO_MAL" Type="nchar" MaxLength="10" />
+          <Property Name="CONTACTER" Type="nchar" MaxLength="30" />
+          <Property Name="TEL_NO" Type="nchar" MaxLength="20" />
+          <Property Name="TEL_NO2" Type="nchar" MaxLength="20" />
+          <Property Name="TEL_NO3" Type="nchar" MaxLength="20" />
+          <Property Name="E_MAIL" Type="nvarchar" MaxLength="80" />
+          <Property Name="FA_NO" Type="nchar" MaxLength="10" />
+          <Property Name="DEPM_NO" Type="nchar" MaxLength="10" />
+          <Property Name="JOB_NO" Type="nchar" MaxLength="10" />
+          <Property Name="JOB_RK" Type="nchar" MaxLength="10" />
+          <Property Name="ACT_NO" Type="nchar" MaxLength="20" />
+          <Property Name="ARV_DT" Type="smalldatetime" Nullable="false" />
+          <Property Name="LEV_DT" Type="smalldatetime" />
+          <Property Name="SPS_DT" Type="smalldatetime" />
+          <Property Name="RSU_DT" Type="smalldatetime" />
+          <Property Name="CHK_DT" Type="smalldatetime" />
+          <Property Name="ETR_DT" Type="smalldatetime" />
+          <Property Name="RTN_DT" Type="smalldatetime" />
+          <Property Name="DUE_DT" Type="smalldatetime" />
+          <Property Name="WYR_DT" Type="smalldatetime" />
+          <Property Name="DOC_NO" Type="nchar" MaxLength="20" />
+          <Property Name="REMK" Type="nvarchar" MaxLength="255" />
+          <Property Name="BANK_NO" Type="nchar" MaxLength="10" />
+          <Property Name="ACC_NO" Type="nvarchar" MaxLength="80" />
+          <Property Name="BANK2_NO" Type="nchar" MaxLength="10" />
+          <Property Name="ACC2_NO" Type="nvarchar" MaxLength="80" />
+          <Property Name="BANK3_NO" Type="nchar" MaxLength="10" />
+          <Property Name="ACC3_NO" Type="nvarchar" MaxLength="80" />
+          <Property Name="C_TAX" Type="nchar" MaxLength="1" />
+          <Property Name="FIX_TAX" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="FIX_RT" Type="decimal" Precision="15" Scale="4" />
+          <Property Name="C_OVT" Type="nchar" MaxLength="1" />
+          <Property Name="OVT_RT" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="SFT_NO" Type="nchar" MaxLength="1" />
+          <Property Name="C_TKT" Type="nchar" MaxLength="1" />
+          <Property Name="TKT_NO" Type="nchar" MaxLength="10" />
+          <Property Name="IID_NO" Type="nchar" MaxLength="1" />
+          <Property Name="SSD_NO" Type="nchar" MaxLength="1" />
+          <Property Name="BRG_MS" Type="int" />
+          <Property Name="BAS_SLY" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ALP_RWD" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="C_SAL_TY" Type="nchar" MaxLength="1" />
+          <Property Name="C_SAL_TM" Type="nchar" MaxLength="1" />
+          <Property Name="C_LPS_TY" Type="nchar" MaxLength="1" />
+          <Property Name="CP_LPS_EXP" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="LPS_EXP" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="RELA" Type="nchar" MaxLength="10" />
+          <Property Name="IMG_GRP" Type="image" />
+        </EntityType>
         <EntityType Name="VENDOR">
           <Key>
             <PropertyRef Name="VD_NO" />
@@ -453,6 +505,25 @@
           <Property Name="ACC_NM" Type="nvarchar" MaxLength="80" />
           <Property Name="OVD_NO" Type="nchar" MaxLength="10" />
         </EntityType>
+        <EntityType Name="WAHO">
+          <Key>
+            <PropertyRef Name="WAHO_NO" />
+          </Key>
+          <Property Name="WAHO_NO" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="WAHO_NM" Type="nchar" MaxLength="10" />
+          <Property Name="FA_NO" Type="nchar" MaxLength="10" />
+          <Property Name="TEL_NO" Type="nchar" MaxLength="20" />
+          <Property Name="FAX_NO" Type="nchar" MaxLength="20" />
+          <Property Name="ADDR" Type="nvarchar" MaxLength="80" />
+          <Property Name="ADDR2" Type="nvarchar" MaxLength="80" />
+          <Property Name="EMP_NO" Type="nchar" MaxLength="10" />
+          <Property Name="C_INV" Type="nchar" MaxLength="1" />
+          <Property Name="C_SC" Type="nchar" MaxLength="1" />
+          <Property Name="C_MRP" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="C_CTL" Type="nchar" MaxLength="1" />
+          <Property Name="C_LOCA" Type="nchar" MaxLength="1" />
+          <Property Name="REMK" Type="nvarchar" MaxLength="255" />
+        </EntityType>
         <Association Name="FK_CS_SysModule_SysModule">
           <End Role="CS_SYSMODULE" Type="Self.CS_SYSMODULE" Multiplicity="0..1" />
           <End Role="CS_SYSMODULE1" Type="Self.CS_SYSMODULE" Multiplicity="*" />
@@ -522,12 +593,20 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="SP_SYS_ClearUnusedRIGHTOPERATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_Sys_GetRightByRoleAndModule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="roleId" Type="varchar" Mode="In" />
+          <Parameter Name="moduleId" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="SP_SYS_GetRightOperate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userId" Type="varchar" Mode="In" />
           <Parameter Name="url" Type="varchar" Mode="In" />
         </Function>
         <Function Name="SP_SYS_InsertSysRIGHT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="CCSModelStoreContainer">
+        <Function Name="SP_Sys_UpdateSysRightRightFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="moduleId" Type="varchar" Mode="In" />
+          <Parameter Name="roleId" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="CCSModel1StoreContainer">
           <EntitySet Name="CS_ACTIONLOG" EntityType="Self.CS_ACTIONLOG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CS_CODL" EntityType="Self.CS_CODL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CS_COMT" EntityType="Self.CS_COMT" Schema="dbo" store:Type="Tables" />
@@ -541,7 +620,9 @@
           <EntitySet Name="CS_SYSROLESYSUSER" EntityType="Self.CS_SYSROLESYSUSER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CS_SYSUSER" EntityType="Self.CS_SYSUSER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employee" EntityType="Self.employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VENDOR" EntityType="Self.VENDOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WAHO" EntityType="Self.WAHO" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CS_SysModule_SysModule" Association="Self.FK_CS_SysModule_SysModule">
             <End Role="CS_SYSMODULE" EntitySet="CS_SYSMODULE" />
             <End Role="CS_SYSMODULE1" EntitySet="CS_SYSMODULE" />
@@ -566,7 +647,7 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="CCSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="CCSModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CS_ACTIONLOG">
           <Key>
             <PropertyRef Name="LogId" />
@@ -580,128 +661,6 @@
           <Property Name="Browser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IPAddress" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="RequestTime" Type="DateTime" Nullable="false" Precision="7" />
-        </EntityType>
-        <EntityType Name="CS_CODL">
-          <Key>
-            <PropertyRef Name="VCH_NO" />
-            <PropertyRef Name="VCH_SR" />
-          </Key>
-          <Property Name="VCH_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="VCH_SR" Type="Int32" Nullable="false" />
-          <Property Name="ITEM_NO" Type="String" MaxLength="24" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CS_ITEM_NO" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
-          <Property Name="UNIT" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="QTY" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="A_QTY" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="RCV_QTY" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="RTN_QTY" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="FREE_QTY" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="FREC_QTY" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="PRC" Type="Decimal" Precision="15" Scale="6" />
-          <Property Name="AMT" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="PRCV_DT" Type="DateTime" Precision="0" />
-          <Property Name="CO_WAHO_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="SVCH_TY" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="SVCH_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="SVCH_SR" Type="Int32" />
-          <Property Name="PRJ_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="C_OUT" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="OUT_RT" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="C_CLS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="CUS_FLD1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="CUS_FLD2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="CUS_FLD3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="CUS_FLD4" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="CUS_FLD5" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="CUS_FLD6" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="TQA_MM" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="PQA_MM" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="CS_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="C_CFM" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="MKT_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="PDT_DT" Type="DateTime" Precision="0" />
-          <Property Name="PDT_WAHO_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="PDT_ITEM_NO" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="CS_COMT">
-          <Key>
-            <PropertyRef Name="VCH_NO" />
-          </Key>
-          <Property Name="VCH_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="VCH_DT" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="FA_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="CS_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DEPM_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="EMP_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="CS_VCH_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="CONTACTER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="TAX_TY" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="TAX_RT" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="PRC_CDT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PAY_CDT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="TO_ADDR" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
-          <Property Name="TO_ADDR2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
-          <Property Name="CURRENCY" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="EXCH_RATE" Type="Decimal" Precision="12" Scale="6" />
-          <Property Name="WAHO_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="LC_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="SHIP_TY" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="STR_PORT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="DES_PORT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="AGT_CORP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="CLR_CORP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="INSP_CORP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="SHIP_CORP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="MARK_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="FL_MARK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="SL_MARK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="CONSIGNEE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="NOTIFY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="DES_PLACE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="BANK_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="PACK_REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="IVC_REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="COMS_RATE" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="COMS_AMT" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="DPAY_RT" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="DPAY_AMT" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="ATTR_NO1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="ATTR_NO2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="ATTR_NO3" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="TAX" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="N_PRT" Type="Int32" />
-          <Property Name="C_SIGN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="C_CFM" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="CFM_DT" Type="DateTime" Precision="0" />
-          <Property Name="ITEM_NO" Type="String" MaxLength="24" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CS_ITEM_NO" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
-          <Property Name="UNIT" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="QTY" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="A_QTY" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="RCV_QTY" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="RTN_QTY" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="FREE_QTY" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="FREC_QTY" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="PRC" Type="Decimal" Precision="15" Scale="6" />
-          <Property Name="AMT" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="PL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PRCV_DT" Type="DateTime" Precision="0" />
-          <Property Name="CO_WAHO_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="SVCH_TY" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="SVCH_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="SVCH_SR" Type="Int32" />
-          <Property Name="PRJ_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="C_OUT" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="OUT_RT" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="C_CLS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="EXC_INSDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
-          <Property Name="EXC_INSDATE" Type="DateTime" Precision="0" />
-          <Property Name="EXC_UPDDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
-          <Property Name="EXC_UPDDATE" Type="DateTime" Precision="0" />
-          <Property Name="EXC_SYSOWNR" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="EXC_ISLOCKED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="CS_SYSEXCEPTION">
           <Key>
@@ -747,8 +706,6 @@
           <Property Name="Version" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="CS_SYSMODULE1" Relationship="Self.FK_CS_SysModule_SysModule" FromRole="CS_SYSMODULE" ToRole="CS_SYSMODULE1" />
           <NavigationProperty Name="CS_SYSMODULE2" Relationship="Self.FK_CS_SysModule_SysModule" FromRole="CS_SYSMODULE1" ToRole="CS_SYSMODULE" />
-          <NavigationProperty Name="CS_SYSMODULEOPERATE" Relationship="Self.FK_CS_SysModuleOperate_SysModule" FromRole="CS_SYSMODULE" ToRole="CS_SYSMODULEOPERATE" />
-          <NavigationProperty Name="CS_SYSRIGHT" Relationship="Self.FK_CS_SysRight_SysModule" FromRole="CS_SYSMODULE" ToRole="CS_SYSRIGHT" />
         </EntityType>
         <EntityType Name="CS_SYSMODULEOPERATE">
           <Key>
@@ -760,7 +717,6 @@
           <Property Name="ModuleId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsValid" Type="Boolean" Nullable="false" />
           <Property Name="Sort" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CS_SYSMODULE" Relationship="Self.FK_CS_SysModuleOperate_SysModule" FromRole="CS_SYSMODULEOPERATE" ToRole="CS_SYSMODULE" />
         </EntityType>
         <EntityType Name="CS_SYSRIGHT">
           <Key>
@@ -770,7 +726,6 @@
           <Property Name="ModuleId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="RoleId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Rightflag" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="CS_SYSMODULE" Relationship="Self.FK_CS_SysRight_SysModule" FromRole="CS_SYSRIGHT" ToRole="CS_SYSMODULE" />
           <NavigationProperty Name="CS_SYSROLE" Relationship="Self.FK_CS_SysRight_SysRole" FromRole="CS_SYSRIGHT" ToRole="CS_SYSROLE" />
           <NavigationProperty Name="CS_SYSRIGHTOPERATE" Relationship="Self.FK_CS_SysRightOperate_SysRight" FromRole="CS_SYSRIGHT" ToRole="CS_SYSRIGHTOPERATE" />
         </EntityType>
@@ -835,128 +790,11 @@
           <Property Name="Attach" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CS_SYSROLE" Relationship="Self.CS_SYSROLESYSUSER" FromRole="CS_SYSUSER" ToRole="CS_SYSROLE" />
         </EntityType>
-        <Association Name="FK_CS_SysModule_SysModule">
-          <End Role="CS_SYSMODULE" Type="Self.CS_SYSMODULE" Multiplicity="0..1" />
-          <End Role="CS_SYSMODULE1" Type="Self.CS_SYSMODULE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CS_SYSMODULE">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CS_SYSMODULE1">
-              <PropertyRef Name="ParentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CS_SysModuleOperate_SysModule">
-          <End Role="CS_SYSMODULE" Type="Self.CS_SYSMODULE" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="CS_SYSMODULEOPERATE" Type="Self.CS_SYSMODULEOPERATE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CS_SYSMODULE">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CS_SYSMODULEOPERATE">
-              <PropertyRef Name="ModuleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CS_SysRight_SysModule">
-          <End Role="CS_SYSMODULE" Type="Self.CS_SYSMODULE" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="CS_SYSRIGHT" Type="Self.CS_SYSRIGHT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CS_SYSMODULE">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CS_SYSRIGHT">
-              <PropertyRef Name="ModuleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CS_SysRight_SysRole">
-          <End Role="CS_SYSROLE" Type="Self.CS_SYSROLE" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="CS_SYSRIGHT" Type="Self.CS_SYSRIGHT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CS_SYSROLE">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CS_SYSRIGHT">
-              <PropertyRef Name="RoleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CS_SysRightOperate_SysRight">
-          <End Role="CS_SYSRIGHT" Type="Self.CS_SYSRIGHT" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="CS_SYSRIGHTOPERATE" Type="Self.CS_SYSRIGHTOPERATE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CS_SYSRIGHT">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CS_SYSRIGHTOPERATE">
-              <PropertyRef Name="RightId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CS_SYSROLESYSUSER">
-          <End Role="CS_SYSROLE" Type="Self.CS_SYSROLE" Multiplicity="*" />
-          <End Role="CS_SYSUSER" Type="Self.CS_SYSUSER" Multiplicity="*" />
-        </Association>
-        <EntityContainer Name="CCSEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CS_ACTIONLOG" EntityType="Self.CS_ACTIONLOG" />
-          <EntitySet Name="CS_CODL" EntityType="Self.CS_CODL" />
-          <EntitySet Name="CS_COMT" EntityType="Self.CS_COMT" />
-          <EntitySet Name="CS_SYSEXCEPTION" EntityType="Self.CS_SYSEXCEPTION" />
-          <EntitySet Name="CS_SYSLOG" EntityType="Self.CS_SYSLOG" />
-          <EntitySet Name="CS_SYSMODULE" EntityType="Self.CS_SYSMODULE" />
-          <EntitySet Name="CS_SYSMODULEOPERATE" EntityType="Self.CS_SYSMODULEOPERATE" />
-          <EntitySet Name="CS_SYSRIGHT" EntityType="Self.CS_SYSRIGHT" />
-          <EntitySet Name="CS_SYSRIGHTOPERATE" EntityType="Self.CS_SYSRIGHTOPERATE" />
-          <EntitySet Name="CS_SYSROLE" EntityType="Self.CS_SYSROLE" />
-          <EntitySet Name="CS_SYSUSER" EntityType="Self.CS_SYSUSER" />
-          <AssociationSet Name="FK_CS_SysModule_SysModule" Association="Self.FK_CS_SysModule_SysModule">
-            <End Role="CS_SYSMODULE" EntitySet="CS_SYSMODULE" />
-            <End Role="CS_SYSMODULE1" EntitySet="CS_SYSMODULE" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CS_SysModuleOperate_SysModule" Association="Self.FK_CS_SysModuleOperate_SysModule">
-            <End Role="CS_SYSMODULE" EntitySet="CS_SYSMODULE" />
-            <End Role="CS_SYSMODULEOPERATE" EntitySet="CS_SYSMODULEOPERATE" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CS_SysRight_SysModule" Association="Self.FK_CS_SysRight_SysModule">
-            <End Role="CS_SYSMODULE" EntitySet="CS_SYSMODULE" />
-            <End Role="CS_SYSRIGHT" EntitySet="CS_SYSRIGHT" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CS_SysRight_SysRole" Association="Self.FK_CS_SysRight_SysRole">
-            <End Role="CS_SYSROLE" EntitySet="CS_SYSROLE" />
-            <End Role="CS_SYSRIGHT" EntitySet="CS_SYSRIGHT" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CS_SysRightOperate_SysRight" Association="Self.FK_CS_SysRightOperate_SysRight">
-            <End Role="CS_SYSRIGHT" EntitySet="CS_SYSRIGHT" />
-            <End Role="CS_SYSRIGHTOPERATE" EntitySet="CS_SYSRIGHTOPERATE" />
-          </AssociationSet>
-          <AssociationSet Name="CS_SYSROLESYSUSER" Association="Self.CS_SYSROLESYSUSER">
-            <End Role="CS_SYSROLE" EntitySet="CS_SYSROLE" />
-            <End Role="CS_SYSUSER" EntitySet="CS_SYSUSER" />
-          </AssociationSet>
-          <EntitySet Name="customer" EntityType="CCSModel.customer" />
-          <EntitySet Name="VENDOR" EntityType="CCSModel.VENDOR" />
-          <FunctionImport Name="SP_SYS_ClearUnusedRIGHTOPERATE" />
-          <FunctionImport Name="SP_SYS_GetRightOperate" ReturnType="Collection(CCSModel.SP_SYS_GetRightOperate_Result)">
-            <Parameter Name="userId" Mode="In" Type="String" />
-            <Parameter Name="url" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SP_SYS_InsertSysRIGHT" />
-        </EntityContainer>
         <EntityType Name="customer">
           <Key>
             <PropertyRef Name="CS_NO" />
           </Key>
-          <Property Name="CS_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CS_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="SHORT_NM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="CLAS_NO" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
           <Property Name="FULL_NM" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
@@ -1012,7 +850,7 @@
           <Property Name="PR_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
           <Property Name="EAR_ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
           <Property Name="EAR_BCH_NO" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
-          <Property Name="CURRENCY" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="CURRENCY" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="TAX_TY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
           <Property Name="TAX_RT" Type="Decimal" Precision="15" Scale="4" />
           <Property Name="IVC_PAGE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
@@ -1060,11 +898,80 @@
           <Property Name="IP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Name="CP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
         </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="EMP_NO" />
+          </Key>
+          <Property Name="EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="EMP_NM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ENG_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="C_STA" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="SEX" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="BRD_DT" Type="DateTime" Precision="0" />
+          <Property Name="EDU_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="SCH_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MJR_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="RGS" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="ID_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="MRD" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="BLOOD" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ADDR_RGS" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="ZNO_RGS" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ADDR_MAL" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="ZNO_MAL" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CONTACTER" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="TEL_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="TEL_NO2" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="TEL_NO3" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="E_MAIL" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="FA_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DEPM_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="JOB_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="JOB_RK" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ACT_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="ARV_DT" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LEV_DT" Type="DateTime" Precision="0" />
+          <Property Name="SPS_DT" Type="DateTime" Precision="0" />
+          <Property Name="RSU_DT" Type="DateTime" Precision="0" />
+          <Property Name="CHK_DT" Type="DateTime" Precision="0" />
+          <Property Name="ETR_DT" Type="DateTime" Precision="0" />
+          <Property Name="RTN_DT" Type="DateTime" Precision="0" />
+          <Property Name="DUE_DT" Type="DateTime" Precision="0" />
+          <Property Name="WYR_DT" Type="DateTime" Precision="0" />
+          <Property Name="DOC_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BANK_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ACC_NO" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="BANK2_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ACC2_NO" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="BANK3_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ACC3_NO" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="C_TAX" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="FIX_TAX" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FIX_RT" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="C_OVT" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="OVT_RT" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="SFT_NO" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_TKT" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="TKT_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IID_NO" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="SSD_NO" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="BRG_MS" Type="Int32" />
+          <Property Name="BAS_SLY" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ALP_RWD" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="C_SAL_TY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_SAL_TM" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_LPS_TY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CP_LPS_EXP" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="LPS_EXP" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="RELA" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IMG_GRP" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="VENDOR">
           <Key>
             <PropertyRef Name="VD_NO" />
           </Key>
-          <Property Name="VD_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="VD_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="SHORT_NM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="CLAS_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="UNIQUE_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
@@ -1089,7 +996,7 @@
           <Property Name="CONTACTER" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Name="CONTACTER2" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Name="CONTACTER3" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="CURRENCY" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="CURRENCY" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="PRC_CDT" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Name="PAY_CDT" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Name="TEL_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
@@ -1136,18 +1043,242 @@
           <Property Name="ACC_NM" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="OVD_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
+        <EntityType Name="WAHO">
+          <Key>
+            <PropertyRef Name="WAHO_NO" />
+          </Key>
+          <Property Name="WAHO_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="WAHO_NM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FA_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TEL_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="FAX_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="ADDR" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="ADDR2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="C_INV" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_SC" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_MRP" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="C_CTL" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_LOCA" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_CS_SysModule_SysModule">
+          <End Role="CS_SYSMODULE" Type="Self.CS_SYSMODULE" Multiplicity="0..1" />
+          <End Role="CS_SYSMODULE1" Type="Self.CS_SYSMODULE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CS_SYSMODULE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CS_SYSMODULE1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CS_SysRight_SysRole">
+          <End Role="CS_SYSROLE" Type="Self.CS_SYSROLE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CS_SYSRIGHT" Type="Self.CS_SYSRIGHT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CS_SYSROLE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CS_SYSRIGHT">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CS_SysRightOperate_SysRight">
+          <End Role="CS_SYSRIGHT" Type="Self.CS_SYSRIGHT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CS_SYSRIGHTOPERATE" Type="Self.CS_SYSRIGHTOPERATE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CS_SYSRIGHT">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CS_SYSRIGHTOPERATE">
+              <PropertyRef Name="RightId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CS_SYSROLESYSUSER">
+          <End Role="CS_SYSROLE" Type="Self.CS_SYSROLE" Multiplicity="*" />
+          <End Role="CS_SYSUSER" Type="Self.CS_SYSUSER" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="CCSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CS_ACTIONLOG" EntityType="Self.CS_ACTIONLOG" />
+          <EntitySet Name="CS_SYSEXCEPTION" EntityType="Self.CS_SYSEXCEPTION" />
+          <EntitySet Name="CS_SYSLOG" EntityType="Self.CS_SYSLOG" />
+          <EntitySet Name="CS_SYSMODULE" EntityType="Self.CS_SYSMODULE" />
+          <EntitySet Name="CS_SYSMODULEOPERATE" EntityType="Self.CS_SYSMODULEOPERATE" />
+          <EntitySet Name="CS_SYSRIGHT" EntityType="Self.CS_SYSRIGHT" />
+          <EntitySet Name="CS_SYSRIGHTOPERATE" EntityType="Self.CS_SYSRIGHTOPERATE" />
+          <EntitySet Name="CS_SYSROLE" EntityType="Self.CS_SYSROLE" />
+          <EntitySet Name="CS_SYSUSER" EntityType="Self.CS_SYSUSER" />
+          <EntitySet Name="customer" EntityType="Self.customer" />
+          <EntitySet Name="employee" EntityType="Self.employee" />
+          <EntitySet Name="VENDOR" EntityType="Self.VENDOR" />
+          <EntitySet Name="WAHO" EntityType="Self.WAHO" />
+          <AssociationSet Name="FK_CS_SysModule_SysModule" Association="Self.FK_CS_SysModule_SysModule">
+            <End Role="CS_SYSMODULE" EntitySet="CS_SYSMODULE" />
+            <End Role="CS_SYSMODULE1" EntitySet="CS_SYSMODULE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CS_SysRight_SysRole" Association="Self.FK_CS_SysRight_SysRole">
+            <End Role="CS_SYSROLE" EntitySet="CS_SYSROLE" />
+            <End Role="CS_SYSRIGHT" EntitySet="CS_SYSRIGHT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CS_SysRightOperate_SysRight" Association="Self.FK_CS_SysRightOperate_SysRight">
+            <End Role="CS_SYSRIGHT" EntitySet="CS_SYSRIGHT" />
+            <End Role="CS_SYSRIGHTOPERATE" EntitySet="CS_SYSRIGHTOPERATE" />
+          </AssociationSet>
+          <AssociationSet Name="CS_SYSROLESYSUSER" Association="Self.CS_SYSROLESYSUSER">
+            <End Role="CS_SYSROLE" EntitySet="CS_SYSROLE" />
+            <End Role="CS_SYSUSER" EntitySet="CS_SYSUSER" />
+          </AssociationSet>
+          <FunctionImport Name="SP_SYS_ClearUnusedRIGHTOPERATE" />
+          <FunctionImport Name="SP_SYS_GetRightOperate" ReturnType="Collection(CCSModel1.SP_SYS_GetRightOperate_Result)">
+            <Parameter Name="userId" Mode="In" Type="String" />
+            <Parameter Name="url" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SYS_InsertSysRIGHT" />
+          <FunctionImport Name="SP_Sys_UpdateSysRightRightFlag">
+            <Parameter Name="moduleId" Mode="In" Type="String" />
+            <Parameter Name="roleId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Sys_GetRightByRoleAndModule" ReturnType="Collection(CCSModel1.SP_Sys_GetRightByRoleAndModule_Result)">
+            <Parameter Name="roleId" Mode="In" Type="String" />
+            <Parameter Name="moduleId" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="CS_CODL" EntityType="CCSModel1.CS_CODL" />
+          <EntitySet Name="CS_COMT" EntityType="CCSModel1.CS_COMT" />
+        </EntityContainer>
         <ComplexType Name="SP_SYS_GetRightOperate_Result">
           <Property Type="String" Name="KeyCode" Nullable="false" MaxLength="200" />
           <Property Type="Boolean" Name="IsValid" Nullable="false" />
         </ComplexType>
+        <ComplexType Name="SP_Sys_GetRightByRoleAndModule_Result">
+          <Property Type="String" Name="Id" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="KeyCode" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="ModuleId" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="isvalid" Nullable="false" />
+          <Property Type="Int32" Name="Sort" Nullable="false" />
+          <Property Type="String" Name="RightId" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="CS_CODL">
+          <Key>
+            <PropertyRef Name="VCH_NO" />
+            <PropertyRef Name="VCH_SR" />
+          </Key>
+          <Property Name="VCH_NO" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="VCH_SR" Type="Int32" Nullable="false" />
+          <Property Name="ITEM_NO" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="CS_ITEM_NO" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="UNIT" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="QTY" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="A_QTY" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="RCV_QTY" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="RTN_QTY" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="FREE_QTY" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="FREC_QTY" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="PRC" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="AMT" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="PRCV_DT" Type="DateTime" Precision="0" />
+          <Property Name="CO_WAHO_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SVCH_TY" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="SVCH_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="SVCH_SR" Type="Int32" />
+          <Property Name="PRJ_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="C_OUT" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="OUT_RT" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="C_CLS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CUS_FLD1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CUS_FLD2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CUS_FLD3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CUS_FLD4" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CUS_FLD5" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CUS_FLD6" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TQA_MM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PQA_MM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CS_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="C_CFM" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="MKT_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PDT_DT" Type="DateTime" Precision="0" />
+          <Property Name="PDT_WAHO_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PDT_ITEM_NO" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CS_COMT">
+          <Key>
+            <PropertyRef Name="VCH_NO" />
+          </Key>
+          <Property Name="VCH_NO" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="VCH_DT" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FA_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CS_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DEPM_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CS_VCH_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="CONTACTER" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="TAX_TY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="TAX_RT" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="PRC_CDT" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="PAY_CDT" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="TO_ADDR" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="TO_ADDR2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="CURRENCY" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="EXCH_RATE" Type="Decimal" Precision="12" Scale="6" />
+          <Property Name="WAHO_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="LC_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="SHIP_TY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="STR_PORT" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="DES_PORT" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="AGT_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CLR_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="INSP_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="SHIP_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MARK_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FL_MARK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SL_MARK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CONSIGNEE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="NOTIFY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DES_PLACE" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="BANK_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PACK_REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IVC_REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="COMS_RATE" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="COMS_AMT" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="DPAY_RT" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="DPAY_AMT" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="ATTR_NO1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ATTR_NO2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ATTR_NO3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="AMT" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="TAX" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="QTY" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="N_PRT" Type="Int32" />
+          <Property Name="C_SIGN" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_CFM" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CFM_DT" Type="DateTime" Precision="0" />
+          <Property Name="OWNER_USR_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="OWNER_GRP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ADD_DT" Type="DateTime" Precision="0" />
+          <Property Name="CFM_USR_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MDY_USR_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MDY_DT" Type="DateTime" Precision="0" />
+          <Property Name="IP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="CP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CCSModelStoreContainer" CdmEntityContainer="CCSEntities">
+        <EntityContainerMapping StorageEntityContainer="CCSModel1StoreContainer" CdmEntityContainer="CCSEntities">
           <EntitySetMapping Name="CS_ACTIONLOG">
-            <EntityTypeMapping TypeName="CCSModel.CS_ACTIONLOG">
+            <EntityTypeMapping TypeName="CCSModel1.CS_ACTIONLOG">
               <MappingFragment StoreEntitySet="CS_ACTIONLOG">
                 <ScalarProperty Name="LogId" ColumnName="LogId" />
                 <ScalarProperty Name="Operator" ColumnName="Operator" />
@@ -1161,131 +1292,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CS_CODL">
-            <EntityTypeMapping TypeName="CCSModel.CS_CODL">
-              <MappingFragment StoreEntitySet="CS_CODL">
-                <ScalarProperty Name="VCH_NO" ColumnName="VCH_NO" />
-                <ScalarProperty Name="VCH_SR" ColumnName="VCH_SR" />
-                <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
-                <ScalarProperty Name="CS_ITEM_NO" ColumnName="CS_ITEM_NO" />
-                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
-                <ScalarProperty Name="QTY" ColumnName="QTY" />
-                <ScalarProperty Name="A_QTY" ColumnName="A_QTY" />
-                <ScalarProperty Name="RCV_QTY" ColumnName="RCV_QTY" />
-                <ScalarProperty Name="RTN_QTY" ColumnName="RTN_QTY" />
-                <ScalarProperty Name="FREE_QTY" ColumnName="FREE_QTY" />
-                <ScalarProperty Name="FREC_QTY" ColumnName="FREC_QTY" />
-                <ScalarProperty Name="PRC" ColumnName="PRC" />
-                <ScalarProperty Name="AMT" ColumnName="AMT" />
-                <ScalarProperty Name="PRCV_DT" ColumnName="PRCV_DT" />
-                <ScalarProperty Name="CO_WAHO_NO" ColumnName="CO_WAHO_NO" />
-                <ScalarProperty Name="SVCH_TY" ColumnName="SVCH_TY" />
-                <ScalarProperty Name="SVCH_NO" ColumnName="SVCH_NO" />
-                <ScalarProperty Name="SVCH_SR" ColumnName="SVCH_SR" />
-                <ScalarProperty Name="PRJ_NO" ColumnName="PRJ_NO" />
-                <ScalarProperty Name="C_OUT" ColumnName="C_OUT" />
-                <ScalarProperty Name="OUT_RT" ColumnName="OUT_RT" />
-                <ScalarProperty Name="C_CLS" ColumnName="C_CLS" />
-                <ScalarProperty Name="REMK" ColumnName="REMK" />
-                <ScalarProperty Name="CUS_FLD1" ColumnName="CUS_FLD1" />
-                <ScalarProperty Name="CUS_FLD2" ColumnName="CUS_FLD2" />
-                <ScalarProperty Name="CUS_FLD3" ColumnName="CUS_FLD3" />
-                <ScalarProperty Name="CUS_FLD4" ColumnName="CUS_FLD4" />
-                <ScalarProperty Name="CUS_FLD5" ColumnName="CUS_FLD5" />
-                <ScalarProperty Name="CUS_FLD6" ColumnName="CUS_FLD6" />
-                <ScalarProperty Name="TQA_MM" ColumnName="TQA_MM" />
-                <ScalarProperty Name="PQA_MM" ColumnName="PQA_MM" />
-                <ScalarProperty Name="CS_NO" ColumnName="CS_NO" />
-                <ScalarProperty Name="C_CFM" ColumnName="C_CFM" />
-                <ScalarProperty Name="MKT_CODE" ColumnName="MKT_CODE" />
-                <ScalarProperty Name="PDT_DT" ColumnName="PDT_DT" />
-                <ScalarProperty Name="PDT_WAHO_NO" ColumnName="PDT_WAHO_NO" />
-                <ScalarProperty Name="PDT_ITEM_NO" ColumnName="PDT_ITEM_NO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CS_COMT">
-            <EntityTypeMapping TypeName="CCSModel.CS_COMT">
-              <MappingFragment StoreEntitySet="CS_COMT">
-                <ScalarProperty Name="VCH_NO" ColumnName="VCH_NO" />
-                <ScalarProperty Name="VCH_DT" ColumnName="VCH_DT" />
-                <ScalarProperty Name="FA_NO" ColumnName="FA_NO" />
-                <ScalarProperty Name="CS_NO" ColumnName="CS_NO" />
-                <ScalarProperty Name="DEPM_NO" ColumnName="DEPM_NO" />
-                <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
-                <ScalarProperty Name="CS_VCH_NO" ColumnName="CS_VCH_NO" />
-                <ScalarProperty Name="CONTACTER" ColumnName="CONTACTER" />
-                <ScalarProperty Name="TAX_TY" ColumnName="TAX_TY" />
-                <ScalarProperty Name="TAX_RT" ColumnName="TAX_RT" />
-                <ScalarProperty Name="PRC_CDT" ColumnName="PRC_CDT" />
-                <ScalarProperty Name="PAY_CDT" ColumnName="PAY_CDT" />
-                <ScalarProperty Name="TO_ADDR" ColumnName="TO_ADDR" />
-                <ScalarProperty Name="TO_ADDR2" ColumnName="TO_ADDR2" />
-                <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
-                <ScalarProperty Name="EXCH_RATE" ColumnName="EXCH_RATE" />
-                <ScalarProperty Name="WAHO_NO" ColumnName="WAHO_NO" />
-                <ScalarProperty Name="LC_NO" ColumnName="LC_NO" />
-                <ScalarProperty Name="SHIP_TY" ColumnName="SHIP_TY" />
-                <ScalarProperty Name="STR_PORT" ColumnName="STR_PORT" />
-                <ScalarProperty Name="DES_PORT" ColumnName="DES_PORT" />
-                <ScalarProperty Name="AGT_CORP" ColumnName="AGT_CORP" />
-                <ScalarProperty Name="CLR_CORP" ColumnName="CLR_CORP" />
-                <ScalarProperty Name="INSP_CORP" ColumnName="INSP_CORP" />
-                <ScalarProperty Name="SHIP_CORP" ColumnName="SHIP_CORP" />
-                <ScalarProperty Name="MARK_NO" ColumnName="MARK_NO" />
-                <ScalarProperty Name="FL_MARK" ColumnName="FL_MARK" />
-                <ScalarProperty Name="SL_MARK" ColumnName="SL_MARK" />
-                <ScalarProperty Name="CONSIGNEE" ColumnName="CONSIGNEE" />
-                <ScalarProperty Name="NOTIFY" ColumnName="NOTIFY" />
-                <ScalarProperty Name="DES_PLACE" ColumnName="DES_PLACE" />
-                <ScalarProperty Name="BANK_NO" ColumnName="BANK_NO" />
-                <ScalarProperty Name="PACK_REMK" ColumnName="PACK_REMK" />
-                <ScalarProperty Name="IVC_REMK" ColumnName="IVC_REMK" />
-                <ScalarProperty Name="REMK" ColumnName="REMK" />
-                <ScalarProperty Name="COMS_RATE" ColumnName="COMS_RATE" />
-                <ScalarProperty Name="COMS_AMT" ColumnName="COMS_AMT" />
-                <ScalarProperty Name="DPAY_RT" ColumnName="DPAY_RT" />
-                <ScalarProperty Name="DPAY_AMT" ColumnName="DPAY_AMT" />
-                <ScalarProperty Name="ATTR_NO1" ColumnName="ATTR_NO1" />
-                <ScalarProperty Name="ATTR_NO2" ColumnName="ATTR_NO2" />
-                <ScalarProperty Name="ATTR_NO3" ColumnName="ATTR_NO3" />
-                <ScalarProperty Name="TAX" ColumnName="TAX" />
-                <ScalarProperty Name="N_PRT" ColumnName="N_PRT" />
-                <ScalarProperty Name="C_SIGN" ColumnName="C_SIGN" />
-                <ScalarProperty Name="C_CFM" ColumnName="C_CFM" />
-                <ScalarProperty Name="CFM_DT" ColumnName="CFM_DT" />
-                <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
-                <ScalarProperty Name="CS_ITEM_NO" ColumnName="CS_ITEM_NO" />
-                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
-                <ScalarProperty Name="QTY" ColumnName="QTY" />
-                <ScalarProperty Name="A_QTY" ColumnName="A_QTY" />
-                <ScalarProperty Name="RCV_QTY" ColumnName="RCV_QTY" />
-                <ScalarProperty Name="RTN_QTY" ColumnName="RTN_QTY" />
-                <ScalarProperty Name="FREE_QTY" ColumnName="FREE_QTY" />
-                <ScalarProperty Name="FREC_QTY" ColumnName="FREC_QTY" />
-                <ScalarProperty Name="PRC" ColumnName="PRC" />
-                <ScalarProperty Name="AMT" ColumnName="AMT" />
-                <ScalarProperty Name="PL" ColumnName="PL" />
-                <ScalarProperty Name="PRCV_DT" ColumnName="PRCV_DT" />
-                <ScalarProperty Name="CO_WAHO_NO" ColumnName="CO_WAHO_NO" />
-                <ScalarProperty Name="SVCH_TY" ColumnName="SVCH_TY" />
-                <ScalarProperty Name="SVCH_NO" ColumnName="SVCH_NO" />
-                <ScalarProperty Name="SVCH_SR" ColumnName="SVCH_SR" />
-                <ScalarProperty Name="PRJ_NO" ColumnName="PRJ_NO" />
-                <ScalarProperty Name="C_OUT" ColumnName="C_OUT" />
-                <ScalarProperty Name="OUT_RT" ColumnName="OUT_RT" />
-                <ScalarProperty Name="C_CLS" ColumnName="C_CLS" />
-                <ScalarProperty Name="EXC_INSDBID" ColumnName="EXC_INSDBID" />
-                <ScalarProperty Name="EXC_INSDATE" ColumnName="EXC_INSDATE" />
-                <ScalarProperty Name="EXC_UPDDBID" ColumnName="EXC_UPDDBID" />
-                <ScalarProperty Name="EXC_UPDDATE" ColumnName="EXC_UPDDATE" />
-                <ScalarProperty Name="EXC_SYSOWNR" ColumnName="EXC_SYSOWNR" />
-                <ScalarProperty Name="EXC_ISLOCKED" ColumnName="EXC_ISLOCKED" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="CS_SYSEXCEPTION">
-            <EntityTypeMapping TypeName="CCSModel.CS_SYSEXCEPTION">
+            <EntityTypeMapping TypeName="CCSModel1.CS_SYSEXCEPTION">
               <MappingFragment StoreEntitySet="CS_SYSEXCEPTION">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="HelpLink" ColumnName="HelpLink" />
@@ -1299,7 +1307,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CS_SYSLOG">
-            <EntityTypeMapping TypeName="CCSModel.CS_SYSLOG">
+            <EntityTypeMapping TypeName="CCSModel1.CS_SYSLOG">
               <MappingFragment StoreEntitySet="CS_SYSLOG">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Operator" ColumnName="Operator" />
@@ -1312,7 +1320,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CS_SYSMODULE">
-            <EntityTypeMapping TypeName="CCSModel.CS_SYSMODULE">
+            <EntityTypeMapping TypeName="CCSModel1.CS_SYSMODULE">
               <MappingFragment StoreEntitySet="CS_SYSMODULE">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1331,7 +1339,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CS_SYSMODULEOPERATE">
-            <EntityTypeMapping TypeName="CCSModel.CS_SYSMODULEOPERATE">
+            <EntityTypeMapping TypeName="CCSModel1.CS_SYSMODULEOPERATE">
               <MappingFragment StoreEntitySet="CS_SYSMODULEOPERATE">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1343,7 +1351,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CS_SYSRIGHT">
-            <EntityTypeMapping TypeName="CCSModel.CS_SYSRIGHT">
+            <EntityTypeMapping TypeName="CCSModel1.CS_SYSRIGHT">
               <MappingFragment StoreEntitySet="CS_SYSRIGHT">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
@@ -1353,7 +1361,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CS_SYSRIGHTOPERATE">
-            <EntityTypeMapping TypeName="CCSModel.CS_SYSRIGHTOPERATE">
+            <EntityTypeMapping TypeName="CCSModel1.CS_SYSRIGHTOPERATE">
               <MappingFragment StoreEntitySet="CS_SYSRIGHTOPERATE">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="RightId" ColumnName="RightId" />
@@ -1363,7 +1371,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CS_SYSROLE">
-            <EntityTypeMapping TypeName="CCSModel.CS_SYSROLE">
+            <EntityTypeMapping TypeName="CCSModel1.CS_SYSROLE">
               <MappingFragment StoreEntitySet="CS_SYSROLE">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1374,7 +1382,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CS_SYSUSER">
-            <EntityTypeMapping TypeName="CCSModel.CS_SYSUSER">
+            <EntityTypeMapping TypeName="CCSModel1.CS_SYSUSER">
               <MappingFragment StoreEntitySet="CS_SYSUSER">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
@@ -1412,7 +1420,283 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="CS_SYSROLESYSUSER" TypeName="CCSModel.CS_SYSROLESYSUSER" StoreEntitySet="CS_SYSROLESYSUSER">
+          <EntitySetMapping Name="customer">
+            <EntityTypeMapping TypeName="CCSModel1.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="CS_NO" ColumnName="CS_NO" />
+                <ScalarProperty Name="SHORT_NM" ColumnName="SHORT_NM" />
+                <ScalarProperty Name="CLAS_NO" ColumnName="CLAS_NO" />
+                <ScalarProperty Name="FULL_NM" ColumnName="FULL_NM" />
+                <ScalarProperty Name="FULL_NM2" ColumnName="FULL_NM2" />
+                <ScalarProperty Name="ADDR_IVC" ColumnName="ADDR_IVC" />
+                <ScalarProperty Name="ADDR_IVC2" ColumnName="ADDR_IVC2" />
+                <ScalarProperty Name="ADDR_OFC" ColumnName="ADDR_OFC" />
+                <ScalarProperty Name="ADDR_OFC2" ColumnName="ADDR_OFC2" />
+                <ScalarProperty Name="TO_ADDR" ColumnName="TO_ADDR" />
+                <ScalarProperty Name="TO_ADDR2" ColumnName="TO_ADDR2" />
+                <ScalarProperty Name="ADDR_DOC" ColumnName="ADDR_DOC" />
+                <ScalarProperty Name="ADDR_DOC2" ColumnName="ADDR_DOC2" />
+                <ScalarProperty Name="ZNO_IVC" ColumnName="ZNO_IVC" />
+                <ScalarProperty Name="ZNO_OFC" ColumnName="ZNO_OFC" />
+                <ScalarProperty Name="ZNO_TO" ColumnName="ZNO_TO" />
+                <ScalarProperty Name="ZNO_DOC" ColumnName="ZNO_DOC" />
+                <ScalarProperty Name="PROPRIETOR" ColumnName="PROPRIETOR" />
+                <ScalarProperty Name="CONTACTER" ColumnName="CONTACTER" />
+                <ScalarProperty Name="CONTACTER2" ColumnName="CONTACTER2" />
+                <ScalarProperty Name="CONTACTER3" ColumnName="CONTACTER3" />
+                <ScalarProperty Name="TEL_NO" ColumnName="TEL_NO" />
+                <ScalarProperty Name="TEL_NO2" ColumnName="TEL_NO2" />
+                <ScalarProperty Name="TEL_NO3" ColumnName="TEL_NO3" />
+                <ScalarProperty Name="FAX_NO" ColumnName="FAX_NO" />
+                <ScalarProperty Name="E_MAIL" ColumnName="E_MAIL" />
+                <ScalarProperty Name="WWW" ColumnName="WWW" />
+                <ScalarProperty Name="UNIQUE_NO" ColumnName="UNIQUE_NO" />
+                <ScalarProperty Name="TAX_NO" ColumnName="TAX_NO" />
+                <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
+                <ScalarProperty Name="DEPM_NO" ColumnName="DEPM_NO" />
+                <ScalarProperty Name="SCHL_NO" ColumnName="SCHL_NO" />
+                <ScalarProperty Name="CS_TY_NO" ColumnName="CS_TY_NO" />
+                <ScalarProperty Name="SLN_NO" ColumnName="SLN_NO" />
+                <ScalarProperty Name="NATION_NO" ColumnName="NATION_NO" />
+                <ScalarProperty Name="AREA_NO" ColumnName="AREA_NO" />
+                <ScalarProperty Name="PRC_NO" ColumnName="PRC_NO" />
+                <ScalarProperty Name="PRC_NO1" ColumnName="PRC_NO1" />
+                <ScalarProperty Name="PRC_NO2" ColumnName="PRC_NO2" />
+                <ScalarProperty Name="PRC_NO3" ColumnName="PRC_NO3" />
+                <ScalarProperty Name="OPEN_DT" ColumnName="OPEN_DT" />
+                <ScalarProperty Name="FST_DT" ColumnName="FST_DT" />
+                <ScalarProperty Name="LST_DT" ColumnName="LST_DT" />
+                <ScalarProperty Name="CAPITAL" ColumnName="CAPITAL" />
+                <ScalarProperty Name="EMP_TOT" ColumnName="EMP_TOT" />
+                <ScalarProperty Name="C_SAL" ColumnName="C_SAL" />
+                <ScalarProperty Name="C_CRD" ColumnName="C_CRD" />
+                <ScalarProperty Name="AR_CS_NO" ColumnName="AR_CS_NO" />
+                <ScalarProperty Name="AR_ACT_NO" ColumnName="AR_ACT_NO" />
+                <ScalarProperty Name="AR_BCH_NO" ColumnName="AR_BCH_NO" />
+                <ScalarProperty Name="NR_ACT_NO" ColumnName="NR_ACT_NO" />
+                <ScalarProperty Name="NR_BCH_NO" ColumnName="NR_BCH_NO" />
+                <ScalarProperty Name="PR_ACT_NO" ColumnName="PR_ACT_NO" />
+                <ScalarProperty Name="PR_BCH_NO" ColumnName="PR_BCH_NO" />
+                <ScalarProperty Name="EAR_ACT_NO" ColumnName="EAR_ACT_NO" />
+                <ScalarProperty Name="EAR_BCH_NO" ColumnName="EAR_BCH_NO" />
+                <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+                <ScalarProperty Name="TAX_TY" ColumnName="TAX_TY" />
+                <ScalarProperty Name="TAX_RT" ColumnName="TAX_RT" />
+                <ScalarProperty Name="IVC_PAGE" ColumnName="IVC_PAGE" />
+                <ScalarProperty Name="PRC_CDT" ColumnName="PRC_CDT" />
+                <ScalarProperty Name="PAY_CDT" ColumnName="PAY_CDT" />
+                <ScalarProperty Name="C_CTL" ColumnName="C_CTL" />
+                <ScalarProperty Name="MAX_CRD" ColumnName="MAX_CRD" />
+                <ScalarProperty Name="OVER_RT" ColumnName="OVER_RT" />
+                <ScalarProperty Name="AR_DAY" ColumnName="AR_DAY" />
+                <ScalarProperty Name="NR_DAY" ColumnName="NR_DAY" />
+                <ScalarProperty Name="CASH_DAY" ColumnName="CASH_DAY" />
+                <ScalarProperty Name="BRAND" ColumnName="BRAND" />
+                <ScalarProperty Name="DESTINATION" ColumnName="DESTINATION" />
+                <ScalarProperty Name="SEA_PORT" ColumnName="SEA_PORT" />
+                <ScalarProperty Name="SEA_CORP" ColumnName="SEA_CORP" />
+                <ScalarProperty Name="AIR_PORT" ColumnName="AIR_PORT" />
+                <ScalarProperty Name="AIR_CORP" ColumnName="AIR_CORP" />
+                <ScalarProperty Name="SHIP_CORP" ColumnName="SHIP_CORP" />
+                <ScalarProperty Name="AGT_CORP" ColumnName="AGT_CORP" />
+                <ScalarProperty Name="CLR_CORP" ColumnName="CLR_CORP" />
+                <ScalarProperty Name="INSP_CORP" ColumnName="INSP_CORP" />
+                <ScalarProperty Name="COMS_RATE" ColumnName="COMS_RATE" />
+                <ScalarProperty Name="INSU_RATE" ColumnName="INSU_RATE" />
+                <ScalarProperty Name="PRICING_SEQ" ColumnName="PRICING_SEQ" />
+                <ScalarProperty Name="C_PRICING" ColumnName="C_PRICING" />
+                <ScalarProperty Name="DISC_RT" ColumnName="DISC_RT" />
+                <ScalarProperty Name="C_VCH" ColumnName="C_VCH" />
+                <ScalarProperty Name="ACC_TY" ColumnName="ACC_TY" />
+                <ScalarProperty Name="RCV_TY" ColumnName="RCV_TY" />
+                <ScalarProperty Name="NOT_TY" ColumnName="NOT_TY" />
+                <ScalarProperty Name="SHIP_TY" ColumnName="SHIP_TY" />
+                <ScalarProperty Name="BANK" ColumnName="BANK" />
+                <ScalarProperty Name="BANK2" ColumnName="BANK2" />
+                <ScalarProperty Name="BANK3" ColumnName="BANK3" />
+                <ScalarProperty Name="ACC_NO" ColumnName="ACC_NO" />
+                <ScalarProperty Name="ACC_NO2" ColumnName="ACC_NO2" />
+                <ScalarProperty Name="ACC_NO3" ColumnName="ACC_NO3" />
+                <ScalarProperty Name="C_APF" ColumnName="C_APF" />
+                <ScalarProperty Name="REMK" ColumnName="REMK" />
+                <ScalarProperty Name="EFF_DT" ColumnName="EFF_DT" />
+                <ScalarProperty Name="EXP_DT" ColumnName="EXP_DT" />
+                <ScalarProperty Name="OWNER_USR_NO" ColumnName="OWNER_USR_NO" />
+                <ScalarProperty Name="OWNER_GRP_NO" ColumnName="OWNER_GRP_NO" />
+                <ScalarProperty Name="ADD_DT" ColumnName="ADD_DT" />
+                <ScalarProperty Name="IP_NM" ColumnName="IP_NM" />
+                <ScalarProperty Name="CP_NM" ColumnName="CP_NM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employee">
+            <EntityTypeMapping TypeName="CCSModel1.employee">
+              <MappingFragment StoreEntitySet="employee">
+                <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
+                <ScalarProperty Name="EMP_NM" ColumnName="EMP_NM" />
+                <ScalarProperty Name="ENG_NM" ColumnName="ENG_NM" />
+                <ScalarProperty Name="C_STA" ColumnName="C_STA" />
+                <ScalarProperty Name="SEX" ColumnName="SEX" />
+                <ScalarProperty Name="BRD_DT" ColumnName="BRD_DT" />
+                <ScalarProperty Name="EDU_NO" ColumnName="EDU_NO" />
+                <ScalarProperty Name="SCH_NO" ColumnName="SCH_NO" />
+                <ScalarProperty Name="MJR_NO" ColumnName="MJR_NO" />
+                <ScalarProperty Name="RGS" ColumnName="RGS" />
+                <ScalarProperty Name="ID_NO" ColumnName="ID_NO" />
+                <ScalarProperty Name="MRD" ColumnName="MRD" />
+                <ScalarProperty Name="BLOOD" ColumnName="BLOOD" />
+                <ScalarProperty Name="ADDR_RGS" ColumnName="ADDR_RGS" />
+                <ScalarProperty Name="ZNO_RGS" ColumnName="ZNO_RGS" />
+                <ScalarProperty Name="ADDR_MAL" ColumnName="ADDR_MAL" />
+                <ScalarProperty Name="ZNO_MAL" ColumnName="ZNO_MAL" />
+                <ScalarProperty Name="CONTACTER" ColumnName="CONTACTER" />
+                <ScalarProperty Name="TEL_NO" ColumnName="TEL_NO" />
+                <ScalarProperty Name="TEL_NO2" ColumnName="TEL_NO2" />
+                <ScalarProperty Name="TEL_NO3" ColumnName="TEL_NO3" />
+                <ScalarProperty Name="E_MAIL" ColumnName="E_MAIL" />
+                <ScalarProperty Name="FA_NO" ColumnName="FA_NO" />
+                <ScalarProperty Name="DEPM_NO" ColumnName="DEPM_NO" />
+                <ScalarProperty Name="JOB_NO" ColumnName="JOB_NO" />
+                <ScalarProperty Name="JOB_RK" ColumnName="JOB_RK" />
+                <ScalarProperty Name="ACT_NO" ColumnName="ACT_NO" />
+                <ScalarProperty Name="ARV_DT" ColumnName="ARV_DT" />
+                <ScalarProperty Name="LEV_DT" ColumnName="LEV_DT" />
+                <ScalarProperty Name="SPS_DT" ColumnName="SPS_DT" />
+                <ScalarProperty Name="RSU_DT" ColumnName="RSU_DT" />
+                <ScalarProperty Name="CHK_DT" ColumnName="CHK_DT" />
+                <ScalarProperty Name="ETR_DT" ColumnName="ETR_DT" />
+                <ScalarProperty Name="RTN_DT" ColumnName="RTN_DT" />
+                <ScalarProperty Name="DUE_DT" ColumnName="DUE_DT" />
+                <ScalarProperty Name="WYR_DT" ColumnName="WYR_DT" />
+                <ScalarProperty Name="DOC_NO" ColumnName="DOC_NO" />
+                <ScalarProperty Name="REMK" ColumnName="REMK" />
+                <ScalarProperty Name="BANK_NO" ColumnName="BANK_NO" />
+                <ScalarProperty Name="ACC_NO" ColumnName="ACC_NO" />
+                <ScalarProperty Name="BANK2_NO" ColumnName="BANK2_NO" />
+                <ScalarProperty Name="ACC2_NO" ColumnName="ACC2_NO" />
+                <ScalarProperty Name="BANK3_NO" ColumnName="BANK3_NO" />
+                <ScalarProperty Name="ACC3_NO" ColumnName="ACC3_NO" />
+                <ScalarProperty Name="C_TAX" ColumnName="C_TAX" />
+                <ScalarProperty Name="FIX_TAX" ColumnName="FIX_TAX" />
+                <ScalarProperty Name="FIX_RT" ColumnName="FIX_RT" />
+                <ScalarProperty Name="C_OVT" ColumnName="C_OVT" />
+                <ScalarProperty Name="OVT_RT" ColumnName="OVT_RT" />
+                <ScalarProperty Name="SFT_NO" ColumnName="SFT_NO" />
+                <ScalarProperty Name="C_TKT" ColumnName="C_TKT" />
+                <ScalarProperty Name="TKT_NO" ColumnName="TKT_NO" />
+                <ScalarProperty Name="IID_NO" ColumnName="IID_NO" />
+                <ScalarProperty Name="SSD_NO" ColumnName="SSD_NO" />
+                <ScalarProperty Name="BRG_MS" ColumnName="BRG_MS" />
+                <ScalarProperty Name="BAS_SLY" ColumnName="BAS_SLY" />
+                <ScalarProperty Name="ALP_RWD" ColumnName="ALP_RWD" />
+                <ScalarProperty Name="C_SAL_TY" ColumnName="C_SAL_TY" />
+                <ScalarProperty Name="C_SAL_TM" ColumnName="C_SAL_TM" />
+                <ScalarProperty Name="C_LPS_TY" ColumnName="C_LPS_TY" />
+                <ScalarProperty Name="CP_LPS_EXP" ColumnName="CP_LPS_EXP" />
+                <ScalarProperty Name="LPS_EXP" ColumnName="LPS_EXP" />
+                <ScalarProperty Name="RELA" ColumnName="RELA" />
+                <ScalarProperty Name="IMG_GRP" ColumnName="IMG_GRP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENDOR">
+            <EntityTypeMapping TypeName="CCSModel1.VENDOR">
+              <MappingFragment StoreEntitySet="VENDOR">
+                <ScalarProperty Name="VD_NO" ColumnName="VD_NO" />
+                <ScalarProperty Name="SHORT_NM" ColumnName="SHORT_NM" />
+                <ScalarProperty Name="CLAS_NO" ColumnName="CLAS_NO" />
+                <ScalarProperty Name="UNIQUE_NO" ColumnName="UNIQUE_NO" />
+                <ScalarProperty Name="TAX_NO" ColumnName="TAX_NO" />
+                <ScalarProperty Name="OPEN_DT" ColumnName="OPEN_DT" />
+                <ScalarProperty Name="FST_DT" ColumnName="FST_DT" />
+                <ScalarProperty Name="LST_DT" ColumnName="LST_DT" />
+                <ScalarProperty Name="CAPITAL" ColumnName="CAPITAL" />
+                <ScalarProperty Name="EMP_TOT" ColumnName="EMP_TOT" />
+                <ScalarProperty Name="C_ABC" ColumnName="C_ABC" />
+                <ScalarProperty Name="C_DUE" ColumnName="C_DUE" />
+                <ScalarProperty Name="C_QLY" ColumnName="C_QLY" />
+                <ScalarProperty Name="FULL_NM" ColumnName="FULL_NM" />
+                <ScalarProperty Name="FULL_NM2" ColumnName="FULL_NM2" />
+                <ScalarProperty Name="ADDR_OFC" ColumnName="ADDR_OFC" />
+                <ScalarProperty Name="ADDR_OFC2" ColumnName="ADDR_OFC2" />
+                <ScalarProperty Name="ADDR_IVC" ColumnName="ADDR_IVC" />
+                <ScalarProperty Name="ADDR_IVC2" ColumnName="ADDR_IVC2" />
+                <ScalarProperty Name="ZNO_OFC" ColumnName="ZNO_OFC" />
+                <ScalarProperty Name="ZNO_IVC" ColumnName="ZNO_IVC" />
+                <ScalarProperty Name="PROPRIETOR" ColumnName="PROPRIETOR" />
+                <ScalarProperty Name="CONTACTER" ColumnName="CONTACTER" />
+                <ScalarProperty Name="CONTACTER2" ColumnName="CONTACTER2" />
+                <ScalarProperty Name="CONTACTER3" ColumnName="CONTACTER3" />
+                <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+                <ScalarProperty Name="PRC_CDT" ColumnName="PRC_CDT" />
+                <ScalarProperty Name="PAY_CDT" ColumnName="PAY_CDT" />
+                <ScalarProperty Name="TEL_NO" ColumnName="TEL_NO" />
+                <ScalarProperty Name="TEL_NO2" ColumnName="TEL_NO2" />
+                <ScalarProperty Name="TEL_NO3" ColumnName="TEL_NO3" />
+                <ScalarProperty Name="FAX_NO" ColumnName="FAX_NO" />
+                <ScalarProperty Name="E_MAIL" ColumnName="E_MAIL" />
+                <ScalarProperty Name="WWW" ColumnName="WWW" />
+                <ScalarProperty Name="AP_ACT_NO" ColumnName="AP_ACT_NO" />
+                <ScalarProperty Name="AP_BCH_NO" ColumnName="AP_BCH_NO" />
+                <ScalarProperty Name="SP_ACT_NO" ColumnName="SP_ACT_NO" />
+                <ScalarProperty Name="SP_BCH_NO" ColumnName="SP_BCH_NO" />
+                <ScalarProperty Name="NP_ACT_NO" ColumnName="NP_ACT_NO" />
+                <ScalarProperty Name="NP_BCH_NO" ColumnName="NP_BCH_NO" />
+                <ScalarProperty Name="PP_ACT_NO" ColumnName="PP_ACT_NO" />
+                <ScalarProperty Name="PP_BCH_NO" ColumnName="PP_BCH_NO" />
+                <ScalarProperty Name="EAP_ACT_NO" ColumnName="EAP_ACT_NO" />
+                <ScalarProperty Name="EAP_BCH_NO" ColumnName="EAP_BCH_NO" />
+                <ScalarProperty Name="AP_MM" ColumnName="AP_MM" />
+                <ScalarProperty Name="AP_DD" ColumnName="AP_DD" />
+                <ScalarProperty Name="NP_MM" ColumnName="NP_MM" />
+                <ScalarProperty Name="NP_DD" ColumnName="NP_DD" />
+                <ScalarProperty Name="CASH_MM" ColumnName="CASH_MM" />
+                <ScalarProperty Name="CASH_DD" ColumnName="CASH_DD" />
+                <ScalarProperty Name="ACC_TY" ColumnName="ACC_TY" />
+                <ScalarProperty Name="PAY_TY" ColumnName="PAY_TY" />
+                <ScalarProperty Name="IVC_PAGE" ColumnName="IVC_PAGE" />
+                <ScalarProperty Name="TAX_TY" ColumnName="TAX_TY" />
+                <ScalarProperty Name="TAX_RT" ColumnName="TAX_RT" />
+                <ScalarProperty Name="AREA_NO" ColumnName="AREA_NO" />
+                <ScalarProperty Name="NATION_NO" ColumnName="NATION_NO" />
+                <ScalarProperty Name="BANK" ColumnName="BANK" />
+                <ScalarProperty Name="ACC_NO" ColumnName="ACC_NO" />
+                <ScalarProperty Name="NOT_TY" ColumnName="NOT_TY" />
+                <ScalarProperty Name="C_APF" ColumnName="C_APF" />
+                <ScalarProperty Name="REMK" ColumnName="REMK" />
+                <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
+                <ScalarProperty Name="EFF_DT" ColumnName="EFF_DT" />
+                <ScalarProperty Name="EXP_DT" ColumnName="EXP_DT" />
+                <ScalarProperty Name="BANK_NO" ColumnName="BANK_NO" />
+                <ScalarProperty Name="DAP_RT" ColumnName="DAP_RT" />
+                <ScalarProperty Name="PP_RT" ColumnName="PP_RT" />
+                <ScalarProperty Name="ID_NO" ColumnName="ID_NO" />
+                <ScalarProperty Name="ACC_NM" ColumnName="ACC_NM" />
+                <ScalarProperty Name="OVD_NO" ColumnName="OVD_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WAHO">
+            <EntityTypeMapping TypeName="CCSModel1.WAHO">
+              <MappingFragment StoreEntitySet="WAHO">
+                <ScalarProperty Name="WAHO_NO" ColumnName="WAHO_NO" />
+                <ScalarProperty Name="WAHO_NM" ColumnName="WAHO_NM" />
+                <ScalarProperty Name="FA_NO" ColumnName="FA_NO" />
+                <ScalarProperty Name="TEL_NO" ColumnName="TEL_NO" />
+                <ScalarProperty Name="FAX_NO" ColumnName="FAX_NO" />
+                <ScalarProperty Name="ADDR" ColumnName="ADDR" />
+                <ScalarProperty Name="ADDR2" ColumnName="ADDR2" />
+                <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
+                <ScalarProperty Name="C_INV" ColumnName="C_INV" />
+                <ScalarProperty Name="C_SC" ColumnName="C_SC" />
+                <ScalarProperty Name="C_MRP" ColumnName="C_MRP" />
+                <ScalarProperty Name="C_CTL" ColumnName="C_CTL" />
+                <ScalarProperty Name="C_LOCA" ColumnName="C_LOCA" />
+                <ScalarProperty Name="REMK" ColumnName="REMK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="CS_SYSROLESYSUSER" TypeName="CCSModel1.CS_SYSROLESYSUSER" StoreEntitySet="CS_SYSROLESYSUSER">
             <EndProperty Name="CS_SYSROLE">
               <ScalarProperty Name="Id" ColumnName="SysRoleId" />
             </EndProperty>
@@ -1420,202 +1704,136 @@
               <ScalarProperty Name="Id" ColumnName="SysUserId" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="customer">
-            <EntityTypeMapping TypeName="CCSModel.customer">
-              <MappingFragment StoreEntitySet="customer">
-                <ScalarProperty Name="CP_NM" ColumnName="CP_NM" />
-                <ScalarProperty Name="IP_NM" ColumnName="IP_NM" />
-                <ScalarProperty Name="ADD_DT" ColumnName="ADD_DT" />
-                <ScalarProperty Name="OWNER_GRP_NO" ColumnName="OWNER_GRP_NO" />
-                <ScalarProperty Name="OWNER_USR_NO" ColumnName="OWNER_USR_NO" />
-                <ScalarProperty Name="EXP_DT" ColumnName="EXP_DT" />
-                <ScalarProperty Name="EFF_DT" ColumnName="EFF_DT" />
-                <ScalarProperty Name="REMK" ColumnName="REMK" />
-                <ScalarProperty Name="C_APF" ColumnName="C_APF" />
-                <ScalarProperty Name="ACC_NO3" ColumnName="ACC_NO3" />
-                <ScalarProperty Name="ACC_NO2" ColumnName="ACC_NO2" />
-                <ScalarProperty Name="ACC_NO" ColumnName="ACC_NO" />
-                <ScalarProperty Name="BANK3" ColumnName="BANK3" />
-                <ScalarProperty Name="BANK2" ColumnName="BANK2" />
-                <ScalarProperty Name="BANK" ColumnName="BANK" />
-                <ScalarProperty Name="SHIP_TY" ColumnName="SHIP_TY" />
-                <ScalarProperty Name="NOT_TY" ColumnName="NOT_TY" />
-                <ScalarProperty Name="RCV_TY" ColumnName="RCV_TY" />
-                <ScalarProperty Name="ACC_TY" ColumnName="ACC_TY" />
-                <ScalarProperty Name="C_VCH" ColumnName="C_VCH" />
-                <ScalarProperty Name="DISC_RT" ColumnName="DISC_RT" />
-                <ScalarProperty Name="C_PRICING" ColumnName="C_PRICING" />
-                <ScalarProperty Name="PRICING_SEQ" ColumnName="PRICING_SEQ" />
-                <ScalarProperty Name="INSU_RATE" ColumnName="INSU_RATE" />
-                <ScalarProperty Name="COMS_RATE" ColumnName="COMS_RATE" />
-                <ScalarProperty Name="INSP_CORP" ColumnName="INSP_CORP" />
-                <ScalarProperty Name="CLR_CORP" ColumnName="CLR_CORP" />
-                <ScalarProperty Name="AGT_CORP" ColumnName="AGT_CORP" />
-                <ScalarProperty Name="SHIP_CORP" ColumnName="SHIP_CORP" />
-                <ScalarProperty Name="AIR_CORP" ColumnName="AIR_CORP" />
-                <ScalarProperty Name="AIR_PORT" ColumnName="AIR_PORT" />
-                <ScalarProperty Name="SEA_CORP" ColumnName="SEA_CORP" />
-                <ScalarProperty Name="SEA_PORT" ColumnName="SEA_PORT" />
-                <ScalarProperty Name="DESTINATION" ColumnName="DESTINATION" />
-                <ScalarProperty Name="BRAND" ColumnName="BRAND" />
-                <ScalarProperty Name="CASH_DAY" ColumnName="CASH_DAY" />
-                <ScalarProperty Name="NR_DAY" ColumnName="NR_DAY" />
-                <ScalarProperty Name="AR_DAY" ColumnName="AR_DAY" />
-                <ScalarProperty Name="OVER_RT" ColumnName="OVER_RT" />
-                <ScalarProperty Name="MAX_CRD" ColumnName="MAX_CRD" />
-                <ScalarProperty Name="C_CTL" ColumnName="C_CTL" />
-                <ScalarProperty Name="PAY_CDT" ColumnName="PAY_CDT" />
-                <ScalarProperty Name="PRC_CDT" ColumnName="PRC_CDT" />
-                <ScalarProperty Name="IVC_PAGE" ColumnName="IVC_PAGE" />
-                <ScalarProperty Name="TAX_RT" ColumnName="TAX_RT" />
-                <ScalarProperty Name="TAX_TY" ColumnName="TAX_TY" />
-                <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
-                <ScalarProperty Name="EAR_BCH_NO" ColumnName="EAR_BCH_NO" />
-                <ScalarProperty Name="EAR_ACT_NO" ColumnName="EAR_ACT_NO" />
-                <ScalarProperty Name="PR_BCH_NO" ColumnName="PR_BCH_NO" />
-                <ScalarProperty Name="PR_ACT_NO" ColumnName="PR_ACT_NO" />
-                <ScalarProperty Name="NR_BCH_NO" ColumnName="NR_BCH_NO" />
-                <ScalarProperty Name="NR_ACT_NO" ColumnName="NR_ACT_NO" />
-                <ScalarProperty Name="AR_BCH_NO" ColumnName="AR_BCH_NO" />
-                <ScalarProperty Name="AR_ACT_NO" ColumnName="AR_ACT_NO" />
-                <ScalarProperty Name="AR_CS_NO" ColumnName="AR_CS_NO" />
-                <ScalarProperty Name="C_CRD" ColumnName="C_CRD" />
-                <ScalarProperty Name="C_SAL" ColumnName="C_SAL" />
-                <ScalarProperty Name="EMP_TOT" ColumnName="EMP_TOT" />
-                <ScalarProperty Name="CAPITAL" ColumnName="CAPITAL" />
-                <ScalarProperty Name="LST_DT" ColumnName="LST_DT" />
-                <ScalarProperty Name="FST_DT" ColumnName="FST_DT" />
-                <ScalarProperty Name="OPEN_DT" ColumnName="OPEN_DT" />
-                <ScalarProperty Name="PRC_NO3" ColumnName="PRC_NO3" />
-                <ScalarProperty Name="PRC_NO2" ColumnName="PRC_NO2" />
-                <ScalarProperty Name="PRC_NO1" ColumnName="PRC_NO1" />
-                <ScalarProperty Name="PRC_NO" ColumnName="PRC_NO" />
-                <ScalarProperty Name="AREA_NO" ColumnName="AREA_NO" />
-                <ScalarProperty Name="NATION_NO" ColumnName="NATION_NO" />
-                <ScalarProperty Name="SLN_NO" ColumnName="SLN_NO" />
-                <ScalarProperty Name="CS_TY_NO" ColumnName="CS_TY_NO" />
-                <ScalarProperty Name="SCHL_NO" ColumnName="SCHL_NO" />
-                <ScalarProperty Name="DEPM_NO" ColumnName="DEPM_NO" />
-                <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
-                <ScalarProperty Name="TAX_NO" ColumnName="TAX_NO" />
-                <ScalarProperty Name="UNIQUE_NO" ColumnName="UNIQUE_NO" />
-                <ScalarProperty Name="WWW" ColumnName="WWW" />
-                <ScalarProperty Name="E_MAIL" ColumnName="E_MAIL" />
-                <ScalarProperty Name="FAX_NO" ColumnName="FAX_NO" />
-                <ScalarProperty Name="TEL_NO3" ColumnName="TEL_NO3" />
-                <ScalarProperty Name="TEL_NO2" ColumnName="TEL_NO2" />
-                <ScalarProperty Name="TEL_NO" ColumnName="TEL_NO" />
-                <ScalarProperty Name="CONTACTER3" ColumnName="CONTACTER3" />
-                <ScalarProperty Name="CONTACTER2" ColumnName="CONTACTER2" />
-                <ScalarProperty Name="CONTACTER" ColumnName="CONTACTER" />
-                <ScalarProperty Name="PROPRIETOR" ColumnName="PROPRIETOR" />
-                <ScalarProperty Name="ZNO_DOC" ColumnName="ZNO_DOC" />
-                <ScalarProperty Name="ZNO_TO" ColumnName="ZNO_TO" />
-                <ScalarProperty Name="ZNO_OFC" ColumnName="ZNO_OFC" />
-                <ScalarProperty Name="ZNO_IVC" ColumnName="ZNO_IVC" />
-                <ScalarProperty Name="ADDR_DOC2" ColumnName="ADDR_DOC2" />
-                <ScalarProperty Name="ADDR_DOC" ColumnName="ADDR_DOC" />
-                <ScalarProperty Name="TO_ADDR2" ColumnName="TO_ADDR2" />
-                <ScalarProperty Name="TO_ADDR" ColumnName="TO_ADDR" />
-                <ScalarProperty Name="ADDR_OFC2" ColumnName="ADDR_OFC2" />
-                <ScalarProperty Name="ADDR_OFC" ColumnName="ADDR_OFC" />
-                <ScalarProperty Name="ADDR_IVC2" ColumnName="ADDR_IVC2" />
-                <ScalarProperty Name="ADDR_IVC" ColumnName="ADDR_IVC" />
-                <ScalarProperty Name="FULL_NM2" ColumnName="FULL_NM2" />
-                <ScalarProperty Name="FULL_NM" ColumnName="FULL_NM" />
-                <ScalarProperty Name="CLAS_NO" ColumnName="CLAS_NO" />
-                <ScalarProperty Name="SHORT_NM" ColumnName="SHORT_NM" />
-                <ScalarProperty Name="CS_NO" ColumnName="CS_NO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VENDOR">
-            <EntityTypeMapping TypeName="CCSModel.VENDOR">
-              <MappingFragment StoreEntitySet="VENDOR">
-                <ScalarProperty Name="OVD_NO" ColumnName="OVD_NO" />
-                <ScalarProperty Name="ACC_NM" ColumnName="ACC_NM" />
-                <ScalarProperty Name="ID_NO" ColumnName="ID_NO" />
-                <ScalarProperty Name="PP_RT" ColumnName="PP_RT" />
-                <ScalarProperty Name="DAP_RT" ColumnName="DAP_RT" />
-                <ScalarProperty Name="BANK_NO" ColumnName="BANK_NO" />
-                <ScalarProperty Name="EXP_DT" ColumnName="EXP_DT" />
-                <ScalarProperty Name="EFF_DT" ColumnName="EFF_DT" />
-                <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
-                <ScalarProperty Name="REMK" ColumnName="REMK" />
-                <ScalarProperty Name="C_APF" ColumnName="C_APF" />
-                <ScalarProperty Name="NOT_TY" ColumnName="NOT_TY" />
-                <ScalarProperty Name="ACC_NO" ColumnName="ACC_NO" />
-                <ScalarProperty Name="BANK" ColumnName="BANK" />
-                <ScalarProperty Name="NATION_NO" ColumnName="NATION_NO" />
-                <ScalarProperty Name="AREA_NO" ColumnName="AREA_NO" />
-                <ScalarProperty Name="TAX_RT" ColumnName="TAX_RT" />
-                <ScalarProperty Name="TAX_TY" ColumnName="TAX_TY" />
-                <ScalarProperty Name="IVC_PAGE" ColumnName="IVC_PAGE" />
-                <ScalarProperty Name="PAY_TY" ColumnName="PAY_TY" />
-                <ScalarProperty Name="ACC_TY" ColumnName="ACC_TY" />
-                <ScalarProperty Name="CASH_DD" ColumnName="CASH_DD" />
-                <ScalarProperty Name="CASH_MM" ColumnName="CASH_MM" />
-                <ScalarProperty Name="NP_DD" ColumnName="NP_DD" />
-                <ScalarProperty Name="NP_MM" ColumnName="NP_MM" />
-                <ScalarProperty Name="AP_DD" ColumnName="AP_DD" />
-                <ScalarProperty Name="AP_MM" ColumnName="AP_MM" />
-                <ScalarProperty Name="EAP_BCH_NO" ColumnName="EAP_BCH_NO" />
-                <ScalarProperty Name="EAP_ACT_NO" ColumnName="EAP_ACT_NO" />
-                <ScalarProperty Name="PP_BCH_NO" ColumnName="PP_BCH_NO" />
-                <ScalarProperty Name="PP_ACT_NO" ColumnName="PP_ACT_NO" />
-                <ScalarProperty Name="NP_BCH_NO" ColumnName="NP_BCH_NO" />
-                <ScalarProperty Name="NP_ACT_NO" ColumnName="NP_ACT_NO" />
-                <ScalarProperty Name="SP_BCH_NO" ColumnName="SP_BCH_NO" />
-                <ScalarProperty Name="SP_ACT_NO" ColumnName="SP_ACT_NO" />
-                <ScalarProperty Name="AP_BCH_NO" ColumnName="AP_BCH_NO" />
-                <ScalarProperty Name="AP_ACT_NO" ColumnName="AP_ACT_NO" />
-                <ScalarProperty Name="WWW" ColumnName="WWW" />
-                <ScalarProperty Name="E_MAIL" ColumnName="E_MAIL" />
-                <ScalarProperty Name="FAX_NO" ColumnName="FAX_NO" />
-                <ScalarProperty Name="TEL_NO3" ColumnName="TEL_NO3" />
-                <ScalarProperty Name="TEL_NO2" ColumnName="TEL_NO2" />
-                <ScalarProperty Name="TEL_NO" ColumnName="TEL_NO" />
-                <ScalarProperty Name="PAY_CDT" ColumnName="PAY_CDT" />
-                <ScalarProperty Name="PRC_CDT" ColumnName="PRC_CDT" />
-                <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
-                <ScalarProperty Name="CONTACTER3" ColumnName="CONTACTER3" />
-                <ScalarProperty Name="CONTACTER2" ColumnName="CONTACTER2" />
-                <ScalarProperty Name="CONTACTER" ColumnName="CONTACTER" />
-                <ScalarProperty Name="PROPRIETOR" ColumnName="PROPRIETOR" />
-                <ScalarProperty Name="ZNO_IVC" ColumnName="ZNO_IVC" />
-                <ScalarProperty Name="ZNO_OFC" ColumnName="ZNO_OFC" />
-                <ScalarProperty Name="ADDR_IVC2" ColumnName="ADDR_IVC2" />
-                <ScalarProperty Name="ADDR_IVC" ColumnName="ADDR_IVC" />
-                <ScalarProperty Name="ADDR_OFC2" ColumnName="ADDR_OFC2" />
-                <ScalarProperty Name="ADDR_OFC" ColumnName="ADDR_OFC" />
-                <ScalarProperty Name="FULL_NM2" ColumnName="FULL_NM2" />
-                <ScalarProperty Name="FULL_NM" ColumnName="FULL_NM" />
-                <ScalarProperty Name="C_QLY" ColumnName="C_QLY" />
-                <ScalarProperty Name="C_DUE" ColumnName="C_DUE" />
-                <ScalarProperty Name="C_ABC" ColumnName="C_ABC" />
-                <ScalarProperty Name="EMP_TOT" ColumnName="EMP_TOT" />
-                <ScalarProperty Name="CAPITAL" ColumnName="CAPITAL" />
-                <ScalarProperty Name="LST_DT" ColumnName="LST_DT" />
-                <ScalarProperty Name="FST_DT" ColumnName="FST_DT" />
-                <ScalarProperty Name="OPEN_DT" ColumnName="OPEN_DT" />
-                <ScalarProperty Name="TAX_NO" ColumnName="TAX_NO" />
-                <ScalarProperty Name="UNIQUE_NO" ColumnName="UNIQUE_NO" />
-                <ScalarProperty Name="CLAS_NO" ColumnName="CLAS_NO" />
-                <ScalarProperty Name="SHORT_NM" ColumnName="SHORT_NM" />
-                <ScalarProperty Name="VD_NO" ColumnName="VD_NO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SP_SYS_ClearUnusedRIGHTOPERATE" FunctionName="CCSModel.Store.SP_SYS_ClearUnusedRIGHTOPERATE" />
-          <FunctionImportMapping FunctionImportName="SP_SYS_GetRightOperate" FunctionName="CCSModel.Store.SP_SYS_GetRightOperate">
+          <FunctionImportMapping FunctionImportName="SP_SYS_ClearUnusedRIGHTOPERATE" FunctionName="CCSModel1.Store.SP_SYS_ClearUnusedRIGHTOPERATE" />
+          <FunctionImportMapping FunctionImportName="SP_SYS_GetRightOperate" FunctionName="CCSModel1.Store.SP_SYS_GetRightOperate">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="CCSModel.SP_SYS_GetRightOperate_Result">
+              <ComplexTypeMapping TypeName="CCSModel1.SP_SYS_GetRightOperate_Result">
                 <ScalarProperty Name="KeyCode" ColumnName="KeyCode" />
                 <ScalarProperty Name="IsValid" ColumnName="IsValid" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_SYS_InsertSysRIGHT" FunctionName="CCSModel.Store.SP_SYS_InsertSysRIGHT" />
+          <FunctionImportMapping FunctionImportName="SP_SYS_InsertSysRIGHT" FunctionName="CCSModel1.Store.SP_SYS_InsertSysRIGHT" />
+          <FunctionImportMapping FunctionImportName="SP_Sys_UpdateSysRightRightFlag" FunctionName="CCSModel1.Store.SP_Sys_UpdateSysRightRightFlag" />
+          <FunctionImportMapping FunctionImportName="SP_Sys_GetRightByRoleAndModule" FunctionName="CCSModel1.Store.SP_Sys_GetRightByRoleAndModule">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CCSModel1.SP_Sys_GetRightByRoleAndModule_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="KeyCode" ColumnName="KeyCode" />
+                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+                <ScalarProperty Name="isvalid" ColumnName="isvalid" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="RightId" ColumnName="RightId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="CS_CODL">
+            <EntityTypeMapping TypeName="CCSModel1.CS_CODL">
+              <MappingFragment StoreEntitySet="CS_CODL">
+                <ScalarProperty Name="PDT_ITEM_NO" ColumnName="PDT_ITEM_NO" />
+                <ScalarProperty Name="PDT_WAHO_NO" ColumnName="PDT_WAHO_NO" />
+                <ScalarProperty Name="PDT_DT" ColumnName="PDT_DT" />
+                <ScalarProperty Name="MKT_CODE" ColumnName="MKT_CODE" />
+                <ScalarProperty Name="C_CFM" ColumnName="C_CFM" />
+                <ScalarProperty Name="CS_NO" ColumnName="CS_NO" />
+                <ScalarProperty Name="PQA_MM" ColumnName="PQA_MM" />
+                <ScalarProperty Name="TQA_MM" ColumnName="TQA_MM" />
+                <ScalarProperty Name="CUS_FLD6" ColumnName="CUS_FLD6" />
+                <ScalarProperty Name="CUS_FLD5" ColumnName="CUS_FLD5" />
+                <ScalarProperty Name="CUS_FLD4" ColumnName="CUS_FLD4" />
+                <ScalarProperty Name="CUS_FLD3" ColumnName="CUS_FLD3" />
+                <ScalarProperty Name="CUS_FLD2" ColumnName="CUS_FLD2" />
+                <ScalarProperty Name="CUS_FLD1" ColumnName="CUS_FLD1" />
+                <ScalarProperty Name="REMK" ColumnName="REMK" />
+                <ScalarProperty Name="C_CLS" ColumnName="C_CLS" />
+                <ScalarProperty Name="OUT_RT" ColumnName="OUT_RT" />
+                <ScalarProperty Name="C_OUT" ColumnName="C_OUT" />
+                <ScalarProperty Name="PRJ_NO" ColumnName="PRJ_NO" />
+                <ScalarProperty Name="SVCH_SR" ColumnName="SVCH_SR" />
+                <ScalarProperty Name="SVCH_NO" ColumnName="SVCH_NO" />
+                <ScalarProperty Name="SVCH_TY" ColumnName="SVCH_TY" />
+                <ScalarProperty Name="CO_WAHO_NO" ColumnName="CO_WAHO_NO" />
+                <ScalarProperty Name="PRCV_DT" ColumnName="PRCV_DT" />
+                <ScalarProperty Name="AMT" ColumnName="AMT" />
+                <ScalarProperty Name="PRC" ColumnName="PRC" />
+                <ScalarProperty Name="FREC_QTY" ColumnName="FREC_QTY" />
+                <ScalarProperty Name="FREE_QTY" ColumnName="FREE_QTY" />
+                <ScalarProperty Name="RTN_QTY" ColumnName="RTN_QTY" />
+                <ScalarProperty Name="RCV_QTY" ColumnName="RCV_QTY" />
+                <ScalarProperty Name="A_QTY" ColumnName="A_QTY" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="CS_ITEM_NO" ColumnName="CS_ITEM_NO" />
+                <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
+                <ScalarProperty Name="VCH_SR" ColumnName="VCH_SR" />
+                <ScalarProperty Name="VCH_NO" ColumnName="VCH_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CS_COMT">
+            <EntityTypeMapping TypeName="CCSModel1.CS_COMT">
+              <MappingFragment StoreEntitySet="CS_COMT">
+                <ScalarProperty Name="CP_NM" ColumnName="CP_NM" />
+                <ScalarProperty Name="IP_NM" ColumnName="IP_NM" />
+                <ScalarProperty Name="MDY_DT" ColumnName="MDY_DT" />
+                <ScalarProperty Name="MDY_USR_NO" ColumnName="MDY_USR_NO" />
+                <ScalarProperty Name="CFM_USR_NO" ColumnName="CFM_USR_NO" />
+                <ScalarProperty Name="ADD_DT" ColumnName="ADD_DT" />
+                <ScalarProperty Name="OWNER_GRP_NO" ColumnName="OWNER_GRP_NO" />
+                <ScalarProperty Name="OWNER_USR_NO" ColumnName="OWNER_USR_NO" />
+                <ScalarProperty Name="CFM_DT" ColumnName="CFM_DT" />
+                <ScalarProperty Name="C_CFM" ColumnName="C_CFM" />
+                <ScalarProperty Name="C_SIGN" ColumnName="C_SIGN" />
+                <ScalarProperty Name="N_PRT" ColumnName="N_PRT" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="TAX" ColumnName="TAX" />
+                <ScalarProperty Name="AMT" ColumnName="AMT" />
+                <ScalarProperty Name="ATTR_NO3" ColumnName="ATTR_NO3" />
+                <ScalarProperty Name="ATTR_NO2" ColumnName="ATTR_NO2" />
+                <ScalarProperty Name="ATTR_NO1" ColumnName="ATTR_NO1" />
+                <ScalarProperty Name="DPAY_AMT" ColumnName="DPAY_AMT" />
+                <ScalarProperty Name="DPAY_RT" ColumnName="DPAY_RT" />
+                <ScalarProperty Name="COMS_AMT" ColumnName="COMS_AMT" />
+                <ScalarProperty Name="COMS_RATE" ColumnName="COMS_RATE" />
+                <ScalarProperty Name="REMK" ColumnName="REMK" />
+                <ScalarProperty Name="IVC_REMK" ColumnName="IVC_REMK" />
+                <ScalarProperty Name="PACK_REMK" ColumnName="PACK_REMK" />
+                <ScalarProperty Name="BANK_NO" ColumnName="BANK_NO" />
+                <ScalarProperty Name="DES_PLACE" ColumnName="DES_PLACE" />
+                <ScalarProperty Name="NOTIFY" ColumnName="NOTIFY" />
+                <ScalarProperty Name="CONSIGNEE" ColumnName="CONSIGNEE" />
+                <ScalarProperty Name="SL_MARK" ColumnName="SL_MARK" />
+                <ScalarProperty Name="FL_MARK" ColumnName="FL_MARK" />
+                <ScalarProperty Name="MARK_NO" ColumnName="MARK_NO" />
+                <ScalarProperty Name="SHIP_CORP" ColumnName="SHIP_CORP" />
+                <ScalarProperty Name="INSP_CORP" ColumnName="INSP_CORP" />
+                <ScalarProperty Name="CLR_CORP" ColumnName="CLR_CORP" />
+                <ScalarProperty Name="AGT_CORP" ColumnName="AGT_CORP" />
+                <ScalarProperty Name="DES_PORT" ColumnName="DES_PORT" />
+                <ScalarProperty Name="STR_PORT" ColumnName="STR_PORT" />
+                <ScalarProperty Name="SHIP_TY" ColumnName="SHIP_TY" />
+                <ScalarProperty Name="LC_NO" ColumnName="LC_NO" />
+                <ScalarProperty Name="WAHO_NO" ColumnName="WAHO_NO" />
+                <ScalarProperty Name="EXCH_RATE" ColumnName="EXCH_RATE" />
+                <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+                <ScalarProperty Name="TO_ADDR2" ColumnName="TO_ADDR2" />
+                <ScalarProperty Name="TO_ADDR" ColumnName="TO_ADDR" />
+                <ScalarProperty Name="PAY_CDT" ColumnName="PAY_CDT" />
+                <ScalarProperty Name="PRC_CDT" ColumnName="PRC_CDT" />
+                <ScalarProperty Name="TAX_RT" ColumnName="TAX_RT" />
+                <ScalarProperty Name="TAX_TY" ColumnName="TAX_TY" />
+                <ScalarProperty Name="CONTACTER" ColumnName="CONTACTER" />
+                <ScalarProperty Name="CS_VCH_NO" ColumnName="CS_VCH_NO" />
+                <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
+                <ScalarProperty Name="DEPM_NO" ColumnName="DEPM_NO" />
+                <ScalarProperty Name="CS_NO" ColumnName="CS_NO" />
+                <ScalarProperty Name="FA_NO" ColumnName="FA_NO" />
+                <ScalarProperty Name="VCH_DT" ColumnName="VCH_DT" />
+                <ScalarProperty Name="VCH_NO" ColumnName="VCH_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

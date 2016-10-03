@@ -1,4 +1,5 @@
-﻿using CCS.Models.SYS;
+﻿using CCS.Models;
+using CCS.Models.SYS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,12 @@ namespace CCS.IDAL
     public interface Ics_sysrightRepository
     {
         List<permModel> GetPermission(string accountid, string controller);
+
+        //更新
+        int UpdateRight(cs_sysrightoperateModel model);
+        //按選擇的角色及模組載入模組的許可權項
+        List<SP_Sys_GetRightByRoleAndModule_Result> GetRightByRoleAndModule(string roleId, string moduleId);
+
+
     }
 }

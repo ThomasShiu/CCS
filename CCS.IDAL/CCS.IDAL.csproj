@@ -62,6 +62,8 @@
     <Compile Include="Ics_comtRepository.cs" />
     <Compile Include="Ics_sysmoduleoperateRepository.cs" />
     <Compile Include="Ics_sysmoduleRepository.cs.cs" />
+    <Compile Include="Ics_sysroleRepository.cs" />
+    <Compile Include="Ics_sysuserRepository.cs" />
     <Compile Include="IcustomerRepository.cs" />
     <Compile Include="Ics_sysrightRepository.cs" />
     <Compile Include="ISysExceptionRepository.cs" />

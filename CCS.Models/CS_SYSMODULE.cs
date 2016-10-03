@@ -18,8 +18,6 @@ namespace CCS.Models
         public CS_SYSMODULE()
         {
             this.CS_SYSMODULE1 = new HashSet<CS_SYSMODULE>();
-            this.CS_SYSMODULEOPERATE = new HashSet<CS_SYSMODULEOPERATE>();
-            this.CS_SYSRIGHT = new HashSet<CS_SYSRIGHT>();
         }
     
         public string Id { get; set; }
@@ -39,9 +37,5 @@ namespace CCS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CS_SYSMODULE> CS_SYSMODULE1 { get; set; }
         public virtual CS_SYSMODULE CS_SYSMODULE2 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CS_SYSMODULEOPERATE> CS_SYSMODULEOPERATE { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CS_SYSRIGHT> CS_SYSRIGHT { get; set; }
     }
 }

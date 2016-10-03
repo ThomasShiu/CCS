@@ -20,7 +20,5 @@ namespace CCS.Models
         public string ModuleId { get; set; }
         public bool IsValid { get; set; }
         public int Sort { get; set; }
-    
-        public virtual CS_SYSMODULE CS_SYSMODULE { get; set; }
     }
 }

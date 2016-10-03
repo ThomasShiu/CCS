@@ -25,7 +25,6 @@ namespace CCS.Models
         public string RoleId { get; set; }
         public bool Rightflag { get; set; }
     
-        public virtual CS_SYSMODULE CS_SYSMODULE { get; set; }
         public virtual CS_SYSROLE CS_SYSROLE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CS_SYSRIGHTOPERATE> CS_SYSRIGHTOPERATE { get; set; }

@@ -37,11 +37,21 @@ namespace CCS.Core
             // CS_SYSMODULEOPERATE
             container.RegisterType<Ics_sysmoduleoperateBLL, cs_sysmoduleoperateBLL>();
             container.RegisterType<Ics_sysmoduleoperateRepository, cs_sysmoduleoperateRepository>();
+            
+            // CS_SYSROLE
+            container.RegisterType<Ics_sysroleBLL, cs_sysroleBLL>();
+            container.RegisterType<Ics_sysroleRepository, cs_sysroleRepository>();
+
+            // CS_SYSRIGHT
+            container.RegisterType<Ics_sysrightBLL, cs_sysrightBLL>();
+            container.RegisterType<Ics_sysrightRepository, cs_sysrightRepository>();
 
             // CS_SYSUSER
             container.RegisterType<IAccountBLL, AccountBLL>();
             container.RegisterType<IAccountRepository, AccountRepository>();
 
+            container.RegisterType<Ics_sysuserBLL, cs_sysuserBLL>();
+            container.RegisterType<Ics_sysuserRepository, cs_sysuserRepository>();
 
             // customer
             container.RegisterType<IcustomerBLL, customerBLL>();

@@ -28,8 +28,6 @@ namespace CCS.Models
         }
     
         public virtual DbSet<CS_ACTIONLOG> CS_ACTIONLOG { get; set; }
-        public virtual DbSet<CS_CODL> CS_CODL { get; set; }
-        public virtual DbSet<CS_COMT> CS_COMT { get; set; }
         public virtual DbSet<CS_SYSEXCEPTION> CS_SYSEXCEPTION { get; set; }
         public virtual DbSet<CS_SYSLOG> CS_SYSLOG { get; set; }
         public virtual DbSet<CS_SYSMODULE> CS_SYSMODULE { get; set; }
@@ -39,7 +37,11 @@ namespace CCS.Models
         public virtual DbSet<CS_SYSROLE> CS_SYSROLE { get; set; }
         public virtual DbSet<CS_SYSUSER> CS_SYSUSER { get; set; }
         public virtual DbSet<customer> customer { get; set; }
+        public virtual DbSet<employee> employee { get; set; }
         public virtual DbSet<VENDOR> VENDOR { get; set; }
+        public virtual DbSet<WAHO> WAHO { get; set; }
+        public virtual DbSet<CS_CODL> CS_CODL { get; set; }
+        public virtual DbSet<CS_COMT> CS_COMT { get; set; }
     
         public virtual int SP_SYS_ClearUnusedRIGHTOPERATE()
         {
@@ -62,6 +64,32 @@ namespace CCS.Models
         public virtual int SP_SYS_InsertSysRIGHT()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_SYS_InsertSysRIGHT");
+        }
+    
+        public virtual int SP_Sys_UpdateSysRightRightFlag(string moduleId, string roleId)
+        {
+            var moduleIdParameter = moduleId != null ?
+                new ObjectParameter("moduleId", moduleId) :
+                new ObjectParameter("moduleId", typeof(string));
+    
+            var roleIdParameter = roleId != null ?
+                new ObjectParameter("roleId", roleId) :
+                new ObjectParameter("roleId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Sys_UpdateSysRightRightFlag", moduleIdParameter, roleIdParameter);
+        }
+    
+        public virtual ObjectResult<SP_Sys_GetRightByRoleAndModule_Result> SP_Sys_GetRightByRoleAndModule(string roleId, string moduleId)
+        {
+            var roleIdParameter = roleId != null ?
+                new ObjectParameter("roleId", roleId) :
+                new ObjectParameter("roleId", typeof(string));
+    
+            var moduleIdParameter = moduleId != null ?
+                new ObjectParameter("moduleId", moduleId) :
+                new ObjectParameter("moduleId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Sys_GetRightByRoleAndModule_Result>("SP_Sys_GetRightByRoleAndModule", roleIdParameter, moduleIdParameter);
         }
     }
 }

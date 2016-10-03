@@ -87,8 +87,8 @@ namespace CCS.DAL
                 using (CCSEntities db = new CCSEntities())
                 {
                     db.CS_SYSMODULE.Attach(entity);
-                db.Entry(entity).State = EntityState.Modified;
-                //db.ObjectStateManager.ChangeObjectState(entity, EntityState.Modified);
+                    db.Entry(entity).State = EntityState.Modified;
+                    //db.ObjectStateManager.ChangeObjectState(entity, EntityState.Modified);
                     return db.SaveChanges();
                 }
             }

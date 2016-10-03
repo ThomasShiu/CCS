@@ -132,3 +132,7 @@ D:\Git_Source\CCM3S_Project\CCS\CCS\bin\zh-Hant\Microsoft.Owin.Security.Microsof
 D:\Git_Source\CCM3S_Project\CCS\CCS\obj\Debug\CCS.csprojResolveAssemblyReference.cache
 D:\Git_Source\CCM3S_Project\CCS\CCS\obj\Debug\CCS.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS\obj\Debug\CCS.pdb
+D:\Git_Source\CCM3S_Project\CCS\CCS\obj\Debug\RdlCompile.cache
+D:\Git_Source\CCM3S_Project\CCS\CCS\obj\Debug\RdlCompile.compiled
+D:\Git_Source\CCM3S_Project\CCS\CCS\bin\Microsoft.ReportViewer.WebForms.dll
+D:\Git_Source\CCM3S_Project\CCS\CCS\bin\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll

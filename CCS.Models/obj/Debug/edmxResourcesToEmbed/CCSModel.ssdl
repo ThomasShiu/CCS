@@ -448,6 +448,25 @@
     <Property Name="ACC_NM" Type="nvarchar" MaxLength="80" />
     <Property Name="OVD_NO" Type="nchar" MaxLength="10" />
   </EntityType>
+  <EntityType Name="WAHO">
+    <Key>
+      <PropertyRef Name="WAHO_NO" />
+    </Key>
+    <Property Name="WAHO_NO" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="WAHO_NM" Type="nchar" MaxLength="10" />
+    <Property Name="FA_NO" Type="nchar" MaxLength="10" />
+    <Property Name="TEL_NO" Type="nchar" MaxLength="20" />
+    <Property Name="FAX_NO" Type="nchar" MaxLength="20" />
+    <Property Name="ADDR" Type="nvarchar" MaxLength="80" />
+    <Property Name="ADDR2" Type="nvarchar" MaxLength="80" />
+    <Property Name="EMP_NO" Type="nchar" MaxLength="10" />
+    <Property Name="C_INV" Type="nchar" MaxLength="1" />
+    <Property Name="C_SC" Type="nchar" MaxLength="1" />
+    <Property Name="C_MRP" Type="nchar" MaxLength="1" Nullable="false" />
+    <Property Name="C_CTL" Type="nchar" MaxLength="1" />
+    <Property Name="C_LOCA" Type="nchar" MaxLength="1" />
+    <Property Name="REMK" Type="nvarchar" MaxLength="255" />
+  </EntityType>
   <Association Name="FK_CS_SysModule_SysModule">
     <End Role="CS_SYSMODULE" Type="Self.CS_SYSMODULE" Multiplicity="0..1" />
     <End Role="CS_SYSMODULE1" Type="Self.CS_SYSMODULE" Multiplicity="*" />
@@ -516,12 +535,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="SP_SYS_ClearUnusedRIGHTOPERATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="SP_SYS_GetRightOperate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="userId" Type="varchar" Mode="In" />
-    <Parameter Name="url" Type="varchar" Mode="In" />
-  </Function>
-  <Function Name="SP_SYS_InsertSysRIGHT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="CCSModelStoreContainer">
     <EntitySet Name="CS_ACTIONLOG" EntityType="Self.CS_ACTIONLOG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_CODL" EntityType="Self.CS_CODL" Schema="dbo" store:Type="Tables" />
@@ -537,6 +550,7 @@
     <EntitySet Name="CS_SYSUSER" EntityType="Self.CS_SYSUSER" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VENDOR" EntityType="Self.VENDOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WAHO" EntityType="Self.WAHO" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_CS_SysModule_SysModule" Association="Self.FK_CS_SysModule_SysModule">
       <End Role="CS_SYSMODULE" EntitySet="CS_SYSMODULE" />
       <End Role="CS_SYSMODULE1" EntitySet="CS_SYSMODULE" />

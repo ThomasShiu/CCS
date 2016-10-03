@@ -82,56 +82,59 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CCSModel.Context.cs">
+    <Compile Include="CCSModel1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CCSModel.Context.tt</DependentUpon>
+      <DependentUpon>CCSModel1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="CCSModel.cs">
+    <Compile Include="CCSModel1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CCSModel.tt</DependentUpon>
+      <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
-    <Compile Include="CCSModel.Designer.cs">
+    <Compile Include="CCSModel1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CCSModel.edmx</DependentUpon>
+      <DependentUpon>CCSModel1.edmx</DependentUpon>
     </Compile>
     <Compile Include="CS_ACTIONLOG.cs">
-      <DependentUpon>CCSModel.tt</DependentUpon>
+      <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_CODL.cs">
-      <DependentUpon>CCSModel.tt</DependentUpon>
+      <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_COMT.cs">
-      <DependentUpon>CCSModel.tt</DependentUpon>
+      <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_SYSEXCEPTION.cs">
-      <DependentUpon>CCSModel.tt</DependentUpon>
+      <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_SYSLOG.cs">
-      <DependentUpon>CCSModel.tt</DependentUpon>
+      <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_SYSMODULE.cs">
-      <DependentUpon>CCSModel.tt</DependentUpon>
+      <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_SYSMODULEOPERATE.cs">
-      <DependentUpon>CCSModel.tt</DependentUpon>
+      <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_SYSRIGHT.cs">
-      <DependentUpon>CCSModel.tt</DependentUpon>
+      <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_SYSRIGHTOPERATE.cs">
-      <DependentUpon>CCSModel.tt</DependentUpon>
+      <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_SYSROLE.cs">
-      <DependentUpon>CCSModel.tt</DependentUpon>
+      <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_SYSUSER.cs">
-      <DependentUpon>CCSModel.tt</DependentUpon>
+      <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="customer.cs">
-      <DependentUpon>CCSModel.tt</DependentUpon>
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="employee.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="LocaldbModel1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -149,8 +152,11 @@
       <DependentUpon>LocaldbModel1.edmx</DependentUpon>
     </Compile>
     <Compile Include="SAL\customerModel.cs" />
+    <Compile Include="SP_Sys_GetRightByRoleAndModule_Result.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_SYS_GetRightOperate_Result.cs">
-      <DependentUpon>CCSModel.tt</DependentUpon>
+      <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="SYS\AccountModel.cs" />
     <Compile Include="SAL\cs_comtModel.cs" />
@@ -159,9 +165,17 @@
     <Compile Include="SYS\cs_syslogModel.cs" />
     <Compile Include="SYS\cs_sysmoduleModel.cs" />
     <Compile Include="SYS\cs_sysmoduleopertaeModel.cs" />
+    <Compile Include="SYS\cs_SysRightModelByRoleAndModuleModel.cs" />
+    <Compile Include="SYS\cs_sysrightoperateModel.cs" />
+    <Compile Include="SYS\cs_sysuserModel.cs" />
+    <Compile Include="SYS\MaxWordsExpressionAttribute.cs" />
     <Compile Include="SYS\permModel.cs" />
+    <Compile Include="SYS\cs_sysroleModel.cs" />
     <Compile Include="VENDOR.cs">
-      <DependentUpon>CCSModel.tt</DependentUpon>
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WAHO.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -172,12 +186,12 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LocaldbModel1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <EntityDeploy Include="CCSModel.edmx">
+    <EntityDeploy Include="CCSModel1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CCSModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>CCSModel1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="CCSModel.edmx.diagram">
-      <DependentUpon>CCSModel.edmx</DependentUpon>
+    <None Include="CCSModel1.edmx.diagram">
+      <DependentUpon>CCSModel1.edmx</DependentUpon>
     </None>
     <None Include="LocaldbModel1.edmx.diagram">
       <DependentUpon>LocaldbModel1.edmx</DependentUpon>
@@ -193,15 +207,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>CCSlocalDB.mdf</DependentUpon>
     </Content>
-    <Content Include="CCSModel.Context.tt">
+    <Content Include="CCSModel1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CCSModel.edmx</DependentUpon>
-      <LastGenOutput>CCSModel.Context.cs</LastGenOutput>
+      <DependentUpon>CCSModel1.edmx</DependentUpon>
+      <LastGenOutput>CCSModel1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="CCSModel.tt">
+    <Content Include="CCSModel1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CCSModel.edmx</DependentUpon>
-      <LastGenOutput>CCSModel.cs</LastGenOutput>
+      <DependentUpon>CCSModel1.edmx</DependentUpon>
+      <LastGenOutput>CCSModel1.cs</LastGenOutput>
     </Content>
     <Content Include="LocaldbModel1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

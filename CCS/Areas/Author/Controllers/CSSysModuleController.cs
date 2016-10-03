@@ -10,7 +10,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CCS.Areas.SysModule.Controllers
+namespace CCS.Areas.Author.Controllers
 {
     public class CSSysModuleController : BaseController
     {

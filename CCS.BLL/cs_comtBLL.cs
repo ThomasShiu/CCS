@@ -105,13 +105,13 @@ namespace CCS.BLL
                                                 EMP_NO = r.EMP_NO,
                                                 CURRENCY = r.CURRENCY,
                                                 C_CFM = r.C_CFM,
-                                                ITEM_NO = r.ITEM_NO,
+                                                //ITEM_NO = r.ITEM_NO,
                                                 QTY = r.QTY,
-                                                UNIT = r.UNIT,
-                                                PRC = r.PRC,
+                                                //UNIT = r.UNIT,
+                                               // PRC = r.PRC,
                                                 AMT = r.AMT,
-                                                RCV_QTY = r.RCV_QTY,
-                                                PL = r.PL
+                                                //RCV_QTY = r.RCV_QTY,
+                                                //PL = r.PL
                                             }).ToList();
             return modelList;
         }
@@ -136,16 +136,11 @@ namespace CCS.BLL
                 entity.VCH_DT = model.VCH_DT;
                 entity.FA_NO = model.FA_NO;
                 entity.CS_NO = model.CS_NO;
-                entity.CURRENCY = model.CURRENCY;
-                entity.ITEM_NO = model.ITEM_NO;
-                entity.PL = model.PL;
+                entity.CURRENCY = model.CURRENCY;             
                 entity.QTY = model.QTY;
-                entity.UNIT = model.UNIT;
-                entity.PRC = model.PRC;
                 entity.AMT = model.AMT;
-
                 entity.C_CFM = model.C_CFM;
-                entity.C_CLS = model.C_CLS;
+
                
 
 
@@ -217,9 +212,7 @@ namespace CCS.BLL
                 entity.CS_NO = model.CS_NO;
                 entity.CURRENCY = model.CURRENCY;
                 entity.C_CFM = model.C_CFM;
-                entity.ITEM_NO = model.ITEM_NO;
-                entity.C_CLS = model.C_CLS;
-
+             
                 if (Rep.Edit(entity) == 1)
                 {
                     return true;
@@ -269,9 +262,7 @@ namespace CCS.BLL
                 model.CS_NO = entity.CS_NO;
                 model.CURRENCY = entity.CURRENCY;
                 model.C_CFM = entity.C_CFM;
-                model.ITEM_NO = entity.ITEM_NO;
-                model.C_CLS = entity.C_CLS;
-
+           
                 return model;
             }
             else

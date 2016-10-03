@@ -101,6 +101,7 @@
       <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -227,8 +228,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\UserTraceLog.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\SysModule\Controllers\CSSysModuleController.cs" />
-    <Compile Include="Areas\SysModule\SysModuleAreaRegistration.cs" />
+    <Compile Include="Areas\Author\AuthorAreaRegistration.cs" />
+    <Compile Include="Areas\Author\Controllers\CSSysModuleController.cs" />
+    <Compile Include="Areas\Author\Controllers\CSSysRightController.cs" />
+    <Compile Include="Areas\Author\Controllers\CSSysRoleController.cs" />
+    <Compile Include="Areas\Author\Controllers\CSSysUserController.cs" />
     <Compile Include="Areas\System\SystemAreaRegistration.cs" />
     <Compile Include="Areas\System\Controllers\SYS01Controller.cs" />
     <Compile Include="Areas\System\Controllers\SYS02Controller.cs" />
@@ -1885,11 +1889,17 @@
     <Content Include="Areas\System\Views\SYS02\Index.cshtml" />
     <Content Include="Areas\System\Views\SYS02\Details.cshtml" />
     <Content Include="Core\verify_code.ashx" />
-    <Content Include="Areas\SysModule\Views\web.config" />
-    <Content Include="Areas\SysModule\Views\CSSysModule\Index.cshtml" />
-    <Content Include="Areas\SysModule\Views\CSSysModule\Create.cshtml" />
-    <Content Include="Areas\SysModule\Views\CSSysModule\Edit.cshtml" />
-    <Content Include="Areas\SysModule\Views\CSSysModule\CreateOpt.cshtml" />
+    <Content Include="Areas\Author\Views\CSSysModule\Index.cshtml" />
+    <Content Include="Areas\Author\Views\CSSysModule\Create.cshtml" />
+    <Content Include="Areas\Author\Views\CSSysModule\Edit.cshtml" />
+    <Content Include="Areas\Author\Views\CSSysModule\CreateOpt.cshtml" />
+    <Content Include="Areas\Author\Views\CSSysRole\Index.cshtml" />
+    <Content Include="Views\Shared\_Partial_AutoGrid.cshtml" />
+    <Content Include="Areas\Author\Views\web.config" />
+    <Content Include="Areas\Author\Views\CSSysRole\Create.cshtml" />
+    <Content Include="Areas\Author\Views\CSSysRole\Edit.cshtml" />
+    <Content Include="Areas\Author\Views\CSSysRight\Index.cshtml" />
+    <Content Include="Areas\Author\Views\CSSysUser\Index.cshtml" />
     <None Include="Properties\PublishProfiles\CCS_13.pubxml" />
     <None Include="Properties\PublishProfiles\CCS_207.pubxml" />
     <Content Include="Scripts\jquery-2.2.4.min.map" />
@@ -2004,6 +2014,8 @@
     <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\Author\Models\" />
+    <Folder Include="Areas\Author\Views\Shared\" />
     <Folder Include="Areas\Inventory\Controllers\" />
     <Folder Include="Areas\Inventory\Models\" />
     <Folder Include="Areas\Inventory\Views\Shared\" />
@@ -2011,8 +2023,6 @@
     <Folder Include="Areas\Manufact\Models\" />
     <Folder Include="Areas\Manufact\Views\Shared\" />
     <Folder Include="Areas\Sales\Models\" />
-    <Folder Include="Areas\SysModule\Models\" />
-    <Folder Include="Areas\SysModule\Views\Shared\" />
     <Folder Include="Areas\System\Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -2051,6 +2061,12 @@
       <Project>{9af41a96-2843-42a9-8901-5baee2930d31}</Project>
       <Name>CCS.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\Report1.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
