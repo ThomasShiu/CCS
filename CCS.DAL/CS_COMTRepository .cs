@@ -49,6 +49,16 @@ namespace CCS.DAL
                 return db.SaveChanges();
             }
         }
+        public void Delete(CCSEntities db, string[] deleteCollection)
+        {
+            IQueryable<CS_COMT> collection = from f in db.CS_COMT
+                                             where deleteCollection.Contains(f.VCH_NO)
+                                             select f;
+            foreach (var deleteItem in collection)
+            {
+                db.CS_COMT.Remove(deleteItem);
+            }
+        }
 
         /// <summary>
         /// 修改一個實體

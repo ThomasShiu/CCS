@@ -31,7 +31,7 @@ namespace CCS.IBLL
         /// <param name="id">id</param>
         /// <returns>是否成功</returns>
         bool Delete(ref ValidationErrors errors, string id);
-
+        bool Delete(ref ValidationErrors errors, string[] deleteCollection);
 
         /// <summary>
         /// 修改一個實體

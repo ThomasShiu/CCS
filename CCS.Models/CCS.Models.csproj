@@ -136,6 +136,9 @@
     <Compile Include="employee.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EMPNO.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
     <Compile Include="LocaldbModel1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -151,11 +154,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LocaldbModel1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="PUB\empnoModel.cs" />
     <Compile Include="SAL\customerModel.cs" />
+    <Compile Include="SP_GEN_ORDNO_Result.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_Sys_GetRightByRoleAndModule_Result.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_SYS_GetRightOperate_Result.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Sys_GetUserByRoleId_Result.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="SYS\AccountModel.cs" />

@@ -1900,6 +1900,9 @@
     <Content Include="Areas\Author\Views\CSSysRole\Edit.cshtml" />
     <Content Include="Areas\Author\Views\CSSysRight\Index.cshtml" />
     <Content Include="Areas\Author\Views\CSSysUser\Index.cshtml" />
+    <Content Include="Areas\Author\Views\CSSysUser\Edit.cshtml" />
+    <Content Include="Areas\Author\Views\CSSysUser\Create.cshtml" />
+    <Content Include="Areas\Author\Views\CSSysUser\Details.cshtml" />
     <None Include="Properties\PublishProfiles\CCS_13.pubxml" />
     <None Include="Properties\PublishProfiles\CCS_207.pubxml" />
     <Content Include="Scripts\jquery-2.2.4.min.map" />

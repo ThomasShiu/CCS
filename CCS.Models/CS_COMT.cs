@@ -49,16 +49,9 @@ namespace CCS.Models
         public string PACK_REMK { get; set; }
         public string IVC_REMK { get; set; }
         public string REMK { get; set; }
-        public Nullable<decimal> COMS_RATE { get; set; }
-        public Nullable<decimal> COMS_AMT { get; set; }
-        public Nullable<decimal> DPAY_RT { get; set; }
-        public Nullable<decimal> DPAY_AMT { get; set; }
         public string ATTR_NO1 { get; set; }
         public string ATTR_NO2 { get; set; }
         public string ATTR_NO3 { get; set; }
-        public Nullable<decimal> AMT { get; set; }
-        public Nullable<decimal> TAX { get; set; }
-        public Nullable<decimal> QTY { get; set; }
         public Nullable<int> N_PRT { get; set; }
         public string C_SIGN { get; set; }
         public string C_CFM { get; set; }

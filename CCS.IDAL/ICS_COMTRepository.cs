@@ -25,7 +25,7 @@ namespace CCS.IDAL
         /// </summary>
         /// <param name="entity">主鍵ID</param>
         int Delete(string id);
-
+        void Delete(CCSEntities db, string[] deleteCollection);
         /// <summary>
         /// 修改一個實體
         /// </summary>

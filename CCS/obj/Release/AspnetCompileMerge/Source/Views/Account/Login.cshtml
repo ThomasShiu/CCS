@@ -31,75 +31,7 @@
                 line-height: 24px;
             }
     </style>
-    <script type="text/javascript">
-        $(function () {
-            $("#LoginSys").click(function () {
-                LoginSys();
-            });
-            $("#UserName").keydown(function (e) {
-                var curkey = e.which;
-                if (curkey == 13) {
-                    LoginSys();
-                    return false;
-                }
-            });
-            $("#Password").keydown(function (e) {
-                var curkey = e.which;
-                if (curkey == 13) {
-                    LoginSys();
-                    return false;
-                }
-            });
-            $("#ValidateCode").keydown(function (e) {
-                var curkey = e.which;
-                if (curkey == 13) {
-                    LoginSys();
-                    return false;
-                }
-            });
-
-
-
-        });
-
-        function LoginSys() {
-            $("#mes").html("");
-            $("#UserName").removeClass("input-validation-error");
-            $("#Password").removeClass("input-validation-error");
-            //$("#ValidateCode").removeClass("input-validation-error");
-            if ($.trim($("#UserName").val()) == "") {
-                $("#UserName").addClass("input-validation-error").focus();
-                $("#mes").html("請輸入帳號！");
-                return;
-            }
-            if ($.trim($("#Password").val()) == "") {
-                $("#Password").addClass("input-validation-error").focus();
-                $("#mes").html("請輸入密碼！");
-                return;
-            }
-            if ($.trim($("#ValidateCode").val()) == "") {
-                $("#ValidateCode").addClass("input-validation-error").focus();
-                $("#mes").html("驗證碼不能為空！");
-                return;
-            }
-            $("#Loading").show();
-
-            $.post('/Account/Login',
-                { UserName: $("#UserName").val(), Password: $("#Password").val(), Code: $("#ValidateCode").val() },
-           function (data) {
-
-               if (data.type == "1") {
-                   window.location = "/Home/Portal"
-               } else {
-                   $("#mes").html(data.message);
-               }
-               $("#Loading").hide();
-           }, "json");
-
-            return false;
-        }
-
-    </script>
+  
 </head>
 <body>
 
@@ -186,3 +118,74 @@
     </div>
 </body>
 </html>
+
+    <script type="text/javascript">
+
+        $(function () {
+            $("#LoginSys").click(function () {
+                LoginSys();
+            });
+            $("#UserName").keydown(function (e) {
+                var curkey = e.which;
+                if (curkey == 13) {
+                    LoginSys();
+                    return false;
+                }
+            });
+            $("#Password").keydown(function (e) {
+                var curkey = e.which;
+                if (curkey == 13) {
+                    LoginSys();
+                    return false;
+                }
+            });
+            $("#ValidateCode").keydown(function (e) {
+                var curkey = e.which;
+                if (curkey == 13) {
+                    LoginSys();
+                    return false;
+                }
+            });
+
+
+
+        });
+
+        function LoginSys() {
+            $("#mes").html("");
+            $("#UserName").removeClass("input-validation-error");
+            $("#Password").removeClass("input-validation-error");
+            //$("#ValidateCode").removeClass("input-validation-error");
+            if ($.trim($("#UserName").val()) == "") {
+                $("#UserName").addClass("input-validation-error").focus();
+                $("#mes").html("請輸入帳號！");
+                return;
+            }
+            if ($.trim($("#Password").val()) == "") {
+                $("#Password").addClass("input-validation-error").focus();
+                $("#mes").html("請輸入密碼！");
+                return;
+            }
+            if ($.trim($("#ValidateCode").val()) == "") {
+                $("#ValidateCode").addClass("input-validation-error").focus();
+                $("#mes").html("驗證碼不能為空！");
+                return;
+            }
+            $("#Loading").show();
+
+            $.post('/Account/Login',
+                { UserName: $("#UserName").val(), Password: $("#Password").val(), Code: $("#ValidateCode").val() },
+           function (data) {
+
+               if (data.type == "1") {
+                   window.location = "/Home/Portal"
+               } else {
+                   $("#mes").html(data.message);
+               }
+               $("#Loading").hide();
+           }, "json");
+
+            return false;
+        }
+
+</script>

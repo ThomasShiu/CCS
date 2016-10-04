@@ -19,3 +19,4 @@ D:\Git_Source\CCM3S_Project\CCS\CCS.Models\bin\Debug\zh-Hant\EntityFramework.res
 D:\Git_Source\CCM3S_Project\CCS\CCS.Models\bin\Debug\zh-Hant\EntityFramework.SqlServer.resources.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Models\obj\Debug\CCS.Models.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Models\obj\Debug\CCS.Models.pdb
+D:\Git_Source\CCM3S_Project\CCS\CCS.Models\obj\Debug\CCS.Models.csprojResolveAssemblyReference.cache

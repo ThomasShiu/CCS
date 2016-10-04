@@ -66,6 +66,7 @@
     <Compile Include="IcustomerBLL.cs" />
     <Compile Include="Ics_sysmoduleoperateBLL.cs" />
     <Compile Include="Ics_sysuserBLL.cs" />
+    <Compile Include="IEMPNOBLL.cs" />
     <Compile Include="ISysExceptionBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

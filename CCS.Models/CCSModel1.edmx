@@ -66,63 +66,56 @@
           <Key>
             <PropertyRef Name="VCH_NO" />
           </Key>
-          <Property Name="VCH_NO" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="VCH_NO" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="VCH_DT" Type="smalldatetime" Nullable="false" />
-          <Property Name="FA_NO" Type="nchar" MaxLength="10" />
-          <Property Name="CS_NO" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="DEPM_NO" Type="nchar" MaxLength="10" />
-          <Property Name="EMP_NO" Type="nchar" MaxLength="10" />
-          <Property Name="CS_VCH_NO" Type="nchar" MaxLength="20" />
-          <Property Name="CONTACTER" Type="nchar" MaxLength="30" />
-          <Property Name="TAX_TY" Type="nchar" MaxLength="1" />
+          <Property Name="FA_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="CS_NO" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DEPM_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="EMP_NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="CS_VCH_NO" Type="nvarchar" MaxLength="20" />
+          <Property Name="CONTACTER" Type="nvarchar" MaxLength="30" />
+          <Property Name="TAX_TY" Type="nvarchar" MaxLength="50" />
           <Property Name="TAX_RT" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="PRC_CDT" Type="nchar" MaxLength="30" />
-          <Property Name="PAY_CDT" Type="nchar" MaxLength="30" />
+          <Property Name="PRC_CDT" Type="nvarchar" MaxLength="30" />
+          <Property Name="PAY_CDT" Type="nvarchar" MaxLength="30" />
           <Property Name="TO_ADDR" Type="nvarchar" MaxLength="80" />
           <Property Name="TO_ADDR2" Type="nvarchar" MaxLength="80" />
-          <Property Name="CURRENCY" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="CURRENCY" Type="nvarchar" MaxLength="5" Nullable="false" />
           <Property Name="EXCH_RATE" Type="decimal" Precision="12" Scale="6" />
-          <Property Name="WAHO_NO" Type="nchar" MaxLength="10" />
-          <Property Name="LC_NO" Type="nchar" MaxLength="20" />
-          <Property Name="SHIP_TY" Type="nchar" MaxLength="1" />
-          <Property Name="STR_PORT" Type="nchar" MaxLength="30" />
-          <Property Name="DES_PORT" Type="nchar" MaxLength="30" />
-          <Property Name="AGT_CORP" Type="nchar" MaxLength="10" />
-          <Property Name="CLR_CORP" Type="nchar" MaxLength="10" />
-          <Property Name="INSP_CORP" Type="nchar" MaxLength="10" />
-          <Property Name="SHIP_CORP" Type="nchar" MaxLength="10" />
-          <Property Name="MARK_NO" Type="nchar" MaxLength="10" />
+          <Property Name="WAHO_NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="LC_NO" Type="nvarchar" MaxLength="20" />
+          <Property Name="SHIP_TY" Type="nvarchar" MaxLength="10" />
+          <Property Name="STR_PORT" Type="nvarchar" MaxLength="30" />
+          <Property Name="DES_PORT" Type="nvarchar" MaxLength="30" />
+          <Property Name="AGT_CORP" Type="nvarchar" MaxLength="10" />
+          <Property Name="CLR_CORP" Type="nvarchar" MaxLength="10" />
+          <Property Name="INSP_CORP" Type="nvarchar" MaxLength="10" />
+          <Property Name="SHIP_CORP" Type="nvarchar" MaxLength="10" />
+          <Property Name="MARK_NO" Type="nvarchar" MaxLength="10" />
           <Property Name="FL_MARK" Type="nvarchar" MaxLength="255" />
           <Property Name="SL_MARK" Type="nvarchar" MaxLength="255" />
-          <Property Name="CONSIGNEE" Type="nchar" MaxLength="10" />
-          <Property Name="NOTIFY" Type="nchar" MaxLength="10" />
-          <Property Name="DES_PLACE" Type="nchar" MaxLength="30" />
-          <Property Name="BANK_NO" Type="nchar" MaxLength="10" />
+          <Property Name="CONSIGNEE" Type="nvarchar" MaxLength="10" />
+          <Property Name="NOTIFY" Type="nvarchar" MaxLength="10" />
+          <Property Name="DES_PLACE" Type="nvarchar" MaxLength="30" />
+          <Property Name="BANK_NO" Type="nvarchar" MaxLength="10" />
           <Property Name="PACK_REMK" Type="nvarchar" MaxLength="255" />
           <Property Name="IVC_REMK" Type="nvarchar" MaxLength="255" />
           <Property Name="REMK" Type="nvarchar" MaxLength="255" />
-          <Property Name="COMS_RATE" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="COMS_AMT" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="DPAY_RT" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="DPAY_AMT" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="ATTR_NO1" Type="nchar" MaxLength="10" />
-          <Property Name="ATTR_NO2" Type="nchar" MaxLength="10" />
-          <Property Name="ATTR_NO3" Type="nchar" MaxLength="10" />
-          <Property Name="AMT" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="TAX" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="QTY" Type="decimal" Precision="15" Scale="4" />
+          <Property Name="ATTR_NO1" Type="nvarchar" MaxLength="10" />
+          <Property Name="ATTR_NO2" Type="nvarchar" MaxLength="10" />
+          <Property Name="ATTR_NO3" Type="nvarchar" MaxLength="10" />
           <Property Name="N_PRT" Type="int" />
-          <Property Name="C_SIGN" Type="nchar" MaxLength="1" />
-          <Property Name="C_CFM" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="C_SIGN" Type="nvarchar" MaxLength="10" />
+          <Property Name="C_CFM" Type="nvarchar" MaxLength="1" Nullable="false" />
           <Property Name="CFM_DT" Type="smalldatetime" />
-          <Property Name="OWNER_USR_NO" Type="nchar" MaxLength="10" />
-          <Property Name="OWNER_GRP_NO" Type="nchar" MaxLength="10" />
+          <Property Name="OWNER_USR_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="OWNER_GRP_NO" Type="nvarchar" MaxLength="10" />
           <Property Name="ADD_DT" Type="smalldatetime" />
-          <Property Name="CFM_USR_NO" Type="nchar" MaxLength="10" />
-          <Property Name="MDY_USR_NO" Type="nchar" MaxLength="10" />
+          <Property Name="CFM_USR_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="MDY_USR_NO" Type="nvarchar" MaxLength="10" />
           <Property Name="MDY_DT" Type="smalldatetime" />
-          <Property Name="IP_NM" Type="nchar" MaxLength="30" />
-          <Property Name="CP_NM" Type="nchar" MaxLength="30" />
+          <Property Name="IP_NM" Type="nvarchar" MaxLength="30" />
+          <Property Name="CP_NM" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="CS_SYSEXCEPTION">
           <Key>
@@ -429,6 +422,27 @@
           <Property Name="RELA" Type="nchar" MaxLength="10" />
           <Property Name="IMG_GRP" Type="image" />
         </EntityType>
+        <EntityType Name="EMPNO">
+          <Key>
+            <PropertyRef Name="EMP_NO" />
+          </Key>
+          <Property Name="EMP_NO" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="EMP_NM" Type="nchar" MaxLength="10" />
+          <Property Name="DEPM_NO" Type="nchar" MaxLength="10" />
+          <Property Name="TEL_NO" Type="nchar" MaxLength="20" />
+          <Property Name="TEL_NO2" Type="nchar" MaxLength="20" />
+          <Property Name="E_MAIL" Type="nvarchar" MaxLength="80" />
+          <Property Name="C_INV" Type="nchar" MaxLength="1" />
+          <Property Name="C_PUR" Type="nchar" MaxLength="1" />
+          <Property Name="C_COP" Type="nchar" MaxLength="1" />
+          <Property Name="C_PPS" Type="nchar" MaxLength="1" />
+          <Property Name="C_AST" Type="nchar" MaxLength="1" />
+          <Property Name="C_ACT" Type="nchar" MaxLength="1" />
+          <Property Name="C_SFC" Type="nchar" MaxLength="1" />
+          <Property Name="C_QMS" Type="nchar" MaxLength="1" />
+          <Property Name="C_BOM" Type="nchar" MaxLength="1" />
+          <Property Name="C_MOC" Type="nchar" MaxLength="1" />
+        </EntityType>
         <EntityType Name="VENDOR">
           <Key>
             <PropertyRef Name="VD_NO" />
@@ -592,7 +606,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SP_GEN_ORDNO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TYPE" Type="varchar" Mode="In" />
+          <Parameter Name="PREFIX" Type="varchar" Mode="In" />
+          <Parameter Name="COUNT" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_SYS_ClearUnusedRIGHTOPERATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_Sys_DeleteSysRoleSysUserByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="SP_Sys_GetRightByRoleAndModule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="roleId" Type="varchar" Mode="In" />
           <Parameter Name="moduleId" Type="varchar" Mode="In" />
@@ -601,10 +623,17 @@
           <Parameter Name="userId" Type="varchar" Mode="In" />
           <Parameter Name="url" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="SP_Sys_GetUserByRoleId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleId" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="SP_SYS_InsertSysRIGHT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_Sys_UpdateSysRightRightFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="moduleId" Type="varchar" Mode="In" />
           <Parameter Name="roleId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_Sys_UpdateSysRoleSysUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="roleId" Type="varchar" Mode="In" />
+          <Parameter Name="userId" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="CCSModel1StoreContainer">
           <EntitySet Name="CS_ACTIONLOG" EntityType="Self.CS_ACTIONLOG" Schema="dbo" store:Type="Tables" />
@@ -621,6 +650,7 @@
           <EntitySet Name="CS_SYSUSER" EntityType="Self.CS_SYSUSER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="employee" EntityType="Self.employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPNO" EntityType="Self.EMPNO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VENDOR" EntityType="Self.VENDOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WAHO" EntityType="Self.WAHO" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CS_SysModule_SysModule" Association="Self.FK_CS_SysModule_SysModule">
@@ -1151,7 +1181,23 @@
             <Parameter Name="moduleId" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="CS_CODL" EntityType="CCSModel1.CS_CODL" />
+          <FunctionImport Name="SP_Sys_GetUserByRoleId" ReturnType="Collection(CCSModel1.SP_Sys_GetUserByRoleId_Result)">
+          <Parameter Name="RoleId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Sys_UpdateSysRoleSysUser">
+            <Parameter Name="roleId" Mode="In" Type="String" />
+            <Parameter Name="userId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Sys_DeleteSysRoleSysUserByUserId">
+          <Parameter Name="userId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GEN_ORDNO" ReturnType="Collection(CCSModel1.SP_GEN_ORDNO_Result)">
+            <Parameter Name="TYPE" Mode="In" Type="String" />
+            <Parameter Name="PREFIX" Mode="In" Type="String" />
+            <Parameter Name="COUNT" Mode="In" Type="Int32" />
+          </FunctionImport>
           <EntitySet Name="CS_COMT" EntityType="CCSModel1.CS_COMT" />
+          <EntitySet Name="EMPNO" EntityType="CCSModel1.EMPNO" />
         </EntityContainer>
         <ComplexType Name="SP_SYS_GetRightOperate_Result">
           <Property Type="String" Name="KeyCode" Nullable="false" MaxLength="200" />
@@ -1209,67 +1255,121 @@
           <Property Name="PDT_WAHO_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="PDT_ITEM_NO" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
         </EntityType>
+        <ComplexType Name="SP_Sys_GetUserByRoleId_Result">
+          <Property Type="String" Name="Id" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="TrueName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Card" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="QQ" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="OtherContact" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Province" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="City" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Village" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="200" />
+          <Property Type="Boolean" Name="State" Nullable="true" />
+          <Property Type="DateTime" Name="CreateTime" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatePerson" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Sex" Nullable="true" MaxLength="10" />
+          <Property Type="DateTime" Name="Birthday" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="JoinDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Marital" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Political" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nationality" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Native" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="School" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Professional" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Degree" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="DepId" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PosId" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Expertise" Nullable="true" MaxLength="3000" />
+          <Property Type="String" Name="JobState" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Photo" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Attach" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="flag" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SP_GEN_ORDNO_Result">
+          <Property Type="String" Name="FROM_NO" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="TO_NO" Nullable="true" MaxLength="80" />
+        </ComplexType>
         <EntityType Name="CS_COMT">
           <Key>
             <PropertyRef Name="VCH_NO" />
           </Key>
-          <Property Name="VCH_NO" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="VCH_NO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="VCH_DT" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="FA_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="CS_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="DEPM_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="EMP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="CS_VCH_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
-          <Property Name="CONTACTER" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="TAX_TY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="FA_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CS_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DEPM_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="EMP_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CS_VCH_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CONTACTER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TAX_TY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TAX_RT" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="PRC_CDT" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="PAY_CDT" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="PRC_CDT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PAY_CDT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="TO_ADDR" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="TO_ADDR2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
-          <Property Name="CURRENCY" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="CURRENCY" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="EXCH_RATE" Type="Decimal" Precision="12" Scale="6" />
-          <Property Name="WAHO_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="LC_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
-          <Property Name="SHIP_TY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
-          <Property Name="STR_PORT" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="DES_PORT" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="AGT_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="CLR_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="INSP_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="SHIP_CORP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="MARK_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="WAHO_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LC_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SHIP_TY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="STR_PORT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DES_PORT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="AGT_CORP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CLR_CORP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="INSP_CORP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SHIP_CORP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MARK_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="FL_MARK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="SL_MARK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="CONSIGNEE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="NOTIFY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="DES_PLACE" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="BANK_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CONSIGNEE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NOTIFY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DES_PLACE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BANK_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="PACK_REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="IVC_REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="REMK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="COMS_RATE" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="COMS_AMT" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="DPAY_RT" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="DPAY_AMT" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="ATTR_NO1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="ATTR_NO2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="ATTR_NO3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="AMT" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="TAX" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="QTY" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="ATTR_NO1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ATTR_NO2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ATTR_NO3" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="N_PRT" Type="Int32" />
-          <Property Name="C_SIGN" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
-          <Property Name="C_CFM" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_SIGN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="C_CFM" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
           <Property Name="CFM_DT" Type="DateTime" Precision="0" />
-          <Property Name="OWNER_USR_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="OWNER_GRP_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="OWNER_USR_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="OWNER_GRP_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="ADD_DT" Type="DateTime" Precision="0" />
-          <Property Name="CFM_USR_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="MDY_USR_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CFM_USR_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MDY_USR_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="MDY_DT" Type="DateTime" Precision="0" />
-          <Property Name="IP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="CP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="IP_NM" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CP_NM" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EMPNO">
+          <Key>
+            <PropertyRef Name="EMP_NO" />
+          </Key>
+          <Property Name="EMP_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="EMP_NM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DEPM_NO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TEL_NO" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="TEL_NO2" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="E_MAIL" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="C_INV" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_PUR" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_COP" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_PPS" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_AST" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_ACT" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_SFC" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_QMS" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_BOM" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="C_MOC" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1771,6 +1871,56 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_Sys_GetUserByRoleId" FunctionName="CCSModel1.Store.SP_Sys_GetUserByRoleId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CCSModel1.SP_Sys_GetUserByRoleId_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="TrueName" ColumnName="TrueName" />
+                <ScalarProperty Name="Card" ColumnName="Card" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="OtherContact" ColumnName="OtherContact" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Village" ColumnName="Village" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+                <ScalarProperty Name="Marital" ColumnName="Marital" />
+                <ScalarProperty Name="Political" ColumnName="Political" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Native" ColumnName="Native" />
+                <ScalarProperty Name="School" ColumnName="School" />
+                <ScalarProperty Name="Professional" ColumnName="Professional" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+                <ScalarProperty Name="DepId" ColumnName="DepId" />
+                <ScalarProperty Name="PosId" ColumnName="PosId" />
+                <ScalarProperty Name="Expertise" ColumnName="Expertise" />
+                <ScalarProperty Name="JobState" ColumnName="JobState" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Attach" ColumnName="Attach" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Sys_UpdateSysRoleSysUser" FunctionName="CCSModel1.Store.SP_Sys_UpdateSysRoleSysUser" />
+          <FunctionImportMapping FunctionImportName="SP_Sys_DeleteSysRoleSysUserByUserId" FunctionName="CCSModel1.Store.SP_Sys_DeleteSysRoleSysUserByUserId" />
+          <FunctionImportMapping FunctionImportName="SP_GEN_ORDNO" FunctionName="CCSModel1.Store.SP_GEN_ORDNO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CCSModel1.SP_GEN_ORDNO_Result">
+                <ScalarProperty Name="FROM_NO" ColumnName="FROM_NO" />
+                <ScalarProperty Name="TO_NO" ColumnName="TO_NO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <EntitySetMapping Name="CS_COMT">
             <EntityTypeMapping TypeName="CCSModel1.CS_COMT">
               <MappingFragment StoreEntitySet="CS_COMT">
@@ -1786,16 +1936,9 @@
                 <ScalarProperty Name="C_CFM" ColumnName="C_CFM" />
                 <ScalarProperty Name="C_SIGN" ColumnName="C_SIGN" />
                 <ScalarProperty Name="N_PRT" ColumnName="N_PRT" />
-                <ScalarProperty Name="QTY" ColumnName="QTY" />
-                <ScalarProperty Name="TAX" ColumnName="TAX" />
-                <ScalarProperty Name="AMT" ColumnName="AMT" />
                 <ScalarProperty Name="ATTR_NO3" ColumnName="ATTR_NO3" />
                 <ScalarProperty Name="ATTR_NO2" ColumnName="ATTR_NO2" />
                 <ScalarProperty Name="ATTR_NO1" ColumnName="ATTR_NO1" />
-                <ScalarProperty Name="DPAY_AMT" ColumnName="DPAY_AMT" />
-                <ScalarProperty Name="DPAY_RT" ColumnName="DPAY_RT" />
-                <ScalarProperty Name="COMS_AMT" ColumnName="COMS_AMT" />
-                <ScalarProperty Name="COMS_RATE" ColumnName="COMS_RATE" />
                 <ScalarProperty Name="REMK" ColumnName="REMK" />
                 <ScalarProperty Name="IVC_REMK" ColumnName="IVC_REMK" />
                 <ScalarProperty Name="PACK_REMK" ColumnName="PACK_REMK" />
@@ -1831,6 +1974,28 @@
                 <ScalarProperty Name="FA_NO" ColumnName="FA_NO" />
                 <ScalarProperty Name="VCH_DT" ColumnName="VCH_DT" />
                 <ScalarProperty Name="VCH_NO" ColumnName="VCH_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPNO">
+            <EntityTypeMapping TypeName="CCSModel1.EMPNO">
+              <MappingFragment StoreEntitySet="EMPNO">
+                <ScalarProperty Name="C_MOC" ColumnName="C_MOC" />
+                <ScalarProperty Name="C_BOM" ColumnName="C_BOM" />
+                <ScalarProperty Name="C_QMS" ColumnName="C_QMS" />
+                <ScalarProperty Name="C_SFC" ColumnName="C_SFC" />
+                <ScalarProperty Name="C_ACT" ColumnName="C_ACT" />
+                <ScalarProperty Name="C_AST" ColumnName="C_AST" />
+                <ScalarProperty Name="C_PPS" ColumnName="C_PPS" />
+                <ScalarProperty Name="C_COP" ColumnName="C_COP" />
+                <ScalarProperty Name="C_PUR" ColumnName="C_PUR" />
+                <ScalarProperty Name="C_INV" ColumnName="C_INV" />
+                <ScalarProperty Name="E_MAIL" ColumnName="E_MAIL" />
+                <ScalarProperty Name="TEL_NO2" ColumnName="TEL_NO2" />
+                <ScalarProperty Name="TEL_NO" ColumnName="TEL_NO" />
+                <ScalarProperty Name="DEPM_NO" ColumnName="DEPM_NO" />
+                <ScalarProperty Name="EMP_NM" ColumnName="EMP_NM" />
+                <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

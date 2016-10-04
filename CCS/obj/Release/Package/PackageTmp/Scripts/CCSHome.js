@@ -1,12 +1,7 @@
 ﻿// 樹狀選單
 $(function () {
-    //生成唯一的GUID
-    function GetGuid() {
-        var s4 = function () {
-            return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
-        };
-        return s4() + s4() + s4() + "-" + s4();
-    }
+    
+
     var o = {
         showcheck: false,
         url: "/Home/GetTree",
@@ -141,7 +136,7 @@ function addTab(subtitle, url, icon) {
     //tabClose();
 }
 function createFrame(url) {
-    var s = '<iframe frameborder="0" src="' + url + '" scrolling="auto" style="width:100%; height:99%;padding:3px;"></iframe>';
+    var s = '<iframe frameborder="0" src="' + url + '" scrolling="auto" style="width:100%; height:100%;padding:3px;"></iframe>';
     return s;
 }
 

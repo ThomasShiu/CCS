@@ -56,6 +56,10 @@ namespace CCS.Core
             // customer
             container.RegisterType<IcustomerBLL, customerBLL>();
             container.RegisterType<IcustomerRepository, customerRepository>();
+
+            // EMPNO
+            container.RegisterType<IEMPNOBLL, EMPNOBLL>();
+            container.RegisterType<IEMPNORepository, EMPNORepository>();
         }
     }
 }

@@ -14,14 +14,15 @@ namespace CCS.Models.SYS
         public string Id { get; set; }
 
 
-        [Display(Name = "UserName")]
+        [Display(Name = "帳號")]
         public string UserName { get; set; }
 
 
-        [Display(Name = "Password")]
+        [Display(Name = "密碼")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Display(Name = "TrueName")]
+        [Display(Name = "姓名")]
         public string TrueName { get; set; }
 
     
@@ -33,7 +34,7 @@ namespace CCS.Models.SYS
         public string MobileNumber { get; set; }
 
 
-        [Display(Name = "PhoneNumber")]
+        [Display(Name = "電話")]
         public string PhoneNumber { get; set; }
 
 
@@ -41,11 +42,11 @@ namespace CCS.Models.SYS
         public string QQ { get; set; }
 
 
-        [Display(Name = "EmailAddress")]
+        [Display(Name = "電子郵件")]
         public string EmailAddress { get; set; }
 
   
-        [Display(Name = "OtherContact")]
+        [Display(Name = "其它連絡方式")]
         public string OtherContact { get; set; }
 
 
@@ -53,35 +54,35 @@ namespace CCS.Models.SYS
         public string Province { get; set; }
 
   
-        [Display(Name = "City")]
+        [Display(Name = "縣市")]
         public string City { get; set; }
 
         [Display(Name = "Village")]
         public string Village { get; set; }
 
 
-        [Display(Name = "Address")]
+        [Display(Name = "地址")]
         public string Address { get; set; }
 
-        [Display(Name = "State")]
+        [Display(Name = "狀態")]
         public bool State { get; set; }
 
-        [Display(Name = "CreateTime")]
+        [Display(Name = "建立日期")]
         //public string CreateTime { get; set; }
         public DateTime CreateTime { get; set; }
 
 
-        [Display(Name = "CreatePerson")]
+        [Display(Name = "建立人員")]
         public string CreatePerson { get; set; }
 
 
-        [Display(Name = "Sex")]
+        [Display(Name = "性別")]
         public string Sex { get; set; }
 
-        [Display(Name = "Birthday")]
+        [Display(Name = "生日")]
         public DateTime Birthday { get; set; }
 
-        [Display(Name = "JoinDate")]
+        [Display(Name = "到職日期")]
         public DateTime JoinDate { get; set; }
 
 

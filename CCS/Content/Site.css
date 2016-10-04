@@ -84,7 +84,16 @@ header,footer,nav,section {display: block;}
 {
     height:30px;
 }
- .bgb {background-color:#ADD8E6;color:#ff6600; font-weight:bold; padding: 1px 6px;} /*当前页样式*/
+/*当前页样式*/
+ .bgb {
+     background-color:#ADD8E6;color:#ff6600; 
+     font-weight:bold; 
+     padding: 1px 6px;
+     width:100%;
+position:fixed; /*固定位置定位*/
+  top:0; /*距離上方 0 像素*/
+  z-index:1; /*重疊時會在其他元素之上*/
+ } 
 .searchText{float:left; margin:2px 5px 0 0}
 
 .icon-reload{background:url(Images/tools.png) no-repeat 0px -177px;height:20px;padding-left:18px;display:inline-block;white-space:nowrap}

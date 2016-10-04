@@ -42,6 +42,7 @@ namespace CCS.Models
         public virtual DbSet<WAHO> WAHO { get; set; }
         public virtual DbSet<CS_CODL> CS_CODL { get; set; }
         public virtual DbSet<CS_COMT> CS_COMT { get; set; }
+        public virtual DbSet<EMPNO> EMPNO { get; set; }
     
         public virtual int SP_SYS_ClearUnusedRIGHTOPERATE()
         {
@@ -90,6 +91,54 @@ namespace CCS.Models
                 new ObjectParameter("moduleId", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Sys_GetRightByRoleAndModule_Result>("SP_Sys_GetRightByRoleAndModule", roleIdParameter, moduleIdParameter);
+        }
+    
+        public virtual ObjectResult<SP_Sys_GetUserByRoleId_Result> SP_Sys_GetUserByRoleId(string roleId)
+        {
+            var roleIdParameter = roleId != null ?
+                new ObjectParameter("RoleId", roleId) :
+                new ObjectParameter("RoleId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Sys_GetUserByRoleId_Result>("SP_Sys_GetUserByRoleId", roleIdParameter);
+        }
+    
+        public virtual int SP_Sys_UpdateSysRoleSysUser(string roleId, string userId)
+        {
+            var roleIdParameter = roleId != null ?
+                new ObjectParameter("roleId", roleId) :
+                new ObjectParameter("roleId", typeof(string));
+    
+            var userIdParameter = userId != null ?
+                new ObjectParameter("userId", userId) :
+                new ObjectParameter("userId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Sys_UpdateSysRoleSysUser", roleIdParameter, userIdParameter);
+        }
+    
+        public virtual int SP_Sys_DeleteSysRoleSysUserByUserId(string userId)
+        {
+            var userIdParameter = userId != null ?
+                new ObjectParameter("userId", userId) :
+                new ObjectParameter("userId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Sys_DeleteSysRoleSysUserByUserId", userIdParameter);
+        }
+    
+        public virtual ObjectResult<SP_GEN_ORDNO_Result> SP_GEN_ORDNO(string tYPE, string pREFIX, Nullable<int> cOUNT)
+        {
+            var tYPEParameter = tYPE != null ?
+                new ObjectParameter("TYPE", tYPE) :
+                new ObjectParameter("TYPE", typeof(string));
+    
+            var pREFIXParameter = pREFIX != null ?
+                new ObjectParameter("PREFIX", pREFIX) :
+                new ObjectParameter("PREFIX", typeof(string));
+    
+            var cOUNTParameter = cOUNT.HasValue ?
+                new ObjectParameter("COUNT", cOUNT) :
+                new ObjectParameter("COUNT", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GEN_ORDNO_Result>("SP_GEN_ORDNO", tYPEParameter, pREFIXParameter, cOUNTParameter);
         }
     }
 }

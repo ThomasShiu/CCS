@@ -288,7 +288,7 @@ namespace CCS.BLL
                 model.Village = entity.Village;
                 model.Address = entity.Address;
                 model.State = (entity.State).Value;
-                model.CreateTime = entity.CreateTime.Value;
+                model.CreateTime = DateTime.Parse(entity.CreateTime.Value.ToShortDateString());
                 model.CreatePerson = entity.CreatePerson;
                 model.Sex = entity.Sex;
                 model.Birthday = entity.Birthday.Value;

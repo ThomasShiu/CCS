@@ -20,6 +20,7 @@ namespace CCS.Areas.Author.Controllers
         [Dependency]
         public Ics_sysuserBLL m_BLL { get; set; }
         ValidationErrors errors = new ValidationErrors();
+
         public ActionResult Index()
         {
             return View();
@@ -76,7 +77,7 @@ namespace CCS.Areas.Author.Controllers
             return Json(json);
         }
 
-        #region 创建
+        #region 創建
         [SupportFilter]
         public ActionResult Create()
         {
@@ -95,13 +96,13 @@ namespace CCS.Areas.Author.Controllers
 
                 if (m_BLL.Create(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName, "成功", "创建", "IDAL");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName, "成功", "創建", "IDAL");
                     return Json(JsonHandler.CreateMessage(1, Suggestion.InsertSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName + "," + ErrorCol, "失败", "创建", "IDAL");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName + "," + ErrorCol, "失敗", "創建", "IDAL");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.InsertFail + ErrorCol));
                 }
             }
@@ -127,6 +128,8 @@ namespace CCS.Areas.Author.Controllers
         {
             if (model != null && ModelState.IsValid)
             {
+                // 加密密碼
+                model.Password = ValueConvert.MD5(model.Password);
 
                 if (m_BLL.Edit(ref errors, model))
                 {
@@ -136,7 +139,7 @@ namespace CCS.Areas.Author.Controllers
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName + "," + ErrorCol, "失败", "修改", "IDAL");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName + "," + ErrorCol, "失敗", "修改", "IDAL");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.EditFail + ErrorCol));
                 }
             }
@@ -147,7 +150,7 @@ namespace CCS.Areas.Author.Controllers
         }
         #endregion
 
-        #region 详细
+        #region 詳細
         [SupportFilter]
         public ActionResult Details(string id)
         {
@@ -158,7 +161,7 @@ namespace CCS.Areas.Author.Controllers
 
         #endregion
 
-        #region 删除
+        #region 刪除
         [HttpPost]
         [SupportFilter]
         public JsonResult Delete(string id)
@@ -167,13 +170,13 @@ namespace CCS.Areas.Author.Controllers
             {
                 if (m_BLL.Delete(ref errors, id))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + id, "成功", "删除", "IDAL");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + id, "成功", "刪除", "IDAL");
                     return Json(JsonHandler.CreateMessage(1, Suggestion.DeleteSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + id + "," + ErrorCol, "失败", "删除", "IDAL");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + id + "," + ErrorCol, "失敗", "刪除", "IDAL");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.DeleteFail + ErrorCol));
                 }
             }
@@ -185,10 +188,10 @@ namespace CCS.Areas.Author.Controllers
 
         }
         #endregion
-        #region 导出到PDF EXCEL WORD
+        #region 匯出到PDF EXCEL WORD
         public ActionResult Reporting(string type = "PDF", string queryStr = "", int rows = 0, int page = 1)
         {
-            //选择了导出全部
+            //選擇了匯出全部
             if (rows == 0 && page == 0)
             {
                 rows = 9999999;
