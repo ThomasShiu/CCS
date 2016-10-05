@@ -22,9 +22,10 @@
         <AssociationConnector Association="CCSModel1.FK_CS_SysRight_SysRole" ManuallyRouted="false" />
         <AssociationConnector Association="CCSModel1.FK_CS_SysRightOperate_SysRight" ManuallyRouted="false" />
         <AssociationConnector Association="CCSModel1.CS_SYSROLESYSUSER" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="CCSModel1.CS_CODL" Width="1.5" PointX="12" PointY="0.75" />
-        <EntityTypeShape EntityType="CCSModel1.CS_COMT" Width="1.5" PointX="9.875" PointY="0.75" />
-        <EntityTypeShape EntityType="CCSModel1.EMPNO" Width="1.5" PointX="12.375" PointY="9.75" />
+        <EntityTypeShape EntityType="CCSModel1.EMPNO" Width="1.5" PointX="9.625" PointY="0.75" />
+        <EntityTypeShape EntityType="CCSModel1.CS_COMT" Width="1.5" PointX="11.625" PointY="0.625" />
+        <EntityTypeShape EntityType="CCSModel1.CS_SEQ_NO" Width="1.5" PointX="10.375" PointY="14.75" />
+        <EntityTypeShape EntityType="CCSModel1.CS_CODL" Width="1.5" PointX="12.375" PointY="13.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

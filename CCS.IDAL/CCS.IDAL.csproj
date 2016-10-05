@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAccountRepository.cs" />
+    <Compile Include="Ics_codlRepository.cs" />
     <Compile Include="Ics_syslogRepository.cs" />
     <Compile Include="Ics_actionlogRepository.cs" />
     <Compile Include="Ics_comtRepository.cs" />

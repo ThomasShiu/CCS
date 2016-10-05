@@ -20,7 +20,11 @@ namespace CCS.Core
 
             // CS_COMT
             container.RegisterType<Ics_comtBLL, cs_comtBLL>(); //詳例
-            container.RegisterType<Ics_comtRepository, CS_COMTRepository>();
+            container.RegisterType<Ics_comtRepository, cs_comtRepository>();
+
+            // CS_CODL
+            container.RegisterType<Ics_codlBLL, cs_codlBLL>(); //詳例
+            container.RegisterType<Ics_codlRepository, cs_codlRepository>();
 
             //CS_SYSMODULE
             container.RegisterType<Ics_sysmoduleBLL, cs_sysmoduleBLL>();

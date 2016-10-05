@@ -26,6 +26,7 @@ namespace CCS.Common
         public static string DeleteFail { get { return "刪除失敗"; } }
         public static string DeleteSucceed { get { return "刪除成功"; } }
         public static string Details { get { return "詳細"; } }
+        public static string MasterDetails { get { return "明細"; } }
         public static string Disable { get { return "不可用"; } }
         public static string Edit { get { return "編輯"; } }
         public static string EditFail { get { return "修改失敗"; } }

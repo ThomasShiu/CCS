@@ -71,6 +71,7 @@
     <Compile Include="BaseBLL.cs" />
     <Compile Include="Core\ExceptionHander.cs" />
     <Compile Include="cs_actionlogBLL.cs" />
+    <Compile Include="cs_codlBLL.cs" />
     <Compile Include="cs_syslogBLL.cs" />
     <Compile Include="cs_comtBLL.cs" />
     <Compile Include="cs_sysmoduleBLL.cs" />

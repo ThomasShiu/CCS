@@ -452,49 +452,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <EntitySetMapping Name="CS_CODL">
-      <EntityTypeMapping TypeName="CCSModel1.CS_CODL">
-        <MappingFragment StoreEntitySet="CS_CODL">
-          <ScalarProperty Name="PDT_ITEM_NO" ColumnName="PDT_ITEM_NO" />
-          <ScalarProperty Name="PDT_WAHO_NO" ColumnName="PDT_WAHO_NO" />
-          <ScalarProperty Name="PDT_DT" ColumnName="PDT_DT" />
-          <ScalarProperty Name="MKT_CODE" ColumnName="MKT_CODE" />
-          <ScalarProperty Name="C_CFM" ColumnName="C_CFM" />
-          <ScalarProperty Name="CS_NO" ColumnName="CS_NO" />
-          <ScalarProperty Name="PQA_MM" ColumnName="PQA_MM" />
-          <ScalarProperty Name="TQA_MM" ColumnName="TQA_MM" />
-          <ScalarProperty Name="CUS_FLD6" ColumnName="CUS_FLD6" />
-          <ScalarProperty Name="CUS_FLD5" ColumnName="CUS_FLD5" />
-          <ScalarProperty Name="CUS_FLD4" ColumnName="CUS_FLD4" />
-          <ScalarProperty Name="CUS_FLD3" ColumnName="CUS_FLD3" />
-          <ScalarProperty Name="CUS_FLD2" ColumnName="CUS_FLD2" />
-          <ScalarProperty Name="CUS_FLD1" ColumnName="CUS_FLD1" />
-          <ScalarProperty Name="REMK" ColumnName="REMK" />
-          <ScalarProperty Name="C_CLS" ColumnName="C_CLS" />
-          <ScalarProperty Name="OUT_RT" ColumnName="OUT_RT" />
-          <ScalarProperty Name="C_OUT" ColumnName="C_OUT" />
-          <ScalarProperty Name="PRJ_NO" ColumnName="PRJ_NO" />
-          <ScalarProperty Name="SVCH_SR" ColumnName="SVCH_SR" />
-          <ScalarProperty Name="SVCH_NO" ColumnName="SVCH_NO" />
-          <ScalarProperty Name="SVCH_TY" ColumnName="SVCH_TY" />
-          <ScalarProperty Name="CO_WAHO_NO" ColumnName="CO_WAHO_NO" />
-          <ScalarProperty Name="PRCV_DT" ColumnName="PRCV_DT" />
-          <ScalarProperty Name="AMT" ColumnName="AMT" />
-          <ScalarProperty Name="PRC" ColumnName="PRC" />
-          <ScalarProperty Name="FREC_QTY" ColumnName="FREC_QTY" />
-          <ScalarProperty Name="FREE_QTY" ColumnName="FREE_QTY" />
-          <ScalarProperty Name="RTN_QTY" ColumnName="RTN_QTY" />
-          <ScalarProperty Name="RCV_QTY" ColumnName="RCV_QTY" />
-          <ScalarProperty Name="A_QTY" ColumnName="A_QTY" />
-          <ScalarProperty Name="QTY" ColumnName="QTY" />
-          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
-          <ScalarProperty Name="CS_ITEM_NO" ColumnName="CS_ITEM_NO" />
-          <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
-          <ScalarProperty Name="VCH_SR" ColumnName="VCH_SR" />
-          <ScalarProperty Name="VCH_NO" ColumnName="VCH_NO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="SP_Sys_GetUserByRoleId" FunctionName="CCSModel1.Store.SP_Sys_GetUserByRoleId">
       <ResultMapping>
         <ComplexTypeMapping TypeName="CCSModel1.SP_Sys_GetUserByRoleId_Result">
@@ -545,6 +502,28 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="EMPNO">
+      <EntityTypeMapping TypeName="CCSModel1.EMPNO">
+        <MappingFragment StoreEntitySet="EMPNO">
+          <ScalarProperty Name="C_MOC" ColumnName="C_MOC" />
+          <ScalarProperty Name="C_BOM" ColumnName="C_BOM" />
+          <ScalarProperty Name="C_QMS" ColumnName="C_QMS" />
+          <ScalarProperty Name="C_SFC" ColumnName="C_SFC" />
+          <ScalarProperty Name="C_ACT" ColumnName="C_ACT" />
+          <ScalarProperty Name="C_AST" ColumnName="C_AST" />
+          <ScalarProperty Name="C_PPS" ColumnName="C_PPS" />
+          <ScalarProperty Name="C_COP" ColumnName="C_COP" />
+          <ScalarProperty Name="C_PUR" ColumnName="C_PUR" />
+          <ScalarProperty Name="C_INV" ColumnName="C_INV" />
+          <ScalarProperty Name="E_MAIL" ColumnName="E_MAIL" />
+          <ScalarProperty Name="TEL_NO2" ColumnName="TEL_NO2" />
+          <ScalarProperty Name="TEL_NO" ColumnName="TEL_NO" />
+          <ScalarProperty Name="DEPM_NO" ColumnName="DEPM_NO" />
+          <ScalarProperty Name="EMP_NM" ColumnName="EMP_NM" />
+          <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="CS_COMT">
       <EntityTypeMapping TypeName="CCSModel1.CS_COMT">
         <MappingFragment StoreEntitySet="CS_COMT">
@@ -584,6 +563,8 @@
           <ScalarProperty Name="WAHO_NO" ColumnName="WAHO_NO" />
           <ScalarProperty Name="EXCH_RATE" ColumnName="EXCH_RATE" />
           <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+          <ScalarProperty Name="FAX_NO" ColumnName="FAX_NO" />
+          <ScalarProperty Name="TEL_NO" ColumnName="TEL_NO" />
           <ScalarProperty Name="TO_ADDR2" ColumnName="TO_ADDR2" />
           <ScalarProperty Name="TO_ADDR" ColumnName="TO_ADDR" />
           <ScalarProperty Name="PAY_CDT" ColumnName="PAY_CDT" />
@@ -592,8 +573,10 @@
           <ScalarProperty Name="TAX_TY" ColumnName="TAX_TY" />
           <ScalarProperty Name="CONTACTER" ColumnName="CONTACTER" />
           <ScalarProperty Name="CS_VCH_NO" ColumnName="CS_VCH_NO" />
+          <ScalarProperty Name="EMP_NAME" ColumnName="EMP_NAME" />
           <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
           <ScalarProperty Name="DEPM_NO" ColumnName="DEPM_NO" />
+          <ScalarProperty Name="CS_NM" ColumnName="CS_NM" />
           <ScalarProperty Name="CS_NO" ColumnName="CS_NO" />
           <ScalarProperty Name="FA_NO" ColumnName="FA_NO" />
           <ScalarProperty Name="VCH_DT" ColumnName="VCH_DT" />
@@ -601,25 +584,52 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="EMPNO">
-      <EntityTypeMapping TypeName="CCSModel1.EMPNO">
-        <MappingFragment StoreEntitySet="EMPNO">
-          <ScalarProperty Name="C_MOC" ColumnName="C_MOC" />
-          <ScalarProperty Name="C_BOM" ColumnName="C_BOM" />
-          <ScalarProperty Name="C_QMS" ColumnName="C_QMS" />
-          <ScalarProperty Name="C_SFC" ColumnName="C_SFC" />
-          <ScalarProperty Name="C_ACT" ColumnName="C_ACT" />
-          <ScalarProperty Name="C_AST" ColumnName="C_AST" />
-          <ScalarProperty Name="C_PPS" ColumnName="C_PPS" />
-          <ScalarProperty Name="C_COP" ColumnName="C_COP" />
-          <ScalarProperty Name="C_PUR" ColumnName="C_PUR" />
-          <ScalarProperty Name="C_INV" ColumnName="C_INV" />
-          <ScalarProperty Name="E_MAIL" ColumnName="E_MAIL" />
-          <ScalarProperty Name="TEL_NO2" ColumnName="TEL_NO2" />
-          <ScalarProperty Name="TEL_NO" ColumnName="TEL_NO" />
-          <ScalarProperty Name="DEPM_NO" ColumnName="DEPM_NO" />
-          <ScalarProperty Name="EMP_NM" ColumnName="EMP_NM" />
-          <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
+    <EntitySetMapping Name="CS_SEQ_NO">
+      <EntityTypeMapping TypeName="CCSModel1.CS_SEQ_NO">
+        <MappingFragment StoreEntitySet="CS_SEQ_NO">
+          <ScalarProperty Name="EXC_COMPANY" ColumnName="EXC_COMPANY" />
+          <ScalarProperty Name="EXC_ISLOCKED" ColumnName="EXC_ISLOCKED" />
+          <ScalarProperty Name="EXC_SYSOWNR" ColumnName="EXC_SYSOWNR" />
+          <ScalarProperty Name="EXC_UPDDATE" ColumnName="EXC_UPDDATE" />
+          <ScalarProperty Name="EXC_UPDDBID" ColumnName="EXC_UPDDBID" />
+          <ScalarProperty Name="EXC_INSDATE" ColumnName="EXC_INSDATE" />
+          <ScalarProperty Name="EXC_INSDBID" ColumnName="EXC_INSDBID" />
+          <ScalarProperty Name="ORGANIZATION" ColumnName="ORGANIZATION" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CURRENT_ORDNO" ColumnName="CURRENT_ORDNO" />
+          <ScalarProperty Name="CURRENT_NO" ColumnName="CURRENT_NO" />
+          <ScalarProperty Name="NO_LENGTH" ColumnName="NO_LENGTH" />
+          <ScalarProperty Name="CODEFORMAT" ColumnName="CODEFORMAT" />
+          <ScalarProperty Name="PREFIX" ColumnName="PREFIX" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CS_CODL">
+      <EntityTypeMapping TypeName="CCSModel1.CS_CODL">
+        <MappingFragment StoreEntitySet="CS_CODL">
+          <ScalarProperty Name="CP_NM" ColumnName="CP_NM" />
+          <ScalarProperty Name="IP_NM" ColumnName="IP_NM" />
+          <ScalarProperty Name="MDY_DT" ColumnName="MDY_DT" />
+          <ScalarProperty Name="MDY_USR_NO" ColumnName="MDY_USR_NO" />
+          <ScalarProperty Name="CFM_USR_NO" ColumnName="CFM_USR_NO" />
+          <ScalarProperty Name="ADD_DT" ColumnName="ADD_DT" />
+          <ScalarProperty Name="REMK" ColumnName="REMK" />
+          <ScalarProperty Name="C_CLS" ColumnName="C_CLS" />
+          <ScalarProperty Name="PRCV_DT" ColumnName="PRCV_DT" />
+          <ScalarProperty Name="AMT" ColumnName="AMT" />
+          <ScalarProperty Name="PRC" ColumnName="PRC" />
+          <ScalarProperty Name="QTY" ColumnName="QTY" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="CS_ITEM_NO" ColumnName="CS_ITEM_NO" />
+          <ScalarProperty Name="ITEM_SP" ColumnName="ITEM_SP" />
+          <ScalarProperty Name="ITEM_NM" ColumnName="ITEM_NM" />
+          <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
+          <ScalarProperty Name="VCH_SR" ColumnName="VCH_SR" />
+          <ScalarProperty Name="VCH_NO" ColumnName="VCH_NO" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -6,7 +6,7 @@ using CCS.IDAL;
 
 namespace CCS.DAL
 {
-    public  class CS_COMTRepository : Ics_comtRepository, IDisposable
+    public  class cs_comtRepository : Ics_comtRepository, IDisposable
     {
         /// <summary>
         /// 獲取列表
@@ -69,12 +69,18 @@ namespace CCS.DAL
         {
             using (CCSEntities db = new CCSEntities())
             {
-
-
-                db.CS_COMT.Attach(entity);
+                try { 
+                //db.CS_COMT.Attach(entity);
+                //db.Entry(entity).State = EntityState.Modified;
                 db.Entry(entity).State = EntityState.Modified;
+
                 //db.ObjectStateManager.ChangeObjectState(entity, EntityState.Modified);
                 return db.SaveChanges();
+                }catch(Exception ex)
+                {
+                    return 0;
+                    throw ex;
+                }
             }
         }
         /// <summary>

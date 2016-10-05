@@ -45,6 +45,7 @@ $(function () {
     @Html.ToolButton("btnSave", "icon-save", @Suggestion.Save, perm, "Save", true)
     @Html.ToolButton("btnReturn", "icon-return", Suggestion.Return, false)
 </div>
+<div style="height:35px"></div>
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.Id)

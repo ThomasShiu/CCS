@@ -18,8 +18,10 @@ namespace CCS.Models
         public System.DateTime VCH_DT { get; set; }
         public string FA_NO { get; set; }
         public string CS_NO { get; set; }
+        public string CS_NM { get; set; }
         public string DEPM_NO { get; set; }
         public string EMP_NO { get; set; }
+        public string EMP_NAME { get; set; }
         public string CS_VCH_NO { get; set; }
         public string CONTACTER { get; set; }
         public string TAX_TY { get; set; }
@@ -28,6 +30,8 @@ namespace CCS.Models
         public string PAY_CDT { get; set; }
         public string TO_ADDR { get; set; }
         public string TO_ADDR2 { get; set; }
+        public string TEL_NO { get; set; }
+        public string FAX_NO { get; set; }
         public string CURRENCY { get; set; }
         public Nullable<decimal> EXCH_RATE { get; set; }
         public string WAHO_NO { get; set; }

@@ -1,0 +1,198 @@
+﻿@model CCS.Models.SAL.cs_codlModel
+@using CCS.Common;
+@using CCS.Core;
+@using CCS.Models.SYS;
+@{
+    ViewBag.Title = "創建";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+
+
+<div class="mvctool bgb">
+    @Html.ToolButton("btnSave", "icon-save", @Suggestion.Save, perm, "Save", true)
+    @Html.ToolButton("btnReturn", "icon-return", @Suggestion.Return, false)
+</div>
+<div style="height:35px"></div>
+@using (Html.BeginForm())
+{
+    <div class="alert alert-danger">
+        @Html.ValidationSummary(false)
+    </div>
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.VCH_NO)：
+                </td>
+                <td style="width:310px">
+                    <input id="VCH_NO" name="VCH_NO" class="easyui-textbox" value="@ViewBag.vch_no" readonly="readonly"/>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.VCH_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.VCH_SR)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.VCH_SR)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.VCH_SR)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.ITEM_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.ITEM_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ITEM_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.ITEM_NM)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.ITEM_NM)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ITEM_NM)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.ITEM_SP)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.ITEM_SP)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ITEM_SP)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CS_ITEM_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.CS_ITEM_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CS_ITEM_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.UNIT)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.UNIT)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.UNIT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.QTY)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.QTY)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.QTY)</td>
+            </tr>
+          
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PRC)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.PRC)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PRC)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.AMT)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.AMT)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.AMT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PRCV_DT)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.PRCV_DT, new { htmlAttributes = new { @class = "easyui-datebox" , data_options = "formatter:myformatter,parser:myparser",type ="date"} })
+                    @*@Html.EditorFor(model => model.PRCV_DT)*@
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PRCV_DT)</td>
+            </tr>
+
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.REMK)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.REMK)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.REMK)</td>
+            </tr>
+
+        </tbody>
+    </table>
+}
+@section scripts{
+    
+    
+<script type="text/javascript">
+
+$(function () {
+    $("#btnSave").click(function () {
+        if ($("form").valid()) {
+            $.ajax({
+                url: "@Url.Action("Create")",
+                type: "Post",
+                data: $("form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data.type == 1) {
+                        window.parent.frameReturnByMes(data.message);
+                        window.parent.frameReturnByReload(true);
+                        window.parent.frameReturnByClose()
+                    }
+                    else {
+                        window.parent.frameReturnByMes(data.message);
+                    }
+                }
+            });
+        }
+        return false;
+    });
+    $("#btnReturn").click(function () {
+         window.parent.frameReturnByClose();
+    });
+
+    
+
+});
+
+    function myformatter(date) {
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1;
+        var d = date.getDate();
+        return y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d);
+    }
+    function myparser(s) {
+        if (!s) return new Date();
+        var ss = (s.split('-'));
+        var y = parseInt(ss[0], 10);
+        var m = parseInt(ss[1], 10);
+        var d = parseInt(ss[2], 10);
+        if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
+            return new Date(y, m - 1, d);
+        } else {
+            return new Date();
+        }
+    }
+</script>
+    }

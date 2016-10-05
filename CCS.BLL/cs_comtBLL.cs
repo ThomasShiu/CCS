@@ -72,8 +72,10 @@ namespace CCS.BLL
                                                 VCH_DT = r.VCH_DT,
                                                 FA_NO = r.FA_NO,
                                                 CS_NO = r.CS_NO,
+                                                CS_NM = r.CS_NM,
                                                 DEPM_NO = r.DEPM_NO,
                                                 EMP_NO = r.EMP_NO,
+                                                EMP_NAME = r.EMP_NAME,
                                                 CS_VCH_NO = r.CS_VCH_NO,
                                                 CONTACTER = r.CONTACTER,
                                                 TAX_TY = r.TAX_TY,
@@ -82,6 +84,8 @@ namespace CCS.BLL
                                                 PAY_CDT = r.PAY_CDT,
                                                 TO_ADDR = r.TO_ADDR,
                                                 TO_ADDR2 = r.TO_ADDR2,
+                                                TEL_NO = r.TEL_NO,
+                                                FAX_NO = r.FAX_NO,
                                                 CURRENCY = r.CURRENCY,
                                                 EXCH_RATE = r.EXCH_RATE.Value,
                                                 WAHO_NO = r.WAHO_NO,
@@ -103,6 +107,9 @@ namespace CCS.BLL
                                                 PACK_REMK = r.PACK_REMK,
                                                 IVC_REMK = r.IVC_REMK,
                                                 REMK = r.REMK,
+                                                ATTR_NO1 = r.ATTR_NO1,
+                                                ATTR_NO2 = r.ATTR_NO2,
+                                                ATTR_NO3 = r.ATTR_NO3,
                                                 N_PRT = r.N_PRT.Value,
                                                 C_SIGN = r.C_SIGN,
                                                 C_CFM = r.C_CFM,
@@ -141,8 +148,10 @@ namespace CCS.BLL
                 entity.VCH_DT = model.VCH_DT;
                 entity.FA_NO = model.FA_NO;
                 entity.CS_NO = model.CS_NO;
+                entity.CS_NM = model.CS_NM;
                 entity.DEPM_NO = model.DEPM_NO;
                 entity.EMP_NO = model.EMP_NO;
+                entity.EMP_NAME = model.EMP_NAME;
                 entity.CS_VCH_NO = model.CS_VCH_NO;
                 entity.CONTACTER = model.CONTACTER;
                 entity.TAX_TY = model.TAX_TY;
@@ -151,6 +160,8 @@ namespace CCS.BLL
                 entity.PAY_CDT = model.PAY_CDT;
                 entity.TO_ADDR = model.TO_ADDR;
                 entity.TO_ADDR2 = model.TO_ADDR2;
+                entity.TEL_NO = model.TEL_NO;
+                entity.FAX_NO = model.FAX_NO;
                 entity.CURRENCY = model.CURRENCY;
                 entity.EXCH_RATE = model.EXCH_RATE;
                 entity.WAHO_NO = model.WAHO_NO;
@@ -172,6 +183,9 @@ namespace CCS.BLL
                 entity.PACK_REMK = model.PACK_REMK;
                 entity.IVC_REMK = model.IVC_REMK;
                 entity.REMK = model.REMK;
+                entity.ATTR_NO1 = model.ATTR_NO1;
+                entity.ATTR_NO2 = model.ATTR_NO2;
+                entity.ATTR_NO3 = model.ATTR_NO3;
                 entity.N_PRT = model.N_PRT;
                 entity.C_SIGN = model.C_SIGN;
                 entity.C_CFM = model.C_CFM;
@@ -273,7 +287,7 @@ namespace CCS.BLL
                 CS_COMT entity = Rep.GetById(model.VCH_NO);
                 if (entity == null)
                 {
-                    errors.Add("主鍵重複");
+                    errors.Add(Suggestion.Disable);
                     return false;
                 }
 
@@ -281,8 +295,10 @@ namespace CCS.BLL
                 entity.VCH_DT = model.VCH_DT;
                 entity.FA_NO = model.FA_NO;
                 entity.CS_NO = model.CS_NO;
+                entity.CS_NM = model.CS_NM;
                 entity.DEPM_NO = model.DEPM_NO;
                 entity.EMP_NO = model.EMP_NO;
+                entity.EMP_NAME = model.EMP_NAME;
                 entity.CS_VCH_NO = model.CS_VCH_NO;
                 entity.CONTACTER = model.CONTACTER;
                 entity.TAX_TY = model.TAX_TY;
@@ -291,6 +307,8 @@ namespace CCS.BLL
                 entity.PAY_CDT = model.PAY_CDT;
                 entity.TO_ADDR = model.TO_ADDR;
                 entity.TO_ADDR2 = model.TO_ADDR2;
+                entity.TEL_NO = model.TEL_NO;
+                entity.FAX_NO = model.FAX_NO;
                 entity.CURRENCY = model.CURRENCY;
                 entity.EXCH_RATE = model.EXCH_RATE;
                 entity.WAHO_NO = model.WAHO_NO;
@@ -312,52 +330,9 @@ namespace CCS.BLL
                 entity.PACK_REMK = model.PACK_REMK;
                 entity.IVC_REMK = model.IVC_REMK;
                 entity.REMK = model.REMK;
-                entity.N_PRT = model.N_PRT;
-                entity.C_SIGN = model.C_SIGN;
-                entity.C_CFM = model.C_CFM;
-                entity.CFM_DT = model.CFM_DT;
-                entity.OWNER_USR_NO = model.OWNER_USR_NO;
-                entity.OWNER_GRP_NO = model.OWNER_GRP_NO;
-                entity.ADD_DT = model.ADD_DT;
-                entity.CFM_USR_NO = model.CFM_USR_NO;
-                entity.MDY_USR_NO = model.MDY_USR_NO;
-                entity.MDY_DT = model.MDY_DT;
-                entity.IP_NM = model.IP_NM;
-                entity.CP_NM = model.CP_NM; entity.VCH_NO = model.VCH_NO;
-                entity.VCH_DT = model.VCH_DT;
-                entity.FA_NO = model.FA_NO;
-                entity.CS_NO = model.CS_NO;
-                entity.DEPM_NO = model.DEPM_NO;
-                entity.EMP_NO = model.EMP_NO;
-                entity.CS_VCH_NO = model.CS_VCH_NO;
-                entity.CONTACTER = model.CONTACTER;
-                entity.TAX_TY = model.TAX_TY;
-                entity.TAX_RT = model.TAX_RT;
-                entity.PRC_CDT = model.PRC_CDT;
-                entity.PAY_CDT = model.PAY_CDT;
-                entity.TO_ADDR = model.TO_ADDR;
-                entity.TO_ADDR2 = model.TO_ADDR2;
-                entity.CURRENCY = model.CURRENCY;
-                entity.EXCH_RATE = model.EXCH_RATE;
-                entity.WAHO_NO = model.WAHO_NO;
-                entity.LC_NO = model.LC_NO;
-                entity.SHIP_TY = model.SHIP_TY;
-                entity.STR_PORT = model.STR_PORT;
-                entity.DES_PORT = model.DES_PORT;
-                entity.AGT_CORP = model.AGT_CORP;
-                entity.CLR_CORP = model.CLR_CORP;
-                entity.INSP_CORP = model.INSP_CORP;
-                entity.SHIP_CORP = model.SHIP_CORP;
-                entity.MARK_NO = model.MARK_NO;
-                entity.FL_MARK = model.FL_MARK;
-                entity.SL_MARK = model.SL_MARK;
-                entity.CONSIGNEE = model.CONSIGNEE;
-                entity.NOTIFY = model.NOTIFY;
-                entity.DES_PLACE = model.DES_PLACE;
-                entity.BANK_NO = model.BANK_NO;
-                entity.PACK_REMK = model.PACK_REMK;
-                entity.IVC_REMK = model.IVC_REMK;
-                entity.REMK = model.REMK;
+                entity.ATTR_NO1 = model.ATTR_NO1;
+                entity.ATTR_NO2 = model.ATTR_NO2;
+                entity.ATTR_NO3 = model.ATTR_NO3;
                 entity.N_PRT = model.N_PRT;
                 entity.C_SIGN = model.C_SIGN;
                 entity.C_CFM = model.C_CFM;
@@ -419,8 +394,10 @@ namespace CCS.BLL
                 model.VCH_DT = entity.VCH_DT;
                 model.FA_NO = entity.FA_NO;
                 model.CS_NO = entity.CS_NO;
+                model.CS_NM = entity.CS_NM;
                 model.DEPM_NO = entity.DEPM_NO;
                 model.EMP_NO = entity.EMP_NO;
+                model.EMP_NAME = entity.EMP_NAME;
                 model.CS_VCH_NO = entity.CS_VCH_NO;
                 model.CONTACTER = entity.CONTACTER;
                 model.TAX_TY = entity.TAX_TY;
@@ -429,6 +406,8 @@ namespace CCS.BLL
                 model.PAY_CDT = entity.PAY_CDT;
                 model.TO_ADDR = entity.TO_ADDR;
                 model.TO_ADDR2 = entity.TO_ADDR2;
+                model.TEL_NO = entity.TEL_NO;
+                model.FAX_NO = entity.FAX_NO;
                 model.CURRENCY = entity.CURRENCY;
                 model.EXCH_RATE = entity.EXCH_RATE.Value;
                 model.WAHO_NO = entity.WAHO_NO;
@@ -450,6 +429,9 @@ namespace CCS.BLL
                 model.PACK_REMK = entity.PACK_REMK;
                 model.IVC_REMK = entity.IVC_REMK;
                 model.REMK = entity.REMK;
+                model.ATTR_NO1 = entity.ATTR_NO1;
+                model.ATTR_NO2 = entity.ATTR_NO2;
+                model.ATTR_NO3 = entity.ATTR_NO3;
                 model.N_PRT = entity.N_PRT.Value;
                 model.C_SIGN = entity.C_SIGN;
                 model.C_CFM = entity.C_CFM;

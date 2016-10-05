@@ -30,7 +30,7 @@ namespace CCS.Areas.Sales.Controllers
         /// </summary>
         [Dependency]
         public Ics_comtBLL comt_BLL { get; set; }
-
+        
         [Dependency]
         public IcustomerBLL cust_BLL { get; set; }
         [Dependency]
@@ -43,11 +43,7 @@ namespace CCS.Areas.Sales.Controllers
             return View();
         }
 
-        public ActionResult CS_COMT()
-        {
-            //List<cs_comtModel> list = m_BLL.GetList("");
-            return View();
-        }
+       
 
         [HttpPost]
         public JsonResult GetList(GridPager pager,String queryStr)
@@ -60,13 +56,14 @@ namespace CCS.Areas.Sales.Controllers
                 rows = (from r in list
                         select new cs_comtModel()
                         {
-
                             VCH_NO = r.VCH_NO,
                             VCH_DT = r.VCH_DT,
                             FA_NO = r.FA_NO,
                             CS_NO = r.CS_NO,
+                            CS_NM = r.CS_NM,
                             DEPM_NO = r.DEPM_NO,
                             EMP_NO = r.EMP_NO,
+                            EMP_NAME = r.EMP_NAME,
                             CS_VCH_NO = r.CS_VCH_NO,
                             CONTACTER = r.CONTACTER,
                             TAX_TY = r.TAX_TY,
@@ -75,6 +72,8 @@ namespace CCS.Areas.Sales.Controllers
                             PAY_CDT = r.PAY_CDT,
                             TO_ADDR = r.TO_ADDR,
                             TO_ADDR2 = r.TO_ADDR2,
+                            TEL_NO = r.TEL_NO,
+                            FAX_NO = r.FAX_NO,
                             CURRENCY = r.CURRENCY,
                             EXCH_RATE = r.EXCH_RATE,
                             WAHO_NO = r.WAHO_NO,
@@ -96,6 +95,9 @@ namespace CCS.Areas.Sales.Controllers
                             PACK_REMK = r.PACK_REMK,
                             IVC_REMK = r.IVC_REMK,
                             REMK = r.REMK,
+                            ATTR_NO1 = r.ATTR_NO1,
+                            ATTR_NO2 = r.ATTR_NO2,
+                            ATTR_NO3 = r.ATTR_NO3,
                             N_PRT = r.N_PRT,
                             C_SIGN = r.C_SIGN,
                             C_CFM = r.C_CFM,
@@ -116,6 +118,7 @@ namespace CCS.Areas.Sales.Controllers
 
         }
 
+        
 
         #region 創建
         [SupportFilter]
@@ -141,19 +144,20 @@ namespace CCS.Areas.Sales.Controllers
             model.CFM_DT = DateTime.Now;
             model.MDY_DT = DateTime.Now;
             model.MDY_USR_NO = account.Id;
+            model.CFM_USR_NO = account.Id;
             model.IP_NM = HttpContext.Request.UserHostAddress;
             model.CP_NM = HttpContext.Request.UserHostName;
             model.N_PRT = 0;
             
             if (comt_BLL.Create(ref errors, model))
             {
-                LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "創建", "範例程序");
+                LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "創建", "SAL01");
                 return Json(JsonHandler.CreateMessage(1, "新增成功"), JsonRequestBehavior.AllowGet);
             }
             else
             {
                 string ErrorCol = errors.Error;
-                LogHandler.WriteServiceLog("虛用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "創建", "範例程序");
+                LogHandler.WriteServiceLog("虛用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "創建", "SAL01");
                 return Json(JsonHandler.CreateMessage(0, "新增失敗" + ErrorCol), JsonRequestBehavior.AllowGet);
             }
 
@@ -177,16 +181,19 @@ namespace CCS.Areas.Sales.Controllers
             //account.Id = "admin";
             //account.TrueName = "admin";
             //Session["Account"] = account;
+            model.MDY_DT = DateTime.Now;
+            model.MDY_USR_NO = account.Id;
+
 
             if (comt_BLL.Edit(ref errors, model))
             {
-                LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "編輯", "範例程序");
+                LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "編輯", "SAL01");
                 return Json(1, JsonRequestBehavior.AllowGet);
             }
             else
             {
                 string ErrorCol = errors.Error;
-                LogHandler.WriteServiceLog("虛用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "編輯", "範例程序");
+                LogHandler.WriteServiceLog("虛用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "編輯", "SAL01");
                 return Json(0, JsonRequestBehavior.AllowGet);
             }
 
@@ -218,13 +225,13 @@ namespace CCS.Areas.Sales.Controllers
             {
                 if (comt_BLL.Delete(ref errors, id))
                 {
-                    LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "刪除", "範例程序");
+                    LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "刪除", "SAL01");
                     return Json(1, JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog("虛用用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "刪除", "範例程序");
+                    LogHandler.WriteServiceLog("虛用用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "刪除", "SAL01");
                     return Json(0, JsonRequestBehavior.AllowGet);
                 }
             }
