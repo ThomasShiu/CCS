@@ -2,26 +2,36 @@
 using CCS.Common;
 using CCS.Core;
 using CCS.IBLL;
+using CCS.Models.PUB;
 using CCS.Models.SAL;
 using CCS.Models.SYS;
+using CCS.Services;
 using Microsoft.Practices.Unity;
+using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
 namespace CCS.Areas.Sales.Controllers
 {
+    
+
     [UserTraceLog]
     public class SAL02Controller : BaseController
     {
+        CCSservice ccsService = new CCSservice();
+
         // GET: Sales/SAL02
         [Dependency]
         public Ics_codlBLL m_BLL { get; set; }
 
         [Dependency]
         public Ics_comtBLL comt_BLL { get; set; }
+        [Dependency]
+        public IitemBLL item_BLL { get; set; }
 
         ValidationErrors errors = new ValidationErrors();
 
@@ -134,6 +144,9 @@ namespace CCS.Areas.Sales.Controllers
         {
             if (model != null && ModelState.IsValid)
             {
+                AccountModel account = (AccountModel)Session["Account"];
+                model.MDY_DT = DateTime.Now;
+                model.MDY_USR_NO = account.Id;
 
                 if (m_BLL.Edit(ref errors, model))
                 {
@@ -190,6 +203,79 @@ namespace CCS.Areas.Sales.Controllers
             }
 
 
+        }
+        #endregion
+
+        #region 料品列表，下拉選單
+        [SupportFilter(ActionName = "Index")]
+        //[HttpPost]
+        public JsonResult GetItemList(String queryStr)
+        {
+            //var model =  ccsService.GetCustList("");
+            List<itemModel> list = item_BLL.GetList(queryStr);
+            var model = (from r in list
+                         where r.ITEM_NO.StartsWith("6")  // 製成品
+                         select new itemModel()
+                         {
+                             ITEM_NO = r.ITEM_NO.Trim(),
+                             ITEM_NM = r.ITEM_NM.Trim(),
+                             ITEM_SP = r.ITEM_SP.Trim(),
+                             ITEM_NM_E = r.ITEM_NM_E,
+                             ITEM_SP_E = r.ITEM_SP_E,
+                             ITEM_NO_O = r.ITEM_NO_O
+                         }).ToArray();
+
+            return Json(model, JsonRequestBehavior.AllowGet);
+
+        }
+        #endregion
+
+        #region
+        public ActionResult Reporting(string type = "PDF")
+        {
+            string v_sqlstr = "SELECT VCH_NO, CONVERT(VARCHAR(10),VCH_DT,120) VCH_DT, FA_NO, CS_NO, CS_NM, DEPM_NO, EMP_NO, EMP_NAME, CS_VCH_NO,"+
+                 "CONTACTER, TAX_TY, TAX_RT, TO_ADDR, TEL_NO, FAX_NO, CURRENCY, EXCH_RATE, WAHO_NO,"+
+                 "SHIP_TY, SHIP_CORP, REMK, VCH_SR, ITEM_NO, ITEM_NM, ITEM_SP, CS_ITEM_NO, UNIT, QTY, PRC, AMT, CONVERT(VARCHAR(10),PRCV_DT,120) PRCV_DT " +
+                 "FROM CCS_Main.dbo.V_ORDERS WHERE VCH_NO = 'S161006040' ";
+            
+             //資料集
+             DataTable dt = ccsService.GetDataSet(v_sqlstr,"");
+
+            LocalReport localReport = new LocalReport();
+            localReport.ReportPath = Server.MapPath("~/Reports/SAL01.rdlc");
+            ReportDataSource reportDataSource = new ReportDataSource("DataSet1", dt);
+            localReport.DataSources.Add(reportDataSource);
+            string reportType = type;
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+
+            string deviceInfo =
+                "<DeviceInfo>" +
+                "<OutPutFormat>" + type + "</OutPutFormat>" +
+                "<PageWidth>11in</PageWidth>" +
+                "<PageHeight>11in</PageHeight>" +
+                "<MarginTop>0.2in</MarginTop>" +
+                "<MarginLeft>0.2in</MarginLeft>" +
+                "<MarginRight>0.2in</MarginRight>" +
+                "<MarginBottom>0.2in</MarginBottom>" +
+                "</DeviceInfo>";
+            Warning[] warnings;
+            string[] streams;
+            byte[] renderedBytes;
+
+            renderedBytes = localReport.Render(
+                reportType,
+                deviceInfo,
+                out mimeType,
+                out encoding,
+                out fileNameExtension,
+                out streams,
+                out warnings
+                );
+                return File(renderedBytes, mimeType);
+            
+           
         }
         #endregion
     }

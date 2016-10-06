@@ -26,6 +26,7 @@
         <EntityTypeShape EntityType="CCSModel1.CS_COMT" Width="1.5" PointX="11.625" PointY="0.625" />
         <EntityTypeShape EntityType="CCSModel1.CS_SEQ_NO" Width="1.5" PointX="10.375" PointY="14.75" />
         <EntityTypeShape EntityType="CCSModel1.CS_CODL" Width="1.5" PointX="12.375" PointY="13.75" />
+        <EntityTypeShape EntityType="CCSModel1.ITEM" Width="1.5" PointX="13.75" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

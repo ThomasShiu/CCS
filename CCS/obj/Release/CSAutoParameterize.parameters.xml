@@ -3,6 +3,9 @@
   <parameter name="EIPConn-Web.config Connection String" description="EIPConn 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="Data Source=192.168.100.11, 1433;Initial Catalog=EIP;User Id=sa;Password=6937937;Asynchronous Processing=True;Encrypt=False;TrustServerCertificate=True;Persist Security Info=True" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="D:\\Git_Source\\CCM3S_Project\\CCS\\CCS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='EIPConn']/@connectionString" />
   </parameter>
+  <parameter name="CCSConn-Web.config Connection String" description="CCSConn 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="Data Source=192.168.100.19, 1433;Initial Catalog=CCS_Main;User Id=sa;Password=6937937;Asynchronous Processing=True;Encrypt=False;TrustServerCertificate=True;Persist Security Info=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Git_Source\\CCM3S_Project\\CCS\\CCS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CCSConn']/@connectionString" />
+  </parameter>
   <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-CCS-20160921041624.mdf;Initial Catalog=aspnet-CCS-20160921041624;Integrated Security=True" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="D:\\Git_Source\\CCM3S_Project\\CCS\\CCS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>

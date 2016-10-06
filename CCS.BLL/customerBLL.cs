@@ -9,6 +9,7 @@ using CCS.Models.SAL;
 using Microsoft.Practices.Unity;
 using CCS.Common;
 using CCS.BLL.Core;
+using CCS.Models.PUB;
 
 namespace CCS.BLL
 {
@@ -31,7 +32,14 @@ namespace CCS.BLL
         public List<customerModel> GetList(string queryStr)
         {
             IQueryable<customer> queryData = null;
+
             queryData = Rep.GetList(db);
+
+            if (queryStr != null & queryStr != "")
+            {
+                queryData = queryData.Where(c => c.CS_NO.Contains(queryStr));
+            }
+
             return CreateModelList(ref queryData);
 
            // queryData = Rep.GetList(db);
@@ -39,11 +47,7 @@ namespace CCS.BLL
            // //排序 由大到小
            // //queryData = LinqHelper.DataSorting(queryData, pager.sort, pager.order);
 
-           //if (queryStr != null & queryStr != "")
-           // {
-           //     queryData = queryData.Where(c => c.CS_NO.Contains(queryStr));
-           // }
-           // return CreateModelList(ref queryData);
+           
 
         }
         private List<customerModel> CreateModelList( ref IQueryable<customer> queryData)

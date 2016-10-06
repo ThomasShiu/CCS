@@ -68,6 +68,7 @@
     <Compile Include="IcustomerRepository.cs" />
     <Compile Include="Ics_sysrightRepository.cs" />
     <Compile Include="IEMPNORepository.cs" />
+    <Compile Include="IitemRepository.cs" />
     <Compile Include="ISysExceptionRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

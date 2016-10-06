@@ -4,7 +4,7 @@
 @using CCS.Models.SYS;
 
 @{
-    ViewBag.Title = "創建";
+    ViewBag.Title = "創建-訂單主檔";
     Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
     List<permModel> perm = (List<permModel>)ViewBag.Perm;
     if (perm == null)
@@ -17,6 +17,7 @@
     @Html.ToolButton("btnSave", "icon-save", @Suggestion.Save, perm, "Save", true)
     @Html.ToolButton("btnReturn", "icon-return", @Suggestion.Return, false)
 </div>
+<div style="height:35px"></div>
 @using (Html.BeginForm())
 {
     <table class="fromEditTable setTextWidth300">
@@ -75,6 +76,15 @@
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.EMP_NAME)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.EMP_NAME, new { htmlAttributes = new { @class = "", style = "width: 100%;", data_options = "" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.EMP_NAME)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.CS_NO)：
                 </td>
                 <td style="width:310px">
@@ -82,13 +92,21 @@
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.CS_NO)</td>
             </tr>
-           
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CS_NM)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.CS_NM, new { htmlAttributes = new { @class = "", style = "width: 100%;", data_options = "" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CS_NM)</td>
+            </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.CONTACTER)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.CONTACTER, new { htmlAttributes = new { @class = "", style = "width: 100%;",data_options = "" } })
+                    @Html.EditorFor(model => model.CONTACTER, new { htmlAttributes = new { @class = "", style = "",data_options = "" } })
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.CONTACTER)</td>
             </tr>
@@ -97,16 +115,36 @@
                     @Html.LabelFor(model => model.TO_ADDR)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.TO_ADDR, new { htmlAttributes = new { @class = "", style = "width: 100%;", name = "TO_ADDR", data_options = "" } })
+                    @Html.EditorFor(model => model.TO_ADDR, new { htmlAttributes = new { @class = "", style = "",  data_options = "" } })
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.TO_ADDR)</td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.TEL_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.TEL_NO, new { htmlAttributes = new { @class = "", style = "", data_options = "" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.TEL_NO)</td>
+            </tr>
+
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.FAX_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.FAX_NO, new { htmlAttributes = new { @class = "", style = "", data_options = "" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.FAX_NO)</td>
+            </tr>
+
+            <tr>
+                <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.CS_VCH_NO)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.CS_VCH_NO, new { htmlAttributes = new { @class = "", style = "width: 100%;", data_options = "" } })
+                    @Html.EditorFor(model => model.CS_VCH_NO, new { htmlAttributes = new { @class = "", style = "", data_options = "" } })
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.CS_VCH_NO)</td>
             </tr>
@@ -129,7 +167,7 @@
                     @Html.LabelFor(model => model.TAX_RT)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.TAX_RT, new { htmlAttributes = new { @class = "", style = "width: 100%;", name = "TAX_RT", data_options = "" } })
+                    @Html.EditorFor(model => model.TAX_RT, new { htmlAttributes = new { @class = "", style = "", name = "TAX_RT", data_options = "" } })
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.TAX_RT)</td>
             </tr>
@@ -155,7 +193,7 @@
                     @Html.LabelFor(model => model.EXCH_RATE)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.EXCH_RATE, new { htmlAttributes = new { @class = "", style = "width: 100%;", name = "EXCH_RATE", data_options = "" } })
+                    @Html.EditorFor(model => model.EXCH_RATE, new { htmlAttributes = new { @class = "", style = "", name = "EXCH_RATE", data_options = "" } })
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.EXCH_RATE)</td>
             </tr>
@@ -192,7 +230,7 @@
                     @Html.LabelFor(model => model.SHIP_CORP)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.SHIP_CORP, new { htmlAttributes = new { @class = "", style = "width: 95%;", name = "CS_NO", data_options = "" } })
+                    @Html.EditorFor(model => model.SHIP_CORP, new { htmlAttributes = new { @class = "", style = "", name = "CS_NO", data_options = "" } })
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.SHIP_CORP)</td>
             </tr>
@@ -202,7 +240,7 @@
                     @Html.LabelFor(model => model.REMK)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.REMK, new { htmlAttributes = new { @class = "easyui-textbox", style = "width: 100%;", name = "CS_NO", multiline = "true",data_options = "" } })
+                    @Html.EditorFor(model => model.REMK, new { htmlAttributes = new { @class = "easyui-textbox", style = "", name = "CS_NO", multiline = "true",data_options = "" } })
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.REMK)</td>
             </tr>
@@ -220,7 +258,7 @@
          $('#CS_NO').combogrid({
              panelWidth: 600,
              idField: 'CS_NO',
-             textField: 'SHORT_NM',
+             textField: 'CS_NO',
              url: 'GetCustList',
              method: 'get',
              columns: [[
@@ -235,26 +273,22 @@
              fitColumns: true,
              onSelect: function (rec) {
                  //getGridValue();
-                 var grid = $("#CS_NO").combogrid("grid");//获取表格对象
-                 var row = grid.datagrid('getSelected');//获取行数据
+                 var grid = $("#CS_NO").combogrid("grid");//取得表格物件
+                 var row = grid.datagrid('getSelected');//取得資料列
                  $("#CONTACTER").val(row.CONTACTER);
                  $("#TO_ADDR").val(row.ADDR_IVC);
-                
+                 $("#CS_NM").val(row.FULL_NM);
+                 $("#TEL_NO").val(row.TEL_NO);
+                 $("#FAX_NO").val(row.FAX_NO);
              }
-
          });
 
-         function getGridValue() {
-             var grid = $("#CS_NO").combogrid("grid");//获取表格对象
-             var row = grid.datagrid('getSelected');//获取行数据
-             $("#CONTACTER").val(row.CONTACTER);
-             alert("选择的grid中的数据如下：客戶代號:" + row.CS_NO + " 簡稱:" + row.SHORT_NM + " 連絡人:" + row.CONTACTER );
-         }
+
          // 下拉選單，員工
          $('#EMP_NO').combogrid({
              panelWidth: 600,
              idField: 'EMP_NO',
-             textField: 'EMP_NM',
+             textField: 'EMP_NO',
              url: 'GetEmpList',
              method: 'get',
              columns: [[
@@ -262,7 +296,13 @@
              { field: 'EMP_NM', title: '姓名', width: 60 },
              { field: 'DEPM_NO', title: '部門編號', width: 80 }
              ]],
-             fitColumns: true
+             fitColumns: true,
+             onSelect: function (rec) {
+                 //getGridValue();
+                 var grid = $("#EMP_NO").combogrid("grid");//取得表格物件
+                 var row = grid.datagrid('getSelected');//取得資料列
+                 $("#EMP_NAME").val(row.EMP_NM);
+             }
 
          });
      });

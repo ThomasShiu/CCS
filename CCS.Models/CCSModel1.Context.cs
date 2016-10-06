@@ -44,6 +44,7 @@ namespace CCS.Models
         public virtual DbSet<CS_COMT> CS_COMT { get; set; }
         public virtual DbSet<CS_SEQ_NO> CS_SEQ_NO { get; set; }
         public virtual DbSet<CS_CODL> CS_CODL { get; set; }
+        public virtual DbSet<ITEM> ITEM { get; set; }
     
         public virtual int SP_SYS_ClearUnusedRIGHTOPERATE()
         {

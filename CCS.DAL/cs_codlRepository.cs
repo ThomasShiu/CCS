@@ -2,6 +2,7 @@
 using CCS.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,8 +55,8 @@ namespace CCS.DAL
         {
             using (CCSEntities db = new CCSEntities())
             {
-                //db.CS_CODL.Attach(entity);
-                //db.ObjectStateManager.ChangeObjectState(entity, EntityState.Modified);
+                db.CS_CODL.Attach(entity);
+                db.Entry(entity).State = EntityState.Modified;
                 return db.SaveChanges();
             }
         }

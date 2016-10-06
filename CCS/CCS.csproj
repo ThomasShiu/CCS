@@ -241,6 +241,16 @@
     <Compile Include="Areas\Manufact\ManufactAreaRegistration.cs" />
     <Compile Include="Areas\Sales\Controllers\SAL01Controller.cs" />
     <Compile Include="Areas\Sales\SalesAreaRegistration.cs" />
+    <Compile Include="App_Data\CCS_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCS_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\CCS_MainDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCS_MainDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseException.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1916,6 +1926,7 @@
     <Content Include="Areas\Author\Views\CSSysModule\Edit.cshtml" />
     <Content Include="Areas\Author\Views\CSSysModule\CreateOpt.cshtml" />
     <Content Include="Areas\Author\Views\CSSysRole\Index.cshtml" />
+    <Content Include="Scripts\math_func.js" />
     <Content Include="Views\Shared\_Partial_AutoGrid.cshtml" />
     <Content Include="Areas\Author\Views\web.config" />
     <Content Include="Areas\Author\Views\CSSysRole\Create.cshtml" />
@@ -1928,6 +1939,29 @@
     <Content Include="Areas\Sales\Views\SAL02\Index.cshtml" />
     <Content Include="Areas\Sales\Views\SAL02\Create.cshtml" />
     <Content Include="Areas\Sales\Views\SAL02\MasterDetails.cshtml" />
+    <Content Include="Areas\Sales\Views\SAL02\Edit.cshtml" />
+    <Content Include="App_Data\CCS_DataSet.xsc">
+      <DependentUpon>CCS_DataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="App_Data\CCS_DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CCS_DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="App_Data\CCS_DataSet.xss">
+      <DependentUpon>CCS_DataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="App_Data\CCS_MainDataSet.xsc">
+      <DependentUpon>CCS_MainDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="App_Data\CCS_MainDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CCS_MainDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="App_Data\CCS_MainDataSet.xss">
+      <DependentUpon>CCS_MainDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\CCS_13.pubxml" />
     <None Include="Properties\PublishProfiles\CCS_207.pubxml" />
     <Content Include="Scripts\jquery-2.2.4.min.map" />
@@ -2091,7 +2125,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\Report1.rdlc" />
+    <EmbeddedResource Include="Reports\SAL01.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

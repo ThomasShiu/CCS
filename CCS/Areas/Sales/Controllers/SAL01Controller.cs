@@ -151,13 +151,13 @@ namespace CCS.Areas.Sales.Controllers
             
             if (comt_BLL.Create(ref errors, model))
             {
-                LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "創建", "SAL01");
+                LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "創建", "CS_COMT");
                 return Json(JsonHandler.CreateMessage(1, "新增成功"), JsonRequestBehavior.AllowGet);
             }
             else
             {
                 string ErrorCol = errors.Error;
-                LogHandler.WriteServiceLog("虛用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "創建", "SAL01");
+                LogHandler.WriteServiceLog("虛用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "創建", "CS_COMT");
                 return Json(JsonHandler.CreateMessage(0, "新增失敗" + ErrorCol), JsonRequestBehavior.AllowGet);
             }
 
@@ -176,27 +176,29 @@ namespace CCS.Areas.Sales.Controllers
         [HttpPost]
         public JsonResult Edit(cs_comtModel model)
         {
-            AccountModel account = (AccountModel)Session["Account"];
-
-            //account.Id = "admin";
-            //account.TrueName = "admin";
-            //Session["Account"] = account;
-            model.MDY_DT = DateTime.Now;
-            model.MDY_USR_NO = account.Id;
-
-
-            if (comt_BLL.Edit(ref errors, model))
+            if (model != null && ModelState.IsValid)
             {
-                LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "編輯", "SAL01");
-                return Json(1, JsonRequestBehavior.AllowGet);
+                AccountModel account = (AccountModel)Session["Account"];
+                model.MDY_DT = DateTime.Now;
+                model.MDY_USR_NO = account.Id;
+
+
+                if (comt_BLL.Edit(ref errors, model))
+                {
+                    LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "編輯", "CS_COMT");
+                    return Json(JsonHandler.CreateMessage(1, Suggestion.EditSucceed));
+                }
+                else
+                {
+                    string ErrorCol = errors.Error;
+                    LogHandler.WriteServiceLog("虛用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "編輯", "CS_COMT");
+                    return Json(JsonHandler.CreateMessage(0, Suggestion.EditFail + ErrorCol));
+                }
             }
             else
             {
-                string ErrorCol = errors.Error;
-                LogHandler.WriteServiceLog("虛用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "編輯", "SAL01");
-                return Json(0, JsonRequestBehavior.AllowGet);
+                return Json(JsonHandler.CreateMessage(0, Suggestion.EditFail));
             }
-
         }
         #endregion
 
@@ -225,13 +227,13 @@ namespace CCS.Areas.Sales.Controllers
             {
                 if (comt_BLL.Delete(ref errors, id))
                 {
-                    LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "刪除", "SAL01");
+                    LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "刪除", "CS_COMT");
                     return Json(1, JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog("虛用用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "刪除", "SAL01");
+                    LogHandler.WriteServiceLog("虛用用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "刪除", "CS_COMT");
                     return Json(0, JsonRequestBehavior.AllowGet);
                 }
             }

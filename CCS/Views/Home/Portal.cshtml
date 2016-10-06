@@ -1,16 +1,51 @@
-﻿
+﻿@using CCS.Models.SYS;
 @{
     ViewBag.Title = "精準緊固件";
     Layout = "~/Views/Shared/_PortalLayout.cshtml";
     //Layout = "~/Views/Shared/_easyuiLayout.cshtml";
+    AccountModel account = (AccountModel)Session["Account"];
+
 }
+
 <style type="text/css">
     html, body {
         height: 100%;
         margin: 0 auto;
     }
+    div.define-head {
+        
+    }
+    div.define-logo {
+        background-image: url(/Content/images/LOGOs-1.png);
+        background-repeat:no-repeat; 
+        background-position:0 0.4em; 
+        position: absolute;
+        left: 3px;
+        width: 300px;
+        height: 100%;
+        padding-top:10px; 
+        padding-left:100px; 
+
+    }
+     #LoginTopLine , #LoginBotoomLine {
+        color: #fff;
+        font-size: 14px;
+    }
+
+    div.define-account {
+        color: #fff;
+        font-size: 12px;
+        position: absolute;
+        right: 1px;
+        width: 250px;
+        height: 100%;
+    }
+    #accountName{
+         color: #ff8282;
+        font-size: 13px;
+    }
+    
 </style>
-<h2>Portal</h2>
 
 @*對話視窗*@
 <div id="OverTimeLogin" class="easyui-dialog" data-options="closed:true,modal:true">
@@ -25,8 +60,15 @@
             <div id="LoginBotoomLine">EIS管理系統</div>
         </div>
         <div class="define-account">
-
-        </div>
+            @if (account != null)
+            {
+                <div class="pullright">
+                    <span id="accountName">@account.TrueName</span> 歡迎您！
+                    <a href="~/Account/Logout" class="easyui-linkbutton c7" data-options="iconCls:'icon-lock'" style="width:80px;height:50px">登出</a>
+                </div>
+            }
+                    
+         </div>
     </div>
 </div>
 

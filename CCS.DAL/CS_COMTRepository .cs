@@ -70,8 +70,7 @@ namespace CCS.DAL
             using (CCSEntities db = new CCSEntities())
             {
                 try { 
-                //db.CS_COMT.Attach(entity);
-                //db.Entry(entity).State = EntityState.Modified;
+                db.CS_COMT.Attach(entity);
                 db.Entry(entity).State = EntityState.Modified;
 
                 //db.ObjectStateManager.ChangeObjectState(entity, EntityState.Modified);

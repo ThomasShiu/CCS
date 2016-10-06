@@ -76,6 +76,7 @@
     <Compile Include="cs_sysmoduleoperateRepository .cs" />
     <Compile Include="cs_sysrightRepository .cs" />
     <Compile Include="EMPNORepository.cs" />
+    <Compile Include="itemRepository .cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SysExceptionRepository.cs" />
     <Compile Include="cs_sysroleRepository.cs" />

@@ -58,6 +58,12 @@ namespace CCS.Controllers
 
         }
 
-       
+        public ActionResult Logout()
+        {
+
+            //清除所有的 session
+            Session.RemoveAll();
+            return RedirectToAction("Login", "Account",new { Areas=""});
+        }
     }
 }

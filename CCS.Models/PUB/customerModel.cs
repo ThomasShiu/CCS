@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CCS.Models.SAL
+namespace CCS.Models.PUB
 {
     public class customerModel
     {

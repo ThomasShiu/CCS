@@ -1,6 +1,6 @@
 ﻿using CCS.Common;
 using CCS.Models;
-using CCS.Models.SAL;
+using CCS.Models.PUB;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -142,6 +142,9 @@
     <Compile Include="EMPNO.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ITEM.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
     <Compile Include="LocaldbModel1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -158,8 +161,9 @@
       <DependentUpon>LocaldbModel1.edmx</DependentUpon>
     </Compile>
     <Compile Include="PUB\empnoModel.cs" />
+    <Compile Include="PUB\itemModel.cs" />
     <Compile Include="SAL\cs_codlModel.cs" />
-    <Compile Include="SAL\customerModel.cs" />
+    <Compile Include="PUB\customerModel.cs" />
     <Compile Include="SP_GEN_ORDNO_Result.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
