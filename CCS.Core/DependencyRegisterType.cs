@@ -26,6 +26,14 @@ namespace CCS.Core
             container.RegisterType<Ics_codlBLL, cs_codlBLL>(); //詳例
             container.RegisterType<Ics_codlRepository, cs_codlRepository>();
 
+            // CS_WIRES
+            container.RegisterType<Ics_wiresBLL, cs_wiresBLL>(); //詳例
+            container.RegisterType<Ics_wiresRepository, cs_wiresRepository>();
+
+            // CS_MOMT
+            container.RegisterType<Ics_momtBLL, cs_momtBLL>(); //詳例
+            container.RegisterType<Ics_momtRepository, cs_momtRepository>();
+
             //CS_SYSMODULE
             container.RegisterType<Ics_sysmoduleBLL, cs_sysmoduleBLL>();
             container.RegisterType<Ics_sysmoduleRepository, cs_sysmoduleRepository>();

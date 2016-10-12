@@ -14,7 +14,8 @@ using System.Web.Mvc;
 
 namespace CCS.Controllers
 {
-    public class HomeController : Controller
+    [CheckSessionFilterAttribute]//自訂Action Filters
+    public class HomeController : BaseController
     {
 
 

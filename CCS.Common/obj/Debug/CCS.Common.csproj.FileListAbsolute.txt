@@ -30,3 +30,14 @@ D:\Git_Source\CCM3S_Project\CCS\CCS.Common\bin\Debug\zh-Hant\System.Web.WebPages
 D:\Git_Source\CCM3S_Project\CCS\CCS.Common\bin\Debug\zh-Hant\System.Web.WebPages.Razor.resources.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Common\obj\Debug\CCS.Common.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Common\obj\Debug\CCS.Common.pdb
+D:\Git_Source\CCM3S_Project\CCS\CCS.Common\obj\Debug\CCS.Common.csprojResolveAssemblyReference.cache
+D:\Git_Source\CCM3S_Project\CCS\CCS.Common\bin\Debug\CCSlocalDB_log.ldf
+D:\Git_Source\CCM3S_Project\CCS\CCS.Common\bin\Debug\CCS.Common.dll.config
+D:\Git_Source\CCM3S_Project\CCS\CCS.Common\bin\Debug\CCS.Models.dll
+D:\Git_Source\CCM3S_Project\CCS\CCS.Common\bin\Debug\EntityFramework.dll
+D:\Git_Source\CCM3S_Project\CCS\CCS.Common\bin\Debug\EntityFramework.SqlServer.dll
+D:\Git_Source\CCM3S_Project\CCS\CCS.Common\bin\Debug\CCS.Models.pdb
+D:\Git_Source\CCM3S_Project\CCS\CCS.Common\bin\Debug\EntityFramework.xml
+D:\Git_Source\CCM3S_Project\CCS\CCS.Common\bin\Debug\EntityFramework.SqlServer.xml
+D:\Git_Source\CCM3S_Project\CCS\CCS.Common\bin\Debug\zh-Hant\EntityFramework.resources.dll
+D:\Git_Source\CCM3S_Project\CCS\CCS.Common\bin\Debug\zh-Hant\EntityFramework.SqlServer.resources.dll

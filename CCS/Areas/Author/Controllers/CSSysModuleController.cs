@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace CCS.Areas.Author.Controllers
 {
+
     public class CSSysModuleController : BaseController
     {
         /// <summary>
@@ -115,7 +116,7 @@ namespace CCS.Areas.Author.Controllers
         [SupportFilter]
         public JsonResult Create(cs_sysmoduleModel model)
         {
-            model.Id = ResultHelper.NewId;
+            //model.Id = ResultHelper.NewId;
             model.CreateTime = ResultHelper.NowTime;
             model.CreatePerson = GetUserId();
             if (model != null && ModelState.IsValid)
@@ -172,13 +173,13 @@ namespace CCS.Areas.Author.Controllers
 
                 if (operateBLL.Create(ref errors, entity))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + info.Id + ",Name:" + info.Name, "成功", "創建", "模組設置");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + info.Id + ",Name:" + info.Name, "成功", "創建", "SysModule");
                     return Json(JsonHandler.CreateMessage(1, Suggestion.InsertSucceed), JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + info.Id + ",Name:" + info.Name + "," + ErrorCol, "失敗", "創建", "模組設置");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + info.Id + ",Name:" + info.Name + "," + ErrorCol, "失敗", "創建", "SysModule");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.InsertFail + ErrorCol), JsonRequestBehavior.AllowGet);
                 }
             }
@@ -206,13 +207,13 @@ namespace CCS.Areas.Author.Controllers
             {
                 if (m_BLL.Edit(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",Name" + model.Name, "成功", "修改", "系統功能表");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",Name" + model.Name, "成功", "修改", "SysModule");
                     return Json(JsonHandler.CreateMessage(1, Suggestion.EditSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",Name" + model.Name + "," + ErrorCol, "失敗", "修改", "系統功能表");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",Name" + model.Name + "," + ErrorCol, "失敗", "修改", "SysModule");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.EditFail + ErrorCol));
                 }
             }
@@ -234,13 +235,13 @@ namespace CCS.Areas.Author.Controllers
             {
                 if (m_BLL.Delete(ref errors, id))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "Ids:" + id, "成功", "刪除", "模組設置");
+                    LogHandler.WriteServiceLog(GetUserId(), "Ids:" + id, "成功", "刪除", "SysModule");
                     return Json(JsonHandler.CreateMessage(1, Suggestion.DeleteSucceed), JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + id + "," + ErrorCol, "失敗", "刪除", "模組設置");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + id + "," + ErrorCol, "失敗", "刪除", "SysModule");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.DeleteFail + ErrorCol), JsonRequestBehavior.AllowGet);
                 }
             }
@@ -261,13 +262,13 @@ namespace CCS.Areas.Author.Controllers
             {
                 if (operateBLL.Delete(ref errors, id))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + id, "成功", "刪除", "模組設置KeyCode");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + id, "成功", "刪除", "SysModule");
                     return Json(JsonHandler.CreateMessage(1, Suggestion.DeleteSucceed), JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + id + "," + ErrorCol, "失敗", "刪除", "模組設置KeyCode");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + id + "," + ErrorCol, "失敗", "刪除", "SysModule");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.DeleteFail + ErrorCol), JsonRequestBehavior.AllowGet);
                 }
             }

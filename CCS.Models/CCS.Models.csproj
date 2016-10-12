@@ -106,6 +106,9 @@
     <Compile Include="CS_COMT.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
+    <Compile Include="CS_MOMT.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
     <Compile Include="CS_SEQ_NO.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
@@ -131,6 +134,12 @@
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_SYSUSER.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CS_WIP.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CS_WIRES.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="customer.cs">
@@ -160,6 +169,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LocaldbModel1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="MAN\cs_momtModel.cs" />
     <Compile Include="PUB\empnoModel.cs" />
     <Compile Include="PUB\itemModel.cs" />
     <Compile Include="SAL\cs_codlModel.cs" />
@@ -183,6 +193,7 @@
     <Compile Include="SYS\cs_syslogModel.cs" />
     <Compile Include="SYS\cs_sysmoduleModel.cs" />
     <Compile Include="SYS\cs_sysmoduleopertaeModel.cs" />
+    <Compile Include="SYS\cs_sysrightModel.cs" />
     <Compile Include="SYS\cs_SysRightModelByRoleAndModuleModel.cs" />
     <Compile Include="SYS\cs_sysrightoperateModel.cs" />
     <Compile Include="SYS\cs_sysuserModel.cs" />
@@ -195,6 +206,7 @@
     <Compile Include="WAHO.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
+    <Compile Include="WIR\cs_wiresModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

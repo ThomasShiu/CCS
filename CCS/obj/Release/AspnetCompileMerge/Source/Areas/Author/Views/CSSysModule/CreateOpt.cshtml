@@ -27,7 +27,15 @@
                     @Html.LabelFor(model => model.Name)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.Name)
+                    @*@Html.EditorFor(model => model.Name)*@
+                    <select id="Name" name="Name" class="" style="width:100%;">
+                        <option value="新增" value2="Create">新增</option>
+                        <option value="刪除" value2="Delete">刪除</option>
+                        <option value="修改" value2="Edit">修改</option>
+                        <option value="查詢" value2="Query">查詢</option>
+                        <option value="儲存" value2="Save">儲存</option>
+                        <option value="詳細" value2="Details">詳細</option>
+                    </select>
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.Name)</td>
             </tr>
@@ -37,6 +45,14 @@
                 </td>
                 <td style="width:310px">
                     @Html.EditorFor(model => model.KeyCode)
+                    @*<select id="KeyCode" name="KeyCode" class="" style="width:100%;">
+                        <option value="Create">新增</option>
+                        <option value="Delete">刪除</option>
+                        <option value="Edit">修改</option>
+                        <option value="Query">查詢</option>
+                        <option value="Save">儲存</option>
+                        <option value="Details">詳細</option>
+                    </select>*@
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.KeyCode)</td>
             </tr>
@@ -75,9 +91,18 @@
 @section scripts{
     
 <script type="text/javascript">
+
     $(function () {
+        $("#KeyCode").val('Create');
+
+        $("#Name").change(function () {
+            //alert('Hello');
+            var val2 = $('select[name="Name"] :selected').attr('value2');
+            $("#KeyCode").val(val2);
+        });
+
         $("#btnSave").click(function () {
-            if ($("form").valid()) {
+            if ($("form").valid($("#Name").val)) {
                 $.ajax({
                 url: "@Url.Action("CreateOpt")",
                 type: "Post",

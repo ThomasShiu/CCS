@@ -105,6 +105,37 @@
           <Property Name="IP_NM" Type="nvarchar" MaxLength="30" />
           <Property Name="CP_NM" Type="nvarchar" MaxLength="30" />
         </EntityType>
+        <EntityType Name="CS_MOMT">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="VCH_NO" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="VCH_NO" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="VCH_DT" Type="smalldatetime" Nullable="false" />
+          <Property Name="FA_NO" Type="nvarchar" MaxLength="30" />
+          <Property Name="ITEM_NO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IMG_NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="PLAN_BDT" Type="smalldatetime" />
+          <Property Name="PLAN_EDT" Type="smalldatetime" />
+          <Property Name="PLAN_QTY" Type="int" />
+          <Property Name="CO_NO" Type="nvarchar" MaxLength="30" />
+          <Property Name="CO_SR" Type="int" />
+          <Property Name="HEAD_MARK" Type="varchar" MaxLength="50" />
+          <Property Name="RAWMTRL" Type="varchar" MaxLength="50" />
+          <Property Name="DIAMETER" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="PLATING" Type="nvarchar" MaxLength="50" />
+          <Property Name="PRCS_NO" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="REMK" Type="nvarchar(max)" />
+          <Property Name="OWNER_USR_NO" Type="nvarchar" MaxLength="20" />
+          <Property Name="OWNER_GRP_NO" Type="nvarchar" MaxLength="20" />
+          <Property Name="ADD_DT" Type="smalldatetime" />
+          <Property Name="CFM_USR_NO" Type="nvarchar" MaxLength="20" />
+          <Property Name="MDY_USR_NO" Type="nvarchar" MaxLength="20" />
+          <Property Name="MDY_DT" Type="smalldatetime" />
+          <Property Name="IP_NM" Type="nvarchar" MaxLength="20" />
+          <Property Name="CP_NM" Type="nvarchar" MaxLength="20" />
+        </EntityType>
         <EntityType Name="CS_SEQ_NO">
           <Key>
             <PropertyRef Name="ID" />
@@ -117,6 +148,7 @@
           <Property Name="NO_LENGTH" Type="int" />
           <Property Name="CURRENT_NO" Type="int" />
           <Property Name="CURRENT_ORDNO" Type="varchar" MaxLength="20" />
+          <Property Name="CURRENT_YM" Type="varchar" MaxLength="50" />
           <Property Name="STATUS" Type="varchar" MaxLength="1" />
           <Property Name="ORGANIZATION" Type="varchar" MaxLength="10" />
           <Property Name="EXC_INSDBID" Type="nvarchar" MaxLength="13" />
@@ -254,6 +286,60 @@
           <Property Name="JobState" Type="nvarchar" MaxLength="20" />
           <Property Name="Photo" Type="varchar" MaxLength="200" />
           <Property Name="Attach" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="CS_WIP">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LOT_NO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CTRL_NO" Type="int" Nullable="false" />
+          <Property Name="KEG_NO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PRCS_NO" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EMP_NO" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EMP_NM" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="BDT" Type="smalldatetime" />
+          <Property Name="EDT" Type="smalldatetime" />
+          <Property Name="WEIGHT" Type="int" />
+          <Property Name="UNIT_WT" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="COUNT_QTY" Type="int" />
+          <Property Name="END_CODE" Type="varchar" MaxLength="5" />
+          <Property Name="EXC_INSDBID" Type="nvarchar" MaxLength="13" />
+          <Property Name="EXC_INSDATE" Type="smalldatetime" />
+          <Property Name="EXC_UPDDBID" Type="nvarchar" MaxLength="13" />
+          <Property Name="EXC_UPDDATE" Type="smalldatetime" />
+          <Property Name="EXC_SYSOWNR" Type="nvarchar" MaxLength="5" />
+          <Property Name="EXC_ISLOCKED" Type="nvarchar" MaxLength="1" />
+          <Property Name="EXC_COMPANY" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="CS_WIRES">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="WIRE_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CS_WIRE_ID" Type="varchar" MaxLength="20" />
+          <Property Name="STOCK_DATE" Type="smalldatetime" Nullable="false" />
+          <Property Name="RAWMTRL" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DIAMETER" Type="decimal" Precision="3" Scale="2" Nullable="false" />
+          <Property Name="ORG_DIAMETER" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="HEAT_NO" Type="varchar" MaxLength="10" />
+          <Property Name="WEIGHT" Type="int" Nullable="false" />
+          <Property Name="STAND_WEIGTH" Type="int" />
+          <Property Name="ANNEAL" Type="bit" Nullable="false" />
+          <Property Name="MARK" Type="varchar" MaxLength="50" />
+          <Property Name="MARK_NM" Type="nvarchar" MaxLength="50" />
+          <Property Name="PROCESS_FACTORY" Type="varchar" MaxLength="50" />
+          <Property Name="TYPE" Type="int" />
+          <Property Name="TYPE_NM" Type="nvarchar" MaxLength="50" />
+          <Property Name="REMARK" Type="nvarchar" MaxLength="500" />
+          <Property Name="EXC_INSDBID" Type="nvarchar" MaxLength="13" />
+          <Property Name="EXC_INSDATE" Type="smalldatetime" />
+          <Property Name="EXC_UPDDBID" Type="nvarchar" MaxLength="13" />
+          <Property Name="EXC_UPDDATE" Type="smalldatetime" />
+          <Property Name="EXC_SYSOWNR" Type="nvarchar" MaxLength="5" />
+          <Property Name="EXC_ISLOCKED" Type="nvarchar" MaxLength="1" />
+          <Property Name="EXC_COMPANY" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="customer">
           <Key>
@@ -791,6 +877,7 @@
           <EntitySet Name="CS_ACTIONLOG" EntityType="Self.CS_ACTIONLOG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CS_CODL" EntityType="Self.CS_CODL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CS_COMT" EntityType="Self.CS_COMT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CS_MOMT" EntityType="Self.CS_MOMT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CS_SEQ_NO" EntityType="Self.CS_SEQ_NO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CS_SYSEXCEPTION" EntityType="Self.CS_SYSEXCEPTION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CS_SYSLOG" EntityType="Self.CS_SYSLOG" Schema="dbo" store:Type="Tables" />
@@ -801,6 +888,8 @@
           <EntitySet Name="CS_SYSROLE" EntityType="Self.CS_SYSROLE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CS_SYSROLESYSUSER" EntityType="Self.CS_SYSROLESYSUSER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CS_SYSUSER" EntityType="Self.CS_SYSUSER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CS_WIP" EntityType="Self.CS_WIP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CS_WIRES" EntityType="Self.CS_WIRES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="employee" EntityType="Self.employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPNO" EntityType="Self.EMPNO" Schema="dbo" store:Type="Tables" />
@@ -1354,6 +1443,9 @@
           <EntitySet Name="CS_SEQ_NO" EntityType="CCSModel1.CS_SEQ_NO" />
           <EntitySet Name="CS_CODL" EntityType="CCSModel1.CS_CODL" />
           <EntitySet Name="ITEM" EntityType="CCSModel1.ITEM" />
+          <EntitySet Name="CS_WIRES" EntityType="CCSModel1.CS_WIRES" />
+          <EntitySet Name="CS_MOMT" EntityType="CCSModel1.CS_MOMT" />
+          <EntitySet Name="CS_WIP" EntityType="CCSModel1.CS_WIP" />
         </EntityContainer>
         <ComplexType Name="SP_SYS_GetRightOperate_Result">
           <Property Type="String" Name="KeyCode" Nullable="false" MaxLength="200" />
@@ -1509,6 +1601,7 @@
           <Property Name="EXC_SYSOWNR" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="EXC_ISLOCKED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
           <Property Name="EXC_COMPANY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CURRENT_YM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CS_CODL">
           <Key>
@@ -1678,6 +1771,91 @@
           <Property Name="MDY_DT" Type="DateTime" Precision="0" />
           <Property Name="IP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Name="CP_NM" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CS_WIRES">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WIRE_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="STOCK_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="RAWMTRL" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DIAMETER" Type="Decimal" Nullable="false" Precision="3" Scale="2" />
+          <Property Name="ORG_DIAMETER" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="HEAT_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="WEIGHT" Type="Int32" Nullable="false" />
+          <Property Name="STAND_WEIGTH" Type="Int32" />
+          <Property Name="ANNEAL" Type="Boolean" Nullable="false" />
+          <Property Name="MARK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MARK_NM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PROCESS_FACTORY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE" Type="Int32" />
+          <Property Name="TYPE_NM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="REMARK" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="EXC_INSDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="EXC_INSDATE" Type="DateTime" Precision="0" />
+          <Property Name="EXC_UPDDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="EXC_UPDDATE" Type="DateTime" Precision="0" />
+          <Property Name="EXC_SYSOWNR" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="EXC_ISLOCKED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="EXC_COMPANY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CS_WIRE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CS_MOMT">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="VCH_NO" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="VCH_NO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="VCH_DT" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FA_NO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ITEM_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IMG_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PLAN_BDT" Type="DateTime" Precision="0" />
+          <Property Name="PLAN_EDT" Type="DateTime" Precision="0" />
+          <Property Name="PLAN_QTY" Type="Int32" />
+          <Property Name="CO_NO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CO_SR" Type="Int32" />
+          <Property Name="HEAD_MARK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RAWMTRL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DIAMETER" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="PLATING" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PRCS_NO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="REMK" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OWNER_USR_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="OWNER_GRP_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ADD_DT" Type="DateTime" Precision="0" />
+          <Property Name="CFM_USR_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MDY_USR_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MDY_DT" Type="DateTime" Precision="0" />
+          <Property Name="IP_NM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CP_NM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CS_WIP">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LOT_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CTRL_NO" Type="Int32" Nullable="false" />
+          <Property Name="KEG_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRCS_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_NM" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BDT" Type="DateTime" Precision="0" />
+          <Property Name="EDT" Type="DateTime" Precision="0" />
+          <Property Name="WEIGHT" Type="Int32" />
+          <Property Name="UNIT_WT" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="COUNT_QTY" Type="Int32" />
+          <Property Name="END_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="EXC_INSDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="EXC_INSDATE" Type="DateTime" Precision="0" />
+          <Property Name="EXC_UPDDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="EXC_UPDDATE" Type="DateTime" Precision="0" />
+          <Property Name="EXC_SYSOWNR" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="EXC_ISLOCKED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="EXC_COMPANY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2271,6 +2449,7 @@
           <EntitySetMapping Name="CS_SEQ_NO">
             <EntityTypeMapping TypeName="CCSModel1.CS_SEQ_NO">
               <MappingFragment StoreEntitySet="CS_SEQ_NO">
+                <ScalarProperty Name="CURRENT_YM" ColumnName="CURRENT_YM" />
                 <ScalarProperty Name="EXC_COMPANY" ColumnName="EXC_COMPANY" />
                 <ScalarProperty Name="EXC_ISLOCKED" ColumnName="EXC_ISLOCKED" />
                 <ScalarProperty Name="EXC_SYSOWNR" ColumnName="EXC_SYSOWNR" />
@@ -2457,6 +2636,93 @@
                 <ScalarProperty Name="ITEM_SP" ColumnName="ITEM_SP" />
                 <ScalarProperty Name="ITEM_NM" ColumnName="ITEM_NM" />
                 <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CS_WIRES">
+            <EntityTypeMapping TypeName="CCSModel1.CS_WIRES">
+              <MappingFragment StoreEntitySet="CS_WIRES">
+                <ScalarProperty Name="CS_WIRE_ID" ColumnName="CS_WIRE_ID" />
+                <ScalarProperty Name="EXC_COMPANY" ColumnName="EXC_COMPANY" />
+                <ScalarProperty Name="EXC_ISLOCKED" ColumnName="EXC_ISLOCKED" />
+                <ScalarProperty Name="EXC_SYSOWNR" ColumnName="EXC_SYSOWNR" />
+                <ScalarProperty Name="EXC_UPDDATE" ColumnName="EXC_UPDDATE" />
+                <ScalarProperty Name="EXC_UPDDBID" ColumnName="EXC_UPDDBID" />
+                <ScalarProperty Name="EXC_INSDATE" ColumnName="EXC_INSDATE" />
+                <ScalarProperty Name="EXC_INSDBID" ColumnName="EXC_INSDBID" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="TYPE_NM" ColumnName="TYPE_NM" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="PROCESS_FACTORY" ColumnName="PROCESS_FACTORY" />
+                <ScalarProperty Name="MARK_NM" ColumnName="MARK_NM" />
+                <ScalarProperty Name="MARK" ColumnName="MARK" />
+                <ScalarProperty Name="ANNEAL" ColumnName="ANNEAL" />
+                <ScalarProperty Name="STAND_WEIGTH" ColumnName="STAND_WEIGTH" />
+                <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+                <ScalarProperty Name="HEAT_NO" ColumnName="HEAT_NO" />
+                <ScalarProperty Name="ORG_DIAMETER" ColumnName="ORG_DIAMETER" />
+                <ScalarProperty Name="DIAMETER" ColumnName="DIAMETER" />
+                <ScalarProperty Name="RAWMTRL" ColumnName="RAWMTRL" />
+                <ScalarProperty Name="STOCK_DATE" ColumnName="STOCK_DATE" />
+                <ScalarProperty Name="WIRE_ID" ColumnName="WIRE_ID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CS_MOMT">
+            <EntityTypeMapping TypeName="CCSModel1.CS_MOMT">
+              <MappingFragment StoreEntitySet="CS_MOMT">
+                <ScalarProperty Name="CP_NM" ColumnName="CP_NM" />
+                <ScalarProperty Name="IP_NM" ColumnName="IP_NM" />
+                <ScalarProperty Name="MDY_DT" ColumnName="MDY_DT" />
+                <ScalarProperty Name="MDY_USR_NO" ColumnName="MDY_USR_NO" />
+                <ScalarProperty Name="CFM_USR_NO" ColumnName="CFM_USR_NO" />
+                <ScalarProperty Name="ADD_DT" ColumnName="ADD_DT" />
+                <ScalarProperty Name="OWNER_GRP_NO" ColumnName="OWNER_GRP_NO" />
+                <ScalarProperty Name="OWNER_USR_NO" ColumnName="OWNER_USR_NO" />
+                <ScalarProperty Name="REMK" ColumnName="REMK" />
+                <ScalarProperty Name="PRCS_NO" ColumnName="PRCS_NO" />
+                <ScalarProperty Name="PLATING" ColumnName="PLATING" />
+                <ScalarProperty Name="DIAMETER" ColumnName="DIAMETER" />
+                <ScalarProperty Name="RAWMTRL" ColumnName="RAWMTRL" />
+                <ScalarProperty Name="HEAD_MARK" ColumnName="HEAD_MARK" />
+                <ScalarProperty Name="CO_SR" ColumnName="CO_SR" />
+                <ScalarProperty Name="CO_NO" ColumnName="CO_NO" />
+                <ScalarProperty Name="PLAN_QTY" ColumnName="PLAN_QTY" />
+                <ScalarProperty Name="PLAN_EDT" ColumnName="PLAN_EDT" />
+                <ScalarProperty Name="PLAN_BDT" ColumnName="PLAN_BDT" />
+                <ScalarProperty Name="IMG_NO" ColumnName="IMG_NO" />
+                <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
+                <ScalarProperty Name="FA_NO" ColumnName="FA_NO" />
+                <ScalarProperty Name="VCH_DT" ColumnName="VCH_DT" />
+                <ScalarProperty Name="VCH_NO" ColumnName="VCH_NO" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CS_WIP">
+            <EntityTypeMapping TypeName="CCSModel1.CS_WIP">
+              <MappingFragment StoreEntitySet="CS_WIP">
+                <ScalarProperty Name="EXC_COMPANY" ColumnName="EXC_COMPANY" />
+                <ScalarProperty Name="EXC_ISLOCKED" ColumnName="EXC_ISLOCKED" />
+                <ScalarProperty Name="EXC_SYSOWNR" ColumnName="EXC_SYSOWNR" />
+                <ScalarProperty Name="EXC_UPDDATE" ColumnName="EXC_UPDDATE" />
+                <ScalarProperty Name="EXC_UPDDBID" ColumnName="EXC_UPDDBID" />
+                <ScalarProperty Name="EXC_INSDATE" ColumnName="EXC_INSDATE" />
+                <ScalarProperty Name="EXC_INSDBID" ColumnName="EXC_INSDBID" />
+                <ScalarProperty Name="END_CODE" ColumnName="END_CODE" />
+                <ScalarProperty Name="COUNT_QTY" ColumnName="COUNT_QTY" />
+                <ScalarProperty Name="UNIT_WT" ColumnName="UNIT_WT" />
+                <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+                <ScalarProperty Name="EDT" ColumnName="EDT" />
+                <ScalarProperty Name="BDT" ColumnName="BDT" />
+                <ScalarProperty Name="EMP_NM" ColumnName="EMP_NM" />
+                <ScalarProperty Name="EMP_NO" ColumnName="EMP_NO" />
+                <ScalarProperty Name="PRCS_NO" ColumnName="PRCS_NO" />
+                <ScalarProperty Name="KEG_NO" ColumnName="KEG_NO" />
+                <ScalarProperty Name="CTRL_NO" ColumnName="CTRL_NO" />
+                <ScalarProperty Name="LOT_NO" ColumnName="LOT_NO" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

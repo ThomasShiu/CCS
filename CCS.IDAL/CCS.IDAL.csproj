@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="IAccountRepository.cs" />
     <Compile Include="Ics_codlRepository.cs" />
+    <Compile Include="Ics_momtRepository.cs" />
     <Compile Include="Ics_syslogRepository.cs" />
     <Compile Include="Ics_actionlogRepository.cs" />
     <Compile Include="Ics_comtRepository.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Ics_sysmoduleRepository.cs.cs" />
     <Compile Include="Ics_sysroleRepository.cs" />
     <Compile Include="Ics_sysuserRepository.cs" />
+    <Compile Include="Ics_wiresRepository.cs" />
     <Compile Include="IcustomerRepository.cs" />
     <Compile Include="Ics_sysrightRepository.cs" />
     <Compile Include="IEMPNORepository.cs" />

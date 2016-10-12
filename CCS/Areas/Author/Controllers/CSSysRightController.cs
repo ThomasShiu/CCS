@@ -23,12 +23,16 @@ namespace CCS.Areas.Author.Controllers
         public Ics_sysroleBLL sysRoleBLL { get; set; }
         [Dependency]
         public Ics_sysmoduleBLL sysModuleBLL { get; set; }
+
+        ValidationErrors errors = new ValidationErrors();
+
         [SupportFilter]
         public ActionResult Index()
         {
             ViewBag.Perm = GetPermission();
             return View();
         }
+
         //獲取角色列表
         [SupportFilter(ActionName = "Index")]
         [HttpPost]
@@ -54,6 +58,7 @@ namespace CCS.Areas.Author.Controllers
 
             return Json(json);
         }
+
         //獲取模組列表
         [SupportFilter(ActionName = "Index")]
         [HttpPost]
@@ -108,6 +113,7 @@ namespace CCS.Areas.Author.Controllers
 
             return Json(json);
         }
+
         //保存
         [HttpPost]
         [SupportFilter(ActionName = "Save")]
@@ -115,6 +121,85 @@ namespace CCS.Areas.Author.Controllers
         {
             return sysRightBLL.UpdateRight(model);
         }
+
+
+        [SupportFilter(ActionName ="Index")]
+        public ActionResult IndexRight()
+        {
+            ViewBag.Perm = GetPermission();
+            return View();
+        }
+
+        //獲取角色列表
+        [SupportFilter(ActionName = "Index")]
+        [HttpPost]
+        public JsonResult GetRightList(GridPager pager, string queryStr)
+        {
+            List<cs_sysrightModel> list = sysRightBLL.GetList(ref pager, queryStr);
+            var json = new
+            {
+                total = pager.totalRows,
+                rows = (from r in list
+                        select new cs_sysrightModel()
+                        {
+                            Id = r.Id,
+                            ModuleId = r.ModuleId,
+                            RoleId = r.RoleId,
+                            Rightflag = r.Rightflag
+
+                        }).ToArray()
+
+            };
+
+            return Json(json);
+
+            //List<cs_sysrightModel> list = sysRightBLL.GetList( queryStr);
+            //var json = from r in list
+            //            select new cs_sysrightModel()
+            //            {
+            //                Id = r.Id,
+            //                ModuleId = r.ModuleId,
+            //                RoleId = r.RoleId,
+            //                Rightflag = r.Rightflag
+
+            //            };
+
+            //return Json(json);
+        }
+        #region 修改
+        [SupportFilter]
+        public ActionResult Edit(string id)
+        {
+            ViewBag.Perm = GetPermission();
+            cs_sysrightModel entity = sysRightBLL.GetById(id);
+            return View(entity);
+        }
+
+        [HttpPost]
+        [SupportFilter]
+        public JsonResult Edit(cs_sysrightModel model)
+        {
+            if (model != null && ModelState.IsValid)
+            {
+
+                if (sysRightBLL.Edit(ref errors, model))
+                {
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",ModuleId" + model.ModuleId, "成功", "修改", "CS_SYSRIGHT");
+                    return Json(JsonHandler.CreateMessage(1, Suggestion.EditSucceed));
+                }
+                else
+                {
+                    string ErrorCol = errors.Error;
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",ModuleId" + model.ModuleId + "," + ErrorCol, "失敗", "修改", "CS_SYSRIGHT");
+                    return Json(JsonHandler.CreateMessage(0, Suggestion.EditFail + ErrorCol));
+                }
+            }
+            else
+            {
+                return Json(JsonHandler.CreateMessage(0, Suggestion.EditFail));
+            }
+        }
+        #endregion
 
 
     }

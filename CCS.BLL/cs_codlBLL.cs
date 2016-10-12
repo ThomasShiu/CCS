@@ -35,6 +35,23 @@ namespace CCS.BLL
             queryData = LinqHelper.SortingAndPaging(queryData, pager.sort, pager.order, pager.page, pager.rows);
             return CreateModelList(ref queryData);
         }
+
+        public List<cs_codlModel> GetList(string queryStr)
+        {
+
+            IQueryable<CS_CODL> queryData = null;
+            if (!string.IsNullOrWhiteSpace(queryStr))
+            {
+                queryData = m_Rep.GetList(db).Where(a => a.VCH_NO.Contains(queryStr));
+            }
+            else
+            {
+                queryData = m_Rep.GetList(db);
+            }
+
+            return CreateModelList(ref queryData);
+        }
+
         private List<cs_codlModel> CreateModelList(ref IQueryable<CS_CODL> queryData)
         {
 

@@ -11,6 +11,7 @@ namespace CCS.DAL
 {
     public class cs_sysroleRepository: Ics_sysroleRepository, IDisposable
     {
+
         public IQueryable<CS_SYSROLE> GetList(CCSEntities db)
         {
             IQueryable<CS_SYSROLE> list = db.CS_SYSROLE.AsQueryable();

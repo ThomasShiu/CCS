@@ -14,7 +14,7 @@ using System.Web.Mvc;
 
 namespace CCS.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         [Dependency]
         public IAccountBLL accountBLL { get; set; }
@@ -24,12 +24,13 @@ namespace CCS.Controllers
             return View();
         }
 
-        public ActionResult Login()
+        public ActionResult Login(string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
         [HttpPost]
-        public JsonResult Login(string UserName, string Password, string Code)
+        public JsonResult Login(string UserName, string Password, string Code, string returnUrl)
         {
             if (Session["Code"] == null)
                 return Json(JsonHandler.CreateMessage(0, "請重新刷新驗證碼"), JsonRequestBehavior.AllowGet);
@@ -53,8 +54,8 @@ namespace CCS.Controllers
             account.TrueName = user.TrueName;
             Session["Account"] = account;
 
-            LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "登入", "範例程序");
-            return Json(JsonHandler.CreateMessage(1, ""), JsonRequestBehavior.AllowGet);
+            LogHandler.WriteServiceLog(GetUserId(), "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "登入", "Account/Login");
+            return Json(JsonHandler.CreateMessage(1, returnUrl), JsonRequestBehavior.AllowGet);
 
         }
 

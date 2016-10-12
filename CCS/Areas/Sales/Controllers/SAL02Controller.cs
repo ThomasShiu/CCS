@@ -17,8 +17,8 @@ using System.Web.Mvc;
 
 namespace CCS.Areas.Sales.Controllers
 {
-    
 
+    
     [UserTraceLog]
     public class SAL02Controller : BaseController
     {
@@ -35,10 +35,13 @@ namespace CCS.Areas.Sales.Controllers
 
         ValidationErrors errors = new ValidationErrors();
 
+        [SupportFilter]
         public ActionResult Index()
         {
             return View();
         }
+
+        [SupportFilter(ActionName = "Index")]
         [HttpPost]
         public JsonResult GetList(GridPager pager, string queryStr)
         {
@@ -99,6 +102,7 @@ namespace CCS.Areas.Sales.Controllers
             //model.ID = ResultHelper.NewId;
             AccountModel account = (AccountModel)Session["Account"];
 
+            model.C_CLS = "N";
             model.ADD_DT = DateTime.Now;
             model.MDY_DT = DateTime.Now;
             model.MDY_USR_NO = account.Id;
@@ -111,13 +115,13 @@ namespace CCS.Areas.Sales.Controllers
 
                 if (m_BLL.Create(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "ID" + model.ID + ",VCH_NO" + model.VCH_NO, "成功", "創建", "CS_CODL");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.ID + ",VCH_NO:" + model.VCH_NO, "成功", "創建", "CS_CODL");
                     return Json(JsonHandler.CreateMessage(1, Suggestion.InsertSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "ID" + model.ID + ",VCH_NO" + model.VCH_NO + "," + ErrorCol, "失敗", "創建", "CS_CODL");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.ID + ",VCH_NO:" + model.VCH_NO + "," + ErrorCol, "失敗", "創建", "CS_CODL");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.InsertFail + ErrorCol));
                 }
             }
@@ -150,13 +154,13 @@ namespace CCS.Areas.Sales.Controllers
 
                 if (m_BLL.Edit(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "ID" + model.ID + ",VCH_NO" + model.VCH_NO, "成功", "修改", "CS_CODL");
+                    LogHandler.WriteServiceLog(GetUserId(), "ID:" + model.ID + ",VCH_NO:" + model.VCH_NO, "成功", "修改", "CS_CODL");
                     return Json(JsonHandler.CreateMessage(1, Suggestion.EditSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "ID" + model.ID + ",VCH_NO" + model.VCH_NO + "," + ErrorCol, "失敗", "修改", "CS_CODL");
+                    LogHandler.WriteServiceLog(GetUserId(), "ID:" + model.ID + ",VCH_NO:" + model.VCH_NO + "," + ErrorCol, "失敗", "修改", "CS_CODL");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.EditFail + ErrorCol));
                 }
             }
@@ -187,13 +191,13 @@ namespace CCS.Areas.Sales.Controllers
             {
                 if (m_BLL.Delete(ref errors, id))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + id, "成功", "刪除", "CS_CODL");
+                    LogHandler.WriteServiceLog(GetUserId(), "ID:" + id, "成功", "刪除", "CS_CODL");
                     return Json(JsonHandler.CreateMessage(1, Suggestion.DeleteSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "ID" + id + "," + ErrorCol, "失敗", "刪除", "CS_CODL");
+                    LogHandler.WriteServiceLog(GetUserId(), "ID:" + id + "," + ErrorCol, "失敗", "刪除", "CS_CODL");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.DeleteFail + ErrorCol));
                 }
             }
@@ -230,19 +234,20 @@ namespace CCS.Areas.Sales.Controllers
         }
         #endregion
 
+        [SupportFilter(ActionName = "Index")]
         #region
-        public ActionResult Reporting(string type = "PDF")
+        public ActionResult Reporting(string id,string type = "PDF")
         {
             string v_sqlstr = "SELECT VCH_NO, CONVERT(VARCHAR(10),VCH_DT,120) VCH_DT, FA_NO, CS_NO, CS_NM, DEPM_NO, EMP_NO, EMP_NAME, CS_VCH_NO,"+
                  "CONTACTER, TAX_TY, TAX_RT, TO_ADDR, TEL_NO, FAX_NO, CURRENCY, EXCH_RATE, WAHO_NO,"+
                  "SHIP_TY, SHIP_CORP, REMK, VCH_SR, ITEM_NO, ITEM_NM, ITEM_SP, CS_ITEM_NO, UNIT, QTY, PRC, AMT, CONVERT(VARCHAR(10),PRCV_DT,120) PRCV_DT " +
-                 "FROM CCS_Main.dbo.V_ORDERS WHERE VCH_NO = 'S161006040' ";
+                 "FROM CCS_Main.dbo.V_ORDERS WHERE VCH_NO = '"+ id + "' ";
             
              //資料集
              DataTable dt = ccsService.GetDataSet(v_sqlstr,"");
 
             LocalReport localReport = new LocalReport();
-            localReport.ReportPath = Server.MapPath("~/Reports/SAL01.rdlc");
+            localReport.ReportPath = Server.MapPath("~/Reports/SAL01_01.rdlc");
             ReportDataSource reportDataSource = new ReportDataSource("DataSet1", dt);
             localReport.DataSources.Add(reportDataSource);
             string reportType = type;
@@ -253,12 +258,12 @@ namespace CCS.Areas.Sales.Controllers
             string deviceInfo =
                 "<DeviceInfo>" +
                 "<OutPutFormat>" + type + "</OutPutFormat>" +
-                "<PageWidth>11in</PageWidth>" +
-                "<PageHeight>11in</PageHeight>" +
-                "<MarginTop>0.2in</MarginTop>" +
-                "<MarginLeft>0.2in</MarginLeft>" +
-                "<MarginRight>0.2in</MarginRight>" +
-                "<MarginBottom>0.2in</MarginBottom>" +
+                "<PageWidth>9in</PageWidth>" +
+                "<PageHeight>6in</PageHeight>" +
+                "<MarginTop>0.1in</MarginTop>" +
+                "<MarginLeft>0.1in</MarginLeft>" +
+                "<MarginRight>0.1in</MarginRight>" +
+                "<MarginBottom>0.1in</MarginBottom>" +
                 "</DeviceInfo>";
             Warning[] warnings;
             string[] streams;

@@ -1,4 +1,5 @@
-﻿using CCS.Common;
+﻿using CCS.BLL.Core;
+using CCS.Common;
 using CCS.IBLL;
 using CCS.IDAL;
 using CCS.Models;
@@ -74,7 +75,7 @@ namespace CCS.BLL
             }
             catch (Exception ex)
             {
-                //ExceptionHander.WriteException(ex);
+                ExceptionHander.WriteException(ex);
                 return false;
             }
         }

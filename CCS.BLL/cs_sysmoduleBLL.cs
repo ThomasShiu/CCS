@@ -109,7 +109,7 @@ namespace CCS.BLL
             try
             {
                 //檢查是否有下級
-                if (db.CS_SYSMODULE.AsQueryable().Where(a => a.Id == id).Count() > 0)
+                if (db.CS_SYSMODULE.AsQueryable().Where(a => a.ParentId == id).Count() > 0)
                 {
                     errors.Add("有下屬關聯，請先刪除下屬！");
                     return false;

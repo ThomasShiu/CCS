@@ -1,0 +1,281 @@
+﻿@using CCS.Core;
+@using CCS.Common;
+@{
+    ViewBag.Title = "主頁-Dashboard";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+}
+<link href="~/Content/easyui-1.5/themes/blue/easyui.css" rel="stylesheet" />
+<table id="InfoTable" style="width:100%;height:100px;padding:5px;" valign="top">
+    <tr>
+        <td style="width:25%;vertical-align:text-top;padding:3px;">
+            <div id="p1" class="easyui-panel" title="採購單狀態" style="height:100px;padding:3px;"
+                 data-options="iconCls:'icon-info',collapsible:true">
+                <ul>
+                    <li>未核準採購單:0</li>
+                    <li>未結案採購單:0</li>
+                </ul>
+            </div>
+        </td>
+        <td style="width:25%;vertical-align:text-top;padding:3px;">
+            <div id="p2" class="easyui-panel" title="採購單狀態" style="height:100px;padding:3px;"
+                 data-options="iconCls:'icon-info',collapsible:true">
+                <ul>
+                    <li>未核準採購單:0</li>
+                    <li>未結案採購單:0</li>
+                </ul>
+            </div>
+        </td>
+        <td style="width:25%;vertical-align:text-top;padding:3px;">
+            <div id="p3" class="easyui-panel" title="訂單狀態" style="height:100px;padding:3px;"
+                 data-options="iconCls:'icon-info',collapsible:true">  
+                <ul>
+                    <li>未核準訂單:0</li>
+                    <li>未結案訂單:0</li>
+                </ul>
+            </div>
+        </td>
+        <td style="width:25%;vertical-align:text-top;padding:3px;">
+            <div id="p4" class="easyui-panel" title="未結案製令" style="height:100px;padding:3px;"
+                 data-options="iconCls:'icon-info',collapsible:true">
+                <ul>
+                    <li>未核準製令:0</li>
+                    <li>未結案製令:0</li>
+                </ul>
+            </div>
+        </td>
+       
+    </tr>
+</table>
+<div id="salesorder" style="width:100%;height:300px"></div>
+<div id="shipment" style="width:100%;height:300px"></div>
+@section scripts{
+<script src="~/Content/echarts/js/echarts.js"></script>
+<script src="~/Content/echarts/js/chart/bar.js"></script>
+<script type="text/javascript">
+
+
+
+    $(document).ready(function () {
+       
+    });
+
+    $(function () {
+
+        // 路径配置
+        require.config({
+            paths: {
+                //echarts: 'http://echarts.baidu.com/build/dist'
+                echarts:'/Content/echarts/js'
+            }
+        });
+
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                $("#salesorder").width($(window).width() - 20).height($(window).height() / 2 - 70);
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('salesorder'));
+
+                var option = {
+                    title: {
+                        text: '接單統計表',
+                        subtext: 'DEMO'
+                    },
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data: ['2014', '2015', '2016']
+                    },
+                    toolbox: {
+                        show: true,
+                        feature: {
+                            mark: { show: true },
+                            dataView: { show: true, readOnly: false },
+                            magicType: { show: true, type: ['line', 'bar'] },
+                            restore: { show: true },
+                            saveAsImage: { show: true }
+                        }
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            data: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value'
+                        }
+                    ],
+                    series: [
+                        {
+                            "name": "2014",
+                            "type": "bar",
+                            "data": [12, 20, 40, 56, 74, 65, 45, 65, 34, 56, 34, 77],
+                            markPoint: {
+                                data: [
+                                    { type: 'max', name: '最大值' },
+                                    { type: 'min', name: '最小值' }
+                                ]
+                            },
+                            markLine: {
+                                data: [
+                                    { type: 'average', name: '平均值' }
+                                ]
+                            }
+
+                        },
+                         {
+                             "name": "2015",
+                             "type": "bar",
+                             "data": [12, 45, 35, 65, 34, 87, 67, 56, 34, 56, 65, 78],
+                             markPoint: {
+                                 data: [
+                                     { type: 'max', name: '最大值' },
+                                     { type: 'min', name: '最小值' }
+                                 ]
+                             },
+                             markLine: {
+                                 data: [
+                                     { type: 'average', name: '平均值' }
+                                 ]
+                             }
+
+                         },
+                          {
+                              "name": "2016",
+                              "type": "bar",
+                              "data": [12, 20, 40, 56, 45, 34, 76, 88, 56, 89, 0, 0],
+                              markPoint: {
+                                  data: [
+                                      { type: 'max', name: '最大值' },
+                                      { type: 'min', name: '最小值' }
+                                  ]
+                              },
+                              markLine: {
+                                  data: [
+                                      { type: 'average', name: '平均值' }
+                                  ]
+                              }
+                          }
+                    ]
+                };
+
+                // 为echarts对象加载数据
+                myChart.setOption(option);
+            }
+        );
+
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                $("#shipment").width($(window).width() - 20).height($(window).height() / 2 - 70);
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('shipment'));
+
+                var option = {
+                    title: {
+                        text: '出貨統計表',
+                        subtext: 'DEMO'
+                    },
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data: ['2014', '2015', '2016']
+                    },
+                    toolbox: {
+                        show: true,
+                        feature: {
+                            mark: { show: true },
+                            dataView: { show: true, readOnly: false },
+                            magicType: { show: true, type: ['line', 'bar'] },
+                            restore: { show: true },
+                            saveAsImage: { show: true }
+                        }
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            data: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value'
+                        }
+                    ],
+                    series: [
+                        {
+                            "name": "2014",
+                            "type": "bar",
+                            "data": [12, 20, 40, 56, 74, 65, 45, 65, 34, 56, 34, 77],
+                            markPoint: {
+                                data: [
+                                    { type: 'max', name: '最大值' },
+                                    { type: 'min', name: '最小值' }
+                                ]
+                            },
+                            markLine: {
+                                data: [
+                                    { type: 'average', name: '平均值' }
+                                ]
+                            }
+                        },
+                         {
+                             "name": "2015",
+                             "type": "bar",
+                             "data": [12, 45, 35, 65, 34, 87, 67, 56, 34, 56, 65, 78],
+                             markPoint: {
+                                 data: [
+                                     { type: 'max', name: '最大值' },
+                                     { type: 'min', name: '最小值' }
+                                 ]
+                             },
+                             markLine: {
+                                 data: [
+                                     { type: 'average', name: '平均值' }
+                                 ]
+                             }
+                         },
+                          {
+                              "name": "2016",
+                              "type": "bar",
+                              "data": [12, 20, 40, 56, 45, 34, 76, 88, 56, 89, 0, 0],
+                              markPoint: {
+                                  data: [
+                                      { type: 'max', name: '最大值' },
+                                      { type: 'min', name: '最小值' }
+                                  ]
+                              },
+                              markLine: {
+                                  data: [
+                                      { type: 'average', name: '平均值' }
+                                  ]
+                              }
+                          }
+                    ]
+                };
+
+                // 为echarts对象加载数据
+                myChart.setOption(option);
+            }
+        );
+
+        $(window).resize(function () {
+           
+            $("#InfoTable").width($(window).width() - 20);
+        });
+    });
+</script>
+}

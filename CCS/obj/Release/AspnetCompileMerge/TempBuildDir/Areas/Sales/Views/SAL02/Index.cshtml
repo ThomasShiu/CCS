@@ -36,6 +36,8 @@
             striped: true, //奇偶行是否區分
             singleSelect: true,//單選模式
             //rownumbers: true,//行號
+            emptyMsg: '無資料',
+            loadMsg: '正在讀取中，請稍候...',
             columns: [[
                 { field: 'ID', title: '', width: 80,sortable:true, hidden: true },
                 { field: 'VCH_NO', title: '訂單號碼', width: 80,sortable:true },
@@ -56,6 +58,15 @@
                 { field: 'C_CLS', title: '結案碼', width: 80,sortable:true }
                
             ]]
+        });
+        var pager = $('#List').datagrid('getPager');
+        $(pager).pagination({
+            pageSize: 20,
+            showPageList: true,
+            pageList: [15, 20, 30, 40, 50],
+            beforePageText: '第',
+            afterPageText: '頁,共{pages}頁',
+            displayMsg: '顯示 {from} 到 {to} 筆資料,共 {total} 筆資料'
         });
     });
     //ifram 返回

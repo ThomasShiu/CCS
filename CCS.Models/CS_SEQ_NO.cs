@@ -31,5 +31,6 @@ namespace CCS.Models
         public string EXC_SYSOWNR { get; set; }
         public string EXC_ISLOCKED { get; set; }
         public string EXC_COMPANY { get; set; }
+        public string CURRENT_YM { get; set; }
     }
 }

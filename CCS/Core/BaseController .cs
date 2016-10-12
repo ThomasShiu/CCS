@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace CCS.App_Start
 {
+    
     public class BaseController : Controller
     {
         /// <summary>
@@ -80,7 +81,7 @@ namespace CCS.App_Start
                 ContentEncoding = contentEncoding,
                 ContentType = contentType,
                 JsonRequestBehavior = behavior,
-                FormateStr = "yyyy-MM-dd HH:mm:ss"
+                FormateStr = "yyyy-MM-dd HH:mm"
             };
         }
         /// <summary>

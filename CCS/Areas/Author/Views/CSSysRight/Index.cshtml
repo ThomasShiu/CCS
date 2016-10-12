@@ -14,6 +14,7 @@
 }
 <div class="mvctool">
     @Html.ToolButton("btnSave", "icon-save", @Suggestion.Save, perm, "Save", true)
+    @Html.ToolButton("btnEdit", "icon-edit", @Suggestion.Edit, perm, "Edit", true)
 </div>
 <table style="width: 100%">
     <tbody>
@@ -107,7 +108,7 @@
                         } else {
                             return "<img src='/Content/Images/icon/no.png'/>";
                         }
-                    }, hidden: true
+                    }, hidden: false
                 },
                 { field: 'CreatePerson', title: '創建人', width: 80, sortable: true, hidden: true },
                 { field: 'CreateTime', title: '創建時間', width: 120, sortable: true, hidden: true },
@@ -162,8 +163,15 @@
                           }
                       },
                   },
-                  { field: 'RightId', title: '模組ID', width: 80, sortable: true, hidden: true }
+                  { field: 'RightId', title: '模組ID', width: 80, sortable: true }
               ]]
+        });
+        $("#btnEdit").click(function () {
+            var row = $('#List').datagrid('getSelected');
+            if (row != null) {
+                $("#modalwindow").html("<iframe width='100%' height='99%'  frameborder='0' src='/Author/CSSysRight/Edit?id=" + row.Id + "&Ieguid=" + GetGuid() + "'></iframe>");
+                $("#modalwindow").window({ title: '編輯', width: 700, height: 430, iconCls: 'icon-edit' }).window('open');
+            } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords'); }
         });
         $("#btnSave").click(function () {
             var updateRows = 0;

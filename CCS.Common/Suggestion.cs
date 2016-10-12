@@ -21,11 +21,12 @@ namespace CCS.Common
         public static string CloseLeft { get { return "關閉左側標籤"; } }
         public static string CloseOther { get { return "除此之外全部關閉"; } }
         public static string CloseRight { get { return "關閉右側標籤"; } }
-        public static string Create { get { return "創建"; } }
+        public static string Create { get { return "新增"; } }
         public static string Delete { get { return "刪除"; } }
         public static string DeleteFail { get { return "刪除失敗"; } }
         public static string DeleteSucceed { get { return "刪除成功"; } }
         public static string Details { get { return "詳細"; } }
+        public static string Master { get { return "主檔"; } }
         public static string MasterDetails { get { return "明細"; } }
         public static string Disable { get { return "不可用"; } }
         public static string Edit { get { return "編輯"; } }

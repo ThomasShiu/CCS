@@ -3,6 +3,7 @@ using CCS.Models;
 using CCS.Models.SYS;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -75,6 +76,74 @@ namespace CCS.DAL
             return result;
         }
 
+        public IQueryable<CS_SYSRIGHT> GetList(CCSEntities db)
+        {
+            IQueryable<CS_SYSRIGHT> list = db.CS_SYSRIGHT.AsQueryable();
+            return list;
+        }
+
+        public int Create(CS_SYSRIGHT entity)
+        {
+            using (CCSEntities db = new CCSEntities())
+            {
+                db.CS_SYSRIGHT.Add(entity);
+                return db.SaveChanges();
+            }
+        }
+
+        public int Delete(string id)
+        {
+            using (CCSEntities db = new CCSEntities())
+            {
+                CS_SYSRIGHT entity = db.CS_SYSRIGHT.SingleOrDefault(a => a.Id == id);
+                if (entity != null)
+                {
+
+                    db.CS_SYSRIGHT.Remove(entity);
+                }
+                return db.SaveChanges();
+            }
+        }
+
+        public void Delete(CCSEntities db, string[] deleteCollection)
+        {
+            IQueryable<CS_SYSRIGHT> collection = from f in db.CS_SYSRIGHT
+                                                 where deleteCollection.Contains(f.Id)
+                                                 select f;
+            foreach (var deleteItem in collection)
+            {
+                db.CS_SYSRIGHT.Remove(deleteItem);
+            }
+        }
+
+        public int Edit(CS_SYSRIGHT entity)
+        {
+            using (CCSEntities db = new CCSEntities())
+            {
+                db.CS_SYSRIGHT.Attach(entity);
+                db.Entry(entity).State = EntityState.Modified;
+                return db.SaveChanges();
+            }
+        }
+
+        public CS_SYSRIGHT GetById(string id)
+        {
+            using (CCSEntities db = new CCSEntities())
+            {
+                return db.CS_SYSRIGHT.SingleOrDefault(a => a.Id == id);
+            }
+        }
+
+        public bool IsExist(string id)
+        {
+            using (CCSEntities db = new CCSEntities())
+            {
+                CS_SYSRIGHT entity = GetById(id);
+                if (entity != null)
+                    return true;
+                return false;
+            }
+        }
 
         public void Dispose()
         {

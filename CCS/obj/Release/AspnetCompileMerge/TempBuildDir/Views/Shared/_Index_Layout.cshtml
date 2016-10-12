@@ -13,24 +13,25 @@
     @RenderSection("styles", required: false)
 </head>
 <body >
+    <div style="padding:4px 5px 0px 5px;">
         @RenderBody()
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jquery-easyui")
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jquery-easyui")
+        <script src="~/Content/easyui-1.5/jquery.easyui.min.js"></script>
+        <script src="~/Content/easyui-1.5/jquery.easyui.plus.js"></script>
 
-    <script src="~/Content/easyui-1.5/jquery.easyui.min.js"></script>
-    <script src="~/Content/easyui-1.5/jquery.easyui.plus.js"></script>
-
-    @RenderSection("scripts", required: false)
-    @*@RenderPage("~/Views/Shared/_ScriptSection.cshtml")*@
-    <script>
-        //生成唯一的GUID
-        function GetGuid() {
-            var s4 = function () {
-                return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
-            };
-            return s4() + s4() + s4() + "-" + s4();
-        }
-    </script>
+        @RenderSection("scripts", required: false)
+        @*@RenderPage("~/Views/Shared/_ScriptSection.cshtml")*@
+        <script>
+            //生成唯一的GUID
+            function GetGuid() {
+                var s4 = function () {
+                    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+                };
+                return s4() + s4() + s4() + "-" + s4();
+            }
+        </script>
 </body>
 </html>

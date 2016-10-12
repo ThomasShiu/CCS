@@ -68,9 +68,9 @@
                      {
                          field: 'Enable', title: '是否啟用', width: 60,align:'center', formatter: function (value) {
                              if (value) {
-                                 return "<img src='/Content/Images/icon/pass.png'/>";
+                                 return "是";
                              } else {
-                                 return "<img src='/Content/Images/icon/no.png'/>";
+                                 return "否";
                              }
                          }
                      },
@@ -125,6 +125,25 @@
                  },
                 { field: 'Sort', title: '排序', width: 80, sortable: true }
             ]]
+        });
+
+        var pager = $('#List').datagrid('getPager');
+        $(pager).pagination({
+            pageSize: 15,
+            showPageList: true,
+            pageList: [15, 20, 30, 40, 50],
+            beforePageText: '第',
+            afterPageText: '頁,共{pages}頁',
+            displayMsg: '顯示 {from} 到 {to} 筆資料,共 {total} 筆資料'
+        });
+        var pager2 = $('#OptList').datagrid('getPager');
+        $(pager2).pagination({
+            pageSize: 15,
+            showPageList: true,
+            pageList: [15, 20, 30, 40, 50],
+            beforePageText: '第',
+            afterPageText: '頁,共{pages}頁',
+            displayMsg: '顯示 {from} 到 {to} 筆資料,共 {total} 筆資料'
         });
 
         //自動寬高

@@ -72,11 +72,13 @@
     <Compile Include="Core\ExceptionHander.cs" />
     <Compile Include="cs_actionlogBLL.cs" />
     <Compile Include="cs_codlBLL.cs" />
+    <Compile Include="cs_momtBLL.cs" />
     <Compile Include="cs_syslogBLL.cs" />
     <Compile Include="cs_comtBLL.cs" />
     <Compile Include="cs_sysmoduleBLL.cs" />
     <Compile Include="cs_sysrightBLL.cs" />
     <Compile Include="cs_sysroleBLL.cs" />
+    <Compile Include="cs_wiresBLL.cs" />
     <Compile Include="customerBLL.cs" />
     <Compile Include="cs_sysmoduleoperateBLL .cs" />
     <Compile Include="cs_sysuserBLL .cs" />

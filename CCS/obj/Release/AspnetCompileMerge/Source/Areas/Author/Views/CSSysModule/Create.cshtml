@@ -12,7 +12,11 @@
         perm = new List<permModel>();
     }
 }
-
+@section styles{
+<style>
+.icon_option {background-image: url("CSS Satyr.png"); display: block;}
+</style>
+}
 <div class="mvctool bgb">
     @Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)
     @Html.ToolButton("btnReturn", "icon-return", "返回", false)
@@ -20,10 +24,19 @@
 <div style="height:35px"></div>
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.Id)
+    @*@Html.HiddenFor(model => model.Id)*@
     @Html.HiddenFor(model => model.CreateTime)
     <table class="fromEditTable setTextWidth300">
         <tbody>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.Id)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.Id)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.Id)</td>
+            </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.Name)：
@@ -58,6 +71,8 @@
                 </td>
                 <td style="width:310px">
                     @Html.EditorFor(model => model.Iconic)
+                    @*<img src="~/Content/images/icon/iconall.png" />
+                    <span class="pic pic_1"> icon</span>*@
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.Iconic)</td>
             </tr>

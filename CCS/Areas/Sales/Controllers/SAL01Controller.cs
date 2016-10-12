@@ -17,6 +17,7 @@ using System.Web.Mvc;
 
 namespace CCS.Areas.Sales.Controllers
 {
+    
     [UserTraceLog]
     public class SAL01Controller : BaseController
     {
@@ -30,7 +31,9 @@ namespace CCS.Areas.Sales.Controllers
         /// </summary>
         [Dependency]
         public Ics_comtBLL comt_BLL { get; set; }
-        
+
+        [Dependency]
+        public Ics_codlBLL codl_BLL { get; set; }
         [Dependency]
         public IcustomerBLL cust_BLL { get; set; }
         [Dependency]
@@ -43,8 +46,7 @@ namespace CCS.Areas.Sales.Controllers
             return View();
         }
 
-       
-
+        [SupportFilter(ActionName = "Index")]
         [HttpPost]
         public JsonResult GetList(GridPager pager,String queryStr)
         {
@@ -118,7 +120,36 @@ namespace CCS.Areas.Sales.Controllers
 
         }
 
-        
+
+        // 訂單明細
+        [SupportFilter(ActionName = "Index")]
+        [HttpPost]
+        public JsonResult GetDetailsList( string queryStr)
+        {
+            List<cs_codlModel> list = codl_BLL.GetList( queryStr);
+            var json = (from r in list
+                        select new cs_codlModel()
+                        {
+                            ID = r.ID,
+                            VCH_NO = r.VCH_NO,
+                            VCH_SR = r.VCH_SR,
+                            ITEM_NO = r.ITEM_NO,
+                            ITEM_NM = r.ITEM_NM,
+                            ITEM_SP = r.ITEM_SP,
+                            CS_ITEM_NO = r.CS_ITEM_NO,
+                            UNIT = r.UNIT,
+                            QTY = r.QTY,
+                            PRC = r.PRC,
+                            AMT = r.AMT,
+                            PRCV_DT = r.PRCV_DT,
+                            C_CLS = r.C_CLS,
+                            REMK = r.REMK
+
+                        });
+
+
+            return Json(json);
+        }
 
         #region 創建
         [SupportFilter]
@@ -131,33 +162,31 @@ namespace CCS.Areas.Sales.Controllers
         [HttpPost]
         public JsonResult Create(cs_comtModel model)
         {
-            AccountModel account = (AccountModel)Session["Account"];
+    
             //account.Id = "admin";
             //account.TrueName = "admin";
             //Session["Account"] = account;
-            // 產生單號
-            var result = db.SP_GEN_ORDNO("SAL", "S", 1);
-            string v_ordno = result.First().FROM_NO;
-            model.VCH_NO = v_ordno;
+
+            model.VCH_NO = ResultHelper.NewOrdId("SAL","S"); // 取單號
             model.C_CFM = "Y";
             model.ADD_DT = DateTime.Now;
             model.CFM_DT = DateTime.Now;
             model.MDY_DT = DateTime.Now;
-            model.MDY_USR_NO = account.Id;
-            model.CFM_USR_NO = account.Id;
-            model.IP_NM = HttpContext.Request.UserHostAddress;
+            model.MDY_USR_NO = GetUserId();
+            model.CFM_USR_NO = GetUserId();
+            model.IP_NM =  ResultHelper.GetUserIP();
             model.CP_NM = HttpContext.Request.UserHostName;
             model.N_PRT = 0;
             
             if (comt_BLL.Create(ref errors, model))
             {
-                LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "創建", "CS_COMT");
+                LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.VCH_NO + ",Name:" + GetUserTrueName(), "成功", "新增", "CS_COMT");
                 return Json(JsonHandler.CreateMessage(1, "新增成功"), JsonRequestBehavior.AllowGet);
             }
             else
             {
                 string ErrorCol = errors.Error;
-                LogHandler.WriteServiceLog("虛用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "創建", "CS_COMT");
+                LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.VCH_NO + ",Name:" + GetUserTrueName() + "," + ErrorCol, "失敗", "新增", "CS_COMT");
                 return Json(JsonHandler.CreateMessage(0, "新增失敗" + ErrorCol), JsonRequestBehavior.AllowGet);
             }
 
@@ -185,13 +214,13 @@ namespace CCS.Areas.Sales.Controllers
 
                 if (comt_BLL.Edit(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "編輯", "CS_COMT");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.VCH_NO + ",Name:" + GetUserTrueName(), "成功", "編輯", "CS_COMT");
                     return Json(JsonHandler.CreateMessage(1, Suggestion.EditSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog("虛用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "編輯", "CS_COMT");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.VCH_NO + ",Name:" + GetUserTrueName() + "," + ErrorCol, "失敗", "編輯", "CS_COMT");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.EditFail + ErrorCol));
                 }
             }
@@ -227,13 +256,13 @@ namespace CCS.Areas.Sales.Controllers
             {
                 if (comt_BLL.Delete(ref errors, id))
                 {
-                    LogHandler.WriteServiceLog("虛擬用戶", "Id:" + account.Id + ",Name:" + account.TrueName, "成功", "刪除", "CS_COMT");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + id + ",Name:" + GetUserTrueName(), "成功", "刪除", "CS_COMT");
                     return Json(1, JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog("虛用用戶", "Id:" + account.Id + ",Name:" + account.TrueName + "," + ErrorCol, "失敗", "刪除", "CS_COMT");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + id+ ",Name:" + GetUserTrueName() + "," + ErrorCol, "失敗", "刪除", "CS_COMT");
                     return Json(0, JsonRequestBehavior.AllowGet);
                 }
             }

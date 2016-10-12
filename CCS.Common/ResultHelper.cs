@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CCS.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace CCS.Common
 {
     public class ResultHelper
     {
+        
         /// <summary>
         /// 创建一个全球唯一的32位ID
         /// </summary>
@@ -31,6 +33,14 @@ namespace CCS.Common
                 string id = DateTime.Now.ToString("yyyyMMddHHmmssfffffff");
                 return id;
             }
+        }
+        public static string NewOrdId(string v_kind,string v_prefix)
+        {
+            CCSEntities _db = new CCSEntities();
+            // 產生單號
+            var result = _db.SP_GEN_ORDNO(v_kind, v_prefix, 1);
+            return result.First().FROM_NO;
+            
         }
         /// <summary>
         /// 截取字符串
@@ -233,6 +243,15 @@ namespace CCS.Common
 
         public static string GetUserIP()
         {
+            if (System.Web.HttpContext.Current.Request.ServerVariables["HTTP_VIA"] != null)
+                return System.Web.HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"].Split(new char[] { ',' })[0];
+            else
+                return System.Web.HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+        }
+
+        public static string GetUserHost()
+        {
+            //HttpContext.Request.UserHostName;
             if (System.Web.HttpContext.Current.Request.ServerVariables["HTTP_VIA"] != null)
                 return System.Web.HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"].Split(new char[] { ',' })[0];
             else
