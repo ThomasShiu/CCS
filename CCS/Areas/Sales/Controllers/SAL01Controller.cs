@@ -31,7 +31,6 @@ namespace CCS.Areas.Sales.Controllers
         /// </summary>
         [Dependency]
         public Ics_comtBLL comt_BLL { get; set; }
-
         [Dependency]
         public Ics_codlBLL codl_BLL { get; set; }
         [Dependency]
@@ -43,6 +42,7 @@ namespace CCS.Areas.Sales.Controllers
         [SupportFilter]
         public ActionResult Index()
         {
+            ViewBag.Perm = GetPermission();
             return View();
         }
 
@@ -121,12 +121,17 @@ namespace CCS.Areas.Sales.Controllers
         }
 
 
-        // 訂單明細
+        // 訂單明細 - Datagrid子明細
         [SupportFilter(ActionName = "Index")]
         [HttpPost]
-        public JsonResult GetDetailsList( string queryStr)
+        public JsonResult GetDetailsList(GridPager pager, string queryStr)
         {
-            List<cs_codlModel> list = codl_BLL.GetList( queryStr);
+            pager.rows = 999999;
+            pager.page = 1;
+            pager.sort = "VCH_NO";
+            pager.order = "desc";
+
+            List<cs_codlModel> list = codl_BLL.GetList(ref pager, queryStr);
             var json = (from r in list
                         select new cs_codlModel()
                         {
@@ -281,19 +286,21 @@ namespace CCS.Areas.Sales.Controllers
         public JsonResult GetCustList(String queryStr)
         {
             //var model =  ccsService.GetCustList("");
-            List<customerModel> list = cust_BLL.GetList(queryStr);
-            var model = (from r in list
-                         select new customerModel()
-                         {
-                             CS_NO = r.CS_NO,
-                             SHORT_NM = r.SHORT_NM,
-                             FULL_NM = r.FULL_NM,
-                             ADDR_IVC = r.ADDR_IVC,
-                             CONTACTER = r.CONTACTER,
-                             TEL_NO = r.TEL_NO,
-                             FAX_NO = r.FAX_NO
+            //List<customerModel> list = cust_BLL.GetList(queryStr);
+            //var model = (from r in list
+            //             select new customerModel()
+            //             {
+            //                 CS_NO = r.CS_NO,
+            //                 SHORT_NM = r.SHORT_NM,
+            //                 FULL_NM = r.FULL_NM,
+            //                 ADDR_IVC = r.ADDR_IVC,
+            //                 CONTACTER = r.CONTACTER,
+            //                 TEL_NO = r.TEL_NO,
+            //                 FAX_NO = r.FAX_NO
 
-                         }).ToArray();
+            //             }).ToArray();
+
+            var model = ccsService.GetCustList("");
 
             return Json(model, JsonRequestBehavior.AllowGet);
 
@@ -305,18 +312,10 @@ namespace CCS.Areas.Sales.Controllers
         //[HttpPost]
         public JsonResult GetEmpList(String queryStr)
         {
-            queryStr = "C_COP";
-            //var model =  ccsService.GetCustList("");
-            List<empnoModel> list = empno_BLL.GetList(queryStr);
-            var model = (from r in list
-                         select new empnoModel()
-                         {
-                             EMP_NO = r.EMP_NO,
-                             EMP_NM = r.EMP_NM,
-                             DEPM_NO = r.DEPM_NO,
-                             E_MAIL = r.E_MAIL
 
-                         }).ToArray();
+            //var model =  ccsService.GetCustList("");
+            //List<empnoModel> list = empno_BLL.GetList(queryStr);
+            var model = ccsService.GetEmpList("C_COP");
 
             return Json(model, JsonRequestBehavior.AllowGet);
 

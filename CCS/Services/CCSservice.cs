@@ -1,4 +1,7 @@
-﻿using CCS.IBLL;
+﻿using CCS.Common;
+using CCS.IBLL;
+using CCS.Models;
+using CCS.Models.MAN;
 using CCS.Models.PUB;
 using CCS.Models.SAL;
 using Microsoft.Practices.Unity;
@@ -15,9 +18,12 @@ namespace CCS.Services
     {
         [Dependency]
         public IcustomerBLL cust_BLL { get; set; }
-
         [Dependency]
         public IitemBLL item_BLL { get; set; }
+        [Dependency]
+        public IEMPNOBLL empno_BLL { get; set; }
+        [Dependency]
+        public Ics_codlBLL codl_BLL { get; set; }
 
         #region  取得客戶列表
         public customerModel[] GetCustList(String queryStr)
@@ -78,6 +84,67 @@ namespace CCS.Services
 
         #endregion
 
+
+        #region 取得員工列表，下拉選單
+        //[HttpPost]
+        public empnoModel[] GetEmpList(String queryStr)
+        {
+            GridPager pager=null;
+            pager.rows = 999999;
+            pager.page = 1;
+            pager.sort = "EMP_NO";
+            pager.order = "desc";
+
+            List<empnoModel> list = empno_BLL.GetList(ref pager, queryStr);
+            var model = (from r in list
+                         select new empnoModel()
+                         {
+                             EMP_NO = r.EMP_NO,
+                             EMP_NM = r.EMP_NM,
+                             DEPM_NO = r.DEPM_NO,
+                             E_MAIL = r.E_MAIL
+
+                         }).ToArray();
+
+            return model;
+
+        }
+        #endregion
+
+        #region 取得訂單明細
+        public cs_codlModel[] GetOrdDetailsList(GridPager pager, string queryStr)
+        {
+            pager.rows = 999999;
+            pager.page = 1;
+            pager.sort = "VCH_NO";
+            pager.order = "desc";
+
+            List<cs_codlModel> list = codl_BLL.GetList(ref pager, queryStr);
+            var model = (from r in list
+                         select new cs_codlModel()
+                         {
+                             ID = r.ID,
+                             VCH_NO = r.VCH_NO,
+                             VCH_SR = r.VCH_SR,
+                             ITEM_NO = r.ITEM_NO,
+                             ITEM_NM = r.ITEM_NM,
+                             ITEM_SP = r.ITEM_SP,
+                             CS_ITEM_NO = r.CS_ITEM_NO,
+                             UNIT = r.UNIT,
+                             QTY = r.QTY,
+                             PRC = r.PRC,
+                             AMT = r.AMT,
+                             PRCV_DT = r.PRCV_DT,
+                             C_CLS = r.C_CLS,
+                             REMK = r.REMK
+
+                         }).ToArray();
+
+
+            return model;
+        }
+        #endregion
+
         // 產生資料集
         public DataTable GetDataSet(string SQL,string v_TBLName)
         {
@@ -97,6 +164,7 @@ namespace CCS.Services
 
             return dt;
         }
+
         public void getValue()
         {
 

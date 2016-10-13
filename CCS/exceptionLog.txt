@@ -1501,3 +1501,91 @@
    於 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
    於 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    於 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)|一個或多個實體的驗證失敗。如需詳細資料，請參閱 'EntityValidationErrors' 屬性。|2016/10/07 下午 01:07:09
+找不到檢視 'Edit' 或其主版，或沒有任何檢視引擎支援搜尋的位置。已搜尋過下列位置: 
+~/Areas/Manufact/Views/MAN01/Edit.aspx
+~/Areas/Manufact/Views/MAN01/Edit.ascx
+~/Areas/Manufact/Views/Shared/Edit.aspx
+~/Areas/Manufact/Views/Shared/Edit.ascx
+~/Views/MAN01/Edit.aspx
+~/Views/MAN01/Edit.ascx
+~/Views/Shared/Edit.aspx
+~/Views/Shared/Edit.ascx
+~/Areas/Manufact/Views/MAN01/Edit.cshtml
+~/Areas/Manufact/Views/MAN01/Edit.vbhtml
+~/Areas/Manufact/Views/Shared/Edit.cshtml
+~/Areas/Manufact/Views/Shared/Edit.vbhtml
+~/Views/MAN01/Edit.cshtml
+~/Views/MAN01/Edit.vbhtml
+~/Views/Shared/Edit.cshtml
+~/Views/Shared/Edit.vbhtml|   於 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   於 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   於 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   於 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   於 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   於 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   於 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   於 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   於 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   於 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   於 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   於 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   於 System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   於 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   於 System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   於 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   於 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   於 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   於 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   於 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)|一個或多個實體的驗證失敗。如需詳細資料，請參閱 'EntityValidationErrors' 屬性。|2016/10/13 上午 11:04:03
+找不到檢視 'Details' 或其主版，或沒有任何檢視引擎支援搜尋的位置。已搜尋過下列位置: 
+~/Areas/Manufact/Views/MAN01/Details.aspx
+~/Areas/Manufact/Views/MAN01/Details.ascx
+~/Areas/Manufact/Views/Shared/Details.aspx
+~/Areas/Manufact/Views/Shared/Details.ascx
+~/Views/MAN01/Details.aspx
+~/Views/MAN01/Details.ascx
+~/Views/Shared/Details.aspx
+~/Views/Shared/Details.ascx
+~/Areas/Manufact/Views/MAN01/Details.cshtml
+~/Areas/Manufact/Views/MAN01/Details.vbhtml
+~/Areas/Manufact/Views/Shared/Details.cshtml
+~/Areas/Manufact/Views/Shared/Details.vbhtml
+~/Views/MAN01/Details.cshtml
+~/Views/MAN01/Details.vbhtml
+~/Views/Shared/Details.cshtml
+~/Views/Shared/Details.vbhtml|   於 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   於 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   於 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   於 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   於 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   於 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   於 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   於 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   於 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   於 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   於 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   於 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   於 System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   於 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   於 System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   於 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   於 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   於 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   於 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   於 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)|一個或多個實體的驗證失敗。如需詳細資料，請參閱 'EntityValidationErrors' 屬性。|2016/10/13 下午 04:09:33

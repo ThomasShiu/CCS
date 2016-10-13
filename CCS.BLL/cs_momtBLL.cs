@@ -45,6 +45,8 @@ namespace CCS.BLL
                                                 VCH_NO = r.VCH_NO,
                                                 VCH_DT = r.VCH_DT,
                                                 FA_NO = r.FA_NO,
+                                                EMP_NO = r.EMP_NO,
+                                                EMP_NM = r.EMP_NM,
                                                 ITEM_NO = r.ITEM_NO,
                                                 IMG_NO = r.IMG_NO,
                                                 PLAN_BDT = r.PLAN_BDT.Value,
@@ -55,17 +57,17 @@ namespace CCS.BLL
                                                 HEAD_MARK = r.HEAD_MARK,
                                                 RAWMTRL = r.RAWMTRL,
                                                 DIAMETER = r.DIAMETER.Value,
+                                                HEAT_NO = r.HEAT_NO,
                                                 PLATING = r.PLATING,
                                                 PRCS_NO = r.PRCS_NO,
                                                 REMK = r.REMK,
-                                                OWNER_USR_NO = r.OWNER_USR_NO,
-                                                OWNER_GRP_NO = r.OWNER_GRP_NO,
-                                                ADD_DT = r.ADD_DT.Value,
-                                                CFM_USR_NO = r.CFM_USR_NO,
-                                                MDY_USR_NO = r.MDY_USR_NO,
-                                                MDY_DT = r.MDY_DT.Value,
-                                                IP_NM = r.IP_NM,
-                                                CP_NM = r.CP_NM
+                                                EXC_INSDBID = r.EXC_INSDBID,
+                                                EXC_INSDATE = r.EXC_INSDATE.Value,
+                                                EXC_UPDDBID = r.EXC_UPDDBID,
+                                                EXC_UPDDATE = r.EXC_UPDDATE.Value,
+                                                EXC_SYSOWNR = r.EXC_SYSOWNR,
+                                                EXC_ISLOCKED = r.EXC_ISLOCKED,
+                                                EXC_COMPANY = r.EXC_COMPANY
                                             }).ToList();
             return modelList;
         }
@@ -85,6 +87,8 @@ namespace CCS.BLL
                 entity.VCH_NO = model.VCH_NO;
                 entity.VCH_DT = model.VCH_DT;
                 entity.FA_NO = model.FA_NO;
+                entity.EMP_NO = model.EMP_NO;
+                entity.EMP_NM = model.EMP_NM;
                 entity.ITEM_NO = model.ITEM_NO;
                 entity.IMG_NO = model.IMG_NO;
                 entity.PLAN_BDT = model.PLAN_BDT;
@@ -95,17 +99,17 @@ namespace CCS.BLL
                 entity.HEAD_MARK = model.HEAD_MARK;
                 entity.RAWMTRL = model.RAWMTRL;
                 entity.DIAMETER = model.DIAMETER;
+                entity.HEAT_NO = model.HEAT_NO;
                 entity.PLATING = model.PLATING;
                 entity.PRCS_NO = model.PRCS_NO;
                 entity.REMK = model.REMK;
-                entity.OWNER_USR_NO = model.OWNER_USR_NO;
-                entity.OWNER_GRP_NO = model.OWNER_GRP_NO;
-                entity.ADD_DT = model.ADD_DT;
-                entity.CFM_USR_NO = model.CFM_USR_NO;
-                entity.MDY_USR_NO = model.MDY_USR_NO;
-                entity.MDY_DT = model.MDY_DT;
-                entity.IP_NM = model.IP_NM;
-                entity.CP_NM = model.CP_NM;
+                entity.EXC_INSDBID = model.EXC_INSDBID;
+                entity.EXC_INSDATE = model.EXC_INSDATE;
+                entity.EXC_UPDDBID = model.EXC_UPDDBID;
+                entity.EXC_UPDDATE = model.EXC_UPDDATE;
+                entity.EXC_SYSOWNR = model.EXC_SYSOWNR;
+                entity.EXC_ISLOCKED = model.EXC_ISLOCKED;
+                entity.EXC_COMPANY = model.EXC_COMPANY;
                 if (m_Rep.Create(entity) == 1)
                 {
                     return true;
@@ -189,6 +193,8 @@ namespace CCS.BLL
                 entity.VCH_NO = model.VCH_NO;
                 entity.VCH_DT = model.VCH_DT;
                 entity.FA_NO = model.FA_NO;
+                entity.EMP_NO = model.EMP_NO;
+                entity.EMP_NM = model.EMP_NM;
                 entity.ITEM_NO = model.ITEM_NO;
                 entity.IMG_NO = model.IMG_NO;
                 entity.PLAN_BDT = model.PLAN_BDT;
@@ -199,17 +205,12 @@ namespace CCS.BLL
                 entity.HEAD_MARK = model.HEAD_MARK;
                 entity.RAWMTRL = model.RAWMTRL;
                 entity.DIAMETER = model.DIAMETER;
+                entity.HEAT_NO = model.HEAT_NO;
                 entity.PLATING = model.PLATING;
                 entity.PRCS_NO = model.PRCS_NO;
                 entity.REMK = model.REMK;
-                entity.OWNER_USR_NO = model.OWNER_USR_NO;
-                entity.OWNER_GRP_NO = model.OWNER_GRP_NO;
-                entity.ADD_DT = model.ADD_DT;
-                entity.CFM_USR_NO = model.CFM_USR_NO;
-                entity.MDY_USR_NO = model.MDY_USR_NO;
-                entity.MDY_DT = model.MDY_DT;
-                entity.IP_NM = model.IP_NM;
-                entity.CP_NM = model.CP_NM;
+                entity.EXC_UPDDBID = model.EXC_UPDDBID;
+                entity.EXC_UPDDATE = model.EXC_UPDDATE;
 
                 if (m_Rep.Edit(entity) == 1)
                 {
@@ -248,6 +249,8 @@ namespace CCS.BLL
                 model.VCH_NO = entity.VCH_NO;
                 model.VCH_DT = entity.VCH_DT;
                 model.FA_NO = entity.FA_NO;
+                model.EMP_NO = entity.EMP_NO;
+                model.EMP_NM = entity.EMP_NM;
                 model.ITEM_NO = entity.ITEM_NO;
                 model.IMG_NO = entity.IMG_NO;
                 model.PLAN_BDT = entity.PLAN_BDT.Value;
@@ -258,17 +261,17 @@ namespace CCS.BLL
                 model.HEAD_MARK = entity.HEAD_MARK;
                 model.RAWMTRL = entity.RAWMTRL;
                 model.DIAMETER = entity.DIAMETER.Value;
+                entity.HEAT_NO = model.HEAT_NO;
                 model.PLATING = entity.PLATING;
                 model.PRCS_NO = entity.PRCS_NO;
                 model.REMK = entity.REMK;
-                model.OWNER_USR_NO = entity.OWNER_USR_NO;
-                model.OWNER_GRP_NO = entity.OWNER_GRP_NO;
-                model.ADD_DT = entity.ADD_DT.Value;
-                model.CFM_USR_NO = entity.CFM_USR_NO;
-                model.MDY_USR_NO = entity.MDY_USR_NO;
-                model.MDY_DT = entity.MDY_DT.Value;
-                model.IP_NM = entity.IP_NM;
-                model.CP_NM = entity.CP_NM;
+                model.EXC_INSDBID = entity.EXC_INSDBID;
+                model.EXC_INSDATE = entity.EXC_INSDATE.Value;
+                model.EXC_UPDDBID = entity.EXC_UPDDBID;
+                model.EXC_UPDDATE = entity.EXC_UPDDATE.Value;
+                model.EXC_SYSOWNR = entity.EXC_SYSOWNR;
+                model.EXC_ISLOCKED = entity.EXC_ISLOCKED;
+                model.EXC_COMPANY = entity.EXC_COMPANY;
                 return model;
             }
             else

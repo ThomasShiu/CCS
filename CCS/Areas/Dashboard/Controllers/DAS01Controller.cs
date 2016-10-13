@@ -1,5 +1,6 @@
 ﻿using CCS.App_Start;
 using CCS.Common;
+using CCS.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace CCS.Areas.Dashboard.Controllers
    
     public class DAS01Controller : Controller
     {
+        [SupportFilter(ActionName = "Index")]
         // GET: Dashboard/DAS01
         public ActionResult Index()
         {

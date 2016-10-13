@@ -19,11 +19,13 @@ namespace CCS.DAL
 
         public int Create(CS_MOMT entity)
         {
+
             using (CCSEntities db = new CCSEntities())
             {
                 db.CS_MOMT.Add(entity);
                 return db.SaveChanges();
             }
+       
         }
 
         public int Delete(string id)

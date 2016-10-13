@@ -136,7 +136,7 @@ function addTab(subtitle, url, icon) {
     //tabClose();
 }
 function createFrame(url) {
-    var s = '<iframe frameborder="0" src="' + url + '" scrolling="auto" style="width:100%; height:100%;padding:3px;"></iframe>';
+    var s = '<iframe frameborder="0" src="' + url + '"?IEguid="' + GetGuid() + '" scrolling="auto" style="width:100%; height:100%;padding:3px;"></iframe>';
     return s;
 }
 
@@ -152,6 +152,13 @@ function createFrame(url) {
         });
     });
 
+    //生成唯一的GUID
+    function GetGuid() {
+        var s4 = function () {
+            return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+        };
+        return s4() + s4() + s4() + "-" + s4();
+    }
 
 //除法函數，用來得到精確的除法結果
 // 說明：javascript的除法結果會有誤差，在兩個浮點數相除的時候會比較明顯。這個函數返回較為精確的除法結果。

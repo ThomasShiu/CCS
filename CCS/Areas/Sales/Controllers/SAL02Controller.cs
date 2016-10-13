@@ -38,6 +38,7 @@ namespace CCS.Areas.Sales.Controllers
         [SupportFilter]
         public ActionResult Index()
         {
+            ViewBag.Perm = GetPermission();
             return View();
         }
 

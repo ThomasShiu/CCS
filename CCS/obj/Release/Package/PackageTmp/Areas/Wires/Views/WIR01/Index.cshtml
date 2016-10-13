@@ -1,17 +1,24 @@
 ﻿@using CCS.Core;
 @using CCS.Common;
+@using CCS.Models.SYS
 @{
     ViewBag.Title = "主頁-線材管理";
     Layout = "~/Views/Shared/_Index_Layout.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
 }
 <div class="mvctool">
     <input id="txtQuery" type="text" class="searchText" />
-    @Html.ToolButton("btnQuery", "icon-search", "查詢", true)
-    @Html.ToolButton("btnCreate", "icon-add", "新增", true)
-    @Html.ToolButton("btnEdit", "icon-edit", "編輯", true)
-    @Html.ToolButton("btnDetails", "icon-details", "詳細", true)
-    @Html.ToolButton("btnDelete", "icon-remove", "刪除", true)
-    @Html.ToolButton("btnReload", "icon-reload", @Suggestion.Reload, true)
+    @Html.ToolButton("btnQuery", "icon-search",  @Suggestion.Query, true)
+    @Html.ToolButton("btnCreate", "icon-add",  @Suggestion.Create, perm , "Create", true)
+    @Html.ToolButton("btnEdit", "icon-edit",   @Suggestion.Edit, perm, "Edit",true)
+    @Html.ToolButton("btnDetails", "icon-details",  @Suggestion.Details, perm,"Details", true)
+    @Html.ToolButton("btnDelete", "icon-remove",  @Suggestion.Delete, perm,"Delete", true)
+    @Html.ToolButton("btnExport", "icon-export",  @Suggestion.Export,  true)
+    @Html.ToolButton("btnReload", "icon-reload",  @Suggestion.Reload, true)
 </div>
 <table id="List"></table>
 

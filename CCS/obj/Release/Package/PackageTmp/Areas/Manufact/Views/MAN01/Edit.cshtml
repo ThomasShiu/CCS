@@ -1,0 +1,300 @@
+﻿@model CCS.Models.MAN.cs_momtModel
+@using CCS.Models.SYS;
+@using CCS.Core;
+@using CCS.Common;
+@{
+    ViewBag.Title = "修改-製令單";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+
+<div class="mvctool bgb">
+    @Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)
+    @Html.ToolButton("btnReturn", "icon-return", "返回", false)
+</div>
+<div style="height:35px"></div>
+@using (Html.BeginForm())
+{
+    <div class="alert alert-danger">
+        @Html.ValidationSummary(false)
+    </div>
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.EXC_INSDBID)
+    @Html.HiddenFor(model => model.EXC_INSDATE)
+    @Html.HiddenFor(model => model.EMP_NO)
+    @Html.HiddenFor(model => model.EMP_NM)
+
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.VCH_NO)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.VCH_NO)*@
+                    @Html.EditorFor(model => model.VCH_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "自動產生", @readonly = "readonly" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.VCH_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.VCH_DT)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.VCH_DT)*@
+                    @Html.EditorFor(model => model.VCH_DT, new { htmlAttributes = new { @class = "easyui-datebox", data_options = "formatter:myformatter,parser:myparser", style = "width: 100%;" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.VCH_DT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.FA_NO)：
+                </td>
+                <td style="width:310px">
+                    <select id="FA_NO" name="FA_NO" class="easyui-combobox" style="width:100%;">
+                        <option value="關廟廠">關廟廠</option>
+                    </select>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.FA_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CO_NO)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.CO_NO)*@
+                    <input id="CO_NO_TXT" name="CO_NO_TXT" class="easyui-combogrid" style="width: 100%;" data_options="" value="@Model.CO_NO"/>
+                    @Html.HiddenFor(model => model.CO_NO)
+
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CO_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CO_SR)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.CO_SR, new { htmlAttributes = new { @class = "", style = "width: 100%;", data_options = "" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CO_SR)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.ITEM_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.ITEM_NO, new { htmlAttributes = new { @class = "", style = "width: 100%;", data_options = "" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ITEM_NO)</td>
+            </tr>
+            @*<tr>
+                    <td style="width:100px; text-align:right;">
+                        @Html.LabelFor(model => model.IMG_NO)：
+                    </td>
+                    <td style="width:310px">
+                        @Html.HiddenFor(model => model.IMG_NO)
+                        <img class="expic" src="/Content/Images/NotPic.jpg" /><br />
+                        <a href="javascript:$('#FileUpload').trigger('click');" class="files">
+                            <input type="file" size="10" value="" id="FileUpload" name="FileUpload" onchange="Upload('SingleFile', 'IMG_NO', 'FileUpload','1','1');" />
+                        </a><span class="uploading">請稍候...</span>
+                    </td>
+                    <td>@Html.ValidationMessageFor(model => model.IMG_NO)</td>
+                </tr>*@
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PLAN_QTY)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.PLAN_QTY, new { htmlAttributes = new { @class = "", style = "width: 100%;", data_options = "" } })
+
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PLAN_QTY)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PLAN_BDT)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.PLAN_BDT)*@
+                    @Html.EditorFor(model => model.PLAN_BDT, new { htmlAttributes = new { @class = "easyui-datebox", data_options = "formatter:myformatter,parser:myparser", style = "width: 100%;" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PLAN_BDT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PLAN_EDT)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.PLAN_EDT)*@
+                    @Html.EditorFor(model => model.PLAN_EDT, new { htmlAttributes = new { @class = "easyui-datebox", data_options = "formatter:myformatter,parser:myparser", style = "width: 100%;" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PLAN_EDT)</td>
+            </tr>
+
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.HEAD_MARK)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.HEAD_MARK, new { htmlAttributes = new { @class = "", style = "width: 100%;", data_options = "" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.HEAD_MARK)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.RAWMTRL)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.RAWMTRL, new { htmlAttributes = new { @class = "", style = "width: 100%;", data_options = "" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.RAWMTRL)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.DIAMETER)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.DIAMETER, new { htmlAttributes = new { @class = "", style = "width: 100%;", data_options = "" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.DIAMETER)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PLATING)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.PLATING, new { htmlAttributes = new { @class = "", style = "width: 100%;", data_options = "" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PLATING)</td>
+            </tr>
+
+
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PRCS_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.PRCS_NO, new { htmlAttributes = new { @class = "", style = "width: 100%;", data_options = "" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PRCS_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.REMK)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.REMK, new { htmlAttributes = new { @class = "", style = "width: 100%;", data_options = "" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.REMK)</td>
+            </tr>
+
+        </tbody>
+    </table>
+}
+
+
+@section scripts{
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        // 下拉選單，訂單
+        $('#CO_NO_TXT').combogrid({
+            panelWidth: 750,
+            idField: 'ID',
+            textField: 'VCH_NO',
+            url: 'GetCscodlList',
+            method: 'get',
+            columns: [[
+            { field: 'ID', title: 'ID', hidden:true },
+            { field: 'VCH_NO', title: '訂單編號', width: 45 },
+            { field: 'VCH_SR', title: '序號', width: 30 },
+            { field: 'CS_NM', title: '客戶', width: 60 },
+            { field: 'ITEM_NO', title: '品號', width: 90 },
+            { field: 'ITEM_NM', title: '品名', width: 60 },
+            { field: 'ITEM_SP', title: '規格', width: 60 },
+            { field: 'QTY', title: '數量', width: 40, align: 'right' },
+            { field: 'UNIT', title: '單位', width: 30 },
+            { field: 'PRCV_DT', title: '預計交期', width: 50 }
+            ]],
+            fitColumns: true,
+            onSelect: function (rec) {
+                //getGridValue();
+                var grid = $("#CO_NO_TXT").combogrid("grid");//取得表格物件
+                var row = grid.datagrid('getSelected');//取得資料列
+                $("#CO_NO").val(row.VCH_NO);
+                $("#CO_SR").val(row.VCH_SR);
+                $("#ITEM_NO").val(row.ITEM_NO);
+                $("#PLAN_QTY").val(row.QTY);
+            }
+        });
+
+
+        // 下拉選單，製程組合
+        $('#PRCS_NO').combogrid({
+            panelWidth: 300,
+            idField: 'P_SET',
+            textField: 'P_SET',
+            url: 'GetProcessSetList',
+            method: 'get',
+            columns: [[
+            { field: 'Id', title: 'Id', hidden:true },
+            { field: 'P_SET', title: '製程組合', width: 50 },
+            { field: 'P_SET_NM', title: '名稱', width: 60 }
+            ]],
+            fitColumns: true
+        });
+    });
+
+
+$(function () {
+    $("#btnSave").click(function () {
+        if ($("form").valid()) {
+            $.ajax({
+                url: "@Url.Action("Create")",
+                type: "Post",
+                data: $("form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data.type == 1) {
+                        window.parent.frameReturnByMes(data.message);
+                        window.parent.frameReturnByReload(true);
+                        window.parent.frameReturnByClose()
+                    }
+                    else {
+                        window.parent.frameReturnByMes(data.message);
+                    }
+                }
+            });
+        }
+        return false;
+    });
+    $("#btnReturn").click(function () {
+         window.parent.frameReturnByClose();
+    });
+
+    function myformatter(date) {
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1;
+        var d = date.getDate();
+        return y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d);
+    }
+    function myparser(s) {
+        if (!s) return new Date();
+        var ss = (s.split('-'));
+        var y = parseInt(ss[0], 10);
+        var m = parseInt(ss[1], 10);
+        var d = parseInt(ss[2], 10);
+        if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
+            return new Date(y, m - 1, d);
+        } else {
+            return new Date();
+        }
+    }
+});
+    </script>
+
+}

@@ -26,10 +26,10 @@
         <EntityTypeShape EntityType="CCSModel1.CS_COMT" Width="1.5" PointX="11.625" PointY="0.625" />
         <EntityTypeShape EntityType="CCSModel1.CS_SEQ_NO" Width="1.5" PointX="10.375" PointY="14.75" />
         <EntityTypeShape EntityType="CCSModel1.CS_CODL" Width="1.5" PointX="12.375" PointY="13.75" />
-        <EntityTypeShape EntityType="CCSModel1.ITEM" Width="1.5" PointX="13.75" PointY="0.5" />
+        <EntityTypeShape EntityType="CCSModel1.ITEM" Width="1.5" PointX="13.75" PointY="0.5" IsExpanded="false" />
         <EntityTypeShape EntityType="CCSModel1.CS_WIRES" Width="1.5" PointX="16.375" PointY="0.75" />
-        <EntityTypeShape EntityType="CCSModel1.CS_MOMT" Width="1.5" PointX="16.375" PointY="7.75" />
         <EntityTypeShape EntityType="CCSModel1.CS_WIP" Width="1.5" PointX="16.375" PointY="14.75" />
+        <EntityTypeShape EntityType="CCSModel1.CS_MOMT" Width="1.5" PointX="14.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

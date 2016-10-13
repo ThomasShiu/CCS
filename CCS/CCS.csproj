@@ -237,6 +237,8 @@
     <Compile Include="Areas\Dashboard\Controllers\DAS01Controller.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
     <Compile Include="Areas\Manufact\Controllers\MAN01Controller.cs" />
+    <Compile Include="Areas\Manufact\Controllers\MAN11Controller.cs" />
+    <Compile Include="Areas\Manufact\Controllers\MAN12Controller.cs" />
     <Compile Include="Areas\Sales\Controllers\SAL02Controller.cs" />
     <Compile Include="Areas\System\SystemAreaRegistration.cs" />
     <Compile Include="Areas\System\Controllers\SYS01Controller.cs" />
@@ -2313,6 +2315,8 @@
     <Content Include="Content\echarts\js\jquery.min.map" />
     <Content Include="Areas\Manufact\Views\MAN01\Index.cshtml" />
     <Content Include="Areas\Manufact\Views\MAN01\Create.cshtml" />
+    <Content Include="Areas\Manufact\Views\MAN01\Edit.cshtml" />
+    <Content Include="Areas\Manufact\Views\MAN01\Details.cshtml" />
     <None Include="Properties\PublishProfiles\CCS_13.pubxml" />
     <None Include="Properties\PublishProfiles\CCS_207.pubxml" />
     <Content Include="Scripts\jquery-2.2.4.min.map" />
@@ -2435,6 +2439,8 @@
     <Folder Include="Areas\Inventory\Models\" />
     <Folder Include="Areas\Inventory\Views\Shared\" />
     <Folder Include="Areas\Manufact\Models\" />
+    <Folder Include="Areas\Manufact\Views\MAN11\" />
+    <Folder Include="Areas\Manufact\Views\MAN12\" />
     <Folder Include="Areas\Manufact\Views\Shared\" />
     <Folder Include="Areas\Sales\Models\" />
     <Folder Include="Areas\System\Models\" />
@@ -2485,6 +2491,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\MAN01_01.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

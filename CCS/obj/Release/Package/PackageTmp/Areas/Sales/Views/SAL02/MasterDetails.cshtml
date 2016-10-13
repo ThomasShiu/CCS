@@ -1,19 +1,29 @@
 ﻿@model CCS.Models.SAL.cs_comtModel
+@using CCS.Models.SYS;
 @using CCS.Core;
 @using CCS.Common;
 @{
     ViewBag.Title = "主頁";
     Layout = "~/Views/Shared/_Index_Layout.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
 }
 <link href="~/Content/easyui-1.5/themes/blue/easyui.css" rel="stylesheet" />
 <div class="mvctool">
+    
     @Html.ToolButton("btnReturn", "icon-return", @Suggestion.Return, true)
-    @Html.ToolButton("btnCreate", "icon-add", @Suggestion.Create, true)
-    @Html.ToolButton("btnEdit", "icon-edit", @Suggestion.Edit, true)
-    @Html.ToolButton("btnDetails", "icon-details", @Suggestion.Details, true)
-    @Html.ToolButton("btnDelete", "icon-remove", @Suggestion.Delete, true)
+    <input id="txtQuery" type="text" class="searchText" />
+    @Html.ToolButton("btnQuery", "icon-search", @Suggestion.Query, true)
+    @Html.ToolButton("btnCreate", "icon-add", @Suggestion.Create, perm, "Create", true)
+    @Html.ToolButton("btnEdit", "icon-edit", @Suggestion.Edit, perm, "Edit", true)
+    @Html.ToolButton("btnDetails", "icon-details", @Suggestion.Details, perm, "Details", true)
+    @Html.ToolButton("btnDelete", "icon-remove", @Suggestion.Delete, perm, "Delete", true)
     @Html.ToolButton("btnExport", "icon-export", @Suggestion.Export, true)
     @Html.ToolButton("btnReload", "icon-reload", @Suggestion.Reload, true)
+
 </div>
 @*<table class="fromEditTable setTextWidth250" style="width:100%;" readinly="readonly">*@
 <table class="" style="width:100%;">

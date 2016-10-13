@@ -1,4 +1,5 @@
 ﻿using CCS.Models;
+using CCS.Models.MAN;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace CCS.Common
 {
     public class ResultHelper
     {
-        
+       
         /// <summary>
         /// 创建一个全球唯一的32位ID
         /// </summary>
@@ -42,6 +43,37 @@ namespace CCS.Common
             return result.First().FROM_NO;
             
         }
+
+        #region  取得製程組合
+        public static cs_processSetModel[] GetProcessSetList(string queryStr)
+        {
+            CCSEntities _db = new CCSEntities();
+            try
+            {
+                //int total = pager.totalRows;
+                var result = _db.SP_PROCESS_SET().ToList();
+                                               
+                var model = (from r in result
+                             select new cs_processSetModel()
+                             {
+                                 Id = r.Id,
+                                 P_SET = r.P_SET,
+                                 P_SET_NM = r.P_SET_NM
+
+                             }).ToArray();
+
+
+                return model;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        #endregion
+
         /// <summary>
         /// 截取字符串
         /// </summary>

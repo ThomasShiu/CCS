@@ -18,6 +18,8 @@ namespace CCS.Models
         public string VCH_NO { get; set; }
         public System.DateTime VCH_DT { get; set; }
         public string FA_NO { get; set; }
+        public string EMP_NO { get; set; }
+        public string EMP_NM { get; set; }
         public string ITEM_NO { get; set; }
         public string IMG_NO { get; set; }
         public Nullable<System.DateTime> PLAN_BDT { get; set; }
@@ -31,13 +33,13 @@ namespace CCS.Models
         public string PLATING { get; set; }
         public string PRCS_NO { get; set; }
         public string REMK { get; set; }
-        public string OWNER_USR_NO { get; set; }
-        public string OWNER_GRP_NO { get; set; }
-        public Nullable<System.DateTime> ADD_DT { get; set; }
-        public string CFM_USR_NO { get; set; }
-        public string MDY_USR_NO { get; set; }
-        public Nullable<System.DateTime> MDY_DT { get; set; }
-        public string IP_NM { get; set; }
-        public string CP_NM { get; set; }
+        public string EXC_INSDBID { get; set; }
+        public Nullable<System.DateTime> EXC_INSDATE { get; set; }
+        public string EXC_UPDDBID { get; set; }
+        public Nullable<System.DateTime> EXC_UPDDATE { get; set; }
+        public string EXC_SYSOWNR { get; set; }
+        public string EXC_ISLOCKED { get; set; }
+        public string EXC_COMPANY { get; set; }
+        public string HEAT_NO { get; set; }
     }
 }

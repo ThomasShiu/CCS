@@ -4,9 +4,13 @@ using CCS.Core;
 using CCS.IBLL;
 using CCS.Models.MAN;
 using CCS.Models.SAL;
+using CCS.Models.WIR;
+using CCS.Services;
 using Microsoft.Practices.Unity;
+using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,11 +23,21 @@ namespace CCS.Areas.Manufact.Controllers
         public Ics_momtBLL cs_momt_BLL { get; set; }
 
         [Dependency]
+        public Ics_comtBLL cs_comtBLL { get; set; }
+
+        [Dependency]
         public Ics_codlBLL cs_codlBLL { get; set; }
+
+        [Dependency]
+        public Ics_wiresBLL cs_wiresBLL { get; set; }
+
+        CCSservice ccsService = new CCSservice();
         ValidationErrors errors = new ValidationErrors();
 
+        [SupportFilter]
         public ActionResult Index()
         {
+            ViewBag.Perm = GetPermission();
             return View();
         }
 
@@ -53,17 +67,17 @@ namespace CCS.Areas.Manufact.Controllers
                             HEAD_MARK = r.HEAD_MARK,
                             RAWMTRL = r.RAWMTRL,
                             DIAMETER = r.DIAMETER,
+                            HEAT_NO = r.HEAT_NO,
                             PLATING = r.PLATING,
                             PRCS_NO = r.PRCS_NO,
                             REMK = r.REMK,
-                            OWNER_USR_NO = r.OWNER_USR_NO,
-                            OWNER_GRP_NO = r.OWNER_GRP_NO,
-                            ADD_DT = r.ADD_DT,
-                            CFM_USR_NO = r.CFM_USR_NO,
-                            MDY_USR_NO = r.MDY_USR_NO,
-                            MDY_DT = r.MDY_DT,
-                            IP_NM = r.IP_NM,
-                            CP_NM = r.CP_NM
+                            EXC_INSDBID = r.EXC_INSDBID,
+                            EXC_INSDATE = r.EXC_INSDATE,
+                            EXC_UPDDBID = r.EXC_UPDDBID,
+                            EXC_UPDDATE = r.EXC_UPDDATE,
+                            EXC_SYSOWNR = r.EXC_SYSOWNR,
+                            EXC_ISLOCKED = r.EXC_ISLOCKED,
+                            EXC_COMPANY = r.EXC_COMPANY
 
                         }).ToArray()
 
@@ -72,33 +86,7 @@ namespace CCS.Areas.Manufact.Controllers
             return Json(json);
         }
 
-        [SupportFilter(ActionName = "Index")]
-        [HttpPost]
-        public JsonResult GetCscodlList(string queryStr)
-        {
-            List<cs_codlModel> list = cs_codlBLL.GetList(queryStr);
-            var json = (from r in list
-                        select new cs_codlModel()
-                        {
-                            ID = r.ID,
-                            VCH_NO = r.VCH_NO,
-                            VCH_SR = r.VCH_SR,
-                            ITEM_NO = r.ITEM_NO,
-                            ITEM_NM = r.ITEM_NM,
-                            ITEM_SP = r.ITEM_SP,
-                            CS_ITEM_NO = r.CS_ITEM_NO,
-                            UNIT = r.UNIT,
-                            QTY = r.QTY,
-                            PRC = r.PRC,
-                            AMT = r.AMT,
-                            PRCV_DT = r.PRCV_DT,
-                            C_CLS = r.C_CLS,
-                            REMK = r.REMK
-
-                        }).ToArray();
-
-            return Json(json);
-        }
+       
 
         #region 創建
         [SupportFilter]
@@ -113,7 +101,15 @@ namespace CCS.Areas.Manufact.Controllers
         public JsonResult Create(cs_momtModel model)
         {
             model.Id = ResultHelper.NewId;
-            //model.CreateTime = ResultHelper.NowTime;
+            model.VCH_NO = ResultHelper.NewOrdId("WIP", "B"); // 取單號
+            model.EMP_NO = GetUserId();
+            model.EMP_NM = GetUserTrueName();
+            model.EXC_INSDBID = GetUserId();
+            model.EXC_INSDATE = DateTime.Now;
+            model.EXC_UPDDBID = GetUserId();
+            model.EXC_UPDDATE = DateTime.Now;
+            //model.EXC_ISLOCKED = GetUserId();
+            model.EXC_COMPANY = "CCS";
 
             if (model != null && ModelState.IsValid)
             {
@@ -137,6 +133,69 @@ namespace CCS.Areas.Manufact.Controllers
         }
         #endregion
 
+        #region 訂單資料，下拉選單
+        [SupportFilter(ActionName = "Index")]
+        //[HttpPost]
+        public JsonResult GetCscodlList(GridPager pager,string queryStr)
+        {
+            pager.rows = 999999;
+            pager.page = 1;
+            pager.sort = "VCH_NO";
+            pager.order = "desc";
+
+            List<cs_codlModel> dllist = cs_codlBLL.GetList(ref pager, queryStr);  // 訂單明細
+            List<cs_comtModel> mtlist = cs_comtBLL.GetList(ref pager, queryStr); // 訂單主檔
+
+            var model = (from A in dllist
+                         from B in mtlist
+                         where
+                           A.VCH_NO == B.VCH_NO &&
+                           A.C_CLS == "N"
+                         select new
+                         {
+                             A.ID,
+                             A.VCH_NO,
+                             A.VCH_SR,
+                             A.ITEM_NO,
+                             A.ITEM_NM,
+                             A.ITEM_SP,
+                             A.CS_ITEM_NO,
+                             A.UNIT,
+                             A.QTY,
+                             A.PRC,
+                             A.AMT,
+                             A.PRCV_DT,
+                             B.CS_NM
+                         }).ToArray();
+
+
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
+        
+
+        #region 製程組合，下拉選單
+        [SupportFilter(ActionName = "Index")]
+        //[HttpPost]
+        public JsonResult GetProcessSetList(string queryStr)
+        {
+            var list = ResultHelper.GetProcessSetList(queryStr);
+
+            var model = (from r in list
+                         select new
+                         {
+                             r.Id,
+                             r.P_SET,
+                             r.P_SET_NM
+                         }).ToArray();
+
+
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
+
         #region 修改
         [SupportFilter]
         public ActionResult Edit(string id)
@@ -152,6 +211,8 @@ namespace CCS.Areas.Manufact.Controllers
         {
             if (model != null && ModelState.IsValid)
             {
+                model.EXC_UPDDBID = GetUserId();
+                model.EXC_UPDDATE = DateTime.Now;
 
                 if (cs_momt_BLL.Edit(ref errors, model))
                 {
@@ -206,6 +267,61 @@ namespace CCS.Areas.Manufact.Controllers
             {
                 return Json(JsonHandler.CreateMessage(0, Suggestion.DeleteFail));
             }
+
+
+        }
+        #endregion
+
+        [SupportFilter(ActionName = "Index")]
+        #region
+        public ActionResult Reporting(string id, string type = "PDF")
+        {
+            string v_sqlstr = "SELECT a.VCH_NO, a.VCH_DT, a.FA_NO, a.EMP_NO, a.EMP_NM, a.ITEM_NO, a.IMG_NO, a.PLAN_BDT, a.PLAN_EDT, a.PLAN_QTY, "+
+                                "a.HEAD_MARK, a.RAWMTRL, a.DIAMETER, a.HEAT_NO, a.PLATING, a.PRCS_NO, a.REMK, "+
+                                "a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,d.SHORT_NM "+
+                                " FROM CS_MOMT a, CS_CODL b,CS_COMT c, customer d "+
+                                "   WHERE a.CO_NO = b.VCH_NO "+
+                                " AND a.CO_SR = b.VCH_SR "+
+                                " AND b.VCH_NO = c.VCH_NO "+
+                                " AND c.CS_NO = d.CS_NO "+
+                                " AND a.VCH_NO = '" + id + "' ";
+
+            //資料集
+            DataTable dt = ccsService.GetDataSet(v_sqlstr, "");
+
+            LocalReport localReport = new LocalReport();
+            localReport.ReportPath = Server.MapPath("~/Reports/MAN01_01.rdlc");
+            ReportDataSource reportDataSource = new ReportDataSource("DataSet1", dt);
+            localReport.DataSources.Add(reportDataSource);
+            string reportType = type;
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+
+            string deviceInfo =
+                "<DeviceInfo>" +
+                "<OutPutFormat>" + type + "</OutPutFormat>" +
+                "<PageWidth>9in</PageWidth>" +
+                "<PageHeight>6in</PageHeight>" +
+                "<MarginTop>0.1in</MarginTop>" +
+                "<MarginLeft>0.1in</MarginLeft>" +
+                "<MarginRight>0.1in</MarginRight>" +
+                "<MarginBottom>0.1in</MarginBottom>" +
+                "</DeviceInfo>";
+            Warning[] warnings;
+            string[] streams;
+            byte[] renderedBytes;
+
+            renderedBytes = localReport.Render(
+                reportType,
+                deviceInfo,
+                out mimeType,
+                out encoding,
+                out fileNameExtension,
+                out streams,
+                out warnings
+                );
+            return File(renderedBytes, mimeType);
 
 
         }

@@ -46,8 +46,8 @@ namespace CCS.Models
         public virtual DbSet<CS_CODL> CS_CODL { get; set; }
         public virtual DbSet<ITEM> ITEM { get; set; }
         public virtual DbSet<CS_WIRES> CS_WIRES { get; set; }
-        public virtual DbSet<CS_MOMT> CS_MOMT { get; set; }
         public virtual DbSet<CS_WIP> CS_WIP { get; set; }
+        public virtual DbSet<CS_MOMT> CS_MOMT { get; set; }
     
         public virtual int SP_SYS_ClearUnusedRIGHTOPERATE()
         {
@@ -144,6 +144,11 @@ namespace CCS.Models
                 new ObjectParameter("COUNT", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GEN_ORDNO_Result>("SP_GEN_ORDNO", tYPEParameter, pREFIXParameter, cOUNTParameter);
+        }
+    
+        public virtual ObjectResult<SP_PROCESS_SET_Result> SP_PROCESS_SET()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_PROCESS_SET_Result>("SP_PROCESS_SET");
         }
     }
 }

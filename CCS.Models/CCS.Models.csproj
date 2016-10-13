@@ -170,11 +170,15 @@
       <DependentUpon>LocaldbModel1.edmx</DependentUpon>
     </Compile>
     <Compile Include="MAN\cs_momtModel.cs" />
+    <Compile Include="MAN\cs_processSetModel.cs" />
     <Compile Include="PUB\empnoModel.cs" />
     <Compile Include="PUB\itemModel.cs" />
     <Compile Include="SAL\cs_codlModel.cs" />
     <Compile Include="PUB\customerModel.cs" />
     <Compile Include="SP_GEN_ORDNO_Result.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_PROCESS_SET_Result.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_Sys_GetRightByRoleAndModule_Result.cs">
