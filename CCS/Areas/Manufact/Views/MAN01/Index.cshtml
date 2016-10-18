@@ -11,6 +11,12 @@
         perm = new List<permModel>();
     }
 }
+@section styles{
+    <link href="~/Content/easyui-1.5/themes/blue/easyui.css" rel="stylesheet" />
+    <style>
+
+    </style>
+}
 <div class="mvctool">
     <input id="txtQuery" type="text" class="searchText" />
     @Html.ToolButton("btnQuery", "icon-search", @Suggestion.Query, true)

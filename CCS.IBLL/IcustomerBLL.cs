@@ -17,8 +17,9 @@ namespace CCS.IBLL
         /// <param name="pager">JQgrid分頁</param>
         /// <param name="queryStr">搜索條件</param>
         /// <returns>列表</returns>
-        List<customerModel> GetList(string queryStr);
-        //List<CS_COMT> GetList(string queryStr);
+        //List<customerModel> GetList(string queryStr);
+        List<customerModel> GetList(ref GridPager pager, string queryStr);
+        List<customerModel> GetList( string queryStr);
 
         /// <summary>
         /// 創建一個實體

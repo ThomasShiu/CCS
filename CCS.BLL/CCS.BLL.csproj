@@ -78,6 +78,8 @@
     <Compile Include="cs_sysmoduleBLL.cs" />
     <Compile Include="cs_sysrightBLL.cs" />
     <Compile Include="cs_sysroleBLL.cs" />
+    <Compile Include="cs_wipfBLL .cs" />
+    <Compile Include="cs_wireReciptBLL.cs" />
     <Compile Include="cs_wiresBLL.cs" />
     <Compile Include="customerBLL.cs" />
     <Compile Include="cs_sysmoduleoperateBLL .cs" />

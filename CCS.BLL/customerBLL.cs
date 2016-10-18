@@ -21,7 +21,7 @@ namespace CCS.BLL
         //ICS_COMTRepository Rep = new CS_COMTRepository();
 
         [Dependency]
-        public IcustomerRepository Rep { get; set; }
+        public IcustomerRepository m_Rep { get; set; }
 
         /// <summary>
         /// 獲取列表
@@ -31,24 +31,36 @@ namespace CCS.BLL
         /// <returns>列表</returns>
         public List<customerModel> GetList(string queryStr)
         {
+
             IQueryable<customer> queryData = null;
-
-            queryData = Rep.GetList(db);
-
-            if (queryStr != null & queryStr != "")
+            if (!string.IsNullOrWhiteSpace(queryStr))
             {
-                queryData = queryData.Where(c => c.CS_NO.Contains(queryStr));
+                queryData = m_Rep.GetList(db).Where(a => a.CS_NO.Contains(queryStr) || a.SHORT_NM.Contains(queryStr));
             }
-
+            else
+            {
+                queryData = m_Rep.GetList(db);
+            }
+            
+            //queryData = LinqHelper.SortingAndPaging(queryData, pager.sort, pager.order, pager.page, pager.rows);
             return CreateModelList(ref queryData);
+        }
 
-           // queryData = Rep.GetList(db);
+        public List<customerModel> GetList(ref GridPager pager, string queryStr)
+        {
 
-           // //排序 由大到小
-           // //queryData = LinqHelper.DataSorting(queryData, pager.sort, pager.order);
-
-           
-
+            IQueryable<customer> queryData = null;
+            if (!string.IsNullOrWhiteSpace(queryStr))
+            {
+                queryData = m_Rep.GetList(db).Where(a => a.CS_NO.Contains(queryStr) || a.SHORT_NM.Contains(queryStr));
+            }
+            else
+            {
+                queryData = m_Rep.GetList(db);
+            }
+            pager.totalRows = queryData.Count();
+            queryData = LinqHelper.SortingAndPaging(queryData, pager.sort, pager.order, pager.page, pager.rows);
+            return CreateModelList(ref queryData);
         }
         private List<customerModel> CreateModelList( ref IQueryable<customer> queryData)
         {
@@ -172,7 +184,7 @@ namespace CCS.BLL
         {
             try
             {
-                customer entity = Rep.GetById(model.CS_NO);
+                customer entity = m_Rep.GetById(model.CS_NO);
                 if (entity != null)
                 {
                     errors.Add("主鍵重複");
@@ -283,7 +295,7 @@ namespace CCS.BLL
                 entity.IP_NM = model.IP_NM;
                 entity.CP_NM = model.CP_NM;
 
-                if (Rep.Create(entity) == 1)
+                if (m_Rep.Create(entity) == 1)
                 {
                     return true;
                 }
@@ -311,7 +323,7 @@ namespace CCS.BLL
         {
             try
             {
-                if (Rep.Delete(id) == 1)
+                if (m_Rep.Delete(id) == 1)
                 {
                     return true;
                 }
@@ -339,7 +351,7 @@ namespace CCS.BLL
         {
             try
             {
-                customer entity = Rep.GetById(model.CS_NO);
+                customer entity = m_Rep.GetById(model.CS_NO);
                 if (entity == null)
                 {
                     errors.Add("主鍵重複");
@@ -450,7 +462,7 @@ namespace CCS.BLL
                 entity.IP_NM = model.IP_NM;
                 entity.CP_NM = model.CP_NM;
 
-                if (Rep.Edit(entity) == 1)
+                if (m_Rep.Edit(entity) == 1)
                 {
                     return true;
                 }
@@ -491,7 +503,7 @@ namespace CCS.BLL
         {
             if (IsExist(id))
             {
-                customer entity = Rep.GetById(id);
+                customer entity = m_Rep.GetById(id);
                 customer model = new customer();
 
                 model.CS_NO = entity.CS_NO;
@@ -613,7 +625,7 @@ namespace CCS.BLL
         /// <returns>是否存在 true or false</returns>
         public bool IsExist(string id)
         {
-            return Rep.IsExist(id);
+            return m_Rep.IsExist(id);
         }
     }
 }

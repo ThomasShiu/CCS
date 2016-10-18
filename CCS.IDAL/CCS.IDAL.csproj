@@ -66,6 +66,8 @@
     <Compile Include="Ics_sysmoduleRepository.cs.cs" />
     <Compile Include="Ics_sysroleRepository.cs" />
     <Compile Include="Ics_sysuserRepository.cs" />
+    <Compile Include="Ics_wipfRepository.cs" />
+    <Compile Include="Ics_wireReciptRepository.cs" />
     <Compile Include="Ics_wiresRepository.cs" />
     <Compile Include="IcustomerRepository.cs" />
     <Compile Include="Ics_sysrightRepository.cs" />

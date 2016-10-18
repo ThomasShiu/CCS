@@ -55,6 +55,7 @@ namespace CCS.BLL
                                                 CO_NO = r.CO_NO,
                                                 CO_SR = r.CO_SR.Value,
                                                 HEAD_MARK = r.HEAD_MARK,
+                                                THREAD = r.THREAD,
                                                 RAWMTRL = r.RAWMTRL,
                                                 DIAMETER = r.DIAMETER.Value,
                                                 HEAT_NO = r.HEAT_NO,
@@ -97,6 +98,7 @@ namespace CCS.BLL
                 entity.CO_NO = model.CO_NO;
                 entity.CO_SR = model.CO_SR;
                 entity.HEAD_MARK = model.HEAD_MARK;
+                entity.THREAD = model.THREAD;
                 entity.RAWMTRL = model.RAWMTRL;
                 entity.DIAMETER = model.DIAMETER;
                 entity.HEAT_NO = model.HEAT_NO;
@@ -203,6 +205,7 @@ namespace CCS.BLL
                 entity.CO_NO = model.CO_NO;
                 entity.CO_SR = model.CO_SR;
                 entity.HEAD_MARK = model.HEAD_MARK;
+                entity.THREAD = model.THREAD;
                 entity.RAWMTRL = model.RAWMTRL;
                 entity.DIAMETER = model.DIAMETER;
                 entity.HEAT_NO = model.HEAT_NO;
@@ -259,6 +262,7 @@ namespace CCS.BLL
                 model.CO_NO = entity.CO_NO;
                 model.CO_SR = entity.CO_SR.Value;
                 model.HEAD_MARK = entity.HEAD_MARK;
+                model.THREAD = entity.THREAD;
                 model.RAWMTRL = entity.RAWMTRL;
                 model.DIAMETER = entity.DIAMETER.Value;
                 entity.HEAT_NO = model.HEAT_NO;

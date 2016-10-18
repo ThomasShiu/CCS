@@ -221,6 +221,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\CCS_MainDataSet.cs">
+      <DependentUpon>CCS_MainDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\CheckSessionFilterAttribute.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -253,6 +256,7 @@
       <DependentUpon>CCS_MainDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Areas\Wires\Controllers\WIR01Controller.cs" />
+    <Compile Include="Areas\Wires\Controllers\WIR02Controller.cs" />
     <Compile Include="Areas\Wires\WiresAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseException.cs" />
@@ -2039,6 +2043,7 @@
     <Content Include="Content\images\default\Logo.png" />
     <Content Include="Content\images\gray\headBg.jpg" />
     <Content Include="Content\images\gray\Logo.png" />
+    <Content Include="Content\images\headmark\六角法蘭頭.png" />
     <Content Include="Content\images\icon.png" />
     <Content Include="Content\images\icons.png" />
     <Content Include="Content\images\icon\cancel.png" />
@@ -2269,6 +2274,7 @@
     <Content Include="Areas\Author\Views\CSSysModule\CreateOpt.cshtml" />
     <Content Include="Areas\Author\Views\CSSysRole\Index.cshtml" />
     <Content Include="Scripts\math_func.js" />
+    <Content Include="Upload\001.png" />
     <Content Include="Views\Shared\_Partial_AutoGrid.cshtml" />
     <Content Include="Areas\Author\Views\web.config" />
     <Content Include="Areas\Author\Views\CSSysRole\Create.cshtml" />
@@ -2317,6 +2323,9 @@
     <Content Include="Areas\Manufact\Views\MAN01\Create.cshtml" />
     <Content Include="Areas\Manufact\Views\MAN01\Edit.cshtml" />
     <Content Include="Areas\Manufact\Views\MAN01\Details.cshtml" />
+    <Content Include="Content\images\headmark\六角法蘭頭.psd" />
+    <Content Include="Areas\Wires\Views\WIR02\Index.cshtml" />
+    <Content Include="Areas\Wires\Views\WIR02\Create.cshtml" />
     <None Include="Properties\PublishProfiles\CCS_13.pubxml" />
     <None Include="Properties\PublishProfiles\CCS_207.pubxml" />
     <Content Include="Scripts\jquery-2.2.4.min.map" />
@@ -2399,7 +2408,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\url.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -2493,7 +2504,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\MAN01_01.rdlc" />
+    <Content Include="Reports\MAN01_01.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

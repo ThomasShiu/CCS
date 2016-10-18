@@ -5,11 +5,13 @@ using CCS.Models.MAN;
 using CCS.Models.PUB;
 using CCS.Models.SAL;
 using Microsoft.Practices.Unity;
+using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 
 namespace CCS.Services
@@ -25,12 +27,15 @@ namespace CCS.Services
         [Dependency]
         public Ics_codlBLL codl_BLL { get; set; }
 
+        CCSEntities _db = new CCSEntities();
+
         #region  取得客戶列表
-        public customerModel[] GetCustList(String queryStr)
+        public customerModel[] GetCustList(string queryStr)
         {
-            try { 
-            //int total = pager.totalRows;
-            List<customerModel> list = cust_BLL.GetList(queryStr);
+
+            try {
+
+                List<customerModel> list = cust_BLL.GetList(queryStr);
             var model = (from r in list
                         select new customerModel()
                         {
@@ -45,7 +50,12 @@ namespace CCS.Services
 
 
             return model;
-            }catch (Exception ex)
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -54,7 +64,7 @@ namespace CCS.Services
         #endregion
 
         #region  取得料品基本檔列表
-        public itemModel[] GetitemList(String queryStr)
+        public itemModel[] GetitemList(string queryStr)
         {
             try
             {
@@ -68,7 +78,7 @@ namespace CCS.Services
                                  ITEM_SP = r.ITEM_SP,
                                  ITEM_NM_E = r.ITEM_NM_E,
                                  ITEM_SP_E = r.ITEM_SP_E,
-                                 ITEM_NO_O = r.ITEM_NO_O,
+                                 ITEM_NO_O = r.ITEM_NO_O
 
                              }).ToArray();
 
@@ -87,62 +97,63 @@ namespace CCS.Services
 
         #region 取得員工列表，下拉選單
         //[HttpPost]
-        public empnoModel[] GetEmpList(String queryStr)
+        public empnoModel[] GetEmpList( string queryStr)
         {
-            GridPager pager=null;
-            pager.rows = 999999;
-            pager.page = 1;
-            pager.sort = "EMP_NO";
-            pager.order = "desc";
+            try
+            {
+                List<empnoModel> list = empno_BLL.GetList( queryStr);
+                var model = (from r in list
+                             select new empnoModel()
+                             {
 
-            List<empnoModel> list = empno_BLL.GetList(ref pager, queryStr);
-            var model = (from r in list
-                         select new empnoModel()
-                         {
-                             EMP_NO = r.EMP_NO,
-                             EMP_NM = r.EMP_NM,
-                             DEPM_NO = r.DEPM_NO,
-                             E_MAIL = r.E_MAIL
+                                 EMP_NO = r.EMP_NO,
+                                 EMP_NM = r.EMP_NM,
+                                 DEPM_NO = r.DEPM_NO
 
-                         }).ToArray();
+                             }).ToArray();
 
-            return model;
 
+                return model;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
 
         #region 取得訂單明細
-        public cs_codlModel[] GetOrdDetailsList(GridPager pager, string queryStr)
-        {
-            pager.rows = 999999;
-            pager.page = 1;
-            pager.sort = "VCH_NO";
-            pager.order = "desc";
+        //public cs_codlModel[] GetOrdDetailsList(GridPager pager, string queryStr)
+        //{
+        //    pager.rows = 999999;
+        //    pager.page = 1;
+        //    pager.sort = "VCH_NO";
+        //    pager.order = "desc";
 
-            List<cs_codlModel> list = codl_BLL.GetList(ref pager, queryStr);
-            var model = (from r in list
-                         select new cs_codlModel()
-                         {
-                             ID = r.ID,
-                             VCH_NO = r.VCH_NO,
-                             VCH_SR = r.VCH_SR,
-                             ITEM_NO = r.ITEM_NO,
-                             ITEM_NM = r.ITEM_NM,
-                             ITEM_SP = r.ITEM_SP,
-                             CS_ITEM_NO = r.CS_ITEM_NO,
-                             UNIT = r.UNIT,
-                             QTY = r.QTY,
-                             PRC = r.PRC,
-                             AMT = r.AMT,
-                             PRCV_DT = r.PRCV_DT,
-                             C_CLS = r.C_CLS,
-                             REMK = r.REMK
+        //    List<cs_codlModel> list = codl_BLL.GetList(ref pager, queryStr);
+        //    var model = (from r in list
+        //                 select new cs_codlModel()
+        //                 {
+        //                     ID = r.ID,
+        //                     VCH_NO = r.VCH_NO,
+        //                     VCH_SR = r.VCH_SR,
+        //                     ITEM_NO = r.ITEM_NO,
+        //                     ITEM_NM = r.ITEM_NM,
+        //                     ITEM_SP = r.ITEM_SP,
+        //                     CS_ITEM_NO = r.CS_ITEM_NO,
+        //                     UNIT = r.UNIT,
+        //                     QTY = r.QTY,
+        //                     PRC = r.PRC,
+        //                     AMT = r.AMT,
+        //                     PRCV_DT = r.PRCV_DT,
+        //                     C_CLS = r.C_CLS,
+        //                     REMK = r.REMK
 
-                         }).ToArray();
+        //                 }).ToArray();
 
 
-            return model;
-        }
+        //    return model;
+        //}
         #endregion
 
         // 產生資料集
@@ -164,6 +175,80 @@ namespace CCS.Services
 
             return dt;
         }
+
+        // 輸出報表
+        public byte[] GetReport(string v_sqlstr,string v_path ,string type ,string paper)
+        {
+            
+            //資料集
+            DataTable dt = GetDataSet(v_sqlstr, "");
+
+            LocalReport localReport = new LocalReport();
+            localReport.ReportPath = v_path;
+            ReportDataSource reportDataSource = new ReportDataSource("DataSet1", dt);
+            localReport.DataSources.Add(reportDataSource);
+            localReport.EnableExternalImages = true;
+
+            //var url = "http://" + Request.Url.Authority;
+
+            //宣告要傳入報表的參數 p_ImgPath，並指定照片路徑 , http://xxx.xxx.xxx.xx:1234
+            //ReportParameter p_ImgPath = new ReportParameter("ImgPath", url);
+
+            //把參數傳給報表
+            //localReport.SetParameters(new ReportParameter[] { p_ImgPath });
+
+            string reportType = type;
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+
+            string deviceInfo="";
+            
+            switch(paper) {
+                case "A4":
+                deviceInfo =
+                "<DeviceInfo>" +
+                "<OutPutFormat>" + type + "</OutPutFormat>" +
+                // A4
+                "<PageWidth>8.2in</PageWidth>" +
+                "<PageHeight>11.6in</PageHeight>" +
+                "<MarginTop>0.1in</MarginTop>" +
+                "<MarginLeft>0.1in</MarginLeft>" +
+                "<MarginRight>0.1in</MarginRight>" +
+                "<MarginBottom>0.1in</MarginBottom>" +
+                "</DeviceInfo>";
+                    break;
+                case "LETTER":
+                    deviceInfo =
+               "<DeviceInfo>" +
+               "<OutPutFormat>" + type + "</OutPutFormat>" +
+               // 中一刀
+               "<PageWidth>9in</PageWidth>" +
+               "<PageHeight>6in</PageHeight>" +
+               "<MarginTop>0.1in</MarginTop>" +
+               "<MarginLeft>0.1in</MarginLeft>" +
+               "<MarginRight>0.1in</MarginRight>" +
+               "<MarginBottom>0.1in</MarginBottom>" +
+               "</DeviceInfo>";
+                    break;
+            }
+            Warning[] warnings;
+            string[] streams;
+            byte[] renderedBytes;
+
+            renderedBytes = localReport.Render(
+                reportType,
+                deviceInfo,
+                out mimeType,
+                out encoding,
+                out fileNameExtension,
+                out streams,
+                out warnings
+                );
+            return renderedBytes;
+
+        }
+
 
         public void getValue()
         {

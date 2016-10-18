@@ -18,21 +18,29 @@ namespace CCS.Core
         {
             container.RegisterInstance<cs_comtModel>(new cs_comtModel());
 
-            // CS_COMT
+            // CS_COMT 訂單主檔
             container.RegisterType<Ics_comtBLL, cs_comtBLL>(); //詳例
             container.RegisterType<Ics_comtRepository, cs_comtRepository>();
 
-            // CS_CODL
+            // CS_CODL 訂單明細
             container.RegisterType<Ics_codlBLL, cs_codlBLL>(); //詳例
             container.RegisterType<Ics_codlRepository, cs_codlRepository>();
 
-            // CS_WIRES
+            // CS_WIRES 線材庫存
             container.RegisterType<Ics_wiresBLL, cs_wiresBLL>(); //詳例
             container.RegisterType<Ics_wiresRepository, cs_wiresRepository>();
 
-            // CS_MOMT
+            // CS_MOMT 製造工令
             container.RegisterType<Ics_momtBLL, cs_momtBLL>(); //詳例
             container.RegisterType<Ics_momtRepository, cs_momtRepository>();
+
+            // CS_WIP_F 成型生產記錄
+            container.RegisterType<Ics_wipfBLL, cs_wipfBLL>(); //詳例
+            container.RegisterType<Ics_wipfRepository, cs_wipfRepository>();
+
+            // CS_WIRE_RECIPIENT 線材領用
+            container.RegisterType<Ics_wireReciptBLL, cs_wireReciptBLL>(); //詳例
+            container.RegisterType<Ics_wireReciptRepository, cs_wireReciptRepository>();
 
             //CS_SYSMODULE
             container.RegisterType<Ics_sysmoduleBLL, cs_sysmoduleBLL>();

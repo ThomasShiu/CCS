@@ -140,6 +140,19 @@
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.THREAD)：
+                </td>
+                <td style="width:310px">
+                    <select id="THREAD" name="THREAD" class="easyui-combobox" style="width:100%;">
+                        <option value="全牙">全牙</option>
+                        <option value="半牙">半牙</option>
+                    </select>
+
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.THREAD)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.RAWMTRL)：
                 </td>
                 <td style="width:310px">

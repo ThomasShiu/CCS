@@ -136,9 +136,7 @@
                     @Html.LabelFor(model => model.PRCV_DT)：
                 </td>
                 <td style="width:310px">
-                    @*@Html.EditorFor(model => model.PRCV_DT, new { htmlAttributes = new { @class = "easyui-datebox" , data_options = "formatter:myformatter,parser:myparser",type ="date"} })*@
-                    <input id="PRCV_DT" name="PRCV_DT" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" style="width: 100%;" value="@Model.PRCV_DT">
-                    @*@Html.EditorFor(model => model.PRCV_DT)*@
+                    <input id="PRCV_DT" name="PRCV_DT" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" value="@Model.PRCV_DT.ToString("yyyy-MM-dd")" style="width: 100%;" />
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.PRCV_DT)</td>
             </tr>
@@ -246,23 +244,6 @@ $(function () {
 
 });
 
-    function myformatter(date) {
-        var y = date.getFullYear();
-        var m = date.getMonth() + 1;
-        var d = date.getDate();
-        return y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d);
-    }
-    function myparser(s) {
-        if (!s) return new Date();
-        var ss = (s.split('-'));
-        var y = parseInt(ss[0], 10);
-        var m = parseInt(ss[1], 10);
-        var d = parseInt(ss[2], 10);
-        if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
-            return new Date(y, m - 1, d);
-        } else {
-            return new Date();
-        }
-    }
+   
     </script>
 }

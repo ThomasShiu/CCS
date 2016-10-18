@@ -259,8 +259,13 @@ namespace CCS.Areas.Sales.Controllers
             string deviceInfo =
                 "<DeviceInfo>" +
                 "<OutPutFormat>" + type + "</OutPutFormat>" +
+                // 中一刀
                 "<PageWidth>9in</PageWidth>" +
                 "<PageHeight>6in</PageHeight>" +
+
+                // A4
+                //"<PageWidth>8.2in</PageWidth>" +
+                //"<PageHeight>11.6in</PageHeight>" +
                 "<MarginTop>0.1in</MarginTop>" +
                 "<MarginLeft>0.1in</MarginLeft>" +
                 "<MarginRight>0.1in</MarginRight>" +

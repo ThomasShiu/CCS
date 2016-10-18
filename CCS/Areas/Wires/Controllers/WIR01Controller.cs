@@ -64,7 +64,7 @@ namespace CCS.Areas.Wires.Controllers
 
                 };
 
-                return Json(json);
+                return MyJson(json,"yyyy-MM-dd");
             }catch(Exception ex)
             {
                 throw ex;

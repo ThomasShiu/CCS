@@ -73,6 +73,8 @@
     <Compile Include="cs_comtRepository .cs" />
     <Compile Include="cs_sysmoduleRepository .cs" />
     <Compile Include="cs_sysuserRepository .cs" />
+    <Compile Include="cs_wipfRepository .cs" />
+    <Compile Include="cs_wireReciptRepository.cs" />
     <Compile Include="cs_wiresRepository.cs" />
     <Compile Include="customerRepository.cs" />
     <Compile Include="cs_sysmoduleoperateRepository .cs" />

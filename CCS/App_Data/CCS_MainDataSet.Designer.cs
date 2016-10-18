@@ -1091,6 +1091,10 @@ namespace CCS.App_Data {
             
             private global::System.Data.DataColumn columnPRCV_DT;
             
+            private global::System.Data.DataColumn columnCS_VCH_NO;
+            
+            private global::System.Data.DataColumn columnTHREAD;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public V_MAN01_01DataTable() {
@@ -1318,6 +1322,22 @@ namespace CCS.App_Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CS_VCH_NOColumn {
+                get {
+                    return this.columnCS_VCH_NO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn THREADColumn {
+                get {
+                    return this.columnTHREAD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1377,7 +1397,9 @@ namespace CCS.App_Data {
                         string ITEM_SP, 
                         string CS_ITEM_NO, 
                         string SHORT_NM, 
-                        System.DateTime PRCV_DT) {
+                        System.DateTime PRCV_DT, 
+                        string CS_VCH_NO, 
+                        string THREAD) {
                 V_MAN01_01Row rowV_MAN01_01Row = ((V_MAN01_01Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         VCH_NO,
@@ -1403,7 +1425,9 @@ namespace CCS.App_Data {
                         ITEM_SP,
                         CS_ITEM_NO,
                         SHORT_NM,
-                        PRCV_DT};
+                        PRCV_DT,
+                        CS_VCH_NO,
+                        THREAD};
                 rowV_MAN01_01Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowV_MAN01_01Row);
                 return rowV_MAN01_01Row;
@@ -1450,6 +1474,8 @@ namespace CCS.App_Data {
                 this.columnCS_ITEM_NO = base.Columns["CS_ITEM_NO"];
                 this.columnSHORT_NM = base.Columns["SHORT_NM"];
                 this.columnPRCV_DT = base.Columns["PRCV_DT"];
+                this.columnCS_VCH_NO = base.Columns["CS_VCH_NO"];
+                this.columnTHREAD = base.Columns["THREAD"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1503,6 +1529,10 @@ namespace CCS.App_Data {
                 base.Columns.Add(this.columnSHORT_NM);
                 this.columnPRCV_DT = new global::System.Data.DataColumn("PRCV_DT", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPRCV_DT);
+                this.columnCS_VCH_NO = new global::System.Data.DataColumn("CS_VCH_NO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCS_VCH_NO);
+                this.columnTHREAD = new global::System.Data.DataColumn("THREAD", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTHREAD);
                 this.columnVCH_NO.AllowDBNull = false;
                 this.columnVCH_NO.MaxLength = 30;
                 this.columnVCH_DT.AllowDBNull = false;
@@ -1525,6 +1555,8 @@ namespace CCS.App_Data {
                 this.columnCS_ITEM_NO.MaxLength = 24;
                 this.columnSHORT_NM.MaxLength = 10;
                 this.columnPRCV_DT.AllowDBNull = false;
+                this.columnCS_VCH_NO.MaxLength = 20;
+                this.columnTHREAD.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2773,6 +2805,38 @@ namespace CCS.App_Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CS_VCH_NO {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_MAN01_01.CS_VCH_NOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'V_MAN01_01\' 中資料行 \'CS_VCH_NO\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_MAN01_01.CS_VCH_NOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string THREAD {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_MAN01_01.THREADColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'V_MAN01_01\' 中資料行 \'THREAD\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_MAN01_01.THREADColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFA_NONull() {
                 return this.IsNull(this.tableV_MAN01_01.FA_NOColumn);
             }
@@ -2997,6 +3061,30 @@ namespace CCS.App_Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetSHORT_NMNull() {
                 this[this.tableV_MAN01_01.SHORT_NMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCS_VCH_NONull() {
+                return this.IsNull(this.tableV_MAN01_01.CS_VCH_NOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCS_VCH_NONull() {
+                this[this.tableV_MAN01_01.CS_VCH_NOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTHREADNull() {
+                return this.IsNull(this.tableV_MAN01_01.THREADColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTHREADNull() {
+                this[this.tableV_MAN01_01.THREADColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3416,6 +3504,8 @@ namespace CCS.App_Data.CCS_MainDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("CS_ITEM_NO", "CS_ITEM_NO");
             tableMapping.ColumnMappings.Add("SHORT_NM", "SHORT_NM");
             tableMapping.ColumnMappings.Add("PRCV_DT", "PRCV_DT");
+            tableMapping.ColumnMappings.Add("CS_VCH_NO", "CS_VCH_NO");
+            tableMapping.ColumnMappings.Add("THREAD", "THREAD");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3434,7 +3524,7 @@ namespace CCS.App_Data.CCS_MainDataSetTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT a.VCH_NO, a.VCH_DT, a.FA_NO, a.EMP_NO, a.EMP_NM, a.ITEM_NO, a.IMG_NO, a.PLAN_BDT, a.PLAN_EDT, a.PLAN_QTY, 
 a.HEAD_MARK, a.RAWMTRL, a.DIAMETER, a.HEAT_NO, a.PLATING, a.PRCS_NO, a.REMK,
-a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,b.PRCV_DT,d.SHORT_NM
+a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,b.PRCV_DT,d.SHORT_NM,c.CS_VCH_NO, a.THREAD
  FROM CS_MOMT a,CS_CODL b,CS_COMT c,customer d
  WHERE a.CO_NO = b.VCH_NO
  AND a.CO_SR = b.VCH_SR

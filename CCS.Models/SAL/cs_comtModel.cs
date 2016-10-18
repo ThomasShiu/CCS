@@ -11,6 +11,7 @@ namespace CCS.Models.SAL
         public string VCH_NO { get; set; }
 
         [Display(Name = "訂單日期")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime VCH_DT { get; set; }
 
         [Display(Name = "廠區")]

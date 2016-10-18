@@ -47,6 +47,8 @@ namespace CCS.Models.MAN
         [Display(Name = "頭部記號")]
         public string HEAD_MARK { get; set; }
 
+        [Display(Name = "牙型")]
+        public string THREAD { get; set; }
 
         [Display(Name = "線材材質")]
         public string RAWMTRL { get; set; }

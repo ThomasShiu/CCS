@@ -65,6 +65,7 @@ namespace CCS.Areas.Manufact.Controllers
                             CO_NO = r.CO_NO,
                             CO_SR = r.CO_SR,
                             HEAD_MARK = r.HEAD_MARK,
+                            THREAD = r.THREAD,
                             RAWMTRL = r.RAWMTRL,
                             DIAMETER = r.DIAMETER,
                             HEAT_NO = r.HEAT_NO,
@@ -83,7 +84,7 @@ namespace CCS.Areas.Manufact.Controllers
 
             };
 
-            return Json(json);
+            return MyJson(json,"yyyy-MM-dd");
         }
 
        
@@ -165,7 +166,8 @@ namespace CCS.Areas.Manufact.Controllers
                              A.PRC,
                              A.AMT,
                              A.PRCV_DT,
-                             B.CS_NM
+                             B.CS_NM,
+                             B.CS_VCH_NO
                          }).ToArray();
 
 
@@ -278,7 +280,7 @@ namespace CCS.Areas.Manufact.Controllers
         {
             string v_sqlstr = "SELECT a.VCH_NO, a.VCH_DT, a.FA_NO, a.EMP_NO, a.EMP_NM, a.ITEM_NO, a.IMG_NO, a.PLAN_BDT, a.PLAN_EDT, a.PLAN_QTY, "+
                                 "a.HEAD_MARK, a.RAWMTRL, a.DIAMETER, a.HEAT_NO, a.PLATING, a.PRCS_NO, a.REMK, "+
-                                "a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,d.SHORT_NM "+
+                                "a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,b.PRCV_DT,d.SHORT_NM,c.CS_VCH_NO,a.THREAD " +
                                 " FROM CS_MOMT a, CS_CODL b,CS_COMT c, customer d "+
                                 "   WHERE a.CO_NO = b.VCH_NO "+
                                 " AND a.CO_SR = b.VCH_SR "+
@@ -286,13 +288,26 @@ namespace CCS.Areas.Manufact.Controllers
                                 " AND c.CS_NO = d.CS_NO "+
                                 " AND a.VCH_NO = '" + id + "' ";
 
+            var path = Server.MapPath("~/Reports/MAN01_01.rdlc");
+            string paper = "A4";
+
+
             //資料集
             DataTable dt = ccsService.GetDataSet(v_sqlstr, "");
 
             LocalReport localReport = new LocalReport();
-            localReport.ReportPath = Server.MapPath("~/Reports/MAN01_01.rdlc");
+            localReport.ReportPath = path;
             ReportDataSource reportDataSource = new ReportDataSource("DataSet1", dt);
             localReport.DataSources.Add(reportDataSource);
+            localReport.EnableExternalImages = true;
+
+            var url = "http://"+Request.Url.Authority;
+
+            //宣告要傳入報表的參數 p_ImgPath，並指定照片路徑 , http://xxx.xxx.xxx.xx:1234
+            ReportParameter p_ImgPath = new ReportParameter("ImgPath", url);
+            //把參數傳給報表
+            localReport.SetParameters(new ReportParameter[] { p_ImgPath });
+
             string reportType = type;
             string mimeType;
             string encoding;
@@ -300,15 +315,27 @@ namespace CCS.Areas.Manufact.Controllers
 
             string deviceInfo =
                 "<DeviceInfo>" +
-                "<OutPutFormat>" + type + "</OutPutFormat>" +
-                "<PageWidth>9in</PageWidth>" +
-                "<PageHeight>6in</PageHeight>" +
+                "<OutPutFormat>" + type + "</OutPutFormat>";
+            switch (paper) {
+                case "Letter":// 中一刀
+                    deviceInfo +=
+                    "<PageWidth>9in</PageWidth>" +
+                    "<PageHeight>6in</PageHeight>";
+                    break;
+                case "A4":// A4
+                    deviceInfo +=
+                    "<PageWidth>8.2in</PageWidth>" +
+                    "<PageHeight>11.6in</PageHeight>";
+                    break;
+            }
+            deviceInfo +=
                 "<MarginTop>0.1in</MarginTop>" +
                 "<MarginLeft>0.1in</MarginLeft>" +
                 "<MarginRight>0.1in</MarginRight>" +
                 "<MarginBottom>0.1in</MarginBottom>" +
                 "</DeviceInfo>";
-            Warning[] warnings;
+        
+        Warning[] warnings;
             string[] streams;
             byte[] renderedBytes;
 
@@ -322,7 +349,6 @@ namespace CCS.Areas.Manufact.Controllers
                 out warnings
                 );
             return File(renderedBytes, mimeType);
-
 
         }
         #endregion

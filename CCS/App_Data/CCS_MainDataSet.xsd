@@ -61,7 +61,7 @@
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT a.VCH_NO, a.VCH_DT, a.FA_NO, a.EMP_NO, a.EMP_NM, a.ITEM_NO, a.IMG_NO, a.PLAN_BDT, a.PLAN_EDT, a.PLAN_QTY, 
 a.HEAD_MARK, a.RAWMTRL, a.DIAMETER, a.HEAT_NO, a.PLATING, a.PRCS_NO, a.REMK,
-a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,b.PRCV_DT,d.SHORT_NM
+a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,b.PRCV_DT,d.SHORT_NM,c.CS_VCH_NO, a.THREAD
  FROM CS_MOMT a,CS_CODL b,CS_COMT c,customer d
  WHERE a.CO_NO = b.VCH_NO
  AND a.CO_SR = b.VCH_SR
@@ -97,6 +97,8 @@ a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,b.PRCV_DT,d.SHORT_NM
               <Mapping SourceColumn="CS_ITEM_NO" DataSetColumn="CS_ITEM_NO" />
               <Mapping SourceColumn="SHORT_NM" DataSetColumn="SHORT_NM" />
               <Mapping SourceColumn="PRCV_DT" DataSetColumn="PRCV_DT" />
+              <Mapping SourceColumn="CS_VCH_NO" DataSetColumn="CS_VCH_NO" />
+              <Mapping SourceColumn="THREAD" DataSetColumn="THREAD" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -108,7 +110,7 @@ a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,b.PRCV_DT,d.SHORT_NM
   <xs:element name="CCS_MainDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="CCS_MainDataSet" msprop:Generator_UserDSName="CCS_MainDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="V_ORDERS" msprop:Generator_TableClassName="V_ORDERSDataTable" msprop:Generator_TableVarName="tableV_ORDERS" msprop:Generator_TablePropName="V_ORDERS" msprop:Generator_RowDeletingName="V_ORDERSRowDeleting" msprop:Generator_RowChangingName="V_ORDERSRowChanging" msprop:Generator_RowEvHandlerName="V_ORDERSRowChangeEventHandler" msprop:Generator_RowDeletedName="V_ORDERSRowDeleted" msprop:Generator_UserTableName="V_ORDERS" msprop:Generator_RowChangedName="V_ORDERSRowChanged" msprop:Generator_RowEvArgName="V_ORDERSRowChangeEvent" msprop:Generator_RowClassName="V_ORDERSRow">
+        <xs:element name="V_ORDERS" msprop:Generator_TableClassName="V_ORDERSDataTable" msprop:Generator_TableVarName="tableV_ORDERS" msprop:Generator_RowChangedName="V_ORDERSRowChanged" msprop:Generator_TablePropName="V_ORDERS" msprop:Generator_RowDeletingName="V_ORDERSRowDeleting" msprop:Generator_RowChangingName="V_ORDERSRowChanging" msprop:Generator_RowEvHandlerName="V_ORDERSRowChangeEventHandler" msprop:Generator_RowDeletedName="V_ORDERSRowDeleted" msprop:Generator_RowClassName="V_ORDERSRow" msprop:Generator_UserTableName="V_ORDERS" msprop:Generator_RowEvArgName="V_ORDERSRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="VCH_NO" msprop:Generator_ColumnVarNameInTable="columnVCH_NO" msprop:Generator_ColumnPropNameInRow="VCH_NO" msprop:Generator_ColumnPropNameInTable="VCH_NOColumn" msprop:Generator_UserColumnName="VCH_NO">
@@ -283,7 +285,7 @@ a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,b.PRCV_DT,d.SHORT_NM
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="V_MAN01_01" msprop:Generator_TableClassName="V_MAN01_01DataTable" msprop:Generator_TableVarName="tableV_MAN01_01" msprop:Generator_RowChangedName="V_MAN01_01RowChanged" msprop:Generator_TablePropName="V_MAN01_01" msprop:Generator_RowDeletingName="V_MAN01_01RowDeleting" msprop:Generator_RowChangingName="V_MAN01_01RowChanging" msprop:Generator_RowEvHandlerName="V_MAN01_01RowChangeEventHandler" msprop:Generator_RowDeletedName="V_MAN01_01RowDeleted" msprop:Generator_RowClassName="V_MAN01_01Row" msprop:Generator_UserTableName="V_MAN01_01" msprop:Generator_RowEvArgName="V_MAN01_01RowChangeEvent">
+        <xs:element name="V_MAN01_01" msprop:Generator_TableClassName="V_MAN01_01DataTable" msprop:Generator_TableVarName="tableV_MAN01_01" msprop:Generator_TablePropName="V_MAN01_01" msprop:Generator_RowDeletingName="V_MAN01_01RowDeleting" msprop:Generator_RowChangingName="V_MAN01_01RowChanging" msprop:Generator_RowEvHandlerName="V_MAN01_01RowChangeEventHandler" msprop:Generator_RowDeletedName="V_MAN01_01RowDeleted" msprop:Generator_UserTableName="V_MAN01_01" msprop:Generator_RowChangedName="V_MAN01_01RowChanged" msprop:Generator_RowEvArgName="V_MAN01_01RowChangeEvent" msprop:Generator_RowClassName="V_MAN01_01Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="VCH_NO" msprop:Generator_ColumnVarNameInTable="columnVCH_NO" msprop:Generator_ColumnPropNameInRow="VCH_NO" msprop:Generator_ColumnPropNameInTable="VCH_NOColumn" msprop:Generator_UserColumnName="VCH_NO">
@@ -412,6 +414,20 @@ a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,b.PRCV_DT,d.SHORT_NM
                 </xs:simpleType>
               </xs:element>
               <xs:element name="PRCV_DT" msprop:Generator_ColumnVarNameInTable="columnPRCV_DT" msprop:Generator_ColumnPropNameInRow="PRCV_DT" msprop:Generator_ColumnPropNameInTable="PRCV_DTColumn" msprop:Generator_UserColumnName="PRCV_DT" type="xs:dateTime" />
+              <xs:element name="CS_VCH_NO" msprop:Generator_ColumnVarNameInTable="columnCS_VCH_NO" msprop:Generator_ColumnPropNameInRow="CS_VCH_NO" msprop:Generator_ColumnPropNameInTable="CS_VCH_NOColumn" msprop:Generator_UserColumnName="CS_VCH_NO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="THREAD" msprop:Generator_ColumnVarNameInTable="columnTHREAD" msprop:Generator_ColumnPropNameInRow="THREAD" msprop:Generator_ColumnPropNameInTable="THREADColumn" msprop:Generator_UserColumnName="THREAD" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

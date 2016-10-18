@@ -41,12 +41,12 @@
             columns: [[
                 { field: 'Id', title: '序號', width: 80,hidden:true },
                 { field: 'UserName', title: '帳號', width: 80,sortable:true },
-                { field: 'Password', title: '密碼', width: 80,sortable:true },
+                { field: 'Password', title: '密碼', width: 80, hidden: true },
                 { field: 'TrueName', title: '姓名', width: 80,sortable:true },
                 { field: 'MobileNumber', title: '身份證', width: 80, sortable: true, hidden: true },
                 { field: 'PhoneNumber', title: '電話', width: 80,sortable:true },
                 { field: 'EmailAddress', title: '電子郵件', width: 80,sortable:true },
-                { field: 'Address', title: '地址', width: 80,sortable:true },
+                { field: 'Address', title: '地址', width: 80, hidden: true },
                 { field: 'State', title: '狀態', width: 80,sortable:true },   
                 { field: 'Sex', title: '性別', width: 80,sortable:true },
                 { field: 'Birthday', title: '生日', width: 80,sortable:true },
@@ -56,6 +56,15 @@
                 { field: 'CreateTime', title: '建立時間', width: 80, sortable: true },
                 { field: 'CreatePerson', title: '建立人員', width: 80, sortable: true }
             ]]
+        });
+        var pager = $('#List').datagrid('getPager');
+        $(pager).pagination({
+            pageSize: 20,
+            showPageList: true,
+            pageList: [15, 20, 30, 40, 50],
+            beforePageText: '第',
+            afterPageText: '頁,共{pages}頁',
+            displayMsg: '顯示 {from} 到 {to} 筆資料,共 {total} 筆資料'
         });
     });
     //匯出

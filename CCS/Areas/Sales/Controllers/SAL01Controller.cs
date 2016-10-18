@@ -285,22 +285,22 @@ namespace CCS.Areas.Sales.Controllers
         //[HttpPost]
         public JsonResult GetCustList(String queryStr)
         {
-            //var model =  ccsService.GetCustList("");
-            //List<customerModel> list = cust_BLL.GetList(queryStr);
-            //var model = (from r in list
-            //             select new customerModel()
-            //             {
-            //                 CS_NO = r.CS_NO,
-            //                 SHORT_NM = r.SHORT_NM,
-            //                 FULL_NM = r.FULL_NM,
-            //                 ADDR_IVC = r.ADDR_IVC,
-            //                 CONTACTER = r.CONTACTER,
-            //                 TEL_NO = r.TEL_NO,
-            //                 FAX_NO = r.FAX_NO
 
-            //             }).ToArray();
+            List<customerModel> list = cust_BLL.GetList(queryStr);
+            var model = (from r in list
+                         select new customerModel()
+                         {
+                             CS_NO = r.CS_NO,
+                             SHORT_NM = r.SHORT_NM,
+                             FULL_NM = r.FULL_NM,
+                             ADDR_IVC = r.ADDR_IVC,
+                             CONTACTER = r.CONTACTER,
+                             TEL_NO = r.TEL_NO,
+                             FAX_NO = r.FAX_NO
 
-            var model = ccsService.GetCustList("");
+                         }).ToArray();
+
+            //var model = ccsService.GetCustList("");
 
             return Json(model, JsonRequestBehavior.AllowGet);
 
@@ -312,11 +312,17 @@ namespace CCS.Areas.Sales.Controllers
         //[HttpPost]
         public JsonResult GetEmpList(String queryStr)
         {
+            queryStr = "C_COP";
+            List<empnoModel> list = empno_BLL.GetList(queryStr);
+            var model = (from r in list
+                         select new empnoModel()
+                         {
 
-            //var model =  ccsService.GetCustList("");
-            //List<empnoModel> list = empno_BLL.GetList(queryStr);
-            var model = ccsService.GetEmpList("C_COP");
+                             EMP_NO = r.EMP_NO,
+                             EMP_NM = r.EMP_NM,
+                             DEPM_NO = r.DEPM_NO
 
+                         }).ToArray();
             return Json(model, JsonRequestBehavior.AllowGet);
 
         }

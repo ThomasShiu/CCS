@@ -41,5 +41,6 @@ namespace CCS.Models
         public string EXC_ISLOCKED { get; set; }
         public string EXC_COMPANY { get; set; }
         public string HEAT_NO { get; set; }
+        public string THREAD { get; set; }
     }
 }

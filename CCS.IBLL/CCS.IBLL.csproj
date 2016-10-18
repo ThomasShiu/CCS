@@ -65,6 +65,8 @@
     <Compile Include="Ics_sysmoduleBLL.cs" />
     <Compile Include="Ics_sysrightBLL.cs" />
     <Compile Include="Ics_sysroleBLL.cs" />
+    <Compile Include="Ics_wipfBLL.cs" />
+    <Compile Include="Ics_wireReciptBLL.cs" />
     <Compile Include="Ics_wiresBLL.cs" />
     <Compile Include="IcustomerBLL.cs" />
     <Compile Include="Ics_sysmoduleoperateBLL.cs" />

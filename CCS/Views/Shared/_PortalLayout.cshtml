@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="refresh" content="@FormsAuthentication.Timeout.TotalSeconds;url=@FormsAuthentication.LoginUrl" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - ERP</title>
@@ -37,7 +38,25 @@
             else
                 $("#result").text("你的瀏覽器不支援canvas");
         });
-    </script>
+
+
+var timeout = @FormsAuthentication.Timeout.TotalMilliseconds; // 20 minutes
+
+var wintimeout;
+
+function SetWinTimeout() {
+    wintimeout =  window.setTimeout( "window.location.href='@FormsAuthentication.LoginUrl';", timeout); // In millisecods
+
+}
+
+        $('body').click(function() {
+            //when user clicks remove timeout and reset it
+            window.clearTimeout(wintimeout);
+            SetWinTimeout();
+
+        });
+        SetWinTimeout();
+    </script> 
 </body>
 </html>
 

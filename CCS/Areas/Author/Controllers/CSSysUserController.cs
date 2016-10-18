@@ -89,11 +89,13 @@ namespace CCS.Areas.Author.Controllers
         [SupportFilter]
         public JsonResult Create(cs_sysuserModel model)
         {
-            model.Id = ResultHelper.NewId;
+            model.Id = model.UserName;
             model.CreateTime = ResultHelper.NowTime;
+            model.Password = ValueConvert.MD5(model.Password);
+
             if (model != null && ModelState.IsValid)
             {
-
+               
                 if (m_BLL.Create(ref errors, model))
                 {
                     LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName, "成功", "創建", "SysUser");

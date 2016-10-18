@@ -45,7 +45,8 @@
                     @Html.LabelFor(model => model.VCH_DT)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.VCH_DT, new { htmlAttributes = new { @class = "easyui-datebox", data_options = "formatter:myformatter,parser:myparser", style = "width: 100%;" } })
+                    <input id="VCH_DT" name="VCH_DT" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" value="@Model.VCH_DT.ToString("yyyy-MM-dd")" style = "width: 100%;" />
+
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.VCH_DT)</td>
             </tr>
@@ -261,8 +262,10 @@
 
 @section scripts{
 
+<script src="~/Content/easyui-1.5/locale/easyui-lang-zh_TW.js"></script>
     <script type="text/javascript">
-    $(function () {
+        $(function () {
+      
         $("#btnSave").click(function () {
                 $.ajax({
                     url: "/Sales/SAL01/Edit",
@@ -287,80 +290,65 @@
         });
     });
 
-    $(document).ready(function () {
-        // 下拉選單，客戶
-        $('#CS_NO').combogrid({
-            panelWidth: 600,
-            idField: 'CS_NO',
-            textField: 'CS_NO',
-            url: 'GetCustList',
-            method: 'get',
-            columns: [[
-            { field: 'CS_NO', title: '客戶編號', width: 50 },
-            { field: 'SHORT_NM', title: '客戶簡稱', width: 60 },
-            { field: 'FULL_NM', title: '客戶全名', width: 80 },
-            { field: 'CONTACTER', title: '聯絡人', width: 50, align: 'left' },
-            { field: 'TEL_NO', title: '電話', width: 80, align: 'left' },
-            { field: 'FAX_NO', title: '傳真', width: 80 },
-            { field: 'ADDR_IVC', title: '地址', width: 150, align: 'left' }
-            ]],
-            fitColumns: true,
-            onSelect: function (rec) {
-                //getGridValue();
-                var grid = $("#CS_NO").combogrid("grid");//取得表格物件
-                var row = grid.datagrid('getSelected');//取得資料列
-                $("#CONTACTER").val(row.CONTACTER);
-                $("#TO_ADDR").val(row.ADDR_IVC);
-                $("#CS_NM").val(row.FULL_NM);
-                $("#TEL_NO").val(row.TEL_NO);
-                $("#FAX_NO").val(row.FAX_NO);
-            }
+        $(document).ready(function () {
+            
+
+            // 下拉選單，客戶
+            $('#CS_NO').combogrid({
+                panelWidth: 600,
+                idField: 'CS_NO',
+                textField: 'CS_NO',
+                url: 'GetCustList',
+                method: 'get',
+                columns: [[
+                { field: 'CS_NO', title: '客戶編號', width: 50 },
+                { field: 'SHORT_NM', title: '客戶簡稱', width: 60 },
+                { field: 'FULL_NM', title: '客戶全名', width: 80 },
+                { field: 'CONTACTER', title: '聯絡人', width: 50, align: 'left' },
+                { field: 'TEL_NO', title: '電話', width: 80, align: 'left' },
+                { field: 'FAX_NO', title: '傳真', width: 80 },
+                { field: 'ADDR_IVC', title: '地址', width: 150, align: 'left' }
+                ]],
+                fitColumns: true,
+                onSelect: function (rec) {
+                    //getGridValue();
+                    var grid = $("#CS_NO").combogrid("grid");//取得表格物件
+                    var row = grid.datagrid('getSelected');//取得資料列
+                    $("#CONTACTER").val(row.CONTACTER);
+                    $("#TO_ADDR").val(row.ADDR_IVC);
+                    $("#CS_NM").val(row.FULL_NM);
+                    $("#TEL_NO").val(row.TEL_NO);
+                    $("#FAX_NO").val(row.FAX_NO);
+                }
+            });
+
+
+            // 下拉選單，員工
+            $('#EMP_NO').combogrid({
+                panelWidth: 600,
+                idField: 'EMP_NO',
+                textField: 'EMP_NO',
+                url: 'GetEmpList',
+                method: 'get',
+                columns: [[
+                { field: 'EMP_NO', title: '員工編號', width: 50 },
+                { field: 'EMP_NM', title: '姓名', width: 60 },
+                { field: 'DEPM_NO', title: '部門編號', width: 80 }
+                ]],
+                fitColumns: true,
+                onSelect: function (rec) {
+                    //getGridValue();
+                    var grid = $("#EMP_NO").combogrid("grid");//取得表格物件
+                    var row = grid.datagrid('getSelected');//取得資料列
+                    $("#EMP_NAME").val(row.EMP_NM);
+                }
+
+            });
+    
+        
         });
 
-
-        // 下拉選單，員工
-        $('#EMP_NO').combogrid({
-            panelWidth: 600,
-            idField: 'EMP_NO',
-            textField: 'EMP_NO',
-            url: 'GetEmpList',
-            method: 'get',
-            columns: [[
-            { field: 'EMP_NO', title: '員工編號', width: 50 },
-            { field: 'EMP_NM', title: '姓名', width: 60 },
-            { field: 'DEPM_NO', title: '部門編號', width: 80 }
-            ]],
-            fitColumns: true,
-            onSelect: function (rec) {
-                //getGridValue();
-                var grid = $("#EMP_NO").combogrid("grid");//取得表格物件
-                var row = grid.datagrid('getSelected');//取得資料列
-                $("#EMP_NAME").val(row.EMP_NM);
-            }
-
-        });
-    });
-
-
-    function myformatter(date){
-        var y = date.getFullYear();
-        var m = date.getMonth()+1;
-        var d = date.getDate();
-        return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
-    }
-    function myparser(s){
-        if (!s) return new Date();
-        var ss = (s.split('-'));
-        var y = parseInt(ss[0],10);
-        var m = parseInt(ss[1],10);
-        var d = parseInt(ss[2],10);
-        if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
-            return new Date(y,m-1,d);
-        } else {
-            return new Date();
-        }
-    }
-   
+      
 
     </script>
 

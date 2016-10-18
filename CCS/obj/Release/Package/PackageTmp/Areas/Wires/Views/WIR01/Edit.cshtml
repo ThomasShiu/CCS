@@ -57,7 +57,7 @@
                     @Html.LabelFor(model => model.STOCK_DATE)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.STOCK_DATE, new { htmlAttributes = new { @class = "easyui-datebox", data_options = "formatter:myformatter,parser:myparser", style = "width: 100%;" } })
+                    <input id="STOCK_DATE" name="STOCK_DATE" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" value="@Model.STOCK_DATE.ToString("yyyy-MM-dd")" />
                     @*@Html.EditorFor(model => model.STOCK_DATE)*@
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.STOCK_DATE)</td>

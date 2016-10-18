@@ -106,7 +106,16 @@
     <Compile Include="CS_COMT.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
+    <Compile Include="CS_MACHINE.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
     <Compile Include="CS_MOMT.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CS_PROCESS.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CS_PROCESS_SET.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_SEQ_NO.cs">
@@ -139,7 +148,13 @@
     <Compile Include="CS_WIP.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
+    <Compile Include="CS_WIP_F.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
     <Compile Include="CS_WIRES.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CS_WIRE_RECIPIENT.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="customer.cs">
@@ -171,6 +186,8 @@
     </Compile>
     <Compile Include="MAN\cs_momtModel.cs" />
     <Compile Include="MAN\cs_processSetModel.cs" />
+    <Compile Include="MAN\cs_wipfModel.cs" />
+    <Compile Include="WIR\cs_wire_reciptModel.cs" />
     <Compile Include="PUB\empnoModel.cs" />
     <Compile Include="PUB\itemModel.cs" />
     <Compile Include="SAL\cs_codlModel.cs" />

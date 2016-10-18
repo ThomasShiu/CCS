@@ -13,9 +13,10 @@
 }
 
 <div class="mvctool bgb">
-    @Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)
-    @Html.ToolButton("btnReturn", "icon-return", "返回", false)
+    @Html.ToolButton("btnSave", "icon-save", @Suggestion.Save, perm, "Save", true)
+    @Html.ToolButton("btnReturn", "icon-return", @Suggestion.Return, false)
 </div>
+
 <div style="height:35px"></div>
 @using (Html.BeginForm())
 {
@@ -139,6 +140,19 @@
                     @Html.EditorFor(model => model.HEAD_MARK, new { htmlAttributes = new { @class = "", style = "width: 100%;", data_options = "" } })
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.HEAD_MARK)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.THREAD)：
+                </td>
+                <td style="width:310px">
+                    <select id="THREAD" name="THREAD" class="easyui-combobox" style="width:100%;">
+                        <option value="全牙">全牙</option>
+                        <option value="半牙">半牙</option>
+                    </select>
+                    
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.THREAD)</td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">

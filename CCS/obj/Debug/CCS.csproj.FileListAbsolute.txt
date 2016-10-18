@@ -137,3 +137,4 @@ D:\Git_Source\CCM3S_Project\CCS\CCS\obj\Debug\RdlCompile.compiled
 D:\Git_Source\CCM3S_Project\CCS\CCS\bin\Microsoft.ReportViewer.WebForms.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS\bin\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS\bin\Reports\SAL01_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS\bin\Reports\MAN01_01.rdlc
