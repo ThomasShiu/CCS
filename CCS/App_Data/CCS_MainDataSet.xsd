@@ -60,7 +60,7 @@
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT a.VCH_NO, a.VCH_DT, a.FA_NO, a.EMP_NO, a.EMP_NM, a.ITEM_NO, a.IMG_NO, a.PLAN_BDT, a.PLAN_EDT, a.PLAN_QTY, 
-a.HEAD_MARK, a.RAWMTRL, a.DIAMETER, a.HEAT_NO, a.PLATING, a.PRCS_NO, a.REMK,
+a.HEAD_MARK, a.RAWMTRL, a.DIAMETER, a.HEAT_NO, a.PLATING, a.PRCS_NO, a.MACHINE,a.REMK,
 a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,b.PRCV_DT,d.SHORT_NM,c.CS_VCH_NO, a.THREAD
  FROM CS_MOMT a,CS_CODL b,CS_COMT c,customer d
  WHERE a.CO_NO = b.VCH_NO
@@ -99,6 +99,29 @@ a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,b.PRCV_DT,d.SHORT_NM,c.CS_VCH
               <Mapping SourceColumn="PRCV_DT" DataSetColumn="PRCV_DT" />
               <Mapping SourceColumn="CS_VCH_NO" DataSetColumn="CS_VCH_NO" />
               <Mapping SourceColumn="THREAD" DataSetColumn="THREAD" />
+              <Mapping SourceColumn="MACHINE" DataSetColumn="MACHINE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_WIRE_STOCKTableAdapter" GeneratorDataComponentClassName="V_WIRE_STOCKTableAdapter" Name="V_WIRE_STOCK" UserDataComponentName="V_WIRE_STOCKTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CCSConn (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT '' RAWMTRL,'' HEAT_NO,0 DIAMETER,0 PRI_WT,0 IMPORT,0 EXPORT,0 TTLWT</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RAWMTRL" DataSetColumn="RAWMTRL" />
+              <Mapping SourceColumn="HEAT_NO" DataSetColumn="HEAT_NO" />
+              <Mapping SourceColumn="DIAMETER" DataSetColumn="DIAMETER" />
+              <Mapping SourceColumn="PRI_WT" DataSetColumn="PRI_WT" />
+              <Mapping SourceColumn="IMPORT" DataSetColumn="IMPORT" />
+              <Mapping SourceColumn="EXPORT" DataSetColumn="EXPORT" />
+              <Mapping SourceColumn="TTLWT" DataSetColumn="TTLWT" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -428,6 +451,38 @@ a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,b.PRCV_DT,d.SHORT_NM,c.CS_VCH
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="MACHINE" msprop:Generator_ColumnVarNameInTable="columnMACHINE" msprop:Generator_ColumnPropNameInRow="MACHINE" msprop:Generator_ColumnPropNameInTable="MACHINEColumn" msprop:Generator_UserColumnName="MACHINE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="V_WIRE_STOCK" msprop:Generator_TableClassName="V_WIRE_STOCKDataTable" msprop:Generator_TableVarName="tableV_WIRE_STOCK" msprop:Generator_TablePropName="V_WIRE_STOCK" msprop:Generator_RowDeletingName="V_WIRE_STOCKRowDeleting" msprop:Generator_RowChangingName="V_WIRE_STOCKRowChanging" msprop:Generator_RowEvHandlerName="V_WIRE_STOCKRowChangeEventHandler" msprop:Generator_RowDeletedName="V_WIRE_STOCKRowDeleted" msprop:Generator_UserTableName="V_WIRE_STOCK" msprop:Generator_RowChangedName="V_WIRE_STOCKRowChanged" msprop:Generator_RowEvArgName="V_WIRE_STOCKRowChangeEvent" msprop:Generator_RowClassName="V_WIRE_STOCKRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RAWMTRL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRAWMTRL" msprop:Generator_ColumnPropNameInRow="RAWMTRL" msprop:Generator_ColumnPropNameInTable="RAWMTRLColumn" msprop:Generator_UserColumnName="RAWMTRL" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HEAT_NO" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHEAT_NO" msprop:Generator_ColumnPropNameInRow="HEAT_NO" msprop:Generator_ColumnPropNameInTable="HEAT_NOColumn" msprop:Generator_UserColumnName="HEAT_NO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DIAMETER" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDIAMETER" msprop:Generator_ColumnPropNameInRow="DIAMETER" msprop:Generator_ColumnPropNameInTable="DIAMETERColumn" msprop:Generator_UserColumnName="DIAMETER" type="xs:int" minOccurs="0" />
+              <xs:element name="PRI_WT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPRI_WT" msprop:Generator_ColumnPropNameInRow="PRI_WT" msprop:Generator_ColumnPropNameInTable="PRI_WTColumn" msprop:Generator_UserColumnName="PRI_WT" type="xs:int" minOccurs="0" />
+              <xs:element name="IMPORT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnIMPORT" msprop:Generator_ColumnPropNameInRow="IMPORT" msprop:Generator_ColumnPropNameInTable="IMPORTColumn" msprop:Generator_UserColumnName="IMPORT" type="xs:int" minOccurs="0" />
+              <xs:element name="EXPORT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEXPORT" msprop:Generator_ColumnPropNameInRow="EXPORT" msprop:Generator_ColumnPropNameInTable="EXPORTColumn" msprop:Generator_UserColumnName="EXPORT" type="xs:int" minOccurs="0" />
+              <xs:element name="TTLWT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTTLWT" msprop:Generator_ColumnPropNameInRow="TTLWT" msprop:Generator_ColumnPropNameInTable="TTLWTColumn" msprop:Generator_UserColumnName="TTLWT" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

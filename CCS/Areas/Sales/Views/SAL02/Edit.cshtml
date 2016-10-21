@@ -96,9 +96,9 @@
                 <td style="width:310px">
                     @*@Html.EditorFor(model => model.UNIT)*@
                     <select id="UNIT" name="UNIT" class="easyui-combobox" style="width:100%;">
-                        <option value="PCS">PCS</option>
-                        <option value="KG">KG</option>
-                        <option value="T">噸</option>
+                        <option value="PCS"  selected="@(Model.UNIT == "PCS" ? "selected" : "")">PCS</option>
+                        <option value="KG" selected="@(Model.UNIT == "KG" ? "selected" : "")">KG</option>
+                        <option value="T" selected="@(Model.UNIT == "T" ? "selected" : "")">噸</option>
                     </select>
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.UNIT)</td>
@@ -155,7 +155,7 @@
     </table>
 }
 @section scripts{
-
+<script src="~/Scripts/math_func.js"></script>
 
     <script type="text/javascript">
     $(document).ready(function () {

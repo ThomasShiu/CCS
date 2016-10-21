@@ -98,13 +98,13 @@ namespace CCS.Areas.Author.Controllers
                
                 if (m_BLL.Create(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName, "成功", "創建", "SysUser");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.Id + ",UserName:" + model.UserName, "成功", "創建", "SysUser");
                     return Json(JsonHandler.CreateMessage(1, Suggestion.InsertSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName + "," + ErrorCol, "失敗", "創建", "SysUser");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.Id + ",UserName:" + model.UserName + "," + ErrorCol, "失敗", "創建", "SysUser");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.InsertFail + ErrorCol));
                 }
             }
@@ -135,13 +135,13 @@ namespace CCS.Areas.Author.Controllers
 
                 if (m_BLL.Edit(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName, "成功", "修改", "SysUser");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.Id + ",UserName:" + model.UserName, "成功", "修改", "SysUser");
                     return Json(JsonHandler.CreateMessage(1, Suggestion.EditSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName + "," + ErrorCol, "失敗", "修改", "SysUser");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.Id + ",UserName:" + model.UserName + "," + ErrorCol, "失敗", "修改", "SysUser");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.EditFail + ErrorCol));
                 }
             }
@@ -178,7 +178,7 @@ namespace CCS.Areas.Author.Controllers
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + id + "," + ErrorCol, "失敗", "刪除", "SysUser");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + id + "," + ErrorCol, "失敗", "刪除", "SysUser");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.DeleteFail + ErrorCol));
                 }
             }

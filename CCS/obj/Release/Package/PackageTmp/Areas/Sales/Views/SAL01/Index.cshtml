@@ -25,7 +25,7 @@
     @Html.ToolButton("btnEdit", "icon-edit", @Suggestion.Edit, perm, "Edit", true)
     @Html.ToolButton("btnDetails", "icon-details", @Suggestion.Details, perm, "Details", true)
     @Html.ToolButton("btnDelete", "icon-remove", @Suggestion.Delete, perm, "Delete", true)
-    @Html.ToolButton("btnExport", "icon-export", @Suggestion.Export, true)
+    @Html.ToolButton("btnExport", "icon-export", @Suggestion.Export, perm, "Export", true)
     @Html.ToolButton("btnReload", "icon-reload", @Suggestion.Reload, true)
 
 </div>
@@ -35,17 +35,6 @@
 <script src="~/Content/easyui-1.5/datagrid-detailview.js"></script>
   <script type="text/javascript">
       $(function () {
-          $(window).resize(function () {
-              $('#List').datagrid('resize', {
-                  width: $(window).width() - 10,
-                  height: $(window).height() - 35
-              }).datagrid('resize', {
-                  width: $(window).width() - 10,
-                  height: $(window).height() - 35
-              });
-          });
-
-
 
         $('#List').datagrid({
             url: '@Url.Action("GetList")',

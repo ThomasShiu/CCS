@@ -25,7 +25,8 @@ namespace CCS.BLL
             IQueryable<CS_WIRES> queryData = null;
             if (!string.IsNullOrWhiteSpace(queryStr))
             {
-                queryData = m_Rep.GetList(db).Where(a => a.Id.Contains(queryStr) || a.WIRE_ID.Contains(queryStr));
+                queryData = m_Rep.GetList(db).Where(a => a.Id.Contains(queryStr) || a.WIRE_ID.Contains(queryStr) 
+                || a.RAWMTRL.Contains(queryStr) || a.HEAT_NO.Contains(queryStr));
             }
             else
             {
@@ -58,6 +59,7 @@ namespace CCS.BLL
                                                  TYPE = r.TYPE.Value,
                                                  TYPE_NM = r.TYPE_NM,
                                                  REMARK = r.REMARK,
+                                                 C_CLS = r.C_CLS,
                                                  EXC_INSDBID = r.EXC_INSDBID,
                                                  EXC_INSDATE = r.EXC_INSDATE.Value,
                                                  EXC_UPDDBID = r.EXC_UPDDBID,
@@ -97,6 +99,7 @@ namespace CCS.BLL
                 entity.TYPE = model.TYPE;
                 entity.TYPE_NM = model.TYPE_NM;
                 entity.REMARK = model.REMARK;
+                entity.C_CLS = model.C_CLS;
                 entity.EXC_INSDBID = model.EXC_INSDBID;
                 entity.EXC_INSDATE = model.EXC_INSDATE;
                 entity.EXC_UPDDBID = model.EXC_UPDDBID;
@@ -200,6 +203,7 @@ namespace CCS.BLL
                 entity.TYPE = model.TYPE;
                 entity.TYPE_NM = model.TYPE_NM;
                 entity.REMARK = model.REMARK;
+                entity.C_CLS = model.C_CLS;
                 entity.EXC_INSDBID = model.EXC_INSDBID;
                 entity.EXC_INSDATE = model.EXC_INSDATE;
                 entity.EXC_UPDDBID = model.EXC_UPDDBID;
@@ -258,6 +262,7 @@ namespace CCS.BLL
                 model.TYPE = entity.TYPE.Value;
                 model.TYPE_NM = entity.TYPE_NM;
                 model.REMARK = entity.REMARK;
+                model.C_CLS = entity.C_CLS;
                 model.EXC_INSDBID = entity.EXC_INSDBID;
                 model.EXC_INSDATE = entity.EXC_INSDATE.Value;
                 model.EXC_UPDDBID = entity.EXC_UPDDBID;

@@ -23,6 +23,7 @@
         @Html.ValidationSummary(false)
     </div>
     @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.C_CLS)
     @Html.HiddenFor(model => model.EXC_INSDBID)
     @Html.HiddenFor(model => model.EXC_INSDATE)
     @Html.HiddenFor(model => model.EMP_NO)
@@ -153,8 +154,8 @@
                 </td>
                 <td style="width:310px">
                     <select id="THREAD" name="THREAD" class="easyui-combobox" style="width:100%;">
-                        <option value="全牙">全牙</option>
-                        <option value="半牙">半牙</option>
+                        <option value="全牙" @(Model.THREAD == "全牙" ? "selected=selected" : "")>全牙</option>
+                        <option value="半牙" @(Model.THREAD == "半牙" ? "selected=selected" : "")>半牙</option>
                     </select>
 
                 </td>
@@ -197,6 +198,24 @@
                     @Html.EditorFor(model => model.PRCS_NO, new { htmlAttributes = new { @class = "", style = "width: 100%;", data_options = "" } })
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.PRCS_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.MACHINE)：
+                </td>
+                <td style="width:310px">
+                    <select id="MACHINE" name="MACHINE" class="easyui-combobox" style="width:100%;">
+                        <option value="---">---</option>
+                        <option value="BF-01" @(Model.MACHINE == "BF-01" ? "selected=selected" : "")>BF-01</option>
+                        <option value="BF-02" @(Model.MACHINE == "BF-02" ? "selected=selected" : "")>BF-02</option>
+                        <option value="BF-03" @(Model.MACHINE == "BF-03" ? "selected=selected" : "")>BF-03</option>
+                        <option value="BF-04" @(Model.MACHINE == "BF-04" ? "selected=selected" : "")>BF-04</option>
+                        <option value="BF-05" @(Model.MACHINE == "BF-05" ? "selected=selected" : "")>BF-05</option>
+                        <option value="BF-06" @(Model.MACHINE == "BF-06" ? "selected=selected" : "")>BF-06</option>
+                        <option value="BF-07" @(Model.MACHINE == "BF-07" ? "selected=selected" : "")>BF-07</option>
+                    </select>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.MACHINE)</td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">

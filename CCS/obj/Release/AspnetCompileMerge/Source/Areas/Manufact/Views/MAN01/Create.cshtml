@@ -13,9 +13,10 @@
 }
 
 <div class="mvctool bgb">
-    @Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)
-    @Html.ToolButton("btnReturn", "icon-return", "返回", false)
+    @Html.ToolButton("btnSave", "icon-save", @Suggestion.Save, perm, "Save", true)
+    @Html.ToolButton("btnReturn", "icon-return", @Suggestion.Return, false)
 </div>
+
 <div style="height:35px"></div>
 @using (Html.BeginForm())
 {
@@ -191,6 +192,25 @@
                     @*@Html.EditorFor(model => model.PRCS_NO, new { htmlAttributes = new { @class = "", style = "width: 100%;", data_options = "" } })*@
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.PRCS_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.MACHINE)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.MACHINE)*@
+                    <select id="MACHINE" name="MACHINE" class="easyui-combobox" style="width:100%;">
+                        <option value="---">---</option>
+                        <option value="BF-01">BF-01</option>
+                        <option value="BF-02">BF-02</option>
+                        <option value="BF-03">BF-03</option>
+                        <option value="BF-04">BF-04</option>
+                        <option value="BF-05">BF-05</option>
+                        <option value="BF-06">BF-06</option>
+                        <option value="BF-07">BF-07</option>
+                    </select>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.MACHINE)</td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">

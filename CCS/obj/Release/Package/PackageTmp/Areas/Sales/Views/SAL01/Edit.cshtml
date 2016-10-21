@@ -165,8 +165,8 @@
                 </td>
                 <td style="width:310px">
                     <select id="TAX_TY" name="TAX_TY" class="easyui-combobox" style="width:100%;">
-                        <option value="應稅外加">應稅外加</option>
-                        <option value="應稅內含">應稅內含</option>
+                        <option value="應稅外加" selected="@(Model.TAX_TY == "應稅外加" ? "selected" : "")">應稅外加</option>
+                        <option value="應稅內含" selected="@(Model.TAX_TY == "應稅內含" ? "selected" : "")">應稅內含</option>
                     </select>
                     @*@Html.EditorFor(model => model.TAX_TY)*@
                 </td>
@@ -190,9 +190,9 @@
                 </td>
                 <td style="width:310px">
                     <select id="CURRENCY" name="CURRENCY" class="easyui-combobox" style="width:100%;">
-                        <option value="NTD">NTD</option>
-                        <option value="RMB">RMB</option>
-                        <option value="USD">USD</option>
+                        <option value="NTD" selected="@(Model.CURRENCY == "NTD" ? "selected" : "")">NTD</option>
+                        <option value="RMB" selected="@(Model.CURRENCY == "RMB" ? "selected" : "")">RMB</option>
+                        <option value="USD" selected="@(Model.CURRENCY == "USD" ? "selected" : "")">USD</option>
                     </select>
                     @*@Html.EditorFor(model => model.CURRENCY)*@
                 </td>
@@ -226,9 +226,9 @@
                 </td>
                 <td style="width:310px">
                     <select id="SHIP_TY" name="SHIP_TY" class="easyui-combobox" style="width:100%;">
-                        <option value="陸運">陸運</option>
-                        <option value="海運">海運</option>
-                        <option value="空運">空運</option>
+                        <option value="陸運"  selected="@(Model.SHIP_TY == "陸運" ? "selected" : "")">陸運</option>
+                        <option value="海運"  selected="@(Model.SHIP_TY == "海運" ? "selected" : "")">海運</option>
+                        <option value="空運"  selected="@(Model.SHIP_TY == "空運" ? "selected" : "")">空運</option>
                     </select>
                     @*@Html.EditorFor(model => model.SHIP_TY)*@
                 </td>

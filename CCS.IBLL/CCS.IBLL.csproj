@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="IAccountBLL.cs" />
     <Compile Include="Ics_codlBLL.cs" />
+    <Compile Include="Ics_itemstkBLL.cs" />
     <Compile Include="Ics_momtBLL.cs" />
     <Compile Include="Ics_syslogBLL.cs" />
     <Compile Include="Ics_actionlogBLL.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Ics_wipfBLL.cs" />
     <Compile Include="Ics_wireReciptBLL.cs" />
     <Compile Include="Ics_wiresBLL.cs" />
+    <Compile Include="Ics_wires_journalBLL.cs" />
     <Compile Include="IcustomerBLL.cs" />
     <Compile Include="Ics_sysmoduleoperateBLL.cs" />
     <Compile Include="Ics_sysuserBLL.cs" />

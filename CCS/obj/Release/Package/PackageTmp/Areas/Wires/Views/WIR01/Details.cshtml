@@ -56,7 +56,7 @@
                     @Html.LabelFor(model => model.STOCK_DATE)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.STOCK_DATE, new { htmlAttributes = new { @class = "easyui-datebox", data_options = "formatter:myformatter,parser:myparser", style = "width: 100%;" } })
+                    <input id="STOCK_DATE" name="STOCK_DATE" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" value="@Model.STOCK_DATE.ToString("yyyy-MM-dd")" />
                     @*@Html.EditorFor(model => model.STOCK_DATE)*@
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.STOCK_DATE)</td>
@@ -132,8 +132,8 @@
                 <td style="width:310px">
                     @*@Html.EditorFor(model => model.MARK)*@
                     <select id="MARK" name="MARK" class="" style="width:100%;">
-                        <option value="DRAGON">中龍</option>
-                        <option value="CSC">中鋼</option>
+                        <option value="DRAGON" @(Model.MARK == "DRAGON" ? "selected=selected" : "")>中龍</option>
+                        <option value="CSC" @(Model.MARK == "CSC" ? "selected=selected" : "")>中鋼</option>
                     </select>
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.MARK)</td>
@@ -154,9 +154,9 @@
                 <td style="width:310px">
                     @*@Html.EditorFor(model => model.PROCESS_FACTORY)*@
                     <select id="PROCESS_FACTORY" name="PROCESS_FACTORY" class="" style="width:100%;">
-                        <option>雄順金屬</option>
-                        <option>豪金鐵線</option>
-                        <option>建達五金</option>
+                        <option @(Model.PROCESS_FACTORY == "雄順金屬" ? "selected=selected" : "")>雄順金屬</option>
+                        <option @(Model.PROCESS_FACTORY == "豪金鐵線" ? "selected=selected" : "")>豪金鐵線</option>
+                        <option @(Model.PROCESS_FACTORY == "建達五金" ? "selected=selected" : "")>建達五金</option>
                     </select>
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.PROCESS_FACTORY)</td>
@@ -168,8 +168,8 @@
                 <td style="width:310px">
                     @*@Html.EditorFor(model => model.TYPE)*@
                     <select id="TYPE" name="TYPE" class="" style="width:100%;">
-                        <option value="1">客供料</option>
-                        <option value="2">採購件</option>
+                        <option value="1" @(Model.TYPE == 1 ? "selected=selected" : "")>客供料</option>
+                        <option value="2" @(Model.TYPE == 2 ? "selected=selected" : "")>採購件</option>
                     </select>
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.TYPE)</td>

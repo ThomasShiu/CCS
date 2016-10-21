@@ -10,6 +10,11 @@
         perm = new List<permModel>();
     }
 }
+@section styles{
+    <link href="~/Content/easyui-1.5/themes/blue/easyui.css" rel="stylesheet" />
+    <style>
+    </style>
+}
 <div class="mvctool">
     <input id="txtQuery" type="text" class="searchText" />
     @Html.ToolButton("btnQuery", "icon-search", @Suggestion.Query, true)
@@ -17,7 +22,7 @@
     @Html.ToolButton("btnEdit", "icon-edit", @Suggestion.Edit, perm, "Edit", true)
     @Html.ToolButton("btnDetails", "icon-details", @Suggestion.Details, perm, "Details", true)
     @Html.ToolButton("btnDelete", "icon-remove", @Suggestion.Delete, perm, "Delete", true)
-    @Html.ToolButton("btnExport", "icon-export", @Suggestion.Export, true)
+    @Html.ToolButton("btnExport", "icon-export", @Suggestion.Export, perm, "Export", true)
     @Html.ToolButton("btnReload", "icon-reload", @Suggestion.Reload, true)
 </div>
 <table id="List"></table>
@@ -34,10 +39,10 @@
             methord: 'post',
             height: $(window).height() - 35,
             fitColumns: true,
-            sortName: 'MO_VCH_NO',
+            sortName: 'REC_DATE',
             sortOrder: 'desc',
             idField: 'Id',
-            pageSize: 15,
+            pageSize: 20,
             pageList: [15, 20, 30, 40, 50],
             pagination: true,
             striped: true, //奇偶行是否區分
@@ -45,14 +50,16 @@
             //rownumbers: true,//行號
             columns: [[
                 { field: 'Id', title: '', width: 80,hidden:true },
-                { field: 'MO_VCH_NO', title: '製令單號', width: 80, sortable: true },
+                { field: 'MO_VCH_NO', title: '製令單號', width: 50, sortable: true },
                 { field: 'ITEM_NO', title: '品號', width: 80, sortable: true },
-                { field: 'WIRE_ID', title: '卷號', width: 80, sortable: true },
-                { field: 'RAWMTRL', title: '材質', width: 80, sortable: true },
-                { field: 'DIAMETER', title: '線徑', width: 80, sortable: true },
-                { field: 'HEAT_NO', title: '爐號', width: 80, sortable: true },
-                { field: 'REC_DATE', title: '領用日期', width: 80,sortable:true },
-                { field: 'REC_EMP', title: '領用人員', width: 80,sortable:true }
+                { field: 'ITEM_NM', title: '品名', width: 80 },
+                { field: 'WIRE_ID', title: '卷號', width: 50 },  
+                { field: 'RAWMTRL', title: '材質', width: 50 },
+                { field: 'HEAT_NO', title: '爐號', width: 50 },
+                { field: 'DIAMETER', title: '線徑', width: 50 ,align:'right'},
+                { field: 'WEIGHT', title: '領用重量', width: 80,align:'right' },
+                { field: 'REC_DATE', title: '領用日期', width: 50, sortable: true },
+                { field: 'REC_EMP', title: '領用人員', width: 50 }
                
             ]]
         });
@@ -81,19 +88,22 @@
         $.messageBox5s('提示', mes);
     }
     $(function () {
+        $("#btnReload").click(function () {
+            frameReturnByReload();
+        });
         $("#btnExport").click(function () {
             $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/SysHelper/ReportControl'></iframe>");
             $("#modalwindow").window({ title: '匯出', width: 320, height: 200, iconCls: 'icon-add' }).window('open');
         });
         $("#btnCreate").click(function () {
             $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/Wires/WIR02/Create?Ieguid=" + GetGuid() + "'></iframe>");
-            $("#modalwindow").window({ title: '新增', width: 700, height: 400, iconCls: 'icon-add' }).window('open');
+            $("#modalwindow").window({ title: '新增', width: 800, height: 400, iconCls: 'icon-add' }).window('open');
         });
         $("#btnEdit").click(function () {
             var row = $('#List').datagrid('getSelected');
             if (row != null) {
                 $("#modalwindow").html("<iframe width='100%' height='99%'  frameborder='0' src='/Wires/WIR02/Edit?id=" + row.Id + "&Ieguid=" + GetGuid() + "'></iframe>");
-                $("#modalwindow").window({ title: '編輯', width: 700, height: 430, iconCls: 'icon-edit' }).window('open');
+                $("#modalwindow").window({ title: '編輯', width: 800, height: 400, iconCls: 'icon-edit' }).window('open');
             } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords'); }
         });
         $("#btnDetails").click(function () {

@@ -19,6 +19,9 @@ namespace CCS.Models.WIR
         [Display(Name = "品號")]
         public string ITEM_NO { get; set; }
 
+        [Display(Name = "品名")]
+        public string ITEM_NM { get; set; }
+
         [Display(Name = "線材卷號")]
         public string WIRE_ID { get; set; }
 
@@ -38,6 +41,10 @@ namespace CCS.Models.WIR
 
         [Display(Name = "領用人員")]
         public string REC_EMP { get; set; }
+
+        [Display(Name = "領用重量")]
+        [Required(ErrorMessage ="請輸入領用重量")]
+        public int WEIGHT { get; set; }
 
         [Display(Name = "EXC_INSDBID")]
         public string EXC_INSDBID { get; set; }

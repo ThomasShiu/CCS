@@ -16,7 +16,6 @@ namespace CCS.Models
     {
         public string Id { get; set; }
         public string LOT_NO { get; set; }
-        public int CTRL_NO { get; set; }
         public string KEG_NO { get; set; }
         public string PRCS_TY { get; set; }
         public string PRCS_NO { get; set; }
@@ -27,7 +26,8 @@ namespace CCS.Models
         public Nullable<int> WEIGHT { get; set; }
         public Nullable<decimal> UNIT_WT { get; set; }
         public Nullable<int> COUNT_QTY { get; set; }
-        public string END_CODE { get; set; }
+        public string NEXT { get; set; }
+        public bool END_CODE { get; set; }
         public string EXC_INSDBID { get; set; }
         public Nullable<System.DateTime> EXC_INSDATE { get; set; }
         public string EXC_UPDDBID { get; set; }
@@ -35,5 +35,8 @@ namespace CCS.Models
         public string EXC_SYSOWNR { get; set; }
         public string EXC_ISLOCKED { get; set; }
         public string EXC_COMPANY { get; set; }
+        public string STATUS { get; set; }
+        public string HEAT_NO { get; set; }
+        public string MACHINE { get; set; }
     }
 }

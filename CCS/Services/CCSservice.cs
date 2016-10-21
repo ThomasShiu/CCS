@@ -1,4 +1,6 @@
-﻿using CCS.Common;
+﻿using CCS.BLL;
+using CCS.Common;
+using CCS.Core;
 using CCS.IBLL;
 using CCS.Models;
 using CCS.Models.MAN;
@@ -13,11 +15,14 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Web.Mvc;
 
 namespace CCS.Services
 {
     public class CCSservice
     {
+
+
         [Dependency]
         public IcustomerBLL cust_BLL { get; set; }
         [Dependency]
@@ -26,6 +31,9 @@ namespace CCS.Services
         public IEMPNOBLL empno_BLL { get; set; }
         [Dependency]
         public Ics_codlBLL codl_BLL { get; set; }
+
+        [Dependency]
+        public Ics_momtBLL momt_BLL { get; set; }
 
         CCSEntities _db = new CCSEntities();
 
@@ -105,11 +113,9 @@ namespace CCS.Services
                 var model = (from r in list
                              select new empnoModel()
                              {
-
                                  EMP_NO = r.EMP_NO,
                                  EMP_NM = r.EMP_NM,
                                  DEPM_NO = r.DEPM_NO
-
                              }).ToArray();
 
 
@@ -121,6 +127,8 @@ namespace CCS.Services
             }
         }
         #endregion
+
+     
 
         #region 取得訂單明細
         //public cs_codlModel[] GetOrdDetailsList(GridPager pager, string queryStr)
@@ -176,78 +184,7 @@ namespace CCS.Services
             return dt;
         }
 
-        // 輸出報表
-        public byte[] GetReport(string v_sqlstr,string v_path ,string type ,string paper)
-        {
-            
-            //資料集
-            DataTable dt = GetDataSet(v_sqlstr, "");
-
-            LocalReport localReport = new LocalReport();
-            localReport.ReportPath = v_path;
-            ReportDataSource reportDataSource = new ReportDataSource("DataSet1", dt);
-            localReport.DataSources.Add(reportDataSource);
-            localReport.EnableExternalImages = true;
-
-            //var url = "http://" + Request.Url.Authority;
-
-            //宣告要傳入報表的參數 p_ImgPath，並指定照片路徑 , http://xxx.xxx.xxx.xx:1234
-            //ReportParameter p_ImgPath = new ReportParameter("ImgPath", url);
-
-            //把參數傳給報表
-            //localReport.SetParameters(new ReportParameter[] { p_ImgPath });
-
-            string reportType = type;
-            string mimeType;
-            string encoding;
-            string fileNameExtension;
-
-            string deviceInfo="";
-            
-            switch(paper) {
-                case "A4":
-                deviceInfo =
-                "<DeviceInfo>" +
-                "<OutPutFormat>" + type + "</OutPutFormat>" +
-                // A4
-                "<PageWidth>8.2in</PageWidth>" +
-                "<PageHeight>11.6in</PageHeight>" +
-                "<MarginTop>0.1in</MarginTop>" +
-                "<MarginLeft>0.1in</MarginLeft>" +
-                "<MarginRight>0.1in</MarginRight>" +
-                "<MarginBottom>0.1in</MarginBottom>" +
-                "</DeviceInfo>";
-                    break;
-                case "LETTER":
-                    deviceInfo =
-               "<DeviceInfo>" +
-               "<OutPutFormat>" + type + "</OutPutFormat>" +
-               // 中一刀
-               "<PageWidth>9in</PageWidth>" +
-               "<PageHeight>6in</PageHeight>" +
-               "<MarginTop>0.1in</MarginTop>" +
-               "<MarginLeft>0.1in</MarginLeft>" +
-               "<MarginRight>0.1in</MarginRight>" +
-               "<MarginBottom>0.1in</MarginBottom>" +
-               "</DeviceInfo>";
-                    break;
-            }
-            Warning[] warnings;
-            string[] streams;
-            byte[] renderedBytes;
-
-            renderedBytes = localReport.Render(
-                reportType,
-                deviceInfo,
-                out mimeType,
-                out encoding,
-                out fileNameExtension,
-                out streams,
-                out warnings
-                );
-            return renderedBytes;
-
-        }
+     
 
 
         public void getValue()

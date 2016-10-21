@@ -10,6 +10,11 @@
         perm = new List<permModel>();
     }
 }
+@section styles{
+    <link href="~/Content/easyui-1.5/themes/blue/easyui.css" rel="stylesheet" />
+    <style>
+    </style>
+}
 <div class="mvctool">
     <input id="txtQuery" type="text" class="searchText" />
     @Html.ToolButton("btnQuery", "icon-search",  @Suggestion.Query, true)
@@ -17,7 +22,7 @@
     @Html.ToolButton("btnEdit", "icon-edit",   @Suggestion.Edit, perm, "Edit",true)
     @Html.ToolButton("btnDetails", "icon-details",  @Suggestion.Details, perm,"Details", true)
     @Html.ToolButton("btnDelete", "icon-remove",  @Suggestion.Delete, perm,"Delete", true)
-    @Html.ToolButton("btnExport", "icon-export",  @Suggestion.Export,  true)
+    @Html.ToolButton("btnExport", "icon-export", @Suggestion.Export, perm, "Export", true)
     @Html.ToolButton("btnReload", "icon-reload",  @Suggestion.Reload, true)
 </div>
 <table id="List"></table>
@@ -25,8 +30,21 @@
 <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
 @section scripts{
 @Html.Partial("~/Views/Shared/_Partial_AutoGrid.cshtml")
+<script src="~/Content/easyui-1.5/datagrid-detailview.js"></script>
 <script type="text/javascript">
     $(function () {
+        function rowTransCode(value, row, index) {
+            if (row.TRANS_CODE=="I") {
+                return "入庫";
+            } else if (row.TRANS_CODE == "O") {
+                return "領用";
+            } else if (row.TRANS_CODE == "R") {
+                return "損耗";
+            } else  {
+                return "";
+            }
+        }
+
         function rowformater(value, row, index) {
             if (row.ANNEAL) {
                 return "<input type='checkbox' checked='checked' value=" + value + " disabled='disabled' />";
@@ -34,7 +52,7 @@
                 return "<input type='checkbox' value=" + value + " disabled='disabled' />";
             }
 
-       
+
         }
 
         $('#List').datagrid({
@@ -70,7 +88,40 @@
                 { field: 'TYPE', title: '', width: 30, hidden: true },
                 { field: 'TYPE_NM', title: '原料種類', width: 50 },
                 { field: 'REMARK', title: '備註', width: 100 }
-            ]]
+            ]],
+            view: detailview,
+            detailFormatter: function (index, row) {
+                return '<div style="padding:2px"><table id="ddv-' + index + '"></table></div>';
+            },
+            onExpandRow: function (index, row) {//顯示Detail明細
+                $('#ddv-' + index).datagrid({
+                    url: '@Url.Action("GetDetailsList")?queryStr=' + row.WIRE_ID, //getJsonByID_TW.replace("_gdate_", row.GDATE).replace("_ghour_", row.GHOUR).replace("_gminute_", row.GMINUTE),
+                    fitColumns: true,
+                    singleSelect: true,
+                    sortName: 'TRANS_DATE',
+                    sortOrder: 'desc',
+                    //rownumbers: true,
+                    loadMsg: '',
+                    height: 'auto',
+                    columns: [[
+                            { field: 'Id', title: '', width: 80, hidden: true },
+                            { field: 'WIRE_ID', title: '卷號', width: 80, align: 'center' },
+                            { field: 'TRANS_CODE', title: '異動碼', width: 80  , align:'center'},
+                            { field: 'TRANS_NM', title: '異動別', width: 80,  align:'center',formatter: rowTransCode },
+                            { field: 'TRANS_DATE', title: '異動日期', width: 80, align: 'center' },
+                            { field: 'WEIGHT', title: '重量', width: 80 , align:'right' }
+                    ]],
+                    onResize: function () {
+                        $('#List').datagrid('fixDetailRowHeight', index);
+                    },
+                    onLoadSuccess: function () {
+                        setTimeout(function () {
+                            $('#List').datagrid('fixDetailRowHeight', index);
+                        }, 0);
+                    }
+                });
+                $('#List').datagrid('fixDetailRowHeight', index);
+            }
         });
         var pager = $('#List').datagrid('getPager');
         $(pager).pagination({

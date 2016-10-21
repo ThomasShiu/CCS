@@ -42,5 +42,8 @@ namespace CCS.Models
         public string EXC_COMPANY { get; set; }
         public string HEAT_NO { get; set; }
         public string THREAD { get; set; }
+        public string MACHINE { get; set; }
+        public string C_CLS { get; set; }
+        public string PRCS_TY { get; set; }
     }
 }

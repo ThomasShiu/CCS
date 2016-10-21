@@ -52,6 +52,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Gma.QrCodeNet.Encoding, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QrCode.Net.0.4.0.0\lib\net45\Gma.QrCodeNet.Encoding.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -239,7 +243,10 @@
     <Compile Include="Areas\Author\Controllers\CSSysUserController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\DAS01Controller.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
+    <Compile Include="Areas\Inventory\Controllers\INV01Controller.cs" />
+    <Compile Include="Areas\Inventory\Controllers\INV02Controller.cs" />
     <Compile Include="Areas\Manufact\Controllers\MAN01Controller.cs" />
+    <Compile Include="Areas\Manufact\Controllers\MAN02Controller.cs" />
     <Compile Include="Areas\Manufact\Controllers\MAN11Controller.cs" />
     <Compile Include="Areas\Manufact\Controllers\MAN12Controller.cs" />
     <Compile Include="Areas\Sales\Controllers\SAL02Controller.cs" />
@@ -257,6 +264,8 @@
     </Compile>
     <Compile Include="Areas\Wires\Controllers\WIR01Controller.cs" />
     <Compile Include="Areas\Wires\Controllers\WIR02Controller.cs" />
+    <Compile Include="Areas\Wires\Controllers\WIR03Controller.cs" />
+    <Compile Include="Areas\Wires\Controllers\WIR04Controller.cs" />
     <Compile Include="Areas\Wires\WiresAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseException.cs" />
@@ -278,6 +287,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CCSservice.cs" />
+    <Compile Include="Services\DropListService.cs" />
+    <Compile Include="Services\SqlRepoService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2326,6 +2337,16 @@
     <Content Include="Content\images\headmark\六角法蘭頭.psd" />
     <Content Include="Areas\Wires\Views\WIR02\Index.cshtml" />
     <Content Include="Areas\Wires\Views\WIR02\Create.cshtml" />
+    <Content Include="Areas\Wires\Views\WIR02\Edit.cshtml" />
+    <Content Include="Areas\Wires\Views\WIR02\Details.cshtml" />
+    <Content Include="Areas\Manufact\Views\MAN02\Index.cshtml" />
+    <Content Include="Areas\Manufact\Views\MAN02\Create.cshtml" />
+    <Content Include="Areas\Manufact\Views\MAN02\Edit.cshtml" />
+    <Content Include="Areas\Manufact\Views\MAN02\Details.cshtml" />
+    <Content Include="Areas\Inventory\Views\INV01\Index.cshtml" />
+    <Content Include="Areas\Inventory\Views\INV02\Index.cshtml" />
+    <Content Include="Areas\Inventory\Views\INV02\Create.cshtml" />
+    <Content Include="Areas\Wires\Views\WIR04\Index.cshtml" />
     <None Include="Properties\PublishProfiles\CCS_13.pubxml" />
     <None Include="Properties\PublishProfiles\CCS_207.pubxml" />
     <Content Include="Scripts\jquery-2.2.4.min.map" />
@@ -2446,7 +2467,6 @@
     <Folder Include="Areas\Author\Views\Shared\" />
     <Folder Include="Areas\Dashboard\Models\" />
     <Folder Include="Areas\Dashboard\Views\Shared\" />
-    <Folder Include="Areas\Inventory\Controllers\" />
     <Folder Include="Areas\Inventory\Models\" />
     <Folder Include="Areas\Inventory\Views\Shared\" />
     <Folder Include="Areas\Manufact\Models\" />
@@ -2457,6 +2477,7 @@
     <Folder Include="Areas\System\Models\" />
     <Folder Include="Areas\Wires\Models\" />
     <Folder Include="Areas\Wires\Views\Shared\" />
+    <Folder Include="Areas\Wires\Views\WIR03\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -2505,6 +2526,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Reports\MAN01_01.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\WIR04_01.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

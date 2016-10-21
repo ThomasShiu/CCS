@@ -42,17 +42,18 @@ namespace CCS.BLL
                                              {
                                                  Id = r.Id,
                                                  LOT_NO = r.LOT_NO,
-                                                 CTRL_NO = r.CTRL_NO,
+                                                 HEAT_NO = r.HEAT_NO,
                                                  KEG_NO = r.KEG_NO,
                                                  PRCS_TY = r.PRCS_TY,
                                                  PRCS_NO = r.PRCS_NO,
                                                  EMP_NO = r.EMP_NO,
                                                  EMP_NM = r.EMP_NM,
-                                                 BDT = r.BDT.Value,
-                                                 EDT = r.EDT.Value,
-                                                 WEIGHT = r.WEIGHT.Value,
-                                                 UNIT_WT = r.UNIT_WT.Value,
-                                                 COUNT_QTY = r.COUNT_QTY.Value,
+                                                 MACHINE = r.MACHINE,
+                                                 BDT = r.BDT ,
+                                                 EDT = r.EDT,
+                                                 WEIGHT = r.WEIGHT,
+                                                 UNIT_WT = r.UNIT_WT,
+                                                 COUNT_QTY = r.COUNT_QTY,
                                                  END_CODE = r.END_CODE,
                                                  EXC_INSDBID = r.EXC_INSDBID,
                                                  EXC_INSDATE = r.EXC_INSDATE.Value,
@@ -78,12 +79,13 @@ namespace CCS.BLL
                 entity = new CS_WIP_F();
                 entity.Id = model.Id;
                 entity.LOT_NO = model.LOT_NO;
-                entity.CTRL_NO = model.CTRL_NO;
+                entity.HEAT_NO = model.HEAT_NO;
                 entity.KEG_NO = model.KEG_NO;
                 entity.PRCS_TY = model.PRCS_TY;
                 entity.PRCS_NO = model.PRCS_NO;
                 entity.EMP_NO = model.EMP_NO;
                 entity.EMP_NM = model.EMP_NM;
+                entity.MACHINE = model.MACHINE;
                 entity.BDT = model.BDT;
                 entity.EDT = model.EDT;
                 entity.WEIGHT = model.WEIGHT;
@@ -107,9 +109,11 @@ namespace CCS.BLL
                     return false;
                 }
             }
+
             catch (Exception ex)
             {
-                errors.Add(ex.Message);
+                String innerMessage = (ex.InnerException != null) ? ex.InnerException.InnerException.Message:"";
+                errors.Add(ex.Message+"<br/>"+ innerMessage);
                 ExceptionHander.WriteException(ex);
                 return false;
             }
@@ -178,12 +182,13 @@ namespace CCS.BLL
                 }
                 entity.Id = model.Id;
                 entity.LOT_NO = model.LOT_NO;
-                entity.CTRL_NO = model.CTRL_NO;
+                entity.HEAT_NO = model.HEAT_NO;
                 entity.KEG_NO = model.KEG_NO;
                 entity.PRCS_TY = model.PRCS_TY;
                 entity.PRCS_NO = model.PRCS_NO;
                 entity.EMP_NO = model.EMP_NO;
                 entity.EMP_NM = model.EMP_NM;
+                entity.MACHINE = model.MACHINE;
                 entity.BDT = model.BDT;
                 entity.EDT = model.EDT;
                 entity.WEIGHT = model.WEIGHT;
@@ -233,17 +238,18 @@ namespace CCS.BLL
                 cs_wipfModel model = new cs_wipfModel();
                 model.Id = entity.Id;
                 model.LOT_NO = entity.LOT_NO;
-                model.CTRL_NO = entity.CTRL_NO;
+                model.HEAT_NO = entity.HEAT_NO;
                 model.KEG_NO = entity.KEG_NO;
                 model.PRCS_TY = entity.PRCS_TY;
                 model.PRCS_NO = entity.PRCS_NO;
                 model.EMP_NO = entity.EMP_NO;
                 model.EMP_NM = entity.EMP_NM;
-                model.BDT = entity.BDT.Value;
-                model.EDT = entity.EDT.Value;
-                model.WEIGHT = entity.WEIGHT.Value;
-                model.UNIT_WT = entity.UNIT_WT.Value;
-                model.COUNT_QTY = entity.COUNT_QTY.Value;
+                model.MACHINE = entity.MACHINE;
+                model.BDT = entity.BDT;
+                model.EDT = entity.EDT;
+                model.WEIGHT = entity.WEIGHT;
+                model.UNIT_WT = entity.UNIT_WT;
+                model.COUNT_QTY = entity.COUNT_QTY;
                 model.END_CODE = entity.END_CODE;
                 model.EXC_INSDBID = entity.EXC_INSDBID;
                 model.EXC_INSDATE = entity.EXC_INSDATE.Value;

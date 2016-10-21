@@ -21,7 +21,12 @@ namespace CCS.Areas.Sales.Controllers
     [UserTraceLog]
     public class SAL01Controller : BaseController
     {
-        CCSservice ccsService = new CCSservice();
+        private DropListService dls;
+        public SAL01Controller(DropListService dls)
+        {
+            this.dls = dls;
+        }
+
         ValidationErrors errors = new ValidationErrors();
         public AccountModel account = new AccountModel();
         CCSEntities db = new CCSEntities();
@@ -33,10 +38,10 @@ namespace CCS.Areas.Sales.Controllers
         public Ics_comtBLL comt_BLL { get; set; }
         [Dependency]
         public Ics_codlBLL codl_BLL { get; set; }
-        [Dependency]
-        public IcustomerBLL cust_BLL { get; set; }
-        [Dependency]
-        public IEMPNOBLL empno_BLL { get; set; }
+        //[Dependency]
+        //public IcustomerBLL cust_BLL { get; set; }
+        //[Dependency]
+        //public IEMPNOBLL empno_BLL { get; set; }
 
         // GET: Sales/SAL01
         [SupportFilter]
@@ -286,23 +291,8 @@ namespace CCS.Areas.Sales.Controllers
         public JsonResult GetCustList(String queryStr)
         {
 
-            List<customerModel> list = cust_BLL.GetList(queryStr);
-            var model = (from r in list
-                         select new customerModel()
-                         {
-                             CS_NO = r.CS_NO,
-                             SHORT_NM = r.SHORT_NM,
-                             FULL_NM = r.FULL_NM,
-                             ADDR_IVC = r.ADDR_IVC,
-                             CONTACTER = r.CONTACTER,
-                             TEL_NO = r.TEL_NO,
-                             FAX_NO = r.FAX_NO
-
-                         }).ToArray();
-
-            //var model = ccsService.GetCustList("");
-
-            return Json(model, JsonRequestBehavior.AllowGet);
+            List<customerModel> list = dls.GetCustList(queryStr).ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
 
         }
         #endregion
@@ -313,17 +303,8 @@ namespace CCS.Areas.Sales.Controllers
         public JsonResult GetEmpList(String queryStr)
         {
             queryStr = "C_COP";
-            List<empnoModel> list = empno_BLL.GetList(queryStr);
-            var model = (from r in list
-                         select new empnoModel()
-                         {
-
-                             EMP_NO = r.EMP_NO,
-                             EMP_NM = r.EMP_NM,
-                             DEPM_NO = r.DEPM_NO
-
-                         }).ToArray();
-            return Json(model, JsonRequestBehavior.AllowGet);
+            var list = dls.GetEmpList(queryStr);
+            return Json(list, JsonRequestBehavior.AllowGet);
 
         }
         #endregion

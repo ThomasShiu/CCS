@@ -66,6 +66,8 @@ namespace CCS.Models.WIR
         [Display(Name = "備註")]
         public string REMARK { get; set; }
 
+        [Display(Name = "結案碼")]
+        public string C_CLS { get; set; }
 
         [Display(Name = "EXC_INSDBID")]
         public string EXC_INSDBID { get; set; }

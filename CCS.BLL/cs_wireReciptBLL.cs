@@ -44,6 +44,7 @@ namespace CCS.BLL
                                                           Id = r.Id,
                                                           MO_VCH_NO = r.MO_VCH_NO,
                                                           WIRE_ID = r.WIRE_ID,
+                                                          WEIGHT = r.WEIGHT.Value,
                                                           REC_DATE = r.REC_DATE.Value,
                                                           REC_EMP = r.REC_EMP,
                                                           EXC_INSDBID = r.EXC_INSDBID,
@@ -71,6 +72,7 @@ namespace CCS.BLL
                 entity.Id = model.Id;
                 entity.MO_VCH_NO = model.MO_VCH_NO;
                 entity.WIRE_ID = model.WIRE_ID;
+                entity.WEIGHT = model.WEIGHT;
                 entity.REC_DATE = model.REC_DATE;
                 entity.REC_EMP = model.REC_EMP;
                 entity.EXC_INSDBID = model.EXC_INSDBID;
@@ -162,6 +164,7 @@ namespace CCS.BLL
                 entity.Id = model.Id;
                 entity.MO_VCH_NO = model.MO_VCH_NO;
                 entity.WIRE_ID = model.WIRE_ID;
+                entity.WEIGHT = model.WEIGHT;
                 entity.REC_DATE = model.REC_DATE;
                 entity.REC_EMP = model.REC_EMP;
                 entity.EXC_INSDBID = model.EXC_INSDBID;
@@ -208,6 +211,7 @@ namespace CCS.BLL
                 model.Id = entity.Id;
                 model.MO_VCH_NO = entity.MO_VCH_NO;
                 model.WIRE_ID = entity.WIRE_ID;
+                model.WEIGHT = entity.WEIGHT.Value;
                 model.REC_DATE = entity.REC_DATE.Value;
                 model.REC_EMP = entity.REC_EMP;
                 model.EXC_INSDBID = entity.EXC_INSDBID;

@@ -33,8 +33,11 @@
         <EntityTypeShape EntityType="CCSModel1.CS_MACHINE" Width="1.5" PointX="16.375" PointY="7.75" />
         <EntityTypeShape EntityType="CCSModel1.CS_PROCESS" Width="1.5" PointX="16.375" PointY="10.75" />
         <EntityTypeShape EntityType="CCSModel1.CS_PROCESS_SET" Width="1.5" PointX="18.375" PointY="0.75" />
-        <EntityTypeShape EntityType="CCSModel1.CS_WIP_F" Width="1.5" PointX="18.375" PointY="3.75" />
-        <EntityTypeShape EntityType="CCSModel1.CS_WIRE_RECIPIENT" Width="1.5" PointX="18.375" PointY="9.75" />
+        <EntityTypeShape EntityType="CCSModel1.CS_WIRE_RECIPIENT" Width="1.75" PointX="18.375" PointY="9.75" />
+        <EntityTypeShape EntityType="CCSModel1.CS_WIRES_JOURNAL" Width="1.5" PointX="18.375" PointY="3.75" />
+        <EntityTypeShape EntityType="CCSModel1.CS_WIRES_DD" Width="1.5" PointX="12.375" PointY="19.75" />
+        <EntityTypeShape EntityType="CCSModel1.CS_ITEMSTK" Width="1.5" PointX="20.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CCSModel1.CS_WIP_F" Width="1.5" PointX="18.375" PointY="14.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

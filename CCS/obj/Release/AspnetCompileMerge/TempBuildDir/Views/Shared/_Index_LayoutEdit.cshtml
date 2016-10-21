@@ -36,8 +36,14 @@
           var y = date.getFullYear();
           var m = date.getMonth() + 1;
           var d = date.getDate();
+
+          var s = date.getSeconds();
+          var mi = date.getMinutes();
+          var h = date.getHours();
+
           return y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d);
       }
+
       function myparser(s) {
           if (!s) return new Date();
           var ss = (s.split('-'));
@@ -46,6 +52,26 @@
           var d = parseInt(ss[2], 10);
           if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
               return new Date(y, m - 1, d);
+          } else {
+              return new Date();
+          }
+      }
+
+      function myformatter2(date) {
+          var y = date.getFullYear();
+          var m = date.getMonth() + 1;
+          var d = date.getDate();
+
+          var s = date.getSeconds();
+          var mi = date.getMinutes();
+          var h = date.getHours();
+
+          return y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d) + ' ' + (h < 10 ? ('0' + h) : h) + ':' + (mi < 10 ? ('0' + mi) : mi);
+      }
+      function myparser2(s) {
+          var t = Date.parse(s);
+          if (!isNaN(t)) {
+              return new Date(t);
           } else {
               return new Date();
           }

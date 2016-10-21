@@ -488,7 +488,7 @@
                               <Value>=Fields!PRC.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
-                                <Format>#,0.00;(#,0.00)</Format>
+                                <Format>#,0.000;(#,0.000)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1052,7 +1052,7 @@
   <Width>7.90526in</Width>
   <Page>
     <PageHeader>
-      <Height>4.92125cm</Height>
+      <Height>4.5773cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <ReportItems>
         <Textbox Name="ExecutionTime">
@@ -1066,6 +1066,7 @@
                   <Style>
                     <FontFamily>標楷體</FontFamily>
                     <FontSize>11pt</FontSize>
+                    <Format>g</Format>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1075,9 +1076,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
-          <Top>0.68474cm</Top>
-          <Left>2.57937cm</Left>
-          <Height>0.56472cm</Height>
+          <Top>3.16941cm</Top>
+          <Left>15.34457cm</Left>
+          <Height>0.6cm</Height>
           <Width>4.4173cm</Width>
           <Style>
             <Border>
@@ -1141,10 +1142,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>VCH_NO</rd:DefaultName>
-          <Top>1.46113cm</Top>
+          <Top>1.01663cm</Top>
           <Left>2.57937cm</Left>
           <Height>0.56472cm</Height>
-          <Width>3.26729cm</Width>
+          <Width>4.4173cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -1174,10 +1175,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>CS_NO</rd:DefaultName>
-          <Top>2.20224cm</Top>
+          <Top>1.75774cm</Top>
           <Left>2.57937cm</Left>
           <Height>0.56472cm</Height>
-          <Width>3.26729cm</Width>
+          <Width>4.4173cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
@@ -1207,10 +1208,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>CS_NM</rd:DefaultName>
-          <Top>2.94335cm</Top>
+          <Top>2.49885cm</Top>
           <Left>2.57937cm</Left>
           <Height>0.56472cm</Height>
-          <Width>3.26729cm</Width>
+          <Width>4.4173cm</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
@@ -1240,10 +1241,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>TO_ADDR</rd:DefaultName>
-          <Top>3.61391cm</Top>
+          <Top>3.16941cm</Top>
           <Left>2.57937cm</Left>
           <Height>0.6cm</Height>
-          <Width>11.25646cm</Width>
+          <Width>10.32694cm</Width>
           <ZIndex>5</ZIndex>
           <Style>
             <Border>
@@ -1273,10 +1274,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>REMK</rd:DefaultName>
-          <Top>4.31974cm</Top>
+          <Top>3.87524cm</Top>
           <Left>2.57937cm</Left>
           <Height>0.6cm</Height>
-          <Width>11.25646cm</Width>
+          <Width>10.32694cm</Width>
           <ZIndex>6</ZIndex>
           <Style>
             <Border>
@@ -1306,7 +1307,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>VCH_DT</rd:DefaultName>
-          <Top>1.46113cm</Top>
+          <Top>1.01663cm</Top>
           <Left>9.74833cm</Left>
           <Height>0.6cm</Height>
           <Width>3.51703cm</Width>
@@ -1339,7 +1340,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>WAHO_NO</rd:DefaultName>
-          <Top>2.23752cm</Top>
+          <Top>1.75774cm</Top>
           <Left>9.74833cm</Left>
           <Height>0.6cm</Height>
           <Width>3.51703cm</Width>
@@ -1372,7 +1373,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>EMP_NAME</rd:DefaultName>
-          <Top>1.46113cm</Top>
+          <Top>1.01663cm</Top>
           <Left>16.87724cm</Left>
           <Height>0.6cm</Height>
           <Width>2.88463cm</Width>
@@ -1405,8 +1406,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox35</rd:DefaultName>
-          <Top>0.68474cm</Top>
-          <Left>0.3175cm</Left>
+          <Top>3.16941cm</Top>
+          <Left>13.0827cm</Left>
           <Height>0.6cm</Height>
           <Width>2.26188cm</Width>
           <ZIndex>10</ZIndex>
@@ -1438,7 +1439,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox35</rd:DefaultName>
-          <Top>1.46113cm</Top>
+          <Top>1.01663cm</Top>
           <Left>0.3175cm</Left>
           <Height>0.6cm</Height>
           <Width>2.26187cm</Width>
@@ -1471,7 +1472,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox35</rd:DefaultName>
-          <Top>2.20224cm</Top>
+          <Top>1.75774cm</Top>
           <Left>0.3175cm</Left>
           <Height>0.6cm</Height>
           <Width>2.26187cm</Width>
@@ -1504,7 +1505,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox35</rd:DefaultName>
-          <Top>2.94335cm</Top>
+          <Top>2.49885cm</Top>
           <Left>0.3175cm</Left>
           <Height>0.6cm</Height>
           <Width>2.26187cm</Width>
@@ -1537,7 +1538,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox35</rd:DefaultName>
-          <Top>3.61391cm</Top>
+          <Top>3.16941cm</Top>
           <Left>0.3175cm</Left>
           <Height>0.6cm</Height>
           <Width>2.26187cm</Width>
@@ -1570,7 +1571,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox35</rd:DefaultName>
-          <Top>4.31974cm</Top>
+          <Top>3.87524cm</Top>
           <Left>0.3175cm</Left>
           <Height>0.6cm</Height>
           <Width>2.26187cm</Width>
@@ -1603,7 +1604,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox35</rd:DefaultName>
-          <Top>1.46113cm</Top>
+          <Top>1.01663cm</Top>
           <Left>7.42063cm</Left>
           <Height>0.6cm</Height>
           <Width>2.23541cm</Width>
@@ -1636,7 +1637,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox35</rd:DefaultName>
-          <Top>2.26646cm</Top>
+          <Top>1.75774cm</Top>
           <Left>7.42063cm</Left>
           <Height>0.6cm</Height>
           <Width>2.23541cm</Width>
@@ -1669,10 +1670,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox35</rd:DefaultName>
-          <Top>1.46113cm</Top>
+          <Top>1.01663cm</Top>
           <Left>14.52375cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.28833cm</Width>
+          <Width>2.23604cm</Width>
           <ZIndex>18</ZIndex>
           <Style>
             <Border>
@@ -1702,10 +1703,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox35</rd:DefaultName>
-          <Top>2.26646cm</Top>
+          <Top>1.75774cm</Top>
           <Left>14.52375cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.31821cm</Width>
+          <Width>2.23604cm</Width>
           <ZIndex>19</ZIndex>
           <Style>
             <Border>
@@ -1732,7 +1733,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>CURRENCY</rd:DefaultName>
-          <Top>2.23752cm</Top>
+          <Top>1.75774cm</Top>
           <Left>16.87724cm</Left>
           <Height>0.6cm</Height>
           <Width>2.88463cm</Width>

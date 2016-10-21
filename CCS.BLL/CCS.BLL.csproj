@@ -72,6 +72,7 @@
     <Compile Include="Core\ExceptionHander.cs" />
     <Compile Include="cs_actionlogBLL.cs" />
     <Compile Include="cs_codlBLL.cs" />
+    <Compile Include="cs_itemstkBLL.cs" />
     <Compile Include="cs_momtBLL.cs" />
     <Compile Include="cs_syslogBLL.cs" />
     <Compile Include="cs_comtBLL.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="cs_wipfBLL .cs" />
     <Compile Include="cs_wireReciptBLL.cs" />
     <Compile Include="cs_wiresBLL.cs" />
+    <Compile Include="cs_wires_journalBLL.cs" />
     <Compile Include="customerBLL.cs" />
     <Compile Include="cs_sysmoduleoperateBLL .cs" />
     <Compile Include="cs_sysuserBLL .cs" />

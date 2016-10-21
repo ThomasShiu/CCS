@@ -38,6 +38,9 @@ namespace CCS.BLL
                     case "C_INV":
                         queryData = m_Rep.GetList(db).Where(a => a.C_INV == "Y");
                         break;
+                    case "C_SFC":
+                        queryData = m_Rep.GetList(db).Where(a => a.C_SFC == "Y");
+                        break;
                     default:
                         queryData = m_Rep.GetList(db).Where(a => a.EMP_NM.Contains(queryStr) || a.EMP_NO.Contains(queryStr));
                         break;

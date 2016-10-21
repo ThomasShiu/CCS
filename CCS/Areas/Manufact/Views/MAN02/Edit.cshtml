@@ -1,0 +1,303 @@
+﻿@model CCS.Models.MAN.cs_wipfModel
+@using CCS.Common;
+@using CCS.Models.SYS;
+@using CCS.Core;
+@{
+    ViewBag.Title = "修改-成型生產記錄";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+
+<div class="mvctool bgb">
+    @Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)
+    @Html.ToolButton("btnReturn", "icon-return", "返回", false)
+</div>
+<div style="height:35px"></div>
+@using (Html.BeginForm())
+{
+    <div class="alert alert-danger">
+        @Html.ValidationSummary(false)
+    </div>
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.EXC_INSDATE)
+    @Html.HiddenFor(model => model.EXC_INSDBID)
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.LOT_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.LOT_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.LOT_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.HEAT_NO)：
+                </td>
+                <td style="width:310px">
+                    <input id="HEAT_NO" name="HEAT_NO" class="easyui-textbox" data-options="" style="" value="@Model.HEAT_NO" />
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.HEAT_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.KEG_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.KEG_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.KEG_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PRCS_TY)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.PRCS_TY)*@
+                    <select id="PRCS_TY" name="PRCS_TY" class="" style="width:100%;">
+                        <option value="廠內" @(Model.PRCS_TY == "廠內" ? "selected=selected" : "") >廠內</option>
+                        <option value="委外" @(Model.PRCS_TY == "委外" ? "selected=selected" : "")>委外</option>
+                    </select>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PRCS_TY)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PRCS_NO)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.PRCS_NO)*@
+                    <select id="PRCS_NO" name="PRCS_NO" class="easyui-combobox" style="width:100%;">
+                        <option value="F">成型打頭</option>
+                    </select>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PRCS_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.EMP_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.EMP_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.EMP_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.EMP_NM)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.EMP_NM)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.EMP_NM)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.MACHINE)：
+                </td>
+                <td style="width:310px">
+                    <select id="MACHINE" name="MACHINE" class="easyui-combobox" style="width:100%;">
+                        <option value="---">---</option>
+                        <option value="BF-01" @(Model.MACHINE == "BF-01" ? "selected=selected" : "")>BF-01</option>
+                        <option value="BF-02" @(Model.MACHINE == "BF-02" ? "selected=selected" : "")>BF-02</option>
+                        <option value="BF-03" @(Model.MACHINE == "BF-03" ? "selected=selected" : "")>BF-03</option>
+                        <option value="BF-04" @(Model.MACHINE == "BF-04" ? "selected=selected" : "")>BF-04</option>
+                        <option value="BF-05" @(Model.MACHINE == "BF-05" ? "selected=selected" : "")>BF-05</option>
+                        <option value="BF-06" @(Model.MACHINE == "BF-06" ? "selected=selected" : "")>BF-06</option>
+                        <option value="BF-07" @(Model.MACHINE == "BF-07" ? "selected=selected" : "")>BF-07</option>
+                    </select>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.MACHINE)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.BDT)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.BDT)*@
+
+                    <input id="BDT" name="BDT" class="easyui-datetimebox" data-options="formatter:myformatter2,parser:myparser2" style="width: 100%;" value="@(Model.BDT.HasValue?Model.BDT.Value.ToString("yyyy-MM-dd HH:mm"):null)" />
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.BDT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.EDT)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.EDT)*@
+                    <input id="EDT" name="EDT" class="easyui-datetimebox" data-options="formatter:myformatter2,parser:myparser2" style="width: 100%;" value="@(Model.EDT.HasValue?Model.EDT.Value.ToString("yyyy-MM-dd HH:mm"):null)" />
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.EDT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.WEIGHT)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.WEIGHT)*@
+                    <input id="WEIGHT" name="WEIGHT" class="" data-options="" style="width: 100%;" value="@Model.WEIGHT" />
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.WEIGHT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.UNIT_WT)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.UNIT_WT)*@
+                    <input id="UNIT_WT" name="UNIT_WT" class="" data-options="" style="width: 100%;" value="@Model.UNIT_WT" />
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.UNIT_WT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.COUNT_QTY)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.COUNT_QTY)*@
+                    <input id="COUNT_QTY" name="COUNT_QTY" class="" data-options="" style="width: 100%;" value="@Model.COUNT_QTY" />
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.COUNT_QTY)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.END_CODE)：
+                </td>
+                <td style="width:310px">
+                    @Html.CheckBoxFor(model => model.END_CODE)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.END_CODE)</td>
+            </tr>
+
+        </tbody>
+    </table>
+}
+
+@section scripts{
+<script src="~/Scripts/math_func.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        // 下拉選單，製令
+        $('#LOT_NO').combogrid({
+            panelWidth: 750,
+            idField: 'VCH_NO',
+            textField: 'VCH_NO',
+            url: 'GetMomtList',
+            method: 'get',
+            columns: [[
+                { field: 'Id', title: '', width: 80, hidden: true },
+                { field: 'VCH_NO', title: '工令單號', width: 70, sortable: true },
+                { field: 'VCH_DT', title: '工令日期', width: 60, sortable: true },
+                { field: 'ITEM_NO', title: '品號', width: 100, sortable: true },
+                { field: 'PLAN_QTY', title: '預計產量', width: 50, sortable: true },
+                { field: 'HEAD_MARK', title: '頭部記號', width: 50, sortable: true },
+                { field: 'RAWMTRL', title: '材質', width: 50, sortable: true },
+                { field: 'DIAMETER', title: '線徑', width: 50, align: 'right' },
+                { field: 'HEAT_NO', title: '爐號', width: 50 }
+            ]],
+            fitColumns: true,
+            onSelect: function (rec) {
+                //getGridValue();
+                var grid = $("#LOT_NO").combogrid("grid");//取得表格物件
+                var row = grid.datagrid('getSelected');//取得資料列
+                //$("#CO_NO").val(row.VCH_NO);
+                //$("#CO_SR").val(row.VCH_SR);
+                //$("#ITEM_NO").val(row.ITEM_NO);
+                //$("#PLAN_QTY").val(row.QTY);
+            }
+        });
+
+
+        // 下拉選單，員工
+        $('#EMP_NO').combogrid({
+            panelWidth: 600,
+            idField: 'EMP_NO',
+            textField: 'EMP_NO',
+            url: 'GetEmpList',
+            method: 'get',
+            columns: [[
+            { field: 'EMP_NO', title: '員工編號', width: 50 },
+            { field: 'EMP_NM', title: '姓名', width: 60 },
+            { field: 'DEPM_NO', title: '部門編號', width: 80 }
+            ]],
+            fitColumns: true,
+            onSelect: function (rec) {
+                //getGridValue();
+                var grid = $("#EMP_NO").combogrid("grid");//取得表格物件
+                var row = grid.datagrid('getSelected');//取得資料列
+                $("#EMP_NM").val(row.EMP_NM);
+            }
+
+        });
+
+        $("#WEIGHT").change(function () {
+            getAmt();
+        });
+        $("#UNIT_WT").change(function () {
+            getAmt();
+        });
+        function getAmt() {
+            //alert("Handler for .change() called.");
+            var wt = $("#WEIGHT").val();
+            var uwt = $("#UNIT_WT").val();
+
+            if (isNaN(wt)) {
+                alert("請輸入數字!");
+                //清空字串
+                $("#WEIGHT").val('');
+            }
+            if (isNaN(uwt)) {
+                alert("請輸入數字!");
+                //清空字串
+                $("#UNIT_WT").val('');
+            }
+
+            if (wt != "" && uwt != "") {
+                wt = parseFloat(wt)*1000;
+                uwt = parseFloat(uwt)
+
+                var ttlqty = (wt / uwt);
+                //取小數點後 2 位數
+                //ttlamt = ttlamt.toFixed(2);
+
+                $("#COUNT_QTY").val(accDiv(wt, uwt).toFixed());
+            }
+        }
+    });
+
+$(function () {
+    $("#btnSave").click(function () {
+        if ($("form").valid()) {
+            $.ajax({
+                url: "@Url.Action("Edit")",
+                type: "Post",
+                data: $("form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data.type == 1) {
+                        window.parent.frameReturnByMes(data.message);
+                        window.parent.frameReturnByReload(true);
+                        window.parent.frameReturnByClose()
+                    }
+                    else {
+                        window.parent.frameReturnByMes(data.message);
+                    }
+                }
+            });
+        }
+        return false;
+    });
+    $("#btnReturn").click(function () {
+         window.parent.frameReturnByClose();
+    });
+});
+    </script>
+
+}

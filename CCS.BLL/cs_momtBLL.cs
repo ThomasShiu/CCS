@@ -21,19 +21,25 @@ namespace CCS.BLL
 
         public List<cs_momtModel> GetList(ref GridPager pager, string queryStr)
         {
+            try
+            {
 
-            IQueryable<CS_MOMT> queryData = null;
-            if (!string.IsNullOrWhiteSpace(queryStr))
-            {
-                queryData = m_Rep.GetList(db).Where(a => a.VCH_NO.Contains(queryStr) || a.ITEM_NO.Contains(queryStr));
+                IQueryable<CS_MOMT> queryData = null;
+                if (!string.IsNullOrWhiteSpace(queryStr))
+                {
+                    queryData = m_Rep.GetList(db).Where(a => a.VCH_NO.Contains(queryStr) || a.ITEM_NO.Contains(queryStr));
+                }
+                else
+                {
+                    queryData = m_Rep.GetList(db);
+                }
+                pager.totalRows = queryData.Count();
+                queryData = LinqHelper.SortingAndPaging(queryData, pager.sort, pager.order, pager.page, pager.rows);
+                return CreateModelList(ref queryData);
             }
-            else
-            {
-                queryData = m_Rep.GetList(db);
+            catch(Exception ex) {
+                throw ex;
             }
-            pager.totalRows = queryData.Count();
-            queryData = LinqHelper.SortingAndPaging(queryData, pager.sort, pager.order, pager.page, pager.rows);
-            return CreateModelList(ref queryData);
         }
         private List<cs_momtModel> CreateModelList(ref IQueryable<CS_MOMT> queryData)
         {
@@ -61,7 +67,9 @@ namespace CCS.BLL
                                                 HEAT_NO = r.HEAT_NO,
                                                 PLATING = r.PLATING,
                                                 PRCS_NO = r.PRCS_NO,
+                                                MACHINE = r.MACHINE,
                                                 REMK = r.REMK,
+                                                C_CLS = r.C_CLS,
                                                 EXC_INSDBID = r.EXC_INSDBID,
                                                 EXC_INSDATE = r.EXC_INSDATE.Value,
                                                 EXC_UPDDBID = r.EXC_UPDDBID,
@@ -104,7 +112,9 @@ namespace CCS.BLL
                 entity.HEAT_NO = model.HEAT_NO;
                 entity.PLATING = model.PLATING;
                 entity.PRCS_NO = model.PRCS_NO;
+                entity.MACHINE = model.MACHINE;
                 entity.REMK = model.REMK;
+                entity.C_CLS = model.C_CLS;
                 entity.EXC_INSDBID = model.EXC_INSDBID;
                 entity.EXC_INSDATE = model.EXC_INSDATE;
                 entity.EXC_UPDDBID = model.EXC_UPDDBID;
@@ -211,7 +221,9 @@ namespace CCS.BLL
                 entity.HEAT_NO = model.HEAT_NO;
                 entity.PLATING = model.PLATING;
                 entity.PRCS_NO = model.PRCS_NO;
+                entity.MACHINE = model.MACHINE;
                 entity.REMK = model.REMK;
+                entity.C_CLS = model.C_CLS;
                 entity.EXC_UPDDBID = model.EXC_UPDDBID;
                 entity.EXC_UPDDATE = model.EXC_UPDDATE;
 
@@ -268,7 +280,9 @@ namespace CCS.BLL
                 entity.HEAT_NO = model.HEAT_NO;
                 model.PLATING = entity.PLATING;
                 model.PRCS_NO = entity.PRCS_NO;
+                model.MACHINE = entity.MACHINE;
                 model.REMK = entity.REMK;
+                model.C_CLS = entity.C_CLS;
                 model.EXC_INSDBID = entity.EXC_INSDBID;
                 model.EXC_INSDATE = entity.EXC_INSDATE.Value;
                 model.EXC_UPDDBID = entity.EXC_UPDDBID;

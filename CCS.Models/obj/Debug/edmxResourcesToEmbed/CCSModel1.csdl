@@ -529,8 +529,11 @@
     <EntitySet Name="CS_MACHINE" EntityType="CCSModel1.CS_MACHINE" />
     <EntitySet Name="CS_PROCESS" EntityType="CCSModel1.CS_PROCESS" />
     <EntitySet Name="CS_PROCESS_SET" EntityType="CCSModel1.CS_PROCESS_SET" />
-    <EntitySet Name="CS_WIP_F" EntityType="CCSModel1.CS_WIP_F" />
     <EntitySet Name="CS_WIRE_RECIPIENT" EntityType="CCSModel1.CS_WIRE_RECIPIENT" />
+    <EntitySet Name="CS_WIRES_JOURNAL" EntityType="CCSModel1.CS_WIRES_JOURNAL" />
+    <EntitySet Name="CS_WIRES_DD" EntityType="CCSModel1.CS_WIRES_DD" />
+    <EntitySet Name="CS_ITEMSTK" EntityType="CCSModel1.CS_ITEMSTK" />
+    <EntitySet Name="CS_WIP_F" EntityType="CCSModel1.CS_WIP_F" />
   </EntityContainer>
   <ComplexType Name="SP_SYS_GetRightOperate_Result">
     <Property Type="String" Name="KeyCode" Nullable="false" MaxLength="200" />
@@ -885,6 +888,8 @@
     <Property Name="EXC_ISLOCKED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
     <Property Name="EXC_COMPANY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="CS_WIRE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="C_CLS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CS_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="CS_WIP">
     <Key>
@@ -946,6 +951,9 @@
     <Property Name="EXC_COMPANY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="HEAT_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="THREAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MACHINE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="C_CLS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="PRCS_TY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
   </EntityType>
   <ComplexType Name="SP_PROCESS_SET_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />
@@ -985,37 +993,11 @@
     <Property Name="P_SET_NM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="SORT" Type="Int32" />
   </EntityType>
-  <EntityType Name="CS_WIP_F">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="LOT_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CTRL_NO" Type="Int32" Nullable="false" />
-    <Property Name="KEG_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PRCS_TY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PRCS_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="EMP_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="EMP_NM" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="BDT" Type="DateTime" Precision="0" />
-    <Property Name="EDT" Type="DateTime" Precision="0" />
-    <Property Name="WEIGHT" Type="Int32" />
-    <Property Name="UNIT_WT" Type="Decimal" Precision="5" Scale="2" />
-    <Property Name="COUNT_QTY" Type="Int32" />
-    <Property Name="END_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-    <Property Name="EXC_INSDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
-    <Property Name="EXC_INSDATE" Type="DateTime" Precision="0" />
-    <Property Name="EXC_UPDDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
-    <Property Name="EXC_UPDDATE" Type="DateTime" Precision="3" />
-    <Property Name="EXC_SYSOWNR" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-    <Property Name="EXC_ISLOCKED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-    <Property Name="EXC_COMPANY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="CS_WIRE_RECIPIENT">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="MO_VCH_NO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="WIRE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="REC_DATE" Type="DateTime" Precision="0" />
@@ -1027,5 +1009,93 @@
     <Property Name="EXC_SYSOWNR" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
     <Property Name="EXC_ISLOCKED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
     <Property Name="EXC_COMPANY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="WEIGHT" Type="Int32" />
+    <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CS_WIRES_JOURNAL">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WIRE_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TRANS_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="TRANS_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="WEIGHT" Type="Int32" />
+    <Property Name="EXC_INSDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_INSDATE" Type="DateTime" Precision="0" />
+    <Property Name="EXC_UPDDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_UPDDATE" Type="DateTime" Precision="0" />
+    <Property Name="EXC_SYSOWNR" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_ISLOCKED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_COMPANY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CS_WIRES_DD">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WIRE_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="WEIGHT" Type="Int32" Nullable="false" />
+    <Property Name="END_CODE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_INSDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_INSDATE" Type="DateTime" Precision="0" />
+    <Property Name="EXC_UPDDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_UPDDATE" Type="DateTime" Precision="0" />
+    <Property Name="EXC_SYSOWNR" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_ISLOCKED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_COMPANY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CS_ITEMSTK">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ITEM_NO" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="WAHO_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LOT_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CTRL_NO" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="KEG_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMP_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="EMP_NM" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="WEIGHT" Type="Int32" />
+    <Property Name="UNIT_WT" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="COUNT_QTY" Type="Int32" />
+    <Property Name="EXC_INSDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_INSDATE" Type="DateTime" Precision="0" />
+    <Property Name="EXC_UPDDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_UPDDATE" Type="DateTime" Precision="3" />
+    <Property Name="EXC_SYSOWNR" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_ISLOCKED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_COMPANY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CS_WIP_F">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LOT_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KEG_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PRCS_TY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PRCS_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="EMP_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="EMP_NM" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BDT" Type="DateTime" Precision="0" />
+    <Property Name="EDT" Type="DateTime" Precision="0" />
+    <Property Name="WEIGHT" Type="Int32" />
+    <Property Name="UNIT_WT" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="COUNT_QTY" Type="Int32" />
+    <Property Name="NEXT" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="END_CODE" Type="Boolean" Nullable="false" />
+    <Property Name="EXC_INSDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_INSDATE" Type="DateTime" Precision="0" />
+    <Property Name="EXC_UPDDBID" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_UPDDATE" Type="DateTime" Precision="3" />
+    <Property Name="EXC_SYSOWNR" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_ISLOCKED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="EXC_COMPANY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="HEAT_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MACHINE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

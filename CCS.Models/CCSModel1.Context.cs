@@ -51,8 +51,11 @@ namespace CCS.Models
         public virtual DbSet<CS_MACHINE> CS_MACHINE { get; set; }
         public virtual DbSet<CS_PROCESS> CS_PROCESS { get; set; }
         public virtual DbSet<CS_PROCESS_SET> CS_PROCESS_SET { get; set; }
-        public virtual DbSet<CS_WIP_F> CS_WIP_F { get; set; }
         public virtual DbSet<CS_WIRE_RECIPIENT> CS_WIRE_RECIPIENT { get; set; }
+        public virtual DbSet<CS_WIRES_JOURNAL> CS_WIRES_JOURNAL { get; set; }
+        public virtual DbSet<CS_WIRES_DD> CS_WIRES_DD { get; set; }
+        public virtual DbSet<CS_ITEMSTK> CS_ITEMSTK { get; set; }
+        public virtual DbSet<CS_WIP_F> CS_WIP_F { get; set; }
     
         public virtual int SP_SYS_ClearUnusedRIGHTOPERATE()
         {

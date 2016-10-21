@@ -25,11 +25,11 @@ namespace CCS.BLL
             IQueryable<ITEM> queryData = null;
             if (!string.IsNullOrWhiteSpace(queryStr))
             {
-                queryData = m_Rep.GetList(db).Where(a => a.ITEM_NO.Contains(queryStr) || a.ITEM_NM.Contains(queryStr) || a.ITEM_SP.Contains(queryStr));
+                queryData = m_Rep.GetList(db).Where(a => a.ITEM_NO.Contains(queryStr) || a.ITEM_NM.Contains(queryStr) || a.ITEM_SP.Contains(queryStr) && a.ITEM_NO.StartsWith("6"));
             }
             else
             {
-                queryData = m_Rep.GetList(db);
+                queryData = m_Rep.GetList(db).Where(a => a.ITEM_NO.StartsWith("6"));  // 只列出成品
             }
             pager.totalRows = queryData.Count();
             queryData = LinqHelper.SortingAndPaging(queryData, pager.sort, pager.order, pager.page, pager.rows);

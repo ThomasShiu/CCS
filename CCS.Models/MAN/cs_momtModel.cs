@@ -39,6 +39,9 @@ namespace CCS.Models.MAN
         [Display(Name = "品號")]
         public string ITEM_NO { get; set; }
 
+        [Display(Name = "品名")]
+        public string ITEM_NM { get; set; }
+
 
         [Display(Name = "圖號")]
         public string IMG_NO { get; set; }
@@ -78,9 +81,14 @@ namespace CCS.Models.MAN
         [Display(Name = "預計產量")]
         public int PLAN_QTY { get; set; }
 
+        [Display(Name = "指定機台")]
+        public string MACHINE { get; set; }
+
         [Display(Name = "備註")]
         public string REMK { get; set; }
 
+        [Display(Name = "結案碼")]
+        public string C_CLS { get; set; }
 
         [Display(Name = "EXC_INSDBID")]
         public string EXC_INSDBID { get; set; }

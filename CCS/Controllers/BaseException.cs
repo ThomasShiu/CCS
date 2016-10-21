@@ -9,7 +9,7 @@ namespace CCS.Controllers
 {
     public class BaseException
     {
-        #region 变量
+        #region 變數
         private string exceptionMessage;
         private string exceptionName;
         private string innerExceptionMessage;
@@ -22,7 +22,7 @@ namespace CCS.Controllers
         private string targetSite;
         #endregion
 
-        #region 属性
+        #region 屬性
         public string ErrorPageUrl
         {
             get
@@ -187,7 +187,7 @@ namespace CCS.Controllers
             }
             catch (Exception exception)
             {
-                this.ExceptionMessage = "异常基页出错" + exception.Message;
+                this.ExceptionMessage = "異常基頁出錯" + exception.Message;
             }
         }
 
@@ -250,7 +250,7 @@ namespace CCS.Controllers
             {
                 return stackInfo;
             }
-            strArray = stackInfo.Split(new string[] { "位置", "行号" }, StringSplitOptions.RemoveEmptyEntries);
+            strArray = stackInfo.Split(new string[] { "位置", "行號" }, StringSplitOptions.RemoveEmptyEntries);
             if (strArray.Length >= 3)
             {
                 stackInfo = strArray[1];
@@ -270,7 +270,7 @@ namespace CCS.Controllers
             {
                 return stackInfo;
             }
-            strArray = stackInfo.Split(new string[] { "行号" }, StringSplitOptions.RemoveEmptyEntries);
+            strArray = stackInfo.Split(new string[] { "行號" }, StringSplitOptions.RemoveEmptyEntries);
             if (strArray.Length >= 2)
             {
                 stackInfo = strArray[1].Trim();

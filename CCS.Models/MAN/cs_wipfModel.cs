@@ -15,41 +15,44 @@ namespace CCS.Models.MAN
         [Display(Name = "批號")]
         public string LOT_NO { get; set; }
 
-        [Display(Name = "控制碼")]
-        public int CTRL_NO { get; set; }
+        [Display(Name = "爐號")]
+        public string HEAT_NO { get; set; }
 
         [Display(Name = "桶號")]
         public string KEG_NO { get; set; }
 
-        [Display(Name = "PRCS_TY")]
+        [Display(Name = "0:廠內 1:廠外")]
         public string PRCS_TY { get; set; }
 
         [Display(Name = "製程")]
         public string PRCS_NO { get; set; }
 
-        [Display(Name = "EMP_NO")]
+        [Display(Name = "操作人員")]
         public string EMP_NO { get; set; }
 
-        [Display(Name = "EMP_NM")]
+        [Display(Name = "姓名")]
         public string EMP_NM { get; set; }
 
+        [Display(Name = "機台")]
+        public string MACHINE { get; set; }
+
         [Display(Name = "開工時間")]
-        public DateTime BDT { get; set; }
+        public DateTime? BDT { get; set; }
 
         [Display(Name = "完工時間")]
-        public DateTime EDT { get; set; }
+        public DateTime? EDT { get; set; }
 
         [Display(Name = "重量")]
-        public int WEIGHT { get; set; }
+        public int? WEIGHT { get; set; }
 
         [Display(Name = "單支重")]
-        public decimal UNIT_WT { get; set; }
+        public decimal? UNIT_WT { get; set; }
 
         [Display(Name = "換算支數")]
-        public int COUNT_QTY { get; set; }
+        public int? COUNT_QTY { get; set; }
 
         [Display(Name = "尾桶")]
-        public string END_CODE { get; set; }
+        public bool END_CODE { get; set; }
 
         [Display(Name = "EXC_INSDBID")]
         public string EXC_INSDBID { get; set; }

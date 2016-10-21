@@ -28,6 +28,8 @@ namespace CCS.App_Data {
         
         private V_MAN01_01DataTable tableV_MAN01_01;
         
+        private V_WIRE_STOCKDataTable tableV_WIRE_STOCK;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -61,6 +63,9 @@ namespace CCS.App_Data {
                 }
                 if ((ds.Tables["V_MAN01_01"] != null)) {
                     base.Tables.Add(new V_MAN01_01DataTable(ds.Tables["V_MAN01_01"]));
+                }
+                if ((ds.Tables["V_WIRE_STOCK"] != null)) {
+                    base.Tables.Add(new V_WIRE_STOCKDataTable(ds.Tables["V_WIRE_STOCK"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -97,6 +102,16 @@ namespace CCS.App_Data {
         public V_MAN01_01DataTable V_MAN01_01 {
             get {
                 return this.tableV_MAN01_01;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public V_WIRE_STOCKDataTable V_WIRE_STOCK {
+            get {
+                return this.tableV_WIRE_STOCK;
             }
         }
         
@@ -173,6 +188,9 @@ namespace CCS.App_Data {
                 if ((ds.Tables["V_MAN01_01"] != null)) {
                     base.Tables.Add(new V_MAN01_01DataTable(ds.Tables["V_MAN01_01"]));
                 }
+                if ((ds.Tables["V_WIRE_STOCK"] != null)) {
+                    base.Tables.Add(new V_WIRE_STOCKDataTable(ds.Tables["V_WIRE_STOCK"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -218,6 +236,12 @@ namespace CCS.App_Data {
                     this.tableV_MAN01_01.InitVars();
                 }
             }
+            this.tableV_WIRE_STOCK = ((V_WIRE_STOCKDataTable)(base.Tables["V_WIRE_STOCK"]));
+            if ((initTable == true)) {
+                if ((this.tableV_WIRE_STOCK != null)) {
+                    this.tableV_WIRE_STOCK.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -232,6 +256,8 @@ namespace CCS.App_Data {
             base.Tables.Add(this.tableV_ORDERS);
             this.tableV_MAN01_01 = new V_MAN01_01DataTable();
             base.Tables.Add(this.tableV_MAN01_01);
+            this.tableV_WIRE_STOCK = new V_WIRE_STOCKDataTable();
+            base.Tables.Add(this.tableV_WIRE_STOCK);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -243,6 +269,12 @@ namespace CCS.App_Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeV_MAN01_01() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeV_WIRE_STOCK() {
             return false;
         }
         
@@ -306,6 +338,9 @@ namespace CCS.App_Data {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void V_MAN01_01RowChangeEventHandler(object sender, V_MAN01_01RowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void V_WIRE_STOCKRowChangeEventHandler(object sender, V_WIRE_STOCKRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1095,6 +1130,8 @@ namespace CCS.App_Data {
             
             private global::System.Data.DataColumn columnTHREAD;
             
+            private global::System.Data.DataColumn columnMACHINE;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public V_MAN01_01DataTable() {
@@ -1338,6 +1375,14 @@ namespace CCS.App_Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MACHINEColumn {
+                get {
+                    return this.columnMACHINE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1399,7 +1444,8 @@ namespace CCS.App_Data {
                         string SHORT_NM, 
                         System.DateTime PRCV_DT, 
                         string CS_VCH_NO, 
-                        string THREAD) {
+                        string THREAD, 
+                        string MACHINE) {
                 V_MAN01_01Row rowV_MAN01_01Row = ((V_MAN01_01Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         VCH_NO,
@@ -1427,7 +1473,8 @@ namespace CCS.App_Data {
                         SHORT_NM,
                         PRCV_DT,
                         CS_VCH_NO,
-                        THREAD};
+                        THREAD,
+                        MACHINE};
                 rowV_MAN01_01Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowV_MAN01_01Row);
                 return rowV_MAN01_01Row;
@@ -1476,6 +1523,7 @@ namespace CCS.App_Data {
                 this.columnPRCV_DT = base.Columns["PRCV_DT"];
                 this.columnCS_VCH_NO = base.Columns["CS_VCH_NO"];
                 this.columnTHREAD = base.Columns["THREAD"];
+                this.columnMACHINE = base.Columns["MACHINE"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1533,6 +1581,8 @@ namespace CCS.App_Data {
                 base.Columns.Add(this.columnCS_VCH_NO);
                 this.columnTHREAD = new global::System.Data.DataColumn("THREAD", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTHREAD);
+                this.columnMACHINE = new global::System.Data.DataColumn("MACHINE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMACHINE);
                 this.columnVCH_NO.AllowDBNull = false;
                 this.columnVCH_NO.MaxLength = 30;
                 this.columnVCH_DT.AllowDBNull = false;
@@ -1557,6 +1607,7 @@ namespace CCS.App_Data {
                 this.columnPRCV_DT.AllowDBNull = false;
                 this.columnCS_VCH_NO.MaxLength = 20;
                 this.columnTHREAD.MaxLength = 50;
+                this.columnMACHINE.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1643,6 +1694,346 @@ namespace CCS.App_Data {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "V_MAN01_01DataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class V_WIRE_STOCKDataTable : global::System.Data.TypedTableBase<V_WIRE_STOCKRow> {
+            
+            private global::System.Data.DataColumn columnRAWMTRL;
+            
+            private global::System.Data.DataColumn columnHEAT_NO;
+            
+            private global::System.Data.DataColumn columnDIAMETER;
+            
+            private global::System.Data.DataColumn columnPRI_WT;
+            
+            private global::System.Data.DataColumn columnIMPORT;
+            
+            private global::System.Data.DataColumn columnEXPORT;
+            
+            private global::System.Data.DataColumn columnTTLWT;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public V_WIRE_STOCKDataTable() {
+                this.TableName = "V_WIRE_STOCK";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal V_WIRE_STOCKDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected V_WIRE_STOCKDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RAWMTRLColumn {
+                get {
+                    return this.columnRAWMTRL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HEAT_NOColumn {
+                get {
+                    return this.columnHEAT_NO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DIAMETERColumn {
+                get {
+                    return this.columnDIAMETER;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PRI_WTColumn {
+                get {
+                    return this.columnPRI_WT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IMPORTColumn {
+                get {
+                    return this.columnIMPORT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EXPORTColumn {
+                get {
+                    return this.columnEXPORT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TTLWTColumn {
+                get {
+                    return this.columnTTLWT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public V_WIRE_STOCKRow this[int index] {
+                get {
+                    return ((V_WIRE_STOCKRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event V_WIRE_STOCKRowChangeEventHandler V_WIRE_STOCKRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event V_WIRE_STOCKRowChangeEventHandler V_WIRE_STOCKRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event V_WIRE_STOCKRowChangeEventHandler V_WIRE_STOCKRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event V_WIRE_STOCKRowChangeEventHandler V_WIRE_STOCKRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddV_WIRE_STOCKRow(V_WIRE_STOCKRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public V_WIRE_STOCKRow AddV_WIRE_STOCKRow(string RAWMTRL, string HEAT_NO, int DIAMETER, int PRI_WT, int IMPORT, int EXPORT, int TTLWT) {
+                V_WIRE_STOCKRow rowV_WIRE_STOCKRow = ((V_WIRE_STOCKRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        RAWMTRL,
+                        HEAT_NO,
+                        DIAMETER,
+                        PRI_WT,
+                        IMPORT,
+                        EXPORT,
+                        TTLWT};
+                rowV_WIRE_STOCKRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowV_WIRE_STOCKRow);
+                return rowV_WIRE_STOCKRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                V_WIRE_STOCKDataTable cln = ((V_WIRE_STOCKDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new V_WIRE_STOCKDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnRAWMTRL = base.Columns["RAWMTRL"];
+                this.columnHEAT_NO = base.Columns["HEAT_NO"];
+                this.columnDIAMETER = base.Columns["DIAMETER"];
+                this.columnPRI_WT = base.Columns["PRI_WT"];
+                this.columnIMPORT = base.Columns["IMPORT"];
+                this.columnEXPORT = base.Columns["EXPORT"];
+                this.columnTTLWT = base.Columns["TTLWT"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnRAWMTRL = new global::System.Data.DataColumn("RAWMTRL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRAWMTRL);
+                this.columnHEAT_NO = new global::System.Data.DataColumn("HEAT_NO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHEAT_NO);
+                this.columnDIAMETER = new global::System.Data.DataColumn("DIAMETER", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDIAMETER);
+                this.columnPRI_WT = new global::System.Data.DataColumn("PRI_WT", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPRI_WT);
+                this.columnIMPORT = new global::System.Data.DataColumn("IMPORT", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIMPORT);
+                this.columnEXPORT = new global::System.Data.DataColumn("EXPORT", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEXPORT);
+                this.columnTTLWT = new global::System.Data.DataColumn("TTLWT", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTTLWT);
+                this.columnRAWMTRL.ReadOnly = true;
+                this.columnRAWMTRL.MaxLength = 1;
+                this.columnHEAT_NO.ReadOnly = true;
+                this.columnHEAT_NO.MaxLength = 1;
+                this.columnDIAMETER.ReadOnly = true;
+                this.columnPRI_WT.ReadOnly = true;
+                this.columnIMPORT.ReadOnly = true;
+                this.columnEXPORT.ReadOnly = true;
+                this.columnTTLWT.ReadOnly = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public V_WIRE_STOCKRow NewV_WIRE_STOCKRow() {
+                return ((V_WIRE_STOCKRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new V_WIRE_STOCKRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(V_WIRE_STOCKRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.V_WIRE_STOCKRowChanged != null)) {
+                    this.V_WIRE_STOCKRowChanged(this, new V_WIRE_STOCKRowChangeEvent(((V_WIRE_STOCKRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.V_WIRE_STOCKRowChanging != null)) {
+                    this.V_WIRE_STOCKRowChanging(this, new V_WIRE_STOCKRowChangeEvent(((V_WIRE_STOCKRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.V_WIRE_STOCKRowDeleted != null)) {
+                    this.V_WIRE_STOCKRowDeleted(this, new V_WIRE_STOCKRowChangeEvent(((V_WIRE_STOCKRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.V_WIRE_STOCKRowDeleting != null)) {
+                    this.V_WIRE_STOCKRowDeleting(this, new V_WIRE_STOCKRowChangeEvent(((V_WIRE_STOCKRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveV_WIRE_STOCKRow(V_WIRE_STOCKRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                CCS_MainDataSet ds = new CCS_MainDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "V_WIRE_STOCKDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2837,6 +3228,22 @@ namespace CCS.App_Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MACHINE {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_MAN01_01.MACHINEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'V_MAN01_01\' 中資料行 \'MACHINE\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_MAN01_01.MACHINEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFA_NONull() {
                 return this.IsNull(this.tableV_MAN01_01.FA_NOColumn);
             }
@@ -3086,6 +3493,229 @@ namespace CCS.App_Data {
             public void SetTHREADNull() {
                 this[this.tableV_MAN01_01.THREADColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMACHINENull() {
+                return this.IsNull(this.tableV_MAN01_01.MACHINEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMACHINENull() {
+                this[this.tableV_MAN01_01.MACHINEColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class V_WIRE_STOCKRow : global::System.Data.DataRow {
+            
+            private V_WIRE_STOCKDataTable tableV_WIRE_STOCK;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal V_WIRE_STOCKRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableV_WIRE_STOCK = ((V_WIRE_STOCKDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string RAWMTRL {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_WIRE_STOCK.RAWMTRLColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'V_WIRE_STOCK\' 中資料行 \'RAWMTRL\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_WIRE_STOCK.RAWMTRLColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string HEAT_NO {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_WIRE_STOCK.HEAT_NOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'V_WIRE_STOCK\' 中資料行 \'HEAT_NO\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_WIRE_STOCK.HEAT_NOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int DIAMETER {
+                get {
+                    try {
+                        return ((int)(this[this.tableV_WIRE_STOCK.DIAMETERColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'V_WIRE_STOCK\' 中資料行 \'DIAMETER\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_WIRE_STOCK.DIAMETERColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int PRI_WT {
+                get {
+                    try {
+                        return ((int)(this[this.tableV_WIRE_STOCK.PRI_WTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'V_WIRE_STOCK\' 中資料行 \'PRI_WT\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_WIRE_STOCK.PRI_WTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int IMPORT {
+                get {
+                    try {
+                        return ((int)(this[this.tableV_WIRE_STOCK.IMPORTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'V_WIRE_STOCK\' 中資料行 \'IMPORT\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_WIRE_STOCK.IMPORTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int EXPORT {
+                get {
+                    try {
+                        return ((int)(this[this.tableV_WIRE_STOCK.EXPORTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'V_WIRE_STOCK\' 中資料行 \'EXPORT\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_WIRE_STOCK.EXPORTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int TTLWT {
+                get {
+                    try {
+                        return ((int)(this[this.tableV_WIRE_STOCK.TTLWTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'V_WIRE_STOCK\' 中資料行 \'TTLWT\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableV_WIRE_STOCK.TTLWTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRAWMTRLNull() {
+                return this.IsNull(this.tableV_WIRE_STOCK.RAWMTRLColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRAWMTRLNull() {
+                this[this.tableV_WIRE_STOCK.RAWMTRLColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHEAT_NONull() {
+                return this.IsNull(this.tableV_WIRE_STOCK.HEAT_NOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHEAT_NONull() {
+                this[this.tableV_WIRE_STOCK.HEAT_NOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDIAMETERNull() {
+                return this.IsNull(this.tableV_WIRE_STOCK.DIAMETERColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDIAMETERNull() {
+                this[this.tableV_WIRE_STOCK.DIAMETERColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPRI_WTNull() {
+                return this.IsNull(this.tableV_WIRE_STOCK.PRI_WTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPRI_WTNull() {
+                this[this.tableV_WIRE_STOCK.PRI_WTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIMPORTNull() {
+                return this.IsNull(this.tableV_WIRE_STOCK.IMPORTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIMPORTNull() {
+                this[this.tableV_WIRE_STOCK.IMPORTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEXPORTNull() {
+                return this.IsNull(this.tableV_WIRE_STOCK.EXPORTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEXPORTNull() {
+                this[this.tableV_WIRE_STOCK.EXPORTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTTLWTNull() {
+                return this.IsNull(this.tableV_WIRE_STOCK.TTLWTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTTLWTNull() {
+                this[this.tableV_WIRE_STOCK.TTLWTColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -3142,6 +3772,40 @@ namespace CCS.App_Data {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public V_MAN01_01Row Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class V_WIRE_STOCKRowChangeEvent : global::System.EventArgs {
+            
+            private V_WIRE_STOCKRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public V_WIRE_STOCKRowChangeEvent(V_WIRE_STOCKRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public V_WIRE_STOCKRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3506,6 +4170,7 @@ namespace CCS.App_Data.CCS_MainDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("PRCV_DT", "PRCV_DT");
             tableMapping.ColumnMappings.Add("CS_VCH_NO", "CS_VCH_NO");
             tableMapping.ColumnMappings.Add("THREAD", "THREAD");
+            tableMapping.ColumnMappings.Add("MACHINE", "MACHINE");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3523,7 +4188,7 @@ namespace CCS.App_Data.CCS_MainDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT a.VCH_NO, a.VCH_DT, a.FA_NO, a.EMP_NO, a.EMP_NM, a.ITEM_NO, a.IMG_NO, a.PLAN_BDT, a.PLAN_EDT, a.PLAN_QTY, 
-a.HEAD_MARK, a.RAWMTRL, a.DIAMETER, a.HEAT_NO, a.PLATING, a.PRCS_NO, a.REMK,
+a.HEAD_MARK, a.RAWMTRL, a.DIAMETER, a.HEAT_NO, a.PLATING, a.PRCS_NO, a.MACHINE,a.REMK,
 a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,b.PRCV_DT,d.SHORT_NM,c.CS_VCH_NO, a.THREAD
  FROM CS_MOMT a,CS_CODL b,CS_COMT c,customer d
  WHERE a.CO_NO = b.VCH_NO
@@ -3553,6 +4218,179 @@ a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,b.PRCV_DT,d.SHORT_NM,c.CS_VCH
         public virtual CCS_MainDataSet.V_MAN01_01DataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             CCS_MainDataSet.V_MAN01_01DataTable dataTable = new CCS_MainDataSet.V_MAN01_01DataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class V_WIRE_STOCKTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public V_WIRE_STOCKTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "V_WIRE_STOCK";
+            tableMapping.ColumnMappings.Add("RAWMTRL", "RAWMTRL");
+            tableMapping.ColumnMappings.Add("HEAT_NO", "HEAT_NO");
+            tableMapping.ColumnMappings.Add("DIAMETER", "DIAMETER");
+            tableMapping.ColumnMappings.Add("PRI_WT", "PRI_WT");
+            tableMapping.ColumnMappings.Add("IMPORT", "IMPORT");
+            tableMapping.ColumnMappings.Add("EXPORT", "EXPORT");
+            tableMapping.ColumnMappings.Add("TTLWT", "TTLWT");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["CCSConn"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT \'\' RAWMTRL,\'\' HEAT_NO,0 DIAMETER,0 PRI_WT,0 IMPORT,0 EXPORT,0 TTLWT";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(CCS_MainDataSet.V_WIRE_STOCKDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual CCS_MainDataSet.V_WIRE_STOCKDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            CCS_MainDataSet.V_WIRE_STOCKDataTable dataTable = new CCS_MainDataSet.V_WIRE_STOCKDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

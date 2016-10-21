@@ -184,13 +184,13 @@ namespace CCS.Areas.Author.Controllers
 
                 if (sysRightBLL.Edit(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",ModuleId" + model.ModuleId, "成功", "修改", "CS_SYSRIGHT");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.Id + ",ModuleId:" + model.ModuleId, "成功", "修改", "CS_SYSRIGHT");
                     return Json(JsonHandler.CreateMessage(1, Suggestion.EditSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",ModuleId" + model.ModuleId + "," + ErrorCol, "失敗", "修改", "CS_SYSRIGHT");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.Id + ",ModuleId:" + model.ModuleId + "," + ErrorCol, "失敗", "修改", "CS_SYSRIGHT");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.EditFail + ErrorCol));
                 }
             }

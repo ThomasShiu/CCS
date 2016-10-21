@@ -3,6 +3,7 @@ using CCS.Common;
 using CCS.Core;
 using CCS.IBLL;
 using CCS.Models.MAN;
+using CCS.Models.PUB;
 using CCS.Models.SAL;
 using CCS.Models.WIR;
 using CCS.Services;
@@ -30,6 +31,11 @@ namespace CCS.Areas.Manufact.Controllers
 
         [Dependency]
         public Ics_wiresBLL cs_wiresBLL { get; set; }
+        [Dependency]
+        public IitemBLL item_BLL { get; set; }
+
+        [Dependency]
+        public Ics_wipfBLL cswipf_BLL { get; set; }
 
         CCSservice ccsService = new CCSservice();
         ValidationErrors errors = new ValidationErrors();
@@ -45,49 +51,95 @@ namespace CCS.Areas.Manufact.Controllers
         [HttpPost]
         public JsonResult GetList(GridPager pager, string queryStr)
         {
-            List<cs_momtModel> list = cs_momt_BLL.GetList(ref pager, queryStr);
-            var json = new
+            try
             {
-                total = pager.totalRows,
-                rows = (from r in list
-                        select new cs_momtModel()
-                        {
+                List<itemModel> itemlist = item_BLL.GetList(""); // 料品主檔
+                //itemlist = (from r in itemlist
+                //            where r.ITEM_NO.StartsWith("6")
+                //            select new itemModel
+                //            {
+                //                ITEM_NO = r.ITEM_NO,
+                //                ITEM_NM = r.ITEM_NM,
+                //                ITEM_SP = r.ITEM_SP
+                //            }).ToList();
 
-                            Id = r.Id,
-                            VCH_NO = r.VCH_NO,
-                            VCH_DT = r.VCH_DT,
-                            FA_NO = r.FA_NO,
-                            ITEM_NO = r.ITEM_NO,
-                            IMG_NO = r.IMG_NO,
-                            PLAN_BDT = r.PLAN_BDT,
-                            PLAN_EDT = r.PLAN_EDT,
-                            PLAN_QTY = r.PLAN_QTY,
-                            CO_NO = r.CO_NO,
-                            CO_SR = r.CO_SR,
-                            HEAD_MARK = r.HEAD_MARK,
-                            THREAD = r.THREAD,
-                            RAWMTRL = r.RAWMTRL,
-                            DIAMETER = r.DIAMETER,
-                            HEAT_NO = r.HEAT_NO,
-                            PLATING = r.PLATING,
-                            PRCS_NO = r.PRCS_NO,
-                            REMK = r.REMK,
-                            EXC_INSDBID = r.EXC_INSDBID,
-                            EXC_INSDATE = r.EXC_INSDATE,
-                            EXC_UPDDBID = r.EXC_UPDDBID,
-                            EXC_UPDDATE = r.EXC_UPDDATE,
-                            EXC_SYSOWNR = r.EXC_SYSOWNR,
-                            EXC_ISLOCKED = r.EXC_ISLOCKED,
-                            EXC_COMPANY = r.EXC_COMPANY
+                List<cs_momtModel> list = cs_momt_BLL.GetList(ref pager, queryStr);
 
-                        }).ToArray()
+                var json = new
+                {
+                    total = pager.totalRows,
+                    rows = (from r in list
+                            from r1 in itemlist
+                            where r.ITEM_NO == r1.ITEM_NO.TrimEnd()
+                            select new cs_momtModel()
+                            {
+                                Id = r.Id,
+                                VCH_NO = r.VCH_NO,
+                                VCH_DT = r.VCH_DT,
+                                FA_NO = r.FA_NO,
+                                ITEM_NO = r.ITEM_NO,
+                                ITEM_NM = r1.ITEM_NM,
+                                IMG_NO = r.IMG_NO,
+                                PLAN_BDT = r.PLAN_BDT,
+                                PLAN_EDT = r.PLAN_EDT,
+                                PLAN_QTY = r.PLAN_QTY,
+                                CO_NO = r.CO_NO,
+                                CO_SR = r.CO_SR,
+                                HEAD_MARK = r.HEAD_MARK,
+                                THREAD = r.THREAD,
+                                RAWMTRL = r.RAWMTRL,
+                                DIAMETER = r.DIAMETER,
+                                HEAT_NO = r.HEAT_NO,
+                                PLATING = r.PLATING,
+                                PRCS_NO = r.PRCS_NO,
+                                MACHINE = r.MACHINE,
+                                REMK = r.REMK,
+                                C_CLS = r.C_CLS,
+                                EXC_INSDBID = r.EXC_INSDBID,
+                                EXC_INSDATE = r.EXC_INSDATE,
+                                EXC_UPDDBID = r.EXC_UPDDBID,
+                                EXC_UPDDATE = r.EXC_UPDDATE,
+                                EXC_SYSOWNR = r.EXC_SYSOWNR,
+                                EXC_ISLOCKED = r.EXC_ISLOCKED,
+                                EXC_COMPANY = r.EXC_COMPANY
 
-            };
+                            }).ToArray()
 
-            return MyJson(json,"yyyy-MM-dd");
+                };
+
+                return MyJson(json, "yyyy-MM-dd");
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
-       
+        // 成型生產紀錄 - Datagrid子明細
+        [SupportFilter(ActionName = "Index")]
+        [HttpPost]
+        public JsonResult GetDetailsList(GridPager pager, string queryStr)
+        {
+            pager.rows = 999999;
+            pager.page = 1;
+            pager.sort = "LOT_NO";
+            pager.order = "desc";
+
+            List<cs_wipfModel> list = cswipf_BLL.GetList(ref pager, queryStr);
+            var json = (from r in list
+                        group r by new
+                        {
+                            r.LOT_NO
+                        } into g
+                        select new
+                        {
+                            g.Key.LOT_NO,
+                            TTLWT = (int?)g.Sum(p => p.WEIGHT),
+                            TTLQTY = (int?)g.Sum(p => p.COUNT_QTY)
+                        });
+
+
+            return Json(json);
+        }
 
         #region 創建
         [SupportFilter]
@@ -103,6 +155,7 @@ namespace CCS.Areas.Manufact.Controllers
         {
             model.Id = ResultHelper.NewId;
             model.VCH_NO = ResultHelper.NewOrdId("WIP", "B"); // 取單號
+            model.C_CLS = "N";
             model.EMP_NO = GetUserId();
             model.EMP_NM = GetUserTrueName();
             model.EXC_INSDBID = GetUserId();
@@ -261,7 +314,7 @@ namespace CCS.Areas.Manufact.Controllers
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + id + "," + ErrorCol, "失敗", "刪除", "CS_MOMT");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + id + "," + ErrorCol, "失敗", "刪除", "CS_MOMT");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.DeleteFail + ErrorCol));
                 }
             }
@@ -279,7 +332,7 @@ namespace CCS.Areas.Manufact.Controllers
         public ActionResult Reporting(string id, string type = "PDF")
         {
             string v_sqlstr = "SELECT a.VCH_NO, a.VCH_DT, a.FA_NO, a.EMP_NO, a.EMP_NM, a.ITEM_NO, a.IMG_NO, a.PLAN_BDT, a.PLAN_EDT, a.PLAN_QTY, "+
-                                "a.HEAD_MARK, a.RAWMTRL, a.DIAMETER, a.HEAT_NO, a.PLATING, a.PRCS_NO, a.REMK, "+
+                                "a.HEAD_MARK, a.RAWMTRL, a.DIAMETER, a.HEAT_NO, a.PLATING, a.PRCS_NO,a.MACHINE, a.REMK, " +
                                 "a.CO_NO, a.CO_SR, b.ITEM_NM,b.ITEM_SP,b.CS_ITEM_NO,b.PRCV_DT,d.SHORT_NM,c.CS_VCH_NO,a.THREAD " +
                                 " FROM CS_MOMT a, CS_CODL b,CS_COMT c, customer d "+
                                 "   WHERE a.CO_NO = b.VCH_NO "+
@@ -329,10 +382,10 @@ namespace CCS.Areas.Manufact.Controllers
                     break;
             }
             deviceInfo +=
-                "<MarginTop>0.1in</MarginTop>" +
-                "<MarginLeft>0.1in</MarginLeft>" +
-                "<MarginRight>0.1in</MarginRight>" +
-                "<MarginBottom>0.1in</MarginBottom>" +
+                "<MarginTop>0.2in</MarginTop>" +
+                "<MarginLeft>0.2in</MarginLeft>" +
+                "<MarginRight>0.2in</MarginRight>" +
+                "<MarginBottom>0.2in</MarginBottom>" +
                 "</DeviceInfo>";
         
         Warning[] warnings;

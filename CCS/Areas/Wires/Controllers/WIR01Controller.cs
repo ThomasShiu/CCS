@@ -19,6 +19,11 @@ namespace CCS.Areas.Wires.Controllers
 
         [Dependency]
         public Ics_wiresBLL wiresBLL { get; set; }
+
+        [Dependency]
+        public Ics_wires_journalBLL wiresjournalBLL { get; set; }
+
+
         ValidationErrors errors = new ValidationErrors();
 
         [SupportFilter]
@@ -70,6 +75,30 @@ namespace CCS.Areas.Wires.Controllers
                 throw ex;
             }
         }
+        // 線材異動 - Datagrid子明細
+        [SupportFilter(ActionName = "Index")]
+        [HttpPost]
+        public JsonResult GetDetailsList(GridPager pager, string queryStr)
+        {
+            pager.rows = 999999;
+            pager.page = 1;
+            pager.sort = "WIRE_ID";
+            pager.order = "desc";
+
+            List<cs_wires_journalModel> list = wiresjournalBLL.GetList(ref pager, queryStr);
+            var json = (from r in list
+                        select new cs_wires_journalModel()
+                        {
+                            Id = r.Id,
+                            WIRE_ID = r.WIRE_ID,
+                            TRANS_CODE = r.TRANS_CODE,
+                            TRANS_DATE = r.TRANS_DATE,
+                            WEIGHT = r.WEIGHT
+                        });
+
+
+            return Json(json);
+        }
 
         #region 創建
         [SupportFilter]
@@ -96,13 +125,13 @@ namespace CCS.Areas.Wires.Controllers
 
                 if (wiresBLL.Create(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",WIRE_ID" + model.WIRE_ID, "成功", "創建", "CS_WIRES");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.Id + ",WIRE_ID:" + model.WIRE_ID, "成功", "創建", "CS_WIRES");
                     return Json(JsonHandler.CreateMessage(1, Suggestion.InsertSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",WIRE_ID" + model.WIRE_ID + "," + ErrorCol, "失敗", "創建", "CS_WIRES");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.Id + ",WIRE_ID:" + model.WIRE_ID + "," + ErrorCol, "失敗", "創建", "CS_WIRES");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.InsertFail + ErrorCol));
                 }
             }
@@ -133,13 +162,13 @@ namespace CCS.Areas.Wires.Controllers
 
                 if (wiresBLL.Edit(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",WIRE_ID" + model.WIRE_ID, "成功", "修改", "CS_WIRES");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.Id + ",WIRE_ID:" + model.WIRE_ID, "成功", "修改", "CS_WIRES");
                     return Json(JsonHandler.CreateMessage(1, Suggestion.EditSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",WIRE_ID" + model.WIRE_ID + "," + ErrorCol, "失敗", "修改", "CS_WIRES");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.Id + ",WIRE_ID:" + model.WIRE_ID + "," + ErrorCol, "失敗", "修改", "CS_WIRES");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.EditFail + ErrorCol));
                 }
             }
@@ -176,7 +205,7 @@ namespace CCS.Areas.Wires.Controllers
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "Id" + id + "," + ErrorCol, "失敗", "刪除", "CS_WIRES");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + id + "," + ErrorCol, "失敗", "刪除", "CS_WIRES");
                     return Json(JsonHandler.CreateMessage(0, Suggestion.DeleteFail + ErrorCol));
                 }
             }

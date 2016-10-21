@@ -8,6 +8,7 @@ using CCS.IDAL;
 using CCS.DAL;
 using Microsoft.Practices.Unity;
 using CCS.Models.SAL;
+using CCS.Models.MAN;
 
 namespace CCS.Core
 {
@@ -17,6 +18,7 @@ namespace CCS.Core
         public static void Container_Sal(ref UnityContainer container)
         {
             container.RegisterInstance<cs_comtModel>(new cs_comtModel());
+            container.RegisterInstance<cs_momtModel>(new cs_momtModel());
 
             // CS_COMT 訂單主檔
             container.RegisterType<Ics_comtBLL, cs_comtBLL>(); //詳例
@@ -41,6 +43,10 @@ namespace CCS.Core
             // CS_WIRE_RECIPIENT 線材領用
             container.RegisterType<Ics_wireReciptBLL, cs_wireReciptBLL>(); //詳例
             container.RegisterType<Ics_wireReciptRepository, cs_wireReciptRepository>();
+
+            // CS_WIRE_JOURNAL 線材異動記錄
+            container.RegisterType<Ics_wires_journalBLL, cs_wires_journalBLL>(); //詳例
+            container.RegisterType<Ics_wires_journalRepository, cs_wires_journalRepository>();
 
             //CS_SYSMODULE
             container.RegisterType<Ics_sysmoduleBLL, cs_sysmoduleBLL>();

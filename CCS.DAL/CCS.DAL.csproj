@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="AccountRepository.cs" />
     <Compile Include="cs_codlRepository.cs" />
+    <Compile Include="cs_itemstkRepository.cs" />
     <Compile Include="cs_momtRepository.cs" />
     <Compile Include="cs_syslogRepository.cs" />
     <Compile Include="cs_actionlogRepository.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="cs_wipfRepository .cs" />
     <Compile Include="cs_wireReciptRepository.cs" />
     <Compile Include="cs_wiresRepository.cs" />
+    <Compile Include="cs_wires_journalRepository.cs" />
     <Compile Include="customerRepository.cs" />
     <Compile Include="cs_sysmoduleoperateRepository .cs" />
     <Compile Include="cs_sysrightRepository .cs" />

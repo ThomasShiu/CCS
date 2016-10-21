@@ -38,5 +38,7 @@ namespace CCS.Models
         public string EXC_ISLOCKED { get; set; }
         public string EXC_COMPANY { get; set; }
         public string CS_WIRE_ID { get; set; }
+        public string C_CLS { get; set; }
+        public string CS_NO { get; set; }
     }
 }
