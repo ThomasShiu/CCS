@@ -45,5 +45,6 @@ namespace CCS.Models
         public string MACHINE { get; set; }
         public string C_CLS { get; set; }
         public string PRCS_TY { get; set; }
+        public string CO_TY { get; set; }
     }
 }

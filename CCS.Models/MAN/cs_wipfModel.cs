@@ -20,6 +20,9 @@ namespace CCS.Models.MAN
 
         [Display(Name = "桶號")]
         public string KEG_NO { get; set; }
+        
+        [Display(Name = "桶數")]
+        public int? KEG_CNT { get; set; }
 
         [Display(Name = "0:廠內 1:廠外")]
         public string PRCS_TY { get; set; }

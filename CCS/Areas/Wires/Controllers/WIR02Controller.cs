@@ -98,8 +98,8 @@ namespace CCS.Areas.Wires.Controllers
                             WIRE_ID = r.WIRE_ID,
                             WEIGHT = r.WEIGHT,
                             REC_DATE = r.REC_DATE,
-                            REC_EMP = r.REC_EMP
-
+                            REC_EMP = r.REC_EMP,
+                            RECIPT_TY = r.RECIPT_TY
                         }).ToArray()
 
             };
@@ -300,7 +300,7 @@ namespace CCS.Areas.Wires.Controllers
         //[HttpPost]
         public JsonResult GetEmpList(String queryStr)
         {
-            queryStr = "C_COP";
+            queryStr = "C_SFC";
             var list = dls.GetEmpList(queryStr);
             return Json(list, JsonRequestBehavior.AllowGet);
 

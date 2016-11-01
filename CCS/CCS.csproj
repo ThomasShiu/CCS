@@ -245,11 +245,22 @@
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
     <Compile Include="Areas\Inventory\Controllers\INV01Controller.cs" />
     <Compile Include="Areas\Inventory\Controllers\INV02Controller.cs" />
+    <Compile Include="Areas\Inventory\Controllers\INV03Controller.cs" />
+    <Compile Include="Areas\Inventory\Controllers\INV04Controller.cs" />
+    <Compile Include="Areas\Keg\Controllers\KEG01Controller.cs" />
+    <Compile Include="Areas\Keg\Controllers\KEG02Controller.cs" />
+    <Compile Include="Areas\Keg\Controllers\KEG03Controller.cs" />
+    <Compile Include="Areas\Keg\Controllers\KEG04Controller.cs" />
+    <Compile Include="Areas\Keg\KegAreaRegistration.cs" />
     <Compile Include="Areas\Manufact\Controllers\MAN01Controller.cs" />
     <Compile Include="Areas\Manufact\Controllers\MAN02Controller.cs" />
     <Compile Include="Areas\Manufact\Controllers\MAN11Controller.cs" />
     <Compile Include="Areas\Manufact\Controllers\MAN12Controller.cs" />
     <Compile Include="Areas\Sales\Controllers\SAL02Controller.cs" />
+    <Compile Include="Areas\Sales\Controllers\SAL03Controller.cs" />
+    <Compile Include="Areas\Sales\Controllers\SAL04Controller.cs" />
+    <Compile Include="Areas\Sales\Controllers\SAL05Controller.cs" />
+    <Compile Include="Areas\Sales\Controllers\SAL06Controller.cs" />
     <Compile Include="Areas\System\SystemAreaRegistration.cs" />
     <Compile Include="Areas\System\Controllers\SYS01Controller.cs" />
     <Compile Include="Areas\System\Controllers\SYS02Controller.cs" />
@@ -266,6 +277,8 @@
     <Compile Include="Areas\Wires\Controllers\WIR02Controller.cs" />
     <Compile Include="Areas\Wires\Controllers\WIR03Controller.cs" />
     <Compile Include="Areas\Wires\Controllers\WIR04Controller.cs" />
+    <Compile Include="Areas\Wires\Controllers\WIR05Controller.cs" />
+    <Compile Include="Areas\Wires\Controllers\WIR06Controller.cs" />
     <Compile Include="Areas\Wires\WiresAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseException.cs" />
@@ -2347,6 +2360,31 @@
     <Content Include="Areas\Inventory\Views\INV02\Index.cshtml" />
     <Content Include="Areas\Inventory\Views\INV02\Create.cshtml" />
     <Content Include="Areas\Wires\Views\WIR04\Index.cshtml" />
+    <Content Include="Areas\Sales\Views\SAL03\Index.cshtml" />
+    <Content Include="Areas\Keg\Views\web.config" />
+    <Content Include="Areas\Keg\Views\KEG02\Index.cshtml" />
+    <Content Include="Areas\Keg\Views\KEG02\Create.cshtml" />
+    <Content Include="Areas\Keg\Views\KEG02\Edit.cshtml" />
+    <Content Include="Areas\Keg\Views\KEG03\Index.cshtml" />
+    <Content Include="Areas\Keg\Views\KEG03\Create.cshtml" />
+    <Content Include="Areas\Keg\Views\KEG04\Index.cshtml" />
+    <Content Include="Areas\Keg\Views\KEG03\Edit.cshtml" />
+    <Content Include="Areas\Wires\Views\WIR05\Index.cshtml" />
+    <Content Include="Areas\Wires\Views\WIR05\Create.cshtml" />
+    <Content Include="Areas\Wires\Views\WIR05\Edit.cshtml" />
+    <Content Include="Areas\Wires\Views\WIR05\Replicate.cshtml" />
+    <Content Include="Areas\Sales\Views\SAL04\Index.cshtml" />
+    <Content Include="Areas\Sales\Views\SAL04\Create.cshtml" />
+    <Content Include="Areas\Sales\Views\SAL04\Edit.cshtml" />
+    <Content Include="Areas\Inventory\Views\INV03\Create.cshtml" />
+    <Content Include="Areas\Inventory\Views\INV03\Edit.cshtml" />
+    <Content Include="Areas\Inventory\Views\INV03\Index.cshtml" />
+    <Content Include="Areas\Inventory\Views\INV04\Index.cshtml" />
+    <Content Include="Areas\Inventory\Views\INV04\MasterDetails.cshtml" />
+    <Content Include="Areas\Inventory\Views\INV04\Create.cshtml" />
+    <Content Include="Areas\Wires\Views\WIR06\Index.cshtml" />
+    <Content Include="Areas\Inventory\Views\INV04\Edit.cshtml" />
+    <Content Include="Areas\Sales\Views\SAL06\Index.cshtml" />
     <None Include="Properties\PublishProfiles\CCS_13.pubxml" />
     <None Include="Properties\PublishProfiles\CCS_207.pubxml" />
     <Content Include="Scripts\jquery-2.2.4.min.map" />
@@ -2469,6 +2507,9 @@
     <Folder Include="Areas\Dashboard\Views\Shared\" />
     <Folder Include="Areas\Inventory\Models\" />
     <Folder Include="Areas\Inventory\Views\Shared\" />
+    <Folder Include="Areas\Keg\Models\" />
+    <Folder Include="Areas\Keg\Views\KEG01\" />
+    <Folder Include="Areas\Keg\Views\Shared\" />
     <Folder Include="Areas\Manufact\Models\" />
     <Folder Include="Areas\Manufact\Views\MAN11\" />
     <Folder Include="Areas\Manufact\Views\MAN12\" />
@@ -2531,6 +2572,31 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Reports\WIR04_01.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\SAL03_01.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\KEG04_01.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\WIR06_01.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\INV04_01.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\SAL06_01.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -2,6 +2,7 @@
 using CCS.Common;
 using CCS.Core;
 using CCS.IBLL;
+using CCS.Models.PUB;
 using CCS.Models.WIR;
 using CCS.Services;
 using Microsoft.Practices.Unity;
@@ -15,7 +16,11 @@ namespace CCS.Areas.Wires.Controllers
 {
     public class WIR01Controller : BaseController
     {
-        CCSservice ccsService = new CCSservice();
+        private DropListService dls;
+        public WIR01Controller(DropListService dls)
+        {
+            this.dls = dls;
+        }
 
         [Dependency]
         public Ics_wiresBLL wiresBLL { get; set; }
@@ -23,7 +28,7 @@ namespace CCS.Areas.Wires.Controllers
         [Dependency]
         public Ics_wires_journalBLL wiresjournalBLL { get; set; }
 
-
+        CCSservice ccsService = new CCSservice();
         ValidationErrors errors = new ValidationErrors();
 
         [SupportFilter]
@@ -63,8 +68,10 @@ namespace CCS.Areas.Wires.Controllers
                                 PROCESS_FACTORY = r.PROCESS_FACTORY,
                                 TYPE = r.TYPE,
                                 TYPE_NM = r.TYPE_NM,
-                                REMARK = r.REMARK
-
+                                CS_NO = r.CS_NO,
+                                CS_NM = r.CS_NM,
+                                REMARK = r.REMARK,
+                                C_CLS = r.C_CLS
                             }).ToArray()
 
                 };
@@ -115,6 +122,7 @@ namespace CCS.Areas.Wires.Controllers
             model.Id = ResultHelper.NewId;
             model.WIRE_ID= ResultHelper.NewOrdId("WIR", "W"); // 取單號
             model.ANNEAL = false;
+            model.C_CLS = "N";
             model.EXC_INSDATE = ResultHelper.NowTime;
             model.EXC_INSDBID = GetUserId();
             model.EXC_UPDDATE = ResultHelper.NowTime;
@@ -217,5 +225,18 @@ namespace CCS.Areas.Wires.Controllers
 
         }
         #endregion
+
+        #region 客戶列表，下拉選單
+        [SupportFilter(ActionName = "Index")]
+        //[HttpPost]
+        public JsonResult GetCustList(String queryStr)
+        {
+
+            List<customerModel> list = dls.GetCustList(queryStr).ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
+
+        }
+        #endregion
+
     }
 }

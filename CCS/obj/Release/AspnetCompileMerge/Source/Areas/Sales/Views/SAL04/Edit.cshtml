@@ -1,0 +1,204 @@
+﻿@model CCS.Models.SAL.cs_shipmtModel
+@using CCS.Models.SYS;
+@using CCS.Core;
+@using CCS.Common;
+@{
+    ViewBag.Title = "創建";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+
+<div class="mvctool bgb">
+    @Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)
+    @Html.ToolButton("btnReturn", "icon-return", "返回", false)
+</div>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.EXC_INSDATE)
+    @Html.HiddenFor(model => model.EXC_INSDBID)
+
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.VCH_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.VCH_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.VCH_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.VCH_DT)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.VCH_DT)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.VCH_DT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CS_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.CS_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CS_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CS_NM)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.CS_NM)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CS_NM)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.TO_ADDR)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.TO_ADDR)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.TO_ADDR)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CONTACT)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.CONTACT)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CONTACT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.END_CODE)：
+                </td>
+                <td style="width:310px">
+                    @Html.CheckBoxFor(model => model.END_CODE, new { @checked = true })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.END_CODE)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.REMK)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.REMK)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.REMK)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.EXC_INSDBID)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.EXC_INSDBID)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.EXC_INSDBID)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.EXC_INSDATE)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.EXC_INSDATE)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.EXC_INSDATE)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.EXC_UPDDBID)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.EXC_UPDDBID)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.EXC_UPDDBID)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.EXC_UPDDATE)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.EXC_UPDDATE)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.EXC_UPDDATE)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.EXC_SYSOWNR)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.EXC_SYSOWNR)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.EXC_SYSOWNR)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.EXC_ISLOCKED)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.EXC_ISLOCKED)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.EXC_ISLOCKED)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.EXC_COMPANY)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.EXC_COMPANY)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.EXC_COMPANY)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.STATUS)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.STATUS)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.STATUS)</td>
+            </tr>
+        </tbody>
+    </table>
+}
+@section scripts{
+    
+<script type="text/javascript">
+$(function () {
+    $("#btnSave").click(function () {
+        if ($("form").valid()) {
+            $.ajax({
+                url: "@Url.Action("Create")",
+                type: "Post",
+                data: $("form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data.type == 1) {
+                        window.parent.frameReturnByMes(data.message);
+                        window.parent.frameReturnByReload(true);
+                        window.parent.frameReturnByClose()
+                    }
+                    else {
+                        window.parent.frameReturnByMes(data.message);
+                    }
+                }
+            });
+        }
+        return false;
+    });
+    $("#btnReturn").click(function () {
+         window.parent.frameReturnByClose();
+    });
+});
+</script>
+    }

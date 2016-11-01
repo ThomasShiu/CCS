@@ -29,7 +29,9 @@ namespace CCS.Services
         [Dependency]
         public IEMPNOBLL empno_BLL { get; set; }
         [Dependency]
-        public Ics_codlBLL codl_BLL { get; set; }
+        public IcomtBLL comt_BLL { get; set; }
+        [Dependency]
+        public IcodlBLL codl_BLL { get; set; }
 
         [Dependency]
         public Ics_momtBLL momt_BLL { get; set; }
@@ -78,6 +80,7 @@ namespace CCS.Services
                 //int total = pager.totalRows;
                 List<itemModel> list = item_BLL.GetList(queryStr);
                 var model = (from r in list
+                             where r.ITEM_NO.StartsWith("6")  // 製成品
                              select new itemModel()
                              {
                                  ITEM_NO = r.ITEM_NO,
@@ -163,38 +166,14 @@ namespace CCS.Services
         }
         #endregion
 
-        #region 取得訂單明細
-        //public cs_codlModel[] GetOrdDetailsList(GridPager pager, string queryStr)
-        //{
-        //    pager.rows = 999999;
-        //    pager.page = 1;
-        //    pager.sort = "VCH_NO";
-        //    pager.order = "desc";
+        #region 取得未結案訂單明細
+        public List<SP_GET_CO_Result2> GetOrdDetailsList()
+        {
 
-        //    List<cs_codlModel> list = codl_BLL.GetList(ref pager, queryStr);
-        //    var model = (from r in list
-        //                 select new cs_codlModel()
-        //                 {
-        //                     ID = r.ID,
-        //                     VCH_NO = r.VCH_NO,
-        //                     VCH_SR = r.VCH_SR,
-        //                     ITEM_NO = r.ITEM_NO,
-        //                     ITEM_NM = r.ITEM_NM,
-        //                     ITEM_SP = r.ITEM_SP,
-        //                     CS_ITEM_NO = r.CS_ITEM_NO,
-        //                     UNIT = r.UNIT,
-        //                     QTY = r.QTY,
-        //                     PRC = r.PRC,
-        //                     AMT = r.AMT,
-        //                     PRCV_DT = r.PRCV_DT,
-        //                     C_CLS = r.C_CLS,
-        //                     REMK = r.REMK
+            var model = _db.SP_GET_CO().Where(a=>a.C_CLS=="N").ToList();
 
-        //                 }).ToArray();
-
-
-        //    return model;
-        //}
+            return model;
+        }
         #endregion
 
         // 產生資料集

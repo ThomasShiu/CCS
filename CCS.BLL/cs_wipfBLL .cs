@@ -44,6 +44,7 @@ namespace CCS.BLL
                                                  LOT_NO = r.LOT_NO,
                                                  HEAT_NO = r.HEAT_NO,
                                                  KEG_NO = r.KEG_NO,
+                                                 KEG_CNT = r.KEG_CNT,
                                                  PRCS_TY = r.PRCS_TY,
                                                  PRCS_NO = r.PRCS_NO,
                                                  EMP_NO = r.EMP_NO,
@@ -81,6 +82,7 @@ namespace CCS.BLL
                 entity.LOT_NO = model.LOT_NO;
                 entity.HEAT_NO = model.HEAT_NO;
                 entity.KEG_NO = model.KEG_NO;
+                entity.KEG_CNT = model.KEG_CNT;
                 entity.PRCS_TY = model.PRCS_TY;
                 entity.PRCS_NO = model.PRCS_NO;
                 entity.EMP_NO = model.EMP_NO;
@@ -240,6 +242,7 @@ namespace CCS.BLL
                 model.LOT_NO = entity.LOT_NO;
                 model.HEAT_NO = entity.HEAT_NO;
                 model.KEG_NO = entity.KEG_NO;
+                entity.KEG_CNT = model.KEG_CNT;
                 model.PRCS_TY = entity.PRCS_TY;
                 model.PRCS_NO = entity.PRCS_NO;
                 model.EMP_NO = entity.EMP_NO;

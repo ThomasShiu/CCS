@@ -42,6 +42,10 @@ namespace CCS.Models.WIR
         [Display(Name = "領用人員")]
         public string REC_EMP { get; set; }
 
+        [Display(Name = "耗用種類")]  // O:領用 L:損耗 R:退貨
+        public string RECIPT_TY { get; set; }
+
+
         [Display(Name = "領用重量")]
         [Required(ErrorMessage ="請輸入領用重量")]
         public int WEIGHT { get; set; }

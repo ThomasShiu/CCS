@@ -1,5 +1,114 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="CCSModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CODL">
+    <Key>
+      <PropertyRef Name="VCH_TY" />
+      <PropertyRef Name="VCH_NO" />
+      <PropertyRef Name="VCH_SR" />
+    </Key>
+    <Property Name="VCH_TY" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="VCH_NO" Type="nchar" MaxLength="15" Nullable="false" />
+    <Property Name="VCH_SR" Type="int" Nullable="false" />
+    <Property Name="ITEM_NO" Type="nchar" MaxLength="24" Nullable="false" />
+    <Property Name="CS_ITEM_NO" Type="nchar" MaxLength="24" />
+    <Property Name="UNIT" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="QTY" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="A_QTY" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="RCV_QTY" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="RTN_QTY" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="FREE_QTY" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="FREC_QTY" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="PRC" Type="decimal" Precision="15" Scale="6" />
+    <Property Name="AMT" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="PRCV_DT" Type="smalldatetime" />
+    <Property Name="CO_WAHO_NO" Type="nchar" MaxLength="10" />
+    <Property Name="SVCH_TY" Type="nchar" MaxLength="4" />
+    <Property Name="SVCH_NO" Type="nchar" MaxLength="15" />
+    <Property Name="SVCH_SR" Type="int" />
+    <Property Name="PRJ_NO" Type="nchar" MaxLength="20" />
+    <Property Name="C_OUT" Type="nchar" MaxLength="1" />
+    <Property Name="OUT_RT" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="C_CLS" Type="nchar" MaxLength="1" Nullable="false" />
+    <Property Name="REMK" Type="nvarchar" MaxLength="255" />
+    <Property Name="CUS_FLD1" Type="nchar" MaxLength="20" />
+    <Property Name="CUS_FLD2" Type="nchar" MaxLength="20" />
+    <Property Name="CUS_FLD3" Type="nchar" MaxLength="20" />
+    <Property Name="CUS_FLD4" Type="nchar" MaxLength="20" />
+    <Property Name="CUS_FLD5" Type="nchar" MaxLength="20" />
+    <Property Name="CUS_FLD6" Type="nchar" MaxLength="20" />
+    <Property Name="TQA_MM" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PQA_MM" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CS_NO" Type="nchar" MaxLength="10" />
+    <Property Name="C_CFM" Type="nchar" MaxLength="1" />
+    <Property Name="MKT_CODE" Type="nchar" MaxLength="10" />
+    <Property Name="PDT_DT" Type="smalldatetime" />
+    <Property Name="PDT_WAHO_NO" Type="nchar" MaxLength="10" />
+    <Property Name="PDT_ITEM_NO" Type="nchar" MaxLength="24" />
+  </EntityType>
+  <EntityType Name="COMT">
+    <Key>
+      <PropertyRef Name="VCH_TY" />
+      <PropertyRef Name="VCH_NO" />
+    </Key>
+    <Property Name="VCH_TY" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="VCH_NO" Type="nchar" MaxLength="15" Nullable="false" />
+    <Property Name="VCH_DT" Type="smalldatetime" Nullable="false" />
+    <Property Name="FA_NO" Type="nchar" MaxLength="10" />
+    <Property Name="CS_NO" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="DEPM_NO" Type="nchar" MaxLength="10" />
+    <Property Name="EMP_NO" Type="nchar" MaxLength="10" />
+    <Property Name="CS_VCH_NO" Type="nchar" MaxLength="20" />
+    <Property Name="CONTACTER" Type="nchar" MaxLength="30" />
+    <Property Name="TAX_TY" Type="nchar" MaxLength="1" />
+    <Property Name="TAX_RT" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="PRC_CDT" Type="nchar" MaxLength="30" />
+    <Property Name="PAY_CDT" Type="nchar" MaxLength="30" />
+    <Property Name="TO_ADDR" Type="nvarchar" MaxLength="80" />
+    <Property Name="TO_ADDR2" Type="nvarchar" MaxLength="80" />
+    <Property Name="CURRENCY" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="EXCH_RATE" Type="decimal" Precision="12" Scale="6" />
+    <Property Name="WAHO_NO" Type="nchar" MaxLength="10" />
+    <Property Name="LC_NO" Type="nchar" MaxLength="20" />
+    <Property Name="SHIP_TY" Type="nchar" MaxLength="1" />
+    <Property Name="STR_PORT" Type="nchar" MaxLength="30" />
+    <Property Name="DES_PORT" Type="nchar" MaxLength="30" />
+    <Property Name="AGT_CORP" Type="nchar" MaxLength="10" />
+    <Property Name="CLR_CORP" Type="nchar" MaxLength="10" />
+    <Property Name="INSP_CORP" Type="nchar" MaxLength="10" />
+    <Property Name="SHIP_CORP" Type="nchar" MaxLength="10" />
+    <Property Name="MARK_NO" Type="nchar" MaxLength="10" />
+    <Property Name="FL_MARK" Type="nvarchar" MaxLength="255" />
+    <Property Name="SL_MARK" Type="nvarchar" MaxLength="255" />
+    <Property Name="CONSIGNEE" Type="nchar" MaxLength="10" />
+    <Property Name="NOTIFY" Type="nchar" MaxLength="10" />
+    <Property Name="DES_PLACE" Type="nchar" MaxLength="30" />
+    <Property Name="BANK_NO" Type="nchar" MaxLength="10" />
+    <Property Name="PACK_REMK" Type="nvarchar" MaxLength="255" />
+    <Property Name="IVC_REMK" Type="nvarchar" MaxLength="255" />
+    <Property Name="REMK" Type="nvarchar" MaxLength="255" />
+    <Property Name="COMS_RATE" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="COMS_AMT" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="DPAY_RT" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="DPAY_AMT" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="ATTR_NO1" Type="nchar" MaxLength="10" />
+    <Property Name="ATTR_NO2" Type="nchar" MaxLength="10" />
+    <Property Name="ATTR_NO3" Type="nchar" MaxLength="10" />
+    <Property Name="AMT" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="TAX" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="QTY" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="N_PRT" Type="int" />
+    <Property Name="C_SIGN" Type="nchar" MaxLength="1" />
+    <Property Name="C_CFM" Type="nchar" MaxLength="1" Nullable="false" />
+    <Property Name="CFM_DT" Type="smalldatetime" />
+    <Property Name="OWNER_USR_NO" Type="nchar" MaxLength="10" />
+    <Property Name="OWNER_GRP_NO" Type="nchar" MaxLength="10" />
+    <Property Name="ADD_DT" Type="smalldatetime" />
+    <Property Name="CFM_USR_NO" Type="nchar" MaxLength="10" />
+    <Property Name="MDY_USR_NO" Type="nchar" MaxLength="10" />
+    <Property Name="MDY_DT" Type="smalldatetime" />
+    <Property Name="IP_NM" Type="nchar" MaxLength="30" />
+    <Property Name="CP_NM" Type="nchar" MaxLength="30" />
+  </EntityType>
   <EntityType Name="CS_ACTIONLOG">
     <Key>
       <PropertyRef Name="LogId" />
@@ -100,6 +209,30 @@
     <Property Name="IP_NM" Type="nvarchar" MaxLength="30" />
     <Property Name="CP_NM" Type="nvarchar" MaxLength="30" />
   </EntityType>
+  <EntityType Name="CS_INV">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LOT_NO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HEAT_NO" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="KEG_NO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EMP_NO" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="EMP_NM" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="WAHO_NO" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="WEIGHT" Type="int" />
+    <Property Name="UNIT_WT" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="COUNT_QTY" Type="int" />
+    <Property Name="STATUS" Type="varchar" MaxLength="5" />
+    <Property Name="END_CODE" Type="bit" Nullable="false" />
+    <Property Name="EXC_INSDBID" Type="nvarchar" MaxLength="13" />
+    <Property Name="EXC_INSDATE" Type="smalldatetime" />
+    <Property Name="EXC_UPDDBID" Type="nvarchar" MaxLength="13" />
+    <Property Name="EXC_UPDDATE" Type="datetime" />
+    <Property Name="EXC_SYSOWNR" Type="nvarchar" MaxLength="5" />
+    <Property Name="EXC_ISLOCKED" Type="nvarchar" MaxLength="1" />
+    <Property Name="EXC_COMPANY" Type="nvarchar" MaxLength="10" />
+  </EntityType>
   <EntityType Name="CS_ITEMSTK">
     <Key>
       <PropertyRef Name="Id" />
@@ -123,6 +256,27 @@
     <Property Name="EXC_ISLOCKED" Type="nvarchar" MaxLength="1" />
     <Property Name="EXC_COMPANY" Type="nvarchar" MaxLength="10" />
     <Property Name="STATUS" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="CS_KEGS_CS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CS_NO" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CS_NM" Type="nvarchar" MaxLength="20" />
+    <Property Name="KEG_NM" Type="nvarchar" MaxLength="20" />
+    <Property Name="TRANS_DATE" Type="smalldatetime" Nullable="false" />
+    <Property Name="TRANS_CODE" Type="nvarchar" MaxLength="1" />
+    <Property Name="CNT" Type="int" Nullable="false" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="500" />
+    <Property Name="C_CLS" Type="nvarchar" MaxLength="1" />
+    <Property Name="EXC_INSDBID" Type="nvarchar" MaxLength="13" />
+    <Property Name="EXC_INSDATE" Type="smalldatetime" />
+    <Property Name="EXC_UPDDBID" Type="nvarchar" MaxLength="13" />
+    <Property Name="EXC_UPDDATE" Type="smalldatetime" />
+    <Property Name="EXC_SYSOWNR" Type="nvarchar" MaxLength="5" />
+    <Property Name="EXC_ISLOCKED" Type="nvarchar" MaxLength="1" />
+    <Property Name="EXC_COMPANY" Type="nvarchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="CS_MACHINE">
     <Key>
@@ -149,6 +303,7 @@
     <Property Name="PLAN_BDT" Type="smalldatetime" />
     <Property Name="PLAN_EDT" Type="smalldatetime" />
     <Property Name="PLAN_QTY" Type="int" />
+    <Property Name="CO_TY" Type="nvarchar" MaxLength="5" />
     <Property Name="CO_NO" Type="nvarchar" MaxLength="30" />
     <Property Name="CO_SR" Type="int" />
     <Property Name="HEAD_MARK" Type="varchar" MaxLength="200" />
@@ -216,6 +371,59 @@
     <Property Name="EXC_SYSOWNR" Type="nvarchar" MaxLength="5" />
     <Property Name="EXC_ISLOCKED" Type="nvarchar" MaxLength="1" />
     <Property Name="EXC_COMPANY" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="CS_SHIPDL">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VCH_NO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VCH_SR" Type="int" Nullable="false" />
+    <Property Name="ITEM_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="ITEM_NM" Type="nvarchar" MaxLength="50" />
+    <Property Name="ITEM_SP" Type="nvarchar" MaxLength="50" />
+    <Property Name="RAWMTRL" Type="nvarchar" MaxLength="20" />
+    <Property Name="HEAT_NO" Type="nvarchar" MaxLength="10" />
+    <Property Name="KEG_CNT" Type="int" />
+    <Property Name="UNIT_WT" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="NET_WEIGHT" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="GROSS_WEIGHT" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="COUNT_QTY" Type="int" />
+    <Property Name="PRC" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="AMT" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="END_CODE" Type="bit" Nullable="false" />
+    <Property Name="CS_ORDER_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="REMK" Type="nvarchar(max)" />
+    <Property Name="EXC_INSDBID" Type="nvarchar" MaxLength="13" />
+    <Property Name="EXC_INSDATE" Type="smalldatetime" />
+    <Property Name="EXC_UPDDBID" Type="nvarchar" MaxLength="13" />
+    <Property Name="EXC_UPDDATE" Type="datetime" />
+    <Property Name="EXC_SYSOWNR" Type="nvarchar" MaxLength="5" />
+    <Property Name="EXC_ISLOCKED" Type="nvarchar" MaxLength="1" />
+    <Property Name="EXC_COMPANY" Type="nvarchar" MaxLength="10" />
+    <Property Name="STATUS" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="CS_SHIPMT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VCH_NO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VCH_DT" Type="smalldatetime" Nullable="false" />
+    <Property Name="CS_NO" Type="varchar" MaxLength="50" />
+    <Property Name="CS_NM" Type="nvarchar" MaxLength="50" />
+    <Property Name="TO_ADDR" Type="nvarchar" MaxLength="100" />
+    <Property Name="CONTACT" Type="nvarchar" MaxLength="500" />
+    <Property Name="END_CODE" Type="bit" Nullable="false" />
+    <Property Name="REMK" Type="nvarchar(max)" />
+    <Property Name="EXC_INSDBID" Type="nvarchar" MaxLength="13" />
+    <Property Name="EXC_INSDATE" Type="smalldatetime" />
+    <Property Name="EXC_UPDDBID" Type="nvarchar" MaxLength="13" />
+    <Property Name="EXC_UPDDATE" Type="datetime" />
+    <Property Name="EXC_SYSOWNR" Type="nvarchar" MaxLength="5" />
+    <Property Name="EXC_ISLOCKED" Type="nvarchar" MaxLength="1" />
+    <Property Name="EXC_COMPANY" Type="nvarchar" MaxLength="10" />
+    <Property Name="STATUS" Type="varchar" MaxLength="5" />
   </EntityType>
   <EntityType Name="CS_SYSEXCEPTION">
     <Key>
@@ -378,12 +586,13 @@
     </Key>
     <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="LOT_NO" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="HEAT_NO" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="KEG_NO" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="PRCS_TY" Type="varchar" MaxLength="50" />
-    <Property Name="PRCS_NO" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="EMP_NO" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="EMP_NM" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="HEAT_NO" Type="varchar" MaxLength="10" />
+    <Property Name="KEG_NO" Type="varchar" MaxLength="50" />
+    <Property Name="KEG_CNT" Type="int" />
+    <Property Name="PRCS_TY" Type="nvarchar" MaxLength="50" />
+    <Property Name="PRCS_NO" Type="varchar" MaxLength="10" />
+    <Property Name="EMP_NO" Type="varchar" MaxLength="10" />
+    <Property Name="EMP_NM" Type="nvarchar" MaxLength="10" />
     <Property Name="MACHINE" Type="varchar" MaxLength="10" />
     <Property Name="BDT" Type="smalldatetime" />
     <Property Name="EDT" Type="smalldatetime" />
@@ -411,6 +620,7 @@
     <Property Name="WEIGHT" Type="int" />
     <Property Name="REC_DATE" Type="smalldatetime" />
     <Property Name="REC_EMP" Type="nvarchar" MaxLength="50" />
+    <Property Name="RECIPT_TY" Type="varchar" MaxLength="5" />
     <Property Name="STATUS" Type="varchar" MaxLength="50" />
     <Property Name="EXC_INSDBID" Type="nvarchar" MaxLength="13" />
     <Property Name="EXC_INSDATE" Type="smalldatetime" />
@@ -425,24 +635,51 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="WIRE_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="WIRE_ID" Type="varchar" MaxLength="20" />
     <Property Name="CS_WIRE_ID" Type="varchar" MaxLength="20" />
-    <Property Name="STOCK_DATE" Type="smalldatetime" Nullable="false" />
-    <Property Name="RAWMTRL" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="DIAMETER" Type="decimal" Precision="3" Scale="2" Nullable="false" />
-    <Property Name="ORG_DIAMETER" Type="decimal" Precision="3" Scale="2" />
-    <Property Name="HEAT_NO" Type="varchar" MaxLength="10" />
-    <Property Name="WEIGHT" Type="int" Nullable="false" />
+    <Property Name="STOCK_DATE" Type="smalldatetime" />
+    <Property Name="RAWMTRL" Type="nvarchar" MaxLength="20" />
+    <Property Name="DIAMETER" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ORG_DIAMETER" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="HEAT_NO" Type="varchar" MaxLength="20" />
+    <Property Name="WEIGHT" Type="int" />
     <Property Name="STAND_WEIGTH" Type="int" />
-    <Property Name="ANNEAL" Type="bit" Nullable="false" />
+    <Property Name="ANNEAL" Type="bit" />
     <Property Name="MARK" Type="varchar" MaxLength="50" />
     <Property Name="MARK_NM" Type="nvarchar" MaxLength="50" />
     <Property Name="PROCESS_FACTORY" Type="varchar" MaxLength="50" />
     <Property Name="TYPE" Type="int" />
     <Property Name="TYPE_NM" Type="nvarchar" MaxLength="50" />
     <Property Name="CS_NO" Type="varchar" MaxLength="50" />
+    <Property Name="CS_NM" Type="varchar" MaxLength="50" />
     <Property Name="REMARK" Type="nvarchar" MaxLength="500" />
     <Property Name="C_CLS" Type="nvarchar" MaxLength="1" />
+    <Property Name="EXC_INSDBID" Type="nvarchar" MaxLength="13" />
+    <Property Name="EXC_INSDATE" Type="smalldatetime" />
+    <Property Name="EXC_UPDDBID" Type="nvarchar" MaxLength="13" />
+    <Property Name="EXC_UPDDATE" Type="smalldatetime" />
+    <Property Name="EXC_SYSOWNR" Type="nvarchar" MaxLength="5" />
+    <Property Name="EXC_ISLOCKED" Type="nvarchar" MaxLength="1" />
+    <Property Name="EXC_COMPANY" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="CS_WIRES_CS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RAWMTRL" Type="nvarchar" MaxLength="20" />
+    <Property Name="DIAMETER" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="ORG_DIAMETER" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="HEAT_NO" Type="varchar" MaxLength="20" />
+    <Property Name="WEIGHT" Type="int" />
+    <Property Name="STAND_WEIGTH" Type="int" />
+    <Property Name="MARK_NM" Type="nvarchar" MaxLength="50" />
+    <Property Name="PROCESS_FACTORY" Type="varchar" MaxLength="50" />
+    <Property Name="CS_NO" Type="varchar" MaxLength="50" />
+    <Property Name="CS_NM" Type="varchar" MaxLength="50" />
+    <Property Name="TRANS_DATE" Type="smalldatetime" Nullable="false" />
+    <Property Name="TRANS_CODE" Type="nvarchar" MaxLength="1" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="500" />
     <Property Name="EXC_INSDBID" Type="nvarchar" MaxLength="13" />
     <Property Name="EXC_INSDATE" Type="smalldatetime" />
     <Property Name="EXC_UPDDBID" Type="nvarchar" MaxLength="13" />
@@ -919,6 +1156,84 @@
     <Property Name="C_LOCA" Type="nchar" MaxLength="1" />
     <Property Name="REMK" Type="nvarchar" MaxLength="255" />
   </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'CCS_Main.dbo.V_CODL' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="V_CODL">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="VCH_TY" />
+      <PropertyRef Name="VCH_NO" />
+      <PropertyRef Name="VCH_SR" />
+      <PropertyRef Name="ITEM_NO" />
+      <PropertyRef Name="UNIT" />
+      <PropertyRef Name="C_CLS" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="36" Nullable="false" />
+    <Property Name="VCH_TY" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="VCH_NO" Type="nchar" MaxLength="15" Nullable="false" />
+    <Property Name="VCH_SR" Type="int" Nullable="false" />
+    <Property Name="ITEM_NO" Type="nchar" MaxLength="24" Nullable="false" />
+    <Property Name="ITEM_NM" Type="nchar" MaxLength="30" />
+    <Property Name="ITEM_SP" Type="nchar" MaxLength="30" />
+    <Property Name="CS_ITEM_NO" Type="nchar" MaxLength="24" />
+    <Property Name="UNIT" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="QTY" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="PRC" Type="decimal" Precision="15" Scale="6" />
+    <Property Name="AMT" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="PRCV_DT" Type="smalldatetime" />
+    <Property Name="RCV_QTY" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="CO_WAHO_NO" Type="nchar" MaxLength="10" />
+    <Property Name="WAHO_NM" Type="nchar" MaxLength="10" />
+    <Property Name="C_OUT" Type="nchar" MaxLength="1" />
+    <Property Name="OUT_RT" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="C_CLS" Type="nchar" MaxLength="1" Nullable="false" />
+    <Property Name="REMK" Type="nvarchar" MaxLength="255" />
+    <Property Name="CS_NO" Type="nchar" MaxLength="10" />
+    <Property Name="C_CFM" Type="nchar" MaxLength="1" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'CCS_Main.dbo.V_COMT' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="V_COMT">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="VCH_TY" />
+      <PropertyRef Name="VCH_NO" />
+      <PropertyRef Name="VCH_DT" />
+      <PropertyRef Name="CS_NO" />
+      <PropertyRef Name="CURRENCY" />
+      <PropertyRef Name="C_CFM" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="36" Nullable="false" />
+    <Property Name="VCH_TY" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="VCH_NO" Type="nchar" MaxLength="15" Nullable="false" />
+    <Property Name="VCH_DT" Type="smalldatetime" Nullable="false" />
+    <Property Name="CS_NO" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="FULL_NM" Type="nvarchar" MaxLength="80" />
+    <Property Name="DEPM_NO" Type="nchar" MaxLength="10" />
+    <Property Name="DEPM_NM" Type="nchar" MaxLength="20" />
+    <Property Name="EMP_NO" Type="nchar" MaxLength="10" />
+    <Property Name="EMP_NM" Type="nchar" MaxLength="10" />
+    <Property Name="TAX_TY" Type="nchar" MaxLength="1" />
+    <Property Name="TAX_RT" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="PAY_CDT" Type="nchar" MaxLength="30" />
+    <Property Name="PAY_CDT_NM" Type="nchar" MaxLength="30" />
+    <Property Name="CS_VCH_NO" Type="nchar" MaxLength="20" />
+    <Property Name="CONTACTER" Type="nchar" MaxLength="30" />
+    <Property Name="TO_ADDR" Type="nvarchar" MaxLength="80" />
+    <Property Name="TEL_NO" Type="nchar" MaxLength="20" />
+    <Property Name="FAX_NO" Type="nchar" MaxLength="20" />
+    <Property Name="CURRENCY" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="EXCH_RATE" Type="decimal" Precision="12" Scale="6" />
+    <Property Name="WAHO_NO" Type="nchar" MaxLength="10" />
+    <Property Name="WAHO_NM" Type="nchar" MaxLength="10" />
+    <Property Name="AMT" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="TAX" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="QTY" Type="decimal" Precision="15" Scale="4" />
+    <Property Name="N_PRT" Type="int" />
+    <Property Name="C_SIGN" Type="nchar" MaxLength="1" />
+    <Property Name="C_CFM" Type="nchar" MaxLength="1" Nullable="false" />
+    <Property Name="CFM_DT" Type="smalldatetime" />
+  </EntityType>
   <Association Name="FK_CS_SysModule_SysModule">
     <End Role="CS_SYSMODULE" Type="Self.CS_SYSMODULE" Multiplicity="0..1" />
     <End Role="CS_SYSMODULE1" Type="Self.CS_SYSMODULE" Multiplicity="*" />
@@ -987,11 +1302,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <!--產生期間發現錯誤:
+警告 6035: 關聯性 'FK_dbo_CS_SHIPDL_1' 在主要端上，有不屬於資料表索引鍵的資料行。已排除此關聯性。
+        <Association Name="FK_dbo_CS_SHIPDL_1" />-->
   <Function Name="SP_GEN_ORDNO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="TYPE" Type="varchar" Mode="In" />
     <Parameter Name="PREFIX" Type="varchar" Mode="In" />
     <Parameter Name="COUNT" Type="int" Mode="In" />
   </Function>
+  <Function Name="SP_GET_CO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SP_PROCESS_SET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SP_SYS_ClearUnusedRIGHTOPERATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SP_Sys_DeleteSysRoleSysUserByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1018,15 +1337,21 @@
     <Parameter Name="userId" Type="varchar" Mode="In" />
   </Function>
   <EntityContainer Name="CCSModel1StoreContainer">
+    <EntitySet Name="CODL" EntityType="Self.CODL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COMT" EntityType="Self.COMT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_ACTIONLOG" EntityType="Self.CS_ACTIONLOG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_CODL" EntityType="Self.CS_CODL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_COMT" EntityType="Self.CS_COMT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CS_INV" EntityType="Self.CS_INV" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_ITEMSTK" EntityType="Self.CS_ITEMSTK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CS_KEGS_CS" EntityType="Self.CS_KEGS_CS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_MACHINE" EntityType="Self.CS_MACHINE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_MOMT" EntityType="Self.CS_MOMT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_PROCESS" EntityType="Self.CS_PROCESS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_PROCESS_SET" EntityType="Self.CS_PROCESS_SET" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_SEQ_NO" EntityType="Self.CS_SEQ_NO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CS_SHIPDL" EntityType="Self.CS_SHIPDL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CS_SHIPMT" EntityType="Self.CS_SHIPMT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_SYSEXCEPTION" EntityType="Self.CS_SYSEXCEPTION" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_SYSLOG" EntityType="Self.CS_SYSLOG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_SYSMODULE" EntityType="Self.CS_SYSMODULE" Schema="dbo" store:Type="Tables" />
@@ -1040,6 +1365,7 @@
     <EntitySet Name="CS_WIP_F" EntityType="Self.CS_WIP_F" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_WIRE_RECIPIENT" EntityType="Self.CS_WIRE_RECIPIENT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_WIRES" EntityType="Self.CS_WIRES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CS_WIRES_CS" EntityType="Self.CS_WIRES_CS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_WIRES_DD" EntityType="Self.CS_WIRES_DD" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CS_WIRES_JOURNAL" EntityType="Self.CS_WIRES_JOURNAL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
@@ -1048,6 +1374,66 @@
     <EntitySet Name="ITEM" EntityType="Self.ITEM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VENDOR" EntityType="Self.VENDOR" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WAHO" EntityType="Self.WAHO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="V_CODL" EntityType="Self.V_CODL" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_CODL].[ID] AS [ID], 
+    [V_CODL].[VCH_TY] AS [VCH_TY], 
+    [V_CODL].[VCH_NO] AS [VCH_NO], 
+    [V_CODL].[VCH_SR] AS [VCH_SR], 
+    [V_CODL].[ITEM_NO] AS [ITEM_NO], 
+    [V_CODL].[ITEM_NM] AS [ITEM_NM], 
+    [V_CODL].[ITEM_SP] AS [ITEM_SP], 
+    [V_CODL].[CS_ITEM_NO] AS [CS_ITEM_NO], 
+    [V_CODL].[UNIT] AS [UNIT], 
+    [V_CODL].[QTY] AS [QTY], 
+    [V_CODL].[PRC] AS [PRC], 
+    [V_CODL].[AMT] AS [AMT], 
+    [V_CODL].[PRCV_DT] AS [PRCV_DT], 
+    [V_CODL].[RCV_QTY] AS [RCV_QTY], 
+    [V_CODL].[CO_WAHO_NO] AS [CO_WAHO_NO], 
+    [V_CODL].[WAHO_NM] AS [WAHO_NM], 
+    [V_CODL].[C_OUT] AS [C_OUT], 
+    [V_CODL].[OUT_RT] AS [OUT_RT], 
+    [V_CODL].[C_CLS] AS [C_CLS], 
+    [V_CODL].[REMK] AS [REMK], 
+    [V_CODL].[CS_NO] AS [CS_NO], 
+    [V_CODL].[C_CFM] AS [C_CFM]
+    FROM [dbo].[V_CODL] AS [V_CODL]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_COMT" EntityType="Self.V_COMT" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_COMT].[ID] AS [ID], 
+    [V_COMT].[VCH_TY] AS [VCH_TY], 
+    [V_COMT].[VCH_NO] AS [VCH_NO], 
+    [V_COMT].[VCH_DT] AS [VCH_DT], 
+    [V_COMT].[CS_NO] AS [CS_NO], 
+    [V_COMT].[FULL_NM] AS [FULL_NM], 
+    [V_COMT].[DEPM_NO] AS [DEPM_NO], 
+    [V_COMT].[DEPM_NM] AS [DEPM_NM], 
+    [V_COMT].[EMP_NO] AS [EMP_NO], 
+    [V_COMT].[EMP_NM] AS [EMP_NM], 
+    [V_COMT].[TAX_TY] AS [TAX_TY], 
+    [V_COMT].[TAX_RT] AS [TAX_RT], 
+    [V_COMT].[PAY_CDT] AS [PAY_CDT], 
+    [V_COMT].[PAY_CDT_NM] AS [PAY_CDT_NM], 
+    [V_COMT].[CS_VCH_NO] AS [CS_VCH_NO], 
+    [V_COMT].[CONTACTER] AS [CONTACTER], 
+    [V_COMT].[TO_ADDR] AS [TO_ADDR], 
+    [V_COMT].[TEL_NO] AS [TEL_NO], 
+    [V_COMT].[FAX_NO] AS [FAX_NO], 
+    [V_COMT].[CURRENCY] AS [CURRENCY], 
+    [V_COMT].[EXCH_RATE] AS [EXCH_RATE], 
+    [V_COMT].[WAHO_NO] AS [WAHO_NO], 
+    [V_COMT].[WAHO_NM] AS [WAHO_NM], 
+    [V_COMT].[AMT] AS [AMT], 
+    [V_COMT].[TAX] AS [TAX], 
+    [V_COMT].[QTY] AS [QTY], 
+    [V_COMT].[N_PRT] AS [N_PRT], 
+    [V_COMT].[C_SIGN] AS [C_SIGN], 
+    [V_COMT].[C_CFM] AS [C_CFM], 
+    [V_COMT].[CFM_DT] AS [CFM_DT]
+    FROM [dbo].[V_COMT] AS [V_COMT]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_CS_SysModule_SysModule" Association="Self.FK_CS_SysModule_SysModule">
       <End Role="CS_SYSMODULE" EntitySet="CS_SYSMODULE" />
       <End Role="CS_SYSMODULE1" EntitySet="CS_SYSMODULE" />

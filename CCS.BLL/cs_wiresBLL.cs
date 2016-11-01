@@ -26,7 +26,8 @@ namespace CCS.BLL
             if (!string.IsNullOrWhiteSpace(queryStr))
             {
                 queryData = m_Rep.GetList(db).Where(a => a.Id.Contains(queryStr) || a.WIRE_ID.Contains(queryStr) 
-                || a.RAWMTRL.Contains(queryStr) || a.HEAT_NO.Contains(queryStr));
+                || a.RAWMTRL.Contains(queryStr) || a.HEAT_NO.Contains(queryStr)
+                || a.CS_NM.Contains(queryStr) || a.CS_NO.Contains(queryStr));
             }
             else
             {
@@ -45,19 +46,21 @@ namespace CCS.BLL
                                                  Id = r.Id,
                                                  WIRE_ID = r.WIRE_ID,
                                                  CS_WIRE_ID = r.CS_WIRE_ID,
-                                                 STOCK_DATE = r.STOCK_DATE,
+                                                 STOCK_DATE = r.STOCK_DATE.Value,
                                                  RAWMTRL = r.RAWMTRL,
-                                                 DIAMETER = r.DIAMETER,
+                                                 DIAMETER = r.DIAMETER.Value,
                                                  ORG_DIAMETER = r.ORG_DIAMETER.Value,
                                                  HEAT_NO = r.HEAT_NO,
-                                                 WEIGHT = r.WEIGHT,
+                                                 WEIGHT = r.WEIGHT.Value,
                                                  STAND_WEIGTH = r.STAND_WEIGTH.Value,
-                                                 ANNEAL = r.ANNEAL,
+                                                 ANNEAL = r.ANNEAL.Value,
                                                  MARK = r.MARK,
                                                  MARK_NM = r.MARK_NM,
                                                  PROCESS_FACTORY = r.PROCESS_FACTORY,
                                                  TYPE = r.TYPE.Value,
                                                  TYPE_NM = r.TYPE_NM,
+                                                 CS_NO = r.CS_NO,
+                                                 CS_NM = r.CS_NM,
                                                  REMARK = r.REMARK,
                                                  C_CLS = r.C_CLS,
                                                  EXC_INSDBID = r.EXC_INSDBID,
@@ -98,6 +101,8 @@ namespace CCS.BLL
                 entity.PROCESS_FACTORY = model.PROCESS_FACTORY;
                 entity.TYPE = model.TYPE;
                 entity.TYPE_NM = model.TYPE_NM;
+                entity.CS_NO = model.CS_NO;
+                entity.CS_NM = model.CS_NM;
                 entity.REMARK = model.REMARK;
                 entity.C_CLS = model.C_CLS;
                 entity.EXC_INSDBID = model.EXC_INSDBID;
@@ -119,7 +124,7 @@ namespace CCS.BLL
             }
             catch (Exception ex)
             {
-                errors.Add(ex.Message);
+                errors.Add(ex.Message+";"+ex.InnerException.InnerException.Message);
                 ExceptionHander.WriteException(ex);
                 return false;
             }
@@ -202,6 +207,8 @@ namespace CCS.BLL
                 entity.PROCESS_FACTORY = model.PROCESS_FACTORY;
                 entity.TYPE = model.TYPE;
                 entity.TYPE_NM = model.TYPE_NM;
+                entity.CS_NO = model.CS_NO;
+                entity.CS_NM = model.CS_NM;
                 entity.REMARK = model.REMARK;
                 entity.C_CLS = model.C_CLS;
                 entity.EXC_INSDBID = model.EXC_INSDBID;
@@ -224,7 +231,7 @@ namespace CCS.BLL
             }
             catch (Exception ex)
             {
-                errors.Add(ex.Message);
+                errors.Add(ex.Message + ";" + ex.InnerException.InnerException.Message);
                 ExceptionHander.WriteException(ex);
                 return false;
             }
@@ -248,19 +255,21 @@ namespace CCS.BLL
                 model.Id = entity.Id;
                 model.WIRE_ID = entity.WIRE_ID;
                 model.CS_WIRE_ID = entity.CS_WIRE_ID;
-                model.STOCK_DATE = entity.STOCK_DATE;
+                model.STOCK_DATE = entity.STOCK_DATE.Value;
                 model.RAWMTRL = entity.RAWMTRL;
-                model.DIAMETER = entity.DIAMETER;
+                model.DIAMETER = entity.DIAMETER.Value;
                 model.ORG_DIAMETER = entity.ORG_DIAMETER.HasValue ? entity.ORG_DIAMETER : null;
                 model.HEAT_NO = entity.HEAT_NO;
-                model.WEIGHT = entity.WEIGHT;
-                model.STAND_WEIGTH = entity.STAND_WEIGTH.Value;
-                model.ANNEAL = entity.ANNEAL;
+                model.WEIGHT = entity.WEIGHT.Value;
+                model.STAND_WEIGTH = entity.STAND_WEIGTH;
+                model.ANNEAL = entity.ANNEAL.Value;
                 model.MARK = entity.MARK;
                 model.MARK_NM = entity.MARK_NM;
                 model.PROCESS_FACTORY = entity.PROCESS_FACTORY;
                 model.TYPE = entity.TYPE.Value;
                 model.TYPE_NM = entity.TYPE_NM;
+                model.CS_NO = entity.CS_NO;
+                model.CS_NM = entity.CS_NM;
                 model.REMARK = entity.REMARK;
                 model.C_CLS = entity.C_CLS;
                 model.EXC_INSDBID = entity.EXC_INSDBID;

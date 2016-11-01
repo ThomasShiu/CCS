@@ -56,6 +56,15 @@
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.KEG_CNT)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.KEG_CNT)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.KEG_CNT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.PRCS_TY)：
                 </td>
                 <td style="width:310px">
@@ -182,7 +191,6 @@
 }
 
 @section scripts{
-<script src="~/Content/easyui-1.5/locale/easyui-lang-zh_TW.js"></script>
 <script src="~/Scripts/math_func.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {

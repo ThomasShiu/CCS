@@ -21,6 +21,14 @@ namespace CCS.Core
             container.RegisterInstance<cs_momtModel>(new cs_momtModel());
 
             // CS_COMT 訂單主檔
+            container.RegisterType<IcomtBLL, comtBLL>(); //詳例
+            container.RegisterType<IcomtRepository, comtRepository>();
+
+            // CS_COMT 訂單明細檔
+            container.RegisterType<IcodlBLL, codlBLL>(); //詳例
+            container.RegisterType<IcodlRepository, codlRepository>();
+
+            // CS_COMT 訂單主檔
             container.RegisterType<Ics_comtBLL, cs_comtBLL>(); //詳例
             container.RegisterType<Ics_comtRepository, cs_comtRepository>();
 
@@ -31,6 +39,14 @@ namespace CCS.Core
             // CS_WIRES 線材庫存
             container.RegisterType<Ics_wiresBLL, cs_wiresBLL>(); //詳例
             container.RegisterType<Ics_wiresRepository, cs_wiresRepository>();
+
+            // CS_WIRES_CS 客戶線材庫存
+            container.RegisterType<Ics_wires_csBLL, cs_wires_csBLL>(); //詳例
+            container.RegisterType<Ics_wires_csRepository, cs_wires_csRepository>();
+
+            // CS_KEGS_CS 客戶鐵桶
+            container.RegisterType<Ics_kegs_csBLL, cs_kegs_csBLL>(); //詳例
+            container.RegisterType<Ics_kegs_csRepository, cs_kegs_csRepository>();
 
             // CS_MOMT 製造工令
             container.RegisterType<Ics_momtBLL, cs_momtBLL>(); //詳例
@@ -47,6 +63,14 @@ namespace CCS.Core
             // CS_WIRE_JOURNAL 線材異動記錄
             container.RegisterType<Ics_wires_journalBLL, cs_wires_journalBLL>(); //詳例
             container.RegisterType<Ics_wires_journalRepository, cs_wires_journalRepository>();
+
+            // CS_SHIPMT 出貨單主檔
+            container.RegisterType<Ics_shipmtBLL, cs_shipmtBLL>(); //詳例
+            container.RegisterType<Ics_shipmtRepository, cs_shipmtRepository>();
+
+            // CS_SHIPMT 出貨單明細
+            container.RegisterType<Ics_shipdlBLL, cs_shipdlBLL>(); //詳例
+            container.RegisterType<Ics_shipdlRepository, cs_shipdlRepository>();
 
             //CS_SYSMODULE
             container.RegisterType<Ics_sysmoduleBLL, cs_sysmoduleBLL>();

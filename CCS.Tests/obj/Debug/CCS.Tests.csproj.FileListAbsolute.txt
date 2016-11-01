@@ -104,3 +104,7 @@ D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Debug\zh-CHT\Microsoft.ReportViewe
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Debug\Reports\SAL01_01.rdlc
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Debug\Reports\MAN01_01.rdlc
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Debug\Reports\WIR04_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Debug\Reports\SAL03_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Debug\Reports\KEG04_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Debug\Reports\WIR06_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Debug\Reports\INV04_01.rdlc

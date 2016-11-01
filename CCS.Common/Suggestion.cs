@@ -22,6 +22,8 @@ namespace CCS.Common
         public static string CloseOther { get { return "除此之外全部關閉"; } }
         public static string CloseRight { get { return "關閉右側標籤"; } }
         public static string Create { get { return "新增"; } }
+        public static string Replicate { get { return "複製"; } }
+        
         public static string Delete { get { return "刪除"; } }
         public static string DeleteFail { get { return "刪除失敗"; } }
         public static string DeleteSucceed { get { return "刪除成功"; } }

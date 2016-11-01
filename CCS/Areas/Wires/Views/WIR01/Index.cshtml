@@ -51,8 +51,14 @@
             } else {
                 return "<input type='checkbox' value=" + value + " disabled='disabled' />";
             }
+        }
 
-
+        function rowclose(value, row, index) {
+            if (row.C_CLS == 'Y') {
+                return "<input type='checkbox' checked='checked' value=" + value + " disabled='disabled' />";
+            } else {
+                return "<input type='checkbox' value=" + value + " disabled='disabled' />";
+            }
         }
 
         $('#List').datagrid({
@@ -72,10 +78,9 @@
             //rownumbers: true,//行號
             columns: [[
                 { field: 'Id', title: '', width: 80,hidden:true },
-                { field: 'WIRE_ID', title: '卷號', width: 50, sortable: true },
-                { field: 'CS_WIRE_ID', title: '客戶卷號', width: 50, sortable: true },
+                { field: 'WIRE_ID', title: '入庫單號', width: 50, sortable: true },
                 { field: 'STOCK_DATE', title: '入庫日期', width: 50,sortable:true },
-                { field: 'RAWMTRL', title: '材質', width: 100, sortable: true },
+                { field: 'RAWMTRL', title: '材質', width: 40, sortable: true },
                 { field: 'HEAT_NO', title: '爐號', width: 40, sortable: true },
                 { field: 'ORG_DIAMETER', title: '原線徑', width: 30, hidden:true,sortable: true, align: 'right' },
                 { field: 'DIAMETER', title: '線徑', width: 30,sortable:true,align:'right' },
@@ -84,10 +89,13 @@
                 { field: 'ANNEAL', title: '球化料', width: 40, align: 'center', formatter: rowformater },
                 { field: 'MARK', title: '廠牌', width: 30, hidden: true },
                 { field: 'MARK_NM', title: '廠牌名稱', width: 30 },
-                { field: 'PROCESS_FACTORY', title: '加工廠', width: 30 },
+                { field: 'PROCESS_FACTORY', title: '加工廠', width: 50 },
                 { field: 'TYPE', title: '', width: 30, hidden: true },
                 { field: 'TYPE_NM', title: '原料種類', width: 50 },
-                { field: 'REMARK', title: '備註', width: 100 }
+                { field: 'CS_NO', title: '客戶編號', hidden: true },
+                { field: 'CS_NM', title: '客戶', width: 50 },
+                { field: 'REMARK', title: '備註', width: 100 },
+                { field: 'C_CLS', title: '結案', width: 30,align: 'center' , formatter: rowclose }
             ]],
             view: detailview,
             detailFormatter: function (index, row) {

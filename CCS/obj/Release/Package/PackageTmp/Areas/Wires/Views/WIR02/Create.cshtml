@@ -45,6 +45,28 @@
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.RECIPT_TY)
+                </td>
+                <td style="width:310px">
+                    <input type="radio" id="RECIPT_TY" name="RECIPT_TY" value="O" checked="checked"> 領用
+                    <input type="radio" id="RECIPT_TY" name="RECIPT_TY" value="L"> 耗損
+                    <input type="radio" id="RECIPT_TY" name="RECIPT_TY" value="R"> 退貨
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.WIRE_ID)
+                </td>
+            </tr>
+            @*<tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.WIRE_ID)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.WIRE_ID)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.WIRE_ID)</td>
+            </tr>*@
+            <tr>
+                <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.WEIGHT)：
                 </td>
                 <td style="width:310px">

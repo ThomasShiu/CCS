@@ -62,6 +62,11 @@ namespace CCS.Models.WIR
         [Display(Name = "原料種類")]
         public string TYPE_NM { get; set; }
 
+        [Display(Name = "歸屬客戶")]
+        public string CS_NO { get; set; }
+
+        [Display(Name = "客戶名稱")]
+        public string CS_NM { get; set; }
 
         [Display(Name = "備註")]
         public string REMARK { get; set; }

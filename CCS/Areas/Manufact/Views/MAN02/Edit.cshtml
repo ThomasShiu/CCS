@@ -56,6 +56,15 @@
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.KEG_CNT)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.KEG_CNT)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.KEG_CNT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.PRCS_TY)：
                 </td>
                 <td style="width:310px">

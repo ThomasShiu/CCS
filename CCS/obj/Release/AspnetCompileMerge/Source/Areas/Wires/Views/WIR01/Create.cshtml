@@ -39,16 +39,15 @@
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.WIRE_ID)</td>
             </tr>
-            <tr>
+            @*<tr>
                 <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.CS_WIRE_ID)：
                 </td>
                 <td style="width:310px">
-                    @*@Html.EditorFor(model => model.WIRE_ID)*@
                     @Html.EditorFor(model => model.CS_WIRE_ID )
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.CS_WIRE_ID)</td>
-            </tr>
+            </tr>*@
             <tr>
                 <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.STOCK_DATE)：
@@ -155,6 +154,8 @@
                         <option>雄順金屬</option>
                         <option>豪金鐵線</option>
                         <option>建達五金</option>
+                        <option>賢柏</option>
+                        <option>春木</option>
                     </select>
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.PROCESS_FACTORY)</td>
@@ -172,7 +173,26 @@
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.TYPE)</td>
             </tr>
-            
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CS_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.CS_NO)
+                  
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CS_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CS_NM)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.CS_NM)
+
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CS_NM)</td>
+            </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.REMARK)：
@@ -188,6 +208,7 @@
 }
 
 @section scripts{
+
  <script type="text/javascript">
      $(document).ready(function () {
          $("#MARK_NM").val('中龍');
@@ -203,6 +224,34 @@
              $("#TYPE_NM").val($('#TYPE :selected').text());
          });
 
+         // 下拉選單，客戶
+         $('#CS_NO').combogrid({
+             panelWidth: 600,
+             idField: 'CS_NO',
+             textField: 'CS_NO',
+             url: 'GetCustList',
+             method: 'get',
+             columns: [[
+             { field: 'CS_NO', title: '客戶編號', width: 50 },
+             { field: 'SHORT_NM', title: '客戶簡稱', width: 60 },
+             { field: 'FULL_NM', title: '客戶全名', width: 80 },
+             { field: 'CONTACTER', title: '聯絡人', width: 50, align: 'left' },
+             { field: 'TEL_NO', title: '電話', width: 80, align: 'left' },
+             { field: 'FAX_NO', title: '傳真', width: 80 },
+             { field: 'ADDR_IVC', title: '地址', width: 150, align: 'left' }
+             ]],
+             fitColumns: true,
+             onSelect: function (rec) {
+                 //getGridValue();
+                 var grid = $("#CS_NO").combogrid("grid");//取得表格物件
+                 var row = grid.datagrid('getSelected');//取得資料列
+                 $("#CS_NM").val(row.SHORT_NM);
+                 //$("#TO_ADDR").val(row.ADDR_IVC);
+                 //$("#CS_NM").val(row.FULL_NM);
+                 //$("#TEL_NO").val(row.TEL_NO);
+                 //$("#FAX_NO").val(row.FAX_NO);
+             }
+         });
      });
 
 $(function () {

@@ -69,11 +69,16 @@
   <ItemGroup>
     <Compile Include="AccountBLL.cs" />
     <Compile Include="BaseBLL.cs" />
+    <Compile Include="codlBLL .cs" />
+    <Compile Include="comtBLL .cs" />
     <Compile Include="Core\ExceptionHander.cs" />
     <Compile Include="cs_actionlogBLL.cs" />
     <Compile Include="cs_codlBLL.cs" />
     <Compile Include="cs_itemstkBLL.cs" />
+    <Compile Include="cs_kegs_csBLL .cs" />
     <Compile Include="cs_momtBLL.cs" />
+    <Compile Include="cs_shipdlBLL.cs" />
+    <Compile Include="cs_shipmtBLL.cs" />
     <Compile Include="cs_syslogBLL.cs" />
     <Compile Include="cs_comtBLL.cs" />
     <Compile Include="cs_sysmoduleBLL.cs" />
@@ -82,6 +87,7 @@
     <Compile Include="cs_wipfBLL .cs" />
     <Compile Include="cs_wireReciptBLL.cs" />
     <Compile Include="cs_wiresBLL.cs" />
+    <Compile Include="cs_wires_csBLL.cs" />
     <Compile Include="cs_wires_journalBLL.cs" />
     <Compile Include="customerBLL.cs" />
     <Compile Include="cs_sysmoduleoperateBLL .cs" />

@@ -16,20 +16,24 @@ namespace CCS.Models
     {
         public string Id { get; set; }
         public string WIRE_ID { get; set; }
-        public System.DateTime STOCK_DATE { get; set; }
+        public string CS_WIRE_ID { get; set; }
+        public Nullable<System.DateTime> STOCK_DATE { get; set; }
         public string RAWMTRL { get; set; }
-        public decimal DIAMETER { get; set; }
+        public Nullable<decimal> DIAMETER { get; set; }
         public Nullable<decimal> ORG_DIAMETER { get; set; }
         public string HEAT_NO { get; set; }
-        public int WEIGHT { get; set; }
+        public Nullable<int> WEIGHT { get; set; }
         public Nullable<int> STAND_WEIGTH { get; set; }
-        public bool ANNEAL { get; set; }
+        public Nullable<bool> ANNEAL { get; set; }
         public string MARK { get; set; }
         public string MARK_NM { get; set; }
         public string PROCESS_FACTORY { get; set; }
         public Nullable<int> TYPE { get; set; }
         public string TYPE_NM { get; set; }
+        public string CS_NO { get; set; }
+        public string CS_NM { get; set; }
         public string REMARK { get; set; }
+        public string C_CLS { get; set; }
         public string EXC_INSDBID { get; set; }
         public Nullable<System.DateTime> EXC_INSDATE { get; set; }
         public string EXC_UPDDBID { get; set; }
@@ -37,8 +41,5 @@ namespace CCS.Models
         public string EXC_SYSOWNR { get; set; }
         public string EXC_ISLOCKED { get; set; }
         public string EXC_COMPANY { get; set; }
-        public string CS_WIRE_ID { get; set; }
-        public string C_CLS { get; set; }
-        public string CS_NO { get; set; }
     }
 }

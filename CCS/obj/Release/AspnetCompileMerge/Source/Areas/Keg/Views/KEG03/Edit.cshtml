@@ -1,0 +1,128 @@
+﻿@model CCS.Models.KEG.cs_kegs_csModel
+@using CCS.Core
+@using CCS.Common
+@using CCS.Models.SYS
+@{
+    ViewBag.Title = "修改-客戶鐵桶";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+
+<div class="mvctool bgb">
+    @Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)
+    @Html.ToolButton("btnReturn", "icon-return", "返回", false)
+</div>
+<div style="height:35px"></div>
+@using (Html.BeginForm())
+{
+    <div class="alert alert-danger">
+        @Html.ValidationSummary(false)
+    </div>
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.EXC_INSDATE)
+    @Html.HiddenFor(model => model.EXC_INSDBID)
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CS_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.CS_NO, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CS_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CS_NM)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.CS_NM, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CS_NM)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.KEG_NM)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.KEG_NM)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.KEG_NM)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.TRANS_DATE)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.TRANS_DATE, new { htmlAttributes = new { @class = "easyui-datebox", data_options = "formatter:myformatter,parser:myparser", style = "width: 100%;" } })*@
+                    <input id="TRANS_DATE" name="TRANS_DATE" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" style="width: 100%;" value="@Model.TRANS_DATE.ToString("yyyy-MM-dd")" />
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.TRANS_DATE)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.TRANS_CODE)：
+                </td>
+                <td style="width:310px">
+                    <input id="TRANS_CODE" name="TRANS_CODE" readonly="readonly" type="text" value="O" />
+
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.TRANS_CODE)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CNT)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.CNT)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CNT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.REMARK)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.REMARK)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.REMARK)</td>
+            </tr>
+        </tbody>
+    </table>
+}
+@section scripts{
+
+    <script type="text/javascript">
+$(function () {
+    $("#btnSave").click(function () {
+        if ($("form").valid()) {
+            $.ajax({
+                url: "@Url.Action("Edit")",
+                type: "Post",
+                data: $("form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data.type == 1) {
+                        window.parent.frameReturnByMes(data.message);
+                        window.parent.frameReturnByReload(true);
+                        window.parent.frameReturnByClose()
+                    }
+                    else {
+                        window.parent.frameReturnByMes(data.message);
+                    }
+                }
+            });
+        }
+        return false;
+    });
+    $("#btnReturn").click(function () {
+         window.parent.frameReturnByClose();
+    });
+});
+    </script>
+}

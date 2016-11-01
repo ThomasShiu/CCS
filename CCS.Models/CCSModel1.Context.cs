@@ -45,17 +45,26 @@ namespace CCS.Models
         public virtual DbSet<CS_SEQ_NO> CS_SEQ_NO { get; set; }
         public virtual DbSet<CS_CODL> CS_CODL { get; set; }
         public virtual DbSet<ITEM> ITEM { get; set; }
-        public virtual DbSet<CS_WIRES> CS_WIRES { get; set; }
         public virtual DbSet<CS_WIP> CS_WIP { get; set; }
         public virtual DbSet<CS_MOMT> CS_MOMT { get; set; }
         public virtual DbSet<CS_MACHINE> CS_MACHINE { get; set; }
         public virtual DbSet<CS_PROCESS> CS_PROCESS { get; set; }
         public virtual DbSet<CS_PROCESS_SET> CS_PROCESS_SET { get; set; }
-        public virtual DbSet<CS_WIRE_RECIPIENT> CS_WIRE_RECIPIENT { get; set; }
         public virtual DbSet<CS_WIRES_JOURNAL> CS_WIRES_JOURNAL { get; set; }
         public virtual DbSet<CS_WIRES_DD> CS_WIRES_DD { get; set; }
         public virtual DbSet<CS_ITEMSTK> CS_ITEMSTK { get; set; }
         public virtual DbSet<CS_WIP_F> CS_WIP_F { get; set; }
+        public virtual DbSet<CS_INV> CS_INV { get; set; }
+        public virtual DbSet<CODL> CODL { get; set; }
+        public virtual DbSet<COMT> COMT { get; set; }
+        public virtual DbSet<V_CODL> V_CODL { get; set; }
+        public virtual DbSet<V_COMT> V_COMT { get; set; }
+        public virtual DbSet<CS_WIRES> CS_WIRES { get; set; }
+        public virtual DbSet<CS_WIRE_RECIPIENT> CS_WIRE_RECIPIENT { get; set; }
+        public virtual DbSet<CS_KEGS_CS> CS_KEGS_CS { get; set; }
+        public virtual DbSet<CS_WIRES_CS> CS_WIRES_CS { get; set; }
+        public virtual DbSet<CS_SHIPDL> CS_SHIPDL { get; set; }
+        public virtual DbSet<CS_SHIPMT> CS_SHIPMT { get; set; }
     
         public virtual int SP_SYS_ClearUnusedRIGHTOPERATE()
         {
@@ -157,6 +166,11 @@ namespace CCS.Models
         public virtual ObjectResult<SP_PROCESS_SET_Result> SP_PROCESS_SET()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_PROCESS_SET_Result>("SP_PROCESS_SET");
+        }
+    
+        public virtual ObjectResult<SP_GET_CO_Result2> SP_GET_CO()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GET_CO_Result2>("SP_GET_CO");
         }
     }
 }

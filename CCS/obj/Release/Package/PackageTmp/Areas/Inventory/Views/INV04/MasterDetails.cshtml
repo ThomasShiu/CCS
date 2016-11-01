@@ -1,0 +1,253 @@
+﻿@model CCS.Models.INV.cs_shipmtModel
+@using CCS.Models.SYS;
+@using CCS.Core;
+@using CCS.Common;
+@{
+    ViewBag.Title = "主頁";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+<link href="~/Content/easyui-1.5/themes/blue/easyui.css" rel="stylesheet" />
+<div class="mvctool">
+
+    @Html.ToolButton("btnReturn", "icon-return", @Suggestion.Return, true)
+    <input id="txtQuery" type="text" class="searchText" />
+    @Html.ToolButton("btnQuery", "icon-search", @Suggestion.Query, true)
+    @Html.ToolButton("btnCreate", "icon-add", @Suggestion.Create, perm, "Create", true)
+    @Html.ToolButton("btnEdit", "icon-edit", @Suggestion.Edit, perm, "Edit", true)
+    @Html.ToolButton("btnDetails", "icon-details", @Suggestion.Details, perm, "Details", true)
+    @Html.ToolButton("btnDelete", "icon-remove", @Suggestion.Delete, perm, "Delete", true)
+    @Html.ToolButton("btnExport", "icon-export", @Suggestion.Export, perm, "Export", true)
+    @Html.ToolButton("btnReload", "icon-reload", @Suggestion.Reload, true)
+
+</div>
+@*<table class="fromEditTable setTextWidth250" style="width:100%;" readinly="readonly">*@
+
+<table class="" style="width:100%;">
+
+    <tbody>
+        <tr>
+            <td style="width:100px; text-align:right;">
+                @Html.LabelFor(model => model.VCH_NO)：
+            </td>
+            <td style="width:200px">
+                @Html.EditorFor(model => model.VCH_NO, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:200px;", @readonly = "readonly" } })
+            </td>
+            <td style="width:100px; text-align:right;">
+                @Html.LabelFor(model => model.VCH_DT)：
+            </td>
+            <td style="width:200px">
+                @Html.EditorFor(model => model.VCH_DT, new { htmlAttributes = new { @class = "easyui-datebox", style = "width:200px;", data_options = "formatter:myformatter,parser:myparser", @readonly = "readonly" } })
+            </td>
+            <td style="width:100px; text-align:right;">
+                @Html.LabelFor(model => model.CONTACT)：
+            </td>
+            <td style="width:300px" >
+                @Html.EditorFor(model => model.CONTACT, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:300px;", @readonly = "readonly" } })
+            </td>
+            <td style="width:100px; text-align:right;" rowspan="2">
+                @Html.LabelFor(model => model.REMK)：
+            </td>
+            <td style="width:300px" rowspan="2">
+                @Html.EditorFor(model => model.REMK, new { htmlAttributes = new { @class = "easyui-textbox", multiline = "true", style = "width:300px;", @readonly = "readonly" } })
+            </td>
+        </tr>
+        <tr>
+            <td style="width:100px; text-align:right;">
+                @Html.LabelFor(model => model.CS_NO)：
+            </td>
+            <td style="width:200px">
+                @Html.EditorFor(model => model.CS_NO, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:200px;", @readonly = "readonly" } })
+            </td>
+            <td style="width:100px; text-align:right;">
+                @Html.LabelFor(model => model.CS_NM)：
+            </td>
+            <td style="width:200px">
+                @Html.EditorFor(model => model.CS_NM, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:200px;", @readonly = "readonly" } })
+            </td>
+            <td style="width:100px; text-align:right;">
+                @Html.LabelFor(model => model.TO_ADDR)：
+            </td>
+            <td style="width:300px" >
+                @Html.EditorFor(model => model.TO_ADDR, new { htmlAttributes = new { @class = "easyui-textbox", style = "width:300px;", @readonly = "readonly" } })
+            </td>
+            
+            
+        </tr>
+        <tr>
+           
+        </tr>
+       
+
+    </tbody>
+</table>
+<div style="height:15px"></div>
+<table id="List"></table>
+
+<div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+@section scripts{
+    <script type="text/javascript">
+            $(function () {
+                $('#List').datagrid({
+                    url: '@Url.Action("GetList")?queryStr=@Model.VCH_NO',
+                    width: $(window).width() - 10,
+                    methord: 'post',
+                    height: $(window).height() - 230,
+                    fitColumns: true,
+                    sortName: 'VCH_SR',
+                    sortOrder: 'asc',
+                    idField: 'ID',
+                    pageSize: 20,
+                    pageList: [15, 20, 30, 40, 50],
+                    pagination: true,
+                    striped: true, //奇偶行是否區分
+                    singleSelect: true,//單選模式
+                    //rownumbers: true,//行號
+                    emptyMsg: '無資料',
+                    loadMsg: '正在讀取中，請稍候...',
+                    columns: [[
+                            { field: 'Id', title: '', width: 80, hidden: true },
+                            { field: 'VCH_NO', title: '出貨單號', width: 80, hidden: true },
+                            { field: 'VCH_SR', title: '序號', width: 40, sortable: true },
+                            { field: 'ITEM_NO', title: '品號', width: 120 },
+                            { field: 'ITEM_NM', title: '品名', width: 80},
+                            { field: 'ITEM_SP', title: '規格', width: 80 },
+                            { field: 'RAWMTRL', title: '材質', width: 80 },
+                            { field: 'HEAT_NO', title: '爐號', width: 80 },
+                            { field: 'KEG_CNT', title: '桶數', width: 50 },
+                            { field: 'UNIT_WT', title: '單重', width: 50},
+                            { field: 'NET_WEIGHT', title: '淨重', width: 50 },
+                            { field: 'GROSS_WEIGHT', title: '毛重', width: 50 },
+                            { field: 'COUNT_QTY', title: '換算支數', width: 60},
+                            { field: 'PRC', title: '單價', width: 50 },
+                            { field: 'AMT', title: '金額', width: 50 },
+                            { field: 'CS_ORDER_NO', title: '客戶單號', width: 80 },
+                            { field: 'REMK', title: '備註', width: 80 },
+                            { field: 'END_CODE', title: '', hidden: true },
+                    ]]
+                });
+                var pager = $('#List').datagrid('getPager');
+                $(pager).pagination({
+                    pageSize: 20,
+                    showPageList: true,
+                    pageList: [15, 20, 30, 40, 50],
+                    beforePageText: '第',
+                    afterPageText: '頁,共{pages}頁',
+                    displayMsg: '顯示 {from} 到 {to} 筆資料,共 {total} 筆資料'
+                });
+            });
+
+
+            //ifram 返回
+            function frameReturnByClose() {
+                $("#modalwindow").window('close');
+            }
+            function frameReturnByReload(flag) {
+                if (flag)
+                    $("#List").datagrid('load');
+                else
+                    $("#List").datagrid('reload');
+            }
+            function frameReturnByMes(mes) {
+                $.messageBox5s('提示', mes);
+            }
+
+            $(function () {
+                $("#btnReturn").click(function () {
+                    history.go(-1);
+                });
+                $("#btnReload").click(function () {
+                    frameReturnByReload();
+                });
+
+                $("#btnExport").click(function () {
+                    $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/Inventory/INV04/Reporting?ID=@Model.VCH_NO&Ieguid=" + GetGuid() + "'></iframe>");
+                    $("#modalwindow").window({ title: '匯出', width: 800, height: 600, iconCls: 'icon-add' }).window('open');
+                });
+                $("#btnCreate").click(function () {
+                    $("#modalwindow").html("<iframe width='100%' height='99%' scrolling='auto' frameborder='0'' src='/Inventory/INV04/Create?ID=@Model.VCH_NO&Ieguid=" + GetGuid() + "'></iframe>");
+                    $("#modalwindow").window({ title: '新增', width: 900, height: 460, iconCls: 'icon-add' }).window('open');
+                });
+                $("#btnEdit").click(function () {
+                    var row = $('#List').datagrid('getSelected');
+                    if (row != null) {
+                        $("#modalwindow").html("<iframe width='100%' height='99%'  frameborder='0' src='/Inventory/INV04/Edit?id=" + row.Id + "&Ieguid=" + GetGuid() + "'></iframe>");
+                        $("#modalwindow").window({ title: '編輯', width: 900, height: 460, iconCls: 'icon-edit' }).window('open');
+                    } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords'); }
+                });
+                $("#btnDetails").click(function () {
+                    var row = $('#List').datagrid('getSelected');
+                    if (row != null) {
+                        $("#modalwindow").html("<iframe width='100%' height='99%' scrolling='no' frameborder='0' src='/Inventory/INV04/Details?id=" + row.ID + "&Ieguid=" + GetGuid() + "'></iframe>");
+                        $("#modalwindow").window({ title: '詳細', width: 800, height: 460, iconCls: 'icon-details' }).window('open');
+                    } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords'); }
+                });
+                $("#btnQuery").click(function () {
+                    var queryStr = $("#txtQuery").val();
+                    if (queryStr == null) {
+                        queryStr = "%";
+                    }
+                    $('#List').datagrid({
+                        url: '@Url.Action("GetList")?queryStr=' + encodeURI(queryStr)
+                    });
+
+                });
+                $("#btnDelete").click(function () {
+                    var row = $('#List').datagrid('getSelected');
+                    if (row != null) {
+                        $.messager.confirm('提示', '@Suggestion.YouWantToDeleteTheSelectedRecords', function (r) {
+                            if (r) {
+                                $.post("@Url.Action("Delete")?id=" + row.ID, function (data) {
+                                    if (data.type == 1)
+                                        $("#List").datagrid('load');
+                                    $.messageBox5s('提示', data.message);
+                                }, "json");
+
+                            }
+                        });
+                    } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords'); }
+                });
+            });
+
+            function myformatter(date) {
+                var y = date.getFullYear();
+                var m = date.getMonth() + 1;
+                var d = date.getDate();
+                return y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d);
+            }
+            function myparser(s) {
+                if (!s) return new Date();
+                var ss = (s.split('-'));
+                var y = parseInt(ss[0], 10);
+                var m = parseInt(ss[1], 10);
+                var d = parseInt(ss[2], 10);
+                if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
+                    return new Date(y, m - 1, d);
+                } else {
+                    return new Date();
+                }
+            }
+
+            $(window).resize(function () {
+                $('#List').datagrid('resize', {
+                    width: $(window).width() - 5,
+                    height: SetGridHeightSub(225)
+                }).datagrid('resize', {
+                    width: $(window).width() - 5,
+                    height: SetGridHeightSub(225)
+                });
+            });
+            function SetGridWidthSub(w) {
+                return $(window).width() - w;
+            }
+            function SetGridHeightSub(h) {
+                return $(window).height() - h
+            }
+
+
+    </script>
+}

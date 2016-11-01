@@ -57,6 +57,7 @@ namespace CCS.Areas.Manufact.Controllers
                             LOT_NO = r.LOT_NO,
                             HEAT_NO = r.HEAT_NO,
                             KEG_NO = r.KEG_NO,
+                            KEG_CNT = r.KEG_CNT,
                             PRCS_TY = r.PRCS_TY,
                             PRCS_NO = r.PRCS_NO,
                             EMP_NO = r.EMP_NO,

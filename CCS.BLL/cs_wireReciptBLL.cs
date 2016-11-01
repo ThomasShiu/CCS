@@ -47,6 +47,7 @@ namespace CCS.BLL
                                                           WEIGHT = r.WEIGHT.Value,
                                                           REC_DATE = r.REC_DATE.Value,
                                                           REC_EMP = r.REC_EMP,
+                                                          RECIPT_TY = r.RECIPT_TY,
                                                           EXC_INSDBID = r.EXC_INSDBID,
                                                           EXC_INSDATE = r.EXC_INSDATE.Value,
                                                           EXC_UPDDBID = r.EXC_UPDDBID,
@@ -75,6 +76,7 @@ namespace CCS.BLL
                 entity.WEIGHT = model.WEIGHT;
                 entity.REC_DATE = model.REC_DATE;
                 entity.REC_EMP = model.REC_EMP;
+                entity.RECIPT_TY = model.RECIPT_TY;
                 entity.EXC_INSDBID = model.EXC_INSDBID;
                 entity.EXC_INSDATE = model.EXC_INSDATE;
                 entity.EXC_UPDDBID = model.EXC_UPDDBID;
@@ -167,6 +169,7 @@ namespace CCS.BLL
                 entity.WEIGHT = model.WEIGHT;
                 entity.REC_DATE = model.REC_DATE;
                 entity.REC_EMP = model.REC_EMP;
+                entity.RECIPT_TY = model.RECIPT_TY;
                 entity.EXC_INSDBID = model.EXC_INSDBID;
                 entity.EXC_INSDATE = model.EXC_INSDATE;
                 entity.EXC_UPDDBID = model.EXC_UPDDBID;
@@ -214,6 +217,7 @@ namespace CCS.BLL
                 model.WEIGHT = entity.WEIGHT.Value;
                 model.REC_DATE = entity.REC_DATE.Value;
                 model.REC_EMP = entity.REC_EMP;
+                model.RECIPT_TY = entity.RECIPT_TY;
                 model.EXC_INSDBID = entity.EXC_INSDBID;
                 model.EXC_INSDATE = entity.EXC_INSDATE.Value;
                 model.EXC_UPDDBID = entity.EXC_UPDDBID;

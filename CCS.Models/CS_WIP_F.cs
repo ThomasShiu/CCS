@@ -38,5 +38,6 @@ namespace CCS.Models
         public string STATUS { get; set; }
         public string HEAT_NO { get; set; }
         public string MACHINE { get; set; }
+        public Nullable<int> KEG_CNT { get; set; }
     }
 }

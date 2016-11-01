@@ -45,7 +45,8 @@ namespace CCS.BLL
             IQueryable<CS_SYSRIGHT> queryData = null;
             if (!string.IsNullOrWhiteSpace(queryStr))
             {
-                queryData = sysright_Rep.GetList(db).Where(a => a.Id.Contains(queryStr) || a.ModuleId.Contains(queryStr));
+                queryData = sysright_Rep.GetList(db).Where(a => a.Id.Contains(queryStr) || a.ModuleId.Contains(queryStr)
+                || a.RoleId.Contains(queryStr));
             }
             else
             {
@@ -62,7 +63,7 @@ namespace CCS.BLL
             IQueryable<CS_SYSRIGHT> queryData = null;
             if (!string.IsNullOrWhiteSpace(queryStr))
             {
-                queryData = sysright_Rep.GetList(db).Where(a => a.Id.Contains(queryStr) || a.ModuleId.Contains(queryStr));
+                queryData = sysright_Rep.GetList(db).Where(a => a.Id.Contains(queryStr) || a.ModuleId.Contains(queryStr) || a.RoleId.Contains(queryStr));
             }
             else
             {

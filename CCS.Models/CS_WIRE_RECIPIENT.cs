@@ -17,8 +17,10 @@ namespace CCS.Models
         public string Id { get; set; }
         public string MO_VCH_NO { get; set; }
         public string WIRE_ID { get; set; }
+        public Nullable<int> WEIGHT { get; set; }
         public Nullable<System.DateTime> REC_DATE { get; set; }
         public string REC_EMP { get; set; }
+        public string STATUS { get; set; }
         public string EXC_INSDBID { get; set; }
         public Nullable<System.DateTime> EXC_INSDATE { get; set; }
         public string EXC_UPDDBID { get; set; }
@@ -26,7 +28,6 @@ namespace CCS.Models
         public string EXC_SYSOWNR { get; set; }
         public string EXC_ISLOCKED { get; set; }
         public string EXC_COMPANY { get; set; }
-        public Nullable<int> WEIGHT { get; set; }
-        public string STATUS { get; set; }
+        public string RECIPT_TY { get; set; }
     }
 }

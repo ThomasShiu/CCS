@@ -142,3 +142,7 @@ D:\Git_Source\CCM3S_Project\CCS\CCS\bin\Gma.QrCodeNet.Encoding.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS\bin\Gma.QrCodeNet.Encoding.pdb
 D:\Git_Source\CCM3S_Project\CCS\CCS\bin\Gma.QrCodeNet.Encoding.xml
 D:\Git_Source\CCM3S_Project\CCS\CCS\bin\Reports\WIR04_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS\bin\Reports\SAL03_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS\bin\Reports\KEG04_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS\bin\Reports\WIR06_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS\bin\Reports\INV04_01.rdlc

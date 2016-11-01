@@ -97,6 +97,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CCSModel1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="CODL.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COMT.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
     <Compile Include="CS_ACTIONLOG.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
@@ -106,7 +112,13 @@
     <Compile Include="CS_COMT.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
+    <Compile Include="CS_INV.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
     <Compile Include="CS_ITEMSTK.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CS_KEGS_CS.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_MACHINE.cs">
@@ -122,6 +134,12 @@
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_SEQ_NO.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CS_SHIPDL.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CS_SHIPMT.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="CS_SYSEXCEPTION.cs">
@@ -157,6 +175,9 @@
     <Compile Include="CS_WIRES.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
+    <Compile Include="CS_WIRES_CS.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
     <Compile Include="CS_WIRES_DD.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
@@ -176,9 +197,12 @@
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="INV\cs_itemstkModel.cs" />
+    <Compile Include="INV\cs_shipdlModel.cs" />
+    <Compile Include="INV\cs_shipmtModel.cs" />
     <Compile Include="ITEM.cs">
       <DependentUpon>CCSModel1.tt</DependentUpon>
     </Compile>
+    <Compile Include="KEG\cs_kegs_csModel.cs" />
     <Compile Include="LocaldbModel1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -197,6 +221,24 @@
     <Compile Include="MAN\cs_momtModel.cs" />
     <Compile Include="MAN\cs_processSetModel.cs" />
     <Compile Include="MAN\cs_wipfModel.cs" />
+    <Compile Include="SAL\CODLModel.cs" />
+    <Compile Include="SAL\COMTModel.cs" />
+    <Compile Include="SP_GET_CO_Result.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GET_CO_Result1.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GET_CO_Result2.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_CODL.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_COMT.cs">
+      <DependentUpon>CCSModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WIR\cs_wires_csModel.cs" />
     <Compile Include="WIR\cs_wires_journalModel.cs" />
     <Compile Include="WIR\cs_wire_reciptModel.cs" />
     <Compile Include="PUB\empnoModel.cs" />

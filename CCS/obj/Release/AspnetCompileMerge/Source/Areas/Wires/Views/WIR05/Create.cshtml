@@ -1,0 +1,230 @@
+﻿@model CCS.Models.WIR.cs_wires_csModel
+@using CCS.Core;
+@using CCS.Common;
+@using CCS.Models.SYS
+@{
+    ViewBag.Title = "創建-客戶線材管理";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+
+<div class="mvctool bgb">
+    @Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)
+    @Html.ToolButton("btnReturn", "icon-return", "返回", false)
+</div>
+<div style="height:35px"></div>
+@using (Html.BeginForm())
+{
+    <div class="alert alert-danger">
+        @Html.ValidationSummary(false)
+    </div>
+    @Html.HiddenFor(model => model.Id)
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CS_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.CS_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CS_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CS_NM)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.CS_NM)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CS_NM)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.RAWMTRL)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.RAWMTRL)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.RAWMTRL)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.DIAMETER)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.DIAMETER)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.DIAMETER)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.ORG_DIAMETER)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.ORG_DIAMETER)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ORG_DIAMETER)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.HEAT_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.HEAT_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.HEAT_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.WEIGHT)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.WEIGHT)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.WEIGHT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.STAND_WEIGTH)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.STAND_WEIGTH)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.STAND_WEIGTH)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.MARK_NM)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.MARK_NM)*@
+                    <select id="MARK_NM" name="MARK_NM" class="" style="width:100%;">
+                        <option value="中龍">中龍</option>
+                        <option value="中鋼">中鋼</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.MARK_NM)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PROCESS_FACTORY)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.PROCESS_FACTORY)*@
+                    <select id="PROCESS_FACTORY" name="PROCESS_FACTORY" class="" style="width:100%;">
+                        <option>雄順金屬</option>
+                        <option>豪金鐵線</option>
+                        <option>建達五金</option>
+                        <option>賢柏</option>
+                        <option>春木</option>
+                    </select>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PROCESS_FACTORY)</td>
+            </tr>
+            
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.TRANS_DATE)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.TRANS_DATE)*@
+                    <input id="TRANS_DATE" name="TRANS_DATE" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser,required:true" style="width: 100%;" />
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.TRANS_DATE)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.TRANS_CODE)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.TRANS_CODE)*@
+                    <input type="radio" id="TRANS_CODE" name="TRANS_CODE" value="I" checked="checked"> 入庫
+                    <input type="radio" id="TRANS_CODE" name="TRANS_CODE" value="O"> 出貨
+                    <input type="radio" id="TRANS_CODE" name="TRANS_CODE" value="L"> 耗損
+                    <input type="radio" id="TRANS_CODE" name="TRANS_CODE" value="R"> 退貨
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.TRANS_CODE)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.REMARK)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.REMARK)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.REMARK)</td>
+            </tr>
+           
+        </tbody>
+    </table>
+}
+@section scripts{
+    
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        // 下拉選單，客戶
+        $('#CS_NO').combogrid({
+            required:true,
+            panelWidth: 600,
+            idField: 'CS_NO',
+            textField: 'CS_NO',
+            url: 'GetCustList',
+            method: 'get',
+            columns: [[
+            { field: 'CS_NO', title: '客戶編號', width: 50 },
+            { field: 'SHORT_NM', title: '客戶簡稱', width: 60 },
+            { field: 'FULL_NM', title: '客戶全名', width: 80 },
+            { field: 'CONTACTER', title: '聯絡人', width: 50, align: 'left' },
+            { field: 'TEL_NO', title: '電話', width: 80, align: 'left' },
+            { field: 'FAX_NO', title: '傳真', width: 80 },
+            { field: 'ADDR_IVC', title: '地址', width: 150, align: 'left' }
+            ]],
+            fitColumns: true,
+            onSelect: function (rec) {
+                //getGridValue();
+                var grid = $("#CS_NO").combogrid("grid");//取得表格物件
+                var row = grid.datagrid('getSelected');//取得資料列
+                $("#CS_NM").val(row.SHORT_NM);
+                //$("#TO_ADDR").val(row.ADDR_IVC);
+                //$("#CS_NM").val(row.FULL_NM);
+                //$("#TEL_NO").val(row.TEL_NO);
+                //$("#FAX_NO").val(row.FAX_NO);
+            }
+        });
+    });
+$(function () {
+    $("#btnSave").click(function () {
+        if ($("form").valid()) {
+            $.ajax({
+                url: "@Url.Action("Create")",
+                type: "Post",
+                data: $("form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data.type == 1) {
+                        window.parent.frameReturnByMes(data.message);
+                        window.parent.frameReturnByReload(true);
+                        window.parent.frameReturnByClose()
+                    }
+                    else {
+                        window.parent.frameReturnByMes(data.message);
+                    }
+                }
+            });
+        }
+        return false;
+    });
+    $("#btnReturn").click(function () {
+         window.parent.frameReturnByClose();
+    });
+});
+</script>
+    
+    }

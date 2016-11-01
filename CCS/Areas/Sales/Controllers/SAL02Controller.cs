@@ -22,6 +22,12 @@ namespace CCS.Areas.Sales.Controllers
     [UserTraceLog]
     public class SAL02Controller : BaseController
     {
+        private DropListService dls;
+        public SAL02Controller(DropListService dls)
+        {
+            this.dls = dls;
+        }
+
         CCSservice ccsService = new CCSservice();
 
         // GET: Sales/SAL02
@@ -217,26 +223,27 @@ namespace CCS.Areas.Sales.Controllers
         public JsonResult GetItemList(String queryStr)
         {
             //var model =  ccsService.GetCustList("");
-            List<itemModel> list = item_BLL.GetList(queryStr);
-            var model = (from r in list
-                         where r.ITEM_NO.StartsWith("6")  // 製成品
-                         select new itemModel()
-                         {
-                             ITEM_NO = r.ITEM_NO.Trim(),
-                             ITEM_NM = r.ITEM_NM.Trim(),
-                             ITEM_SP = r.ITEM_SP.Trim(),
-                             ITEM_NM_E = r.ITEM_NM_E,
-                             ITEM_SP_E = r.ITEM_SP_E,
-                             ITEM_NO_O = r.ITEM_NO_O
-                         }).ToArray();
-
+            //List<itemModel> list = item_BLL.GetList(queryStr);
+            //var model = (from r in list
+            //             where r.ITEM_NO.StartsWith("6")  // 製成品
+            //             select new itemModel()
+            //             {
+            //                 ITEM_NO = r.ITEM_NO.Trim(),
+            //                 ITEM_NM = r.ITEM_NM.Trim(),
+            //                 ITEM_SP = r.ITEM_SP.Trim(),
+            //                 ITEM_NM_E = r.ITEM_NM_E,
+            //                 ITEM_SP_E = r.ITEM_SP_E,
+            //                 ITEM_NO_O = r.ITEM_NO_O
+            //             }).ToArray();
+            var model = dls.GetitemList("").ToList();
             return Json(model, JsonRequestBehavior.AllowGet);
 
         }
         #endregion
 
+
+        #region 訂單報表
         [SupportFilter(ActionName = "Index")]
-        #region
         public ActionResult Reporting(string id,string type = "PDF")
         {
             string v_sqlstr = "SELECT VCH_NO, CONVERT(VARCHAR(10),VCH_DT,120) VCH_DT, FA_NO, CS_NO, CS_NM, DEPM_NO, EMP_NO, EMP_NAME, CS_VCH_NO,"+

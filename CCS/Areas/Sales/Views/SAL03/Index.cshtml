@@ -1,0 +1,165 @@
+﻿@using CCS.Core
+@using CCS.Common
+@using CCS.Models.SYS
+@{
+    ViewBag.Title = "主頁";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+@section styles{
+    <link href="~/Content/easyui-1.5/themes/blue/easyui.css" rel="stylesheet" />
+    <style>
+
+    </style>
+}
+<div class="mvctool">
+    <input id="txtQuery" type="text" class="searchText" />
+    @Html.ToolButton("btnQuery", "icon-search", @Suggestion.Query, true)
+    @Html.ToolButton("btnCreate", "icon-add", @Suggestion.Create, perm, "Create", true)
+    @Html.ToolButton("btnEdit", "icon-edit", @Suggestion.Edit, perm, "Edit", true)
+    @Html.ToolButton("btnDetails", "icon-details", @Suggestion.Details, perm, "Details", true)
+    @Html.ToolButton("btnDelete", "icon-remove", @Suggestion.Delete, perm, "Delete", true)
+    @Html.ToolButton("btnExport", "icon-export", @Suggestion.Export, perm, "Export", true)
+    @Html.ToolButton("btnReload", "icon-reload", @Suggestion.Reload, true)
+</div>
+<table id="List"></table>
+
+<div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+@section scripts{
+<script src="~/Content/easyui-1.5/datagrid-detailview.js"></script>
+@Html.Partial("~/Views/Shared/_Partial_AutoGrid.cshtml")
+<script type="text/javascript">
+    $(function () {
+        $('#List').datagrid({
+            url: '@Url.Action("GetList")',
+            width: $(window).width() - 10,
+            methord: 'post',
+            height: $(window).height() - 35,
+            fitColumns: true,
+            sortName: 'VCH_NO',
+            sortOrder: 'desc',
+            idField: 'Id',
+            pageSize: 15,
+            pageList: [15, 20, 30, 40, 50],
+            pagination: true,
+            striped: true, //奇偶行是否區分
+            singleSelect: true,//單選模式
+            //rownumbers: true,//行號
+            columns: [[
+                 { field: 'ID', title: 'ID', width: 80, hidden:true },
+                { field: 'VCH_TY', title: '訂單別', width: 40, sortable: true },
+                { field: 'VCH_NO', title: '訂單號', width: 50, sortable: true },
+                { field: 'VCH_DT', title: '訂單日', width: 50, sortable: true },
+                { field: 'CS_NO', title: '客戶', width: 80, hidden: true },
+                { field: 'FULL_NM', title: '客戶名稱', width: 100, sortable: true },
+                { field: 'DEPM_NO', title: '部門', width: 80, hidden: true },
+                { field: 'DEPM_NM', title: '部門名稱', width: 80, hidden: true },
+                { field: 'EMP_NO', title: '業務', width: 50, hidden: true },
+                { field: 'EMP_NM', title: '業務人員', width: 50 },
+                { field: 'TAX_TY', title: '', width: 50, hidden: true },
+                { field: 'TAX_RT', title: '稅率', width: 30 },
+                { field: 'PAY_CDT', title: '付款條件', width: 50},
+                { field: 'PAY_CDT_NM', title: '付款條件', width: 50 },
+                { field: 'CS_VCH_NO', title: '客戶單號', width: 50 },
+                { field: 'CONTACTER', title: '連絡人', width: 50 },
+                { field: 'TO_ADDR', title: '送貨地址', width: 180 },
+                { field: 'CURRENCY', title: '幣別', width: 40 },
+                { field: 'EXCH_RATE', title: '匯率', width: 40, align: 'right' },
+                { field: 'WAHO_NO', title: '出貨倉庫', width: 50, hidden: true },
+                { field: 'WAHO_NM', title: '出貨倉庫', width: 50},
+                { field: 'AMT', title: '金額', width: 50 , align:'right' },
+                { field: 'TAX', title: '稅金', width: 50, align: 'right' },
+                { field: 'QTY', title: '數量', width: 50, align: 'right' },
+                { field: 'N_PRT', title: '列印次數', width: 50, align: 'right' },
+                { field: 'C_SIGN', title: '', width: 80, hidden: true },
+                { field: 'C_CFM', title: '核准', width: 30},
+                { field: 'CFM_DT', title: '', width: 80, hidden: true }
+            ]],
+            view: detailview,
+            detailFormatter: function (index, row) {
+                return '<div style="padding:2px"><table id="ddv-' + index + '"></table></div>';
+            },
+            onExpandRow: function (index, row) {//顯示Detail明細
+                $('#ddv-' + index).datagrid({
+                    url: '@Url.Action("GetDetailsList")?queryStr=' + row.VCH_NO, //getJsonByID_TW.replace("_gdate_", row.GDATE).replace("_ghour_", row.GHOUR).replace("_gminute_", row.GMINUTE),
+                    fitColumns: true,
+                    singleSelect: true,
+                    //rownumbers: true,
+                    loadMsg: '',
+                    height: 'auto',
+                    columns: [[
+                            { field: 'ID', title: '', width: 30, hidden: true },
+                            { field: 'VCH_TY', title: '', width: 40, hidden: true },
+                            { field: 'VCH_NO', title: '', width: 40, hidden: true },
+                            { field: 'VCH_SR', title: '序號', width: 30 },
+                            { field: 'ITEM_NO', title: '品號', width: 90 },
+                            { field: 'ITEM_NM', title: '品名', width: 80 },
+                            { field: 'ITEM_SP', title: '規格', width: 60 },
+                            { field: 'CS_ITEM_NO', title: '客戶單號', width: 80 },
+                            { field: 'UNIT', title: '單位', width: 30 ,align:'right'},
+                            { field: 'QTY', title: '數量', width: 50, align: 'right' },
+                            { field: 'PRC', title: '單價', width: 30, align: 'right' },
+                            { field: 'AMT', title: '金額', width: 50, align: 'right' },
+                            { field: 'PRCV_DT', title: '預計交期', width: 60 },
+                            { field: 'RCV_QTY', title: '已交數量', width: 50, align: 'right' },
+                            { field: 'CO_WAHO_NO', title: '', width: 80, hidden: true },
+                            { field: 'WAHO_NM', title: '出貨倉', width: 50 },
+                            { field: 'C_OUT', title: '超交控管', width: 30, align: 'center' },
+                            { field: 'OUT_RT', title: '超交率', width: 30, align: 'right' },
+                            { field: 'C_CLS', title: '結案碼', width: 30, align: 'center' },
+                            { field: 'REMK', title: '備註', width: 80 },
+                            { field: 'CS_NO', title: '', width: 50, hidden: true },
+                            { field: 'C_CFM', title: '核准', width: 50, hidden: true }
+                    ]],
+                    onResize: function () {
+                        $('#List').datagrid('fixDetailRowHeight', index);
+                    },
+                    onLoadSuccess: function () {
+                        setTimeout(function () {
+                            $('#List').datagrid('fixDetailRowHeight', index);
+                        }, 0);
+                    }
+                });
+                $('#List').datagrid('fixDetailRowHeight', index);
+            }
+        });
+    });
+    //ifram 返回
+    function frameReturnByClose() {
+        $("#modalwindow").window('close');
+    }
+    function frameReturnByReload(flag) {
+        if (flag)
+            $("#List").datagrid('load');
+        else
+            $("#List").datagrid('reload');
+    }
+    function frameReturnByMes(mes) {
+        $.messageBox5s('提示', mes);
+    }
+    $(function () {
+        $("#btnExport").click(function () {
+            var row = $('#List').datagrid('getSelected');
+            $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/Sales/SAL03/Reporting?TY=" + row.VCH_TY + "&NO="+ row.VCH_NO +"&Ieguid=" + GetGuid() + "'></iframe>");
+            $("#modalwindow").window({ title: '匯出', width: 800, height: 600, iconCls: 'icon-add' }).window('open');
+        });
+
+        $("#btnQuery").click(function () {
+            var queryStr = $("#txtQuery").val();
+            if (queryStr == null) {
+                queryStr = "%";
+            }
+            $('#List').datagrid({
+                url: '@Url.Action("GetList")?queryStr=' + encodeURI(queryStr)
+            });
+
+        });
+
+    });
+</script>
+
+    }

@@ -27,17 +27,26 @@
         <EntityTypeShape EntityType="CCSModel1.CS_SEQ_NO" Width="1.5" PointX="10.375" PointY="14.75" />
         <EntityTypeShape EntityType="CCSModel1.CS_CODL" Width="1.5" PointX="12.375" PointY="13.75" />
         <EntityTypeShape EntityType="CCSModel1.ITEM" Width="1.5" PointX="13.75" PointY="0.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="CCSModel1.CS_WIRES" Width="1.5" PointX="16.375" PointY="0.75" />
         <EntityTypeShape EntityType="CCSModel1.CS_WIP" Width="1.5" PointX="16.375" PointY="14.75" />
         <EntityTypeShape EntityType="CCSModel1.CS_MOMT" Width="1.5" PointX="14.375" PointY="7.75" />
         <EntityTypeShape EntityType="CCSModel1.CS_MACHINE" Width="1.5" PointX="16.375" PointY="7.75" />
         <EntityTypeShape EntityType="CCSModel1.CS_PROCESS" Width="1.5" PointX="16.375" PointY="10.75" />
         <EntityTypeShape EntityType="CCSModel1.CS_PROCESS_SET" Width="1.5" PointX="18.375" PointY="0.75" />
-        <EntityTypeShape EntityType="CCSModel1.CS_WIRE_RECIPIENT" Width="1.75" PointX="18.375" PointY="9.75" />
         <EntityTypeShape EntityType="CCSModel1.CS_WIRES_JOURNAL" Width="1.5" PointX="18.375" PointY="3.75" />
         <EntityTypeShape EntityType="CCSModel1.CS_WIRES_DD" Width="1.5" PointX="12.375" PointY="19.75" />
         <EntityTypeShape EntityType="CCSModel1.CS_ITEMSTK" Width="1.5" PointX="20.375" PointY="0.75" />
         <EntityTypeShape EntityType="CCSModel1.CS_WIP_F" Width="1.5" PointX="18.375" PointY="14.75" />
+        <EntityTypeShape EntityType="CCSModel1.CS_INV" Width="1.5" PointX="20.375" PointY="14.75" />
+        <EntityTypeShape EntityType="CCSModel1.CODL" Width="1.5" PointX="14.375" PointY="20.75" />
+        <EntityTypeShape EntityType="CCSModel1.COMT" Width="1.5" PointX="20.375" PointY="20.75" />
+        <EntityTypeShape EntityType="CCSModel1.V_CODL" Width="1.5" PointX="18.375" PointY="7.5" />
+        <EntityTypeShape EntityType="CCSModel1.V_COMT" Width="1.5" PointX="16.375" PointY="21.75" />
+        <EntityTypeShape EntityType="CCSModel1.CS_WIRES" Width="1.5" PointX="22.875" PointY="8.625" />
+        <EntityTypeShape EntityType="CCSModel1.CS_WIRE_RECIPIENT" Width="1.5" PointX="14.375" PointY="1.75" />
+        <EntityTypeShape EntityType="CCSModel1.CS_KEGS_CS" Width="1.5" PointX="22.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CCSModel1.CS_WIRES_CS" Width="1.5" PointX="22.375" PointY="15.75" />
+        <EntityTypeShape EntityType="CCSModel1.CS_SHIPDL" Width="1.5" PointX="22.375" PointY="21.75" />
+        <EntityTypeShape EntityType="CCSModel1.CS_SHIPMT" Width="1.5" PointX="10.375" PointY="23.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

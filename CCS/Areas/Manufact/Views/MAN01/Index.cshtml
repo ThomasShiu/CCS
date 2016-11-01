@@ -53,6 +53,14 @@
         return num;
     }
 
+    function rowformater(value, row, index) {
+        if (row.C_CLS=='Y') {
+            return "<input type='checkbox' id='C_CLS' checked=true disabled='disabled'>";
+        } else {
+            return "<input type='checkbox' id='C_CLS' disabled='disabled'>";
+        }
+    }
+
     $(function () {
         $('#List').datagrid({
             url: '@Url.Action("GetList")',
@@ -85,12 +93,12 @@
                 { field: 'HEAD_MARK', title: '頭部記號', width: 40 },
                 { field: 'RAWMTRL', title: '材質', width: 40 },
                 { field: 'DIAMETER', title: '線徑', width: 40, align: 'right' },
-                { field: 'HEAT_NO', title: '爐號', width: 40 },
+                { field: 'HEAT_NO', title: '爐號', width: 40,hidden:true },
                 { field: 'PLATING', title: '鍍別', width: 40},
                 { field: 'PRCS_NO', title: '製程代號', width: 40 },
-                 { field: 'MACHINE', title: '機台', width: 40, sortable: true },
+                { field: 'MACHINE', title: '指定機台', width: 40, sortable: true },
                 { field: 'REMK', title: '備註', width: 80 },
-
+                { field: 'C_CLS', title: '結案', width: 30, formatter: rowformater }
             ]],
              view: detailview,
             detailFormatter: function (index, row) {

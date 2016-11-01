@@ -1,0 +1,270 @@
+﻿@model CCS.Models.INV.cs_shipdlModel
+@using CCS.Models.SYS;
+@using CCS.Core;
+@using CCS.Common;
+@{
+    ViewBag.Title = "創建-出貨單明細";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+
+<div class="mvctool bgb">
+    @Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)
+    @Html.ToolButton("btnReturn", "icon-return", "返回", false)
+</div>
+<div style="height:35px"></div>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.EXC_INSDATE)
+    @Html.HiddenFor(model => model.EXC_INSDBID)
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.VCH_NO)：
+                </td>
+                <td style="width:310px">
+                    <input id="VCH_NO" name="VCH_NO" class="easyui-textbox" value="@Model.VCH_NO" readonly="readonly" />
+                    @*@Html.EditorFor(model => model.VCH_NO)*@
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.VCH_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.VCH_SR)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.VCH_SR)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.VCH_SR)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.ITEM_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.ITEM_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ITEM_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.ITEM_NM)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.ITEM_NM)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ITEM_NM)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.ITEM_SP)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.ITEM_SP)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ITEM_SP)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.RAWMTRL)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.RAWMTRL)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.RAWMTRL)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.HEAT_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.HEAT_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.HEAT_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.KEG_CNT)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.KEG_CNT)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.KEG_CNT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.UNIT_WT)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.UNIT_WT)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.UNIT_WT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.NET_WEIGHT)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.NET_WEIGHT)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.NET_WEIGHT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.GROSS_WEIGHT)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.GROSS_WEIGHT)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.GROSS_WEIGHT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.COUNT_QTY)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.COUNT_QTY)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.COUNT_QTY)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PRC)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.PRC)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PRC)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.AMT)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.AMT)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.AMT)</td>
+            </tr>
+
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CS_ORDER_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.CS_ORDER_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CS_ORDER_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.REMK)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.REMK)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.REMK)</td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+@section scripts{
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        // 下拉選單，ITEM製 成品
+        $('#ITEM_NO').combogrid({
+            panelWidth: 600,
+            idField: 'ITEM_NO',
+            textField: 'ITEM_NO',
+            url: 'GetItemList',
+            method: 'get',
+            columns: [[
+            { field: 'ITEM_NO', title: '料品編號', width: 80 },
+            { field: 'ITEM_NM', title: '品名', width: 60 },
+            { field: 'ITEM_SP', title: '規格', width: 60 }
+
+            ]],
+            fitColumns: true,
+            onSelect: function (rec) {
+                // 選定後塞值
+                var grid = $("#ITEM_NO").combogrid("grid");//取得表格物件
+                var row = grid.datagrid('getSelected');//取得資料列
+                $("#ITEM_NM").val(row.ITEM_NM);
+                $("#ITEM_SP").val(row.ITEM_SP);
+
+            }
+        });
+
+        $("#NET_WEIGHT").change(function () {
+            getAmt();
+        });
+        $("#UNIT_WT").change(function () {
+            getAmt();
+        });
+        function getAmt() {
+            //alert("Handler for .change() called.");
+            var wt = $("#NET_WEIGHT").val();
+            var uwt = $("#UNIT_WT").val();
+
+            if (isNaN(wt)) {
+                alert("請輸入數字!");
+                //清空字串
+                $("#WEIGHT").val('');
+            }
+            if (isNaN(uwt)) {
+                alert("請輸入數字!");
+                //清空字串
+                $("#UNIT_WT").val('');
+            }
+
+            if (wt != "" && uwt != "") {
+                wt = parseFloat(wt) * 1000;
+                uwt = parseFloat(uwt)
+
+                var ttlqty = accDiv(wt, uwt);
+                //取小數點後 2 位數
+                //ttlamt = ttlamt.toFixed(2);
+
+                $("#COUNT_QTY").val(accDiv(wt, uwt).toFixed());
+            }
+        }
+
+
+    });
+
+
+$(function () {
+    $("#btnSave").click(function () {
+        if ($("form").valid()) {
+            $.ajax({
+                url: "@Url.Action("Edit")",
+                type: "Post",
+                data: $("form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data.type == 1) {
+                        window.parent.frameReturnByMes(data.message);
+                        window.parent.frameReturnByReload(true);
+                        window.parent.frameReturnByClose()
+                    }
+                    else {
+                        window.parent.frameReturnByMes(data.message);
+                    }
+                }
+            });
+        }
+        return false;
+    });
+    $("#btnReturn").click(function () {
+         window.parent.frameReturnByClose();
+    });
+});
+    </script>
+}

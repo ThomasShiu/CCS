@@ -178,37 +178,37 @@
             }
         });
 
-        $("#QTY").change(function () {
+        $("#WEIGHT").change(function () {
             getAmt();
         });
-        $("#PRC").change(function () {
+        $("#UNIT_WT").change(function () {
             getAmt();
         });
         function getAmt() {
             //alert("Handler for .change() called.");
-            var qty = $("#QTY").val();
-            var price = $("#PRC").val();
+            var wt = $("#WEIGHT").val();
+            var uwt = $("#UNIT_WT").val();
 
-            if (isNaN(qty)) {
+            if (isNaN(wt)) {
                 alert("請輸入數字!");
                 //清空字串
-                $("#QTY").val('');
+                $("#WEIGHT").val('');
             }
-            if (isNaN(price)) {
+            if (isNaN(uwt)) {
                 alert("請輸入數字!");
                 //清空字串
-                $("#PRC").val('');
+                $("#UNIT_WT").val('');
             }
 
-            if (qty != "" && price != "") {
-                qty = parseFloat(qty);
-                price = parseFloat(price)
+            if (wt != "" && uwt != "") {
+                wt = parseFloat(wt) * 1000;
+                uwt = parseFloat(uwt)
 
-                var ttlamt = accMul(qty ,price);
+                var ttlqty = accDiv(wt, uwt);
                 //取小數點後 2 位數
                 //ttlamt = ttlamt.toFixed(2);
-                
-                $("#AMT").val(accMul(qty, price));
+
+                $("#COUNT_QTY").val(accDiv(wt, uwt).toFixed());
             }
         }
 

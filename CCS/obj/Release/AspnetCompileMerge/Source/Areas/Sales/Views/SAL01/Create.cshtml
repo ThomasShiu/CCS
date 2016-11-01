@@ -20,6 +20,9 @@
 <div style="height:35px"></div>
 @using (Html.BeginForm())
 {
+    <div class="alert alert-danger">
+        @Html.ValidationSummary(false)
+    </div>
     <table class="fromEditTable setTextWidth300">
         <tbody>
             <tr>

@@ -2,6 +2,7 @@
 using CCS.Common;
 using CCS.Core;
 using CCS.IBLL;
+using CCS.Models;
 using CCS.Models.MAN;
 using CCS.Models.PUB;
 using CCS.Models.SAL;
@@ -39,6 +40,7 @@ namespace CCS.Areas.Manufact.Controllers
 
         CCSservice ccsService = new CCSservice();
         ValidationErrors errors = new ValidationErrors();
+        CCSEntities _db = new CCSEntities();
 
         [SupportFilter]
         public ActionResult Index()
@@ -197,30 +199,49 @@ namespace CCS.Areas.Manufact.Controllers
             pager.sort = "VCH_NO";
             pager.order = "desc";
 
-            List<cs_codlModel> dllist = cs_codlBLL.GetList(ref pager, queryStr);  // 訂單明細
-            List<cs_comtModel> mtlist = cs_comtBLL.GetList(ref pager, queryStr); // 訂單主檔
+            //List<cs_codlModel> dllist = cs_codlBLL.GetList(ref pager, queryStr);  // 訂單明細
+            //List<cs_comtModel> mtlist = cs_comtBLL.GetList(ref pager, queryStr); // 訂單主檔
 
-            var model = (from A in dllist
-                         from B in mtlist
-                         where
-                           A.VCH_NO == B.VCH_NO &&
-                           A.C_CLS == "N"
-                         select new
-                         {
-                             A.ID,
-                             A.VCH_NO,
-                             A.VCH_SR,
-                             A.ITEM_NO,
-                             A.ITEM_NM,
-                             A.ITEM_SP,
-                             A.CS_ITEM_NO,
-                             A.UNIT,
-                             A.QTY,
-                             A.PRC,
-                             A.AMT,
-                             A.PRCV_DT,
-                             B.CS_NM,
-                             B.CS_VCH_NO
+            //var model = (from A in dllist
+            //             from B in mtlist
+            //             where
+            //               A.VCH_NO == B.VCH_NO &&
+            //               A.C_CLS == "N"
+            //             select new
+            //             {
+            //                 A.ID,
+            //                 A.VCH_NO,
+            //                 A.VCH_SR,
+            //                 A.ITEM_NO,
+            //                 A.ITEM_NM,
+            //                 A.ITEM_SP,
+            //                 A.CS_ITEM_NO,
+            //                 A.UNIT,
+            //                 A.QTY,
+            //                 A.PRC,
+            //                 A.AMT,
+            //                 A.PRCV_DT,
+            //                 B.CS_NM,
+            //                 B.CS_VCH_NO
+            //             }).ToArray();
+
+            var model = (from r in _db.SP_GET_CO()
+                         where r.C_CLS=="N" && r.C_CFM == "Y"
+                         select new {
+                             r.ID,
+                             r.VCH_TY,
+                             r.VCH_NO,
+                             r.VCH_SR,
+                             r.ITEM_NO,
+                             r.ITEM_NM,
+                             r.ITEM_SP,
+                             r.UNIT,
+                             r.QTY,
+                             r.PRC,
+                             r.AMT,
+                             r.PRCV_DT,
+                             r.CS_NM,
+                             r.CS_VCH_NO
                          }).ToArray();
 
 
@@ -327,8 +348,9 @@ namespace CCS.Areas.Manufact.Controllers
         }
         #endregion
 
+        #region 製造工令報表
         [SupportFilter(ActionName = "Index")]
-        #region
+        
         public ActionResult Reporting(string id, string type = "PDF")
         {
             string v_sqlstr = "SELECT a.VCH_NO, a.VCH_DT, a.FA_NO, a.EMP_NO, a.EMP_NM, a.ITEM_NO, a.IMG_NO, a.PLAN_BDT, a.PLAN_EDT, a.PLAN_QTY, "+

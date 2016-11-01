@@ -36,16 +36,29 @@
 <script type="text/javascript">
     //千分位效果
     function commafy(value, row, index) {
-        if (index==1){
-            var num = value.TTLWT + "";
-        } else if (index == 2) {
-            var num = value.TTLQTY + "";
-        }
+        var num = value.TTLWT + "";
         var re = /(-?\d+)(\d{3})/
         while (re.test(num)) {
             num = num.replace(re, "$1,$2")
         }
         return num;
+    }
+    //千分位效果
+    function commafy2(value, row, index) {
+        var num = value.TTLQTY + "";
+        var re = /(-?\d+)(\d{3})/
+        while (re.test(num)) {
+            num = num.replace(re, "$1,$2")
+        }
+        return num;
+    }
+
+    function rowformater(value, row, index) {
+        if (row.C_CLS=='Y') {
+            return "<input type='checkbox' id='C_CLS' checked=true disabled='disabled'>";
+        } else {
+            return "<input type='checkbox' id='C_CLS' disabled='disabled'>";
+        }
     }
 
     $(function () {
@@ -80,12 +93,12 @@
                 { field: 'HEAD_MARK', title: '頭部記號', width: 40 },
                 { field: 'RAWMTRL', title: '材質', width: 40 },
                 { field: 'DIAMETER', title: '線徑', width: 40, align: 'right' },
-                { field: 'HEAT_NO', title: '爐號', width: 40 },
+                { field: 'HEAT_NO', title: '爐號', width: 40,hidden:true },
                 { field: 'PLATING', title: '鍍別', width: 40},
                 { field: 'PRCS_NO', title: '製程代號', width: 40 },
-                 { field: 'MACHINE', title: '機台', width: 40, sortable: true },
+                { field: 'MACHINE', title: '指定機台', width: 40, sortable: true },
                 { field: 'REMK', title: '備註', width: 80 },
-
+                { field: 'C_CLS', title: '結案', width: 30, formatter: rowformater }
             ]],
              view: detailview,
             detailFormatter: function (index, row) {
@@ -101,8 +114,8 @@
                     height: 'auto',
                     columns: [[
                             { field: 'LOT_NO', title: '批號', width: 80 },
-                            { field: 'TTLWT', title: '總重量', width: 80, align: 'right', formatter: commafy },
-                            { field: 'TTLQTY', title: '總支數', width: 80, align: 'right', formatter: commafy }
+                            { field: 'TTLWT', title: '總重量', width: 80, align: 'right' },
+                            { field: 'TTLQTY', title: '總支數', width: 80, align: 'right'}
                     ]],
                     onResize: function () {
                         $('#List').datagrid('fixDetailRowHeight', index);
