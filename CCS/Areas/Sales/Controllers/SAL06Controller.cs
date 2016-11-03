@@ -57,8 +57,9 @@ namespace CCS.Areas.Sales.Controllers
 
             // 線材對帳
             string v_sqlstr1 = String.Format(
-                        " SELECT A.CS_NO,C.FULL_NM,A.IVC_NO,A.IVC_DT, " +
-                        " B.PCH_TY, B.PCH_NO, B.PCH_SR, B.PCH_DT, B.ITEM_NO, B.ITEM_NM, B.ITEM_SP, B.UNIT, B.QTY, B.PRC, B.NT_AR_AMT, B.NT_TAX_AMT " +
+                        " SELECT A.CS_NO,C.FULL_NM,LTRIM(A.IVC_NO) IVC_NO,A.IVC_DT, " +
+                        " B.PCH_TY, B.PCH_NO, B.PCH_SR, B.PCH_DT, LTRIM(B.ITEM_NO) ITEM_NO, LTRIM(B.ITEM_NM) ITEM_NM, LTRIM(B.ITEM_SP) ITEM_SP, "+
+                        " B.UNIT, B.QTY, B.PRC, B.NT_AR_AMT, B.NT_TAX_AMT " +
                         " FROM ARMT A, ARDL B, CUSTOMER C " +
                         " WHERE A.VCH_TY = B.VCH_TY " +
                         " AND A.VCH_NO = B.VCH_NO " +

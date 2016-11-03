@@ -1396,7 +1396,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.76769in</Height>
+    <Height>0.73644in</Height>
     <Style />
   </Body>
   <Width>8.30136in</Width>
@@ -2021,7 +2021,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.38125cm</Height>
+      <Height>3.43958cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -2032,7 +2032,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>白聯:生管 紅聯:會計 黃聯:廠商</Value>
+                  <Value>白:存根 紅:會計 黃:廠商 藍:司機</Value>
                   <Style>
                     <FontFamily>標楷體</FontFamily>
                     <FontSize>12pt</FontSize>
@@ -2044,8 +2044,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox54</rd:DefaultName>
           <Top>0.03528cm</Top>
+          <Left>0.1905cm</Left>
           <Height>0.6cm</Height>
-          <Width>7.49745cm</Width>
+          <Width>12.15609cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2063,7 +2064,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>生管:</Value>
+                  <Value>主管:</Value>
                   <Style>
                     <FontFamily>標楷體</FontFamily>
                     <FontSize>12pt</FontSize>
@@ -2074,9 +2075,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox55</rd:DefaultName>
-          <Top>0.65097cm</Top>
+          <Top>0.98806cm</Top>
+          <Left>0.1905cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Width>3.69415cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -2095,7 +2097,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>生管部主管:</Value>
+                  <Value>製表:</Value>
                   <Style>
                     <FontFamily>標楷體</FontFamily>
                     <FontSize>12pt</FontSize>
@@ -2106,10 +2108,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox56</rd:DefaultName>
-          <Top>0.70388cm</Top>
-          <Left>4.38891cm</Left>
+          <Top>0.98806cm</Top>
+          <Left>4.02576cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Width>2.65751cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -2128,7 +2130,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>製表:</Value>
+                  <Value>廠商:</Value>
                   <Style>
                     <FontFamily>標楷體</FontFamily>
                     <FontSize>12pt</FontSize>
@@ -2139,11 +2141,44 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox58</rd:DefaultName>
-          <Top>0.78326cm</Top>
-          <Left>9.99808cm</Left>
+          <Top>0.98806cm</Top>
+          <Left>10.41248cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox60">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>司機:</Value>
+                  <Style>
+                    <FontFamily>標楷體</FontFamily>
+                    <FontSize>12pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox58</rd:DefaultName>
+          <Top>0.98806cm</Top>
+          <Left>15.5414cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.07797cm</Width>
+          <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>

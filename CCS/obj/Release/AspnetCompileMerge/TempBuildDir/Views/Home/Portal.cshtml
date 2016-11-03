@@ -1,0 +1,131 @@
+﻿@using CCS.Models.SYS;
+@{
+    ViewBag.Title = "精準緊固件";
+    Layout = "~/Views/Shared/_PortalLayout.cshtml";
+    //Layout = "~/Views/Shared/_easyuiLayout.cshtml";
+    AccountModel account = (AccountModel)Session["Account"];
+
+}
+
+<style type="text/css">
+    html, body {
+        height: 100%;
+        margin: 0 auto;
+    }
+    div.define-head {
+        
+    }
+    div.define-logo {
+        background-image: url(/Content/images/LOGOs-1.png);
+        background-repeat:no-repeat; 
+        background-position:0 0.4em; 
+        position: absolute;
+        left: 3px;
+        width: 300px;
+        height: 100%;
+        padding-top:10px; 
+        padding-left:100px; 
+
+    }
+     #LoginTopLine , #LoginBotoomLine {
+        color: #fff;
+        font-size: 14px;
+    }
+
+    div.define-account {
+        color: #fff;
+        font-size: 12px;
+        position: absolute;
+        right: 1px;
+        width: 250px;
+        height: 100%;
+    }
+    #accountName{
+         color: #ff8282;
+        font-size: 13px;
+    }
+    
+</style>
+
+@*對話視窗*@
+<div id="OverTimeLogin" class="easyui-dialog" data-options="closed:true,modal:true">
+    <iframe width="726px" scrolling="no" height="497px" frameborder="0" id="iOverTimeLogin"></iframe>
+</div>
+
+@*上區塊*@
+<div data-options="region:'north',border:false,split:true" style="height: 60px;">
+    <div class="define-head">
+        <div class="define-logo">
+            <div id="LoginTopLine">精準緊固件有限公司</div>
+            <div id="LoginBotoomLine">EIS管理系統</div>
+        </div>
+        <div class="define-account">
+            @if (account != null)
+            {
+                <div class="pullright">
+                    <span id="accountName">@account.TrueName</span> 歡迎您！
+                    <a href="~/Account/Logout" class="easyui-linkbutton c7" data-options="iconCls:'icon-lock'" style="width:80px;height:50px">登出</a>
+                </div>
+            }
+                    
+         </div>
+    </div>
+</div>
+
+@*下區塊*@
+<div data-options="region:'south',border:false" style="height: 50px;">
+    <div class="define-bottom">
+
+
+    </div>
+</div>
+
+@*左區塊*@
+<div data-options="region:'west',split:true,title:'選單列表'" style="width: 200px; height:100%; padding-top: 2px; background-color:#fff; overflow:auto">
+    <div id="RightTree" style="background-color:#fff;">
+        <div class="panel-loading">載入中...</div>
+    </div>
+</div>
+
+<!-- 右區塊 -->
+<div data-options="region:'east',split:true" title="行事曆" style="width:260px;">
+    <div class="easyui-calendar" style="width:250px;height:250px;"></div>
+</div>
+
+@*中區塊*@
+<div data-options="region:'center',border:false">
+    <div id="mainTab" class="easyui-tabs" data-options="fit:true" >
+        <div title="我的桌面" data-options="closable:true" style="overflow: hidden; background:#fff">
+            <iframe scrolling="auto" frameborder="0" src="/Dashboard/DAS01/Index" style="width: 100%; height: 100%;padding:3px;"></iframe>
+        </div>
+    </div>
+</div>
+
+@*右鍵選單*@
+<div id="tab_menu" class="easyui-menu" style="width: 150px;">
+    <div id="tab_menu-tabrefresh" data-options="iconCls:'icon-reload'">
+        刷新
+    </div>
+    <div id="tab_menu-openFrame">
+        開啟在新視窗
+    </div>
+    <div id="tab_menu-tabcloseall">
+        關閉全部
+    </div>
+    <div id="tab_menu-tabcloseother">
+        關閉其他標籤頁
+    </div>
+    <div class="menu-sep">
+    </div>
+    <div id="tab_menu-tabcloseright">
+        關閉右邊
+    </div>
+    <div id="tab_menu-tabcloseleft">
+        關閉左邊
+    </div>
+    <div id="tab_menu-tabclose" data-options="iconCls:'icon-remove'">
+        關閉此頁
+    </div>
+    <div id="menu" class="easyui-menu" style="width: 150px;">
+    </div>
+</div>

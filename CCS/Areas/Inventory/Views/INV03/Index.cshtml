@@ -21,7 +21,7 @@
     @Html.ToolButton("btnCreate", "icon-add", "新增主檔", perm, "Create", true)
     @Html.ToolButton("btnMTDL", "icon-add", "新增明細", perm, "Create", true)
     @Html.ToolButton("btnEdit", "icon-edit", @Suggestion.Edit, perm, "Edit", true)
-    @Html.ToolButton("btnDetails", "icon-details", @Suggestion.Details, perm, "Details", true)
+    @*@Html.ToolButton("btnDetails", "icon-details", @Suggestion.Details, perm, "Details", true)*@
     @Html.ToolButton("btnDelete", "icon-remove", @Suggestion.Delete, perm, "Delete", true)
     @Html.ToolButton("btnExport", "icon-export", @Suggestion.Export, perm, "Export", true)
     @Html.ToolButton("btnReload", "icon-reload", @Suggestion.Reload, true)
@@ -78,16 +78,16 @@
                             { field: 'VCH_SR', title: '序號', width: 40, sortable: true },
                             { field: 'ITEM_NO', title: '品號', width: 120 },
                             { field: 'ITEM_NM', title: '品名', width: 80 },
-                            { field: 'ITEM_SP', title: '規格', width: 80 },
-                            { field: 'RAWMTRL', title: '材質', width: 80 },
-                            { field: 'HEAT_NO', title: '爐號', width: 80 },
+                            { field: 'ITEM_SP', title: '規格', width: 60 },
+                            { field: 'RAWMTRL', title: '材質', width: 60 },
+                            { field: 'HEAT_NO', title: '爐號', width: 60 },
                             { field: 'KEG_CNT', title: '桶數', width: 50, align: 'right' },
                             { field: 'UNIT_WT', title: '單重', width: 50, align: 'right' },
                             { field: 'NET_WEIGHT', title: '淨重', width: 50, align: 'right' },
                             { field: 'GROSS_WEIGHT', title: '毛重', width: 50, align: 'right' },
                             { field: 'COUNT_QTY', title: '換算支數', width: 60, align: 'right' },
-                            { field: 'PRC', title: '單價', width: 50, align: 'right' },
-                            { field: 'AMT', title: '金額', width: 50, align: 'right' },
+                            { field: 'PRC', title: '單價', width: 50, align: 'right', hidden: true },
+                            { field: 'AMT', title: '金額', width: 50, align: 'right', hidden: true },
                             { field: 'CS_ORDER_NO', title: '客戶單號', width: 80 },
                             { field: 'REMK', title: '備註', width: 80 },
                             { field: 'END_CODE', title: '', hidden: true }
@@ -136,8 +136,11 @@
             } else { $.messageBox5s('提示', '請選擇要操作的紀錄'); }
         });
         $("#btnExport").click(function () {
-            $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/SysHelper/ReportControl'></iframe>");
-            $("#modalwindow").window({ title: '匯出', width: 320, height: 200, iconCls: 'icon-add' }).window('open');
+            var row = $('#List').datagrid('getSelected');
+            if (row != null) {
+            $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/Inventory/INV04/Reporting?id="+row.VCH_NO+"&Ieguid=" + GetGuid() + "'></iframe>");
+            $("#modalwindow").window({ title: '匯出', width: 800, height: 600, iconCls: 'icon-add' }).window('open');
+            } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords'); }
         });
         $("#btnCreate").click(function () {
             $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/Inventory/INV03/Create'></iframe>");

@@ -1,0 +1,131 @@
+﻿@model CCS.Models.SYS.cs_sysmoduleopertaeModel
+@using CCS.Core;
+@using CCS.Common;
+@using CCS.Models.SYS;
+@{
+    ViewBag.Title = "創建";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+
+<div class="mvctool bgb">
+    @Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)
+    @Html.ToolButton("btnReturn", "icon-return", "返回", false)
+</div>
+<div style="height:35px"></div>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.Id)
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.Name)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.Name)*@
+                    <select id="Name" name="Name" class="" style="width:100%;">
+                        <option value="新增" value2="Create">新增</option>
+                        <option value="查詢" value2="Query">查詢</option>
+                        <option value="修改" value2="Edit">修改</option>
+                        <option value="刪除" value2="Delete">刪除</option>
+                        <option value="儲存" value2="Save">儲存</option>
+                        <option value="詳細" value2="Details">詳細</option>
+                        <option value="匯出" value2="Export">匯出</option>
+                    </select>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.Name)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.KeyCode)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.KeyCode)
+                    @*<select id="KeyCode" name="KeyCode" class="" style="width:100%;">
+                        <option value="Create">新增</option>
+                        <option value="Delete">刪除</option>
+                        <option value="Edit">修改</option>
+                        <option value="Query">查詢</option>
+                        <option value="Save">儲存</option>
+                        <option value="Details">詳細</option>
+                    </select>*@
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.KeyCode)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.ModuleId)：
+                </td>
+                <td style="width:310px">
+                    @Html.TextBoxFor(model => model.ModuleId, new { @readOnly = "readOnly" })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ModuleId)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.IsValid)：
+                </td>
+                <td style="width:310px">
+                    @Html.CheckBoxFor(model => model.IsValid, new { @checked = true })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.IsValid)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.Sort)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.Sort)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.Sort)</td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+
+@section scripts{
+    
+<script type="text/javascript">
+
+    $(function () {
+        $("#KeyCode").val('Create');
+
+        $("#Name").change(function () {
+            //alert('Hello');
+            var val2 = $('select[name="Name"] :selected').attr('value2');
+            $("#KeyCode").val(val2);
+        });
+
+        $("#btnSave").click(function () {
+            if ($("form").valid($("#Name").val)) {
+                $.ajax({
+                url: "@Url.Action("CreateOpt")",
+                type: "Post",
+                data: $("form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data.type == 1) {
+                        window.parent.frameReturnByMes(data.message);
+                        window.parent.frameReturnByReloadOpt(true);
+                        window.parent.frameReturnByClose()
+                    }
+                    else {
+                        window.parent.frameReturnByMes(data.message);
+                    }
+                }
+            });
+        }
+        return false;
+    });
+    $("#btnReturn").click(function () {
+        window.parent.frameReturnByClose();
+    });
+});
+</script>
+    }

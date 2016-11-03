@@ -74,6 +74,7 @@ namespace CCS.Areas.Inventory.Controllers
             return Json(json);
         }
 
+        [SupportFilter(ActionName = "Index")]
         [HttpPost]
         public JsonResult GetDetailsList(GridPager pager, string queryStr)
         {

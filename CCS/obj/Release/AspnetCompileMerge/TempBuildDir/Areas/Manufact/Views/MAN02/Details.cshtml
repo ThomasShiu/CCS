@@ -1,0 +1,199 @@
+﻿@model CCS.Models.MAN.cs_wipfModel
+@using CCS.Common;
+@using CCS.Models.SYS;
+@using CCS.Core;
+@{
+    ViewBag.Title = "詳細-成型生產記錄";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+
+}
+
+<div class="mvctool bgb">
+
+    @Html.ToolButton("btnReturn", "icon-return", "返回", false)
+</div>
+<div style="height:35px"></div>
+@using (Html.BeginForm())
+{
+    <div class="alert alert-danger">
+        @Html.ValidationSummary(false)
+    </div>
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.EXC_INSDATE)
+    @Html.HiddenFor(model => model.EXC_INSDBID)
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.LOT_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.LOT_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.LOT_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.HEAT_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.HEAT_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.HEAT_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.KEG_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.KEG_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.KEG_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.KEG_CNT)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.KEG_CNT)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.KEG_CNT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PRCS_TY)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.PRCS_TY)*@
+                    <select id="PRCS_TY" name="PRCS_TY" class="easyui-combobox" style="width:100%;">
+                        <option value="0">廠內製程</option>
+                        <option value="1">廠外製程</option>
+                    </select>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PRCS_TY)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PRCS_NO)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.PRCS_NO)*@
+                    <select id="PRCS_NO" name="PRCS_NO" class="easyui-combobox" style="width:100%;">
+                        <option value="F">成型打頭</option>
+                    </select>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PRCS_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.EMP_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.EMP_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.EMP_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.EMP_NM)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.EMP_NM)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.EMP_NM)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.MACHINE)：
+                </td>
+                <td style="width:310px">
+                    <select id="MACHINE" name="MACHINE" class="easyui-combobox" style="width:100%;">
+                        <option value="---">---</option>
+                        <option value="BF-01" @(Model.MACHINE == "BF-01" ? "selected=selected" : "")>BF-01</option>
+                        <option value="BF-02" @(Model.MACHINE == "BF-02" ? "selected=selected" : "")>BF-02</option>
+                        <option value="BF-03" @(Model.MACHINE == "BF-03" ? "selected=selected" : "")>BF-03</option>
+                        <option value="BF-04" @(Model.MACHINE == "BF-04" ? "selected=selected" : "")>BF-04</option>
+                        <option value="BF-05" @(Model.MACHINE == "BF-05" ? "selected=selected" : "")>BF-05</option>
+                        <option value="BF-06" @(Model.MACHINE == "BF-06" ? "selected=selected" : "")>BF-06</option>
+                        <option value="BF-07" @(Model.MACHINE == "BF-07" ? "selected=selected" : "")>BF-07</option>
+                    </select>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.MACHINE)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.BDT)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.BDT)*@
+
+                    <input id="BDT" name="BDT" class="easyui-datetimebox" data-options="formatter:myformatter2,parser:myparser2" style="width: 100%;" value="@(Model.BDT.HasValue?Model.BDT.Value.ToString("yyyy-MM-dd HH:mm"):null)" />
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.BDT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.EDT)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.EDT)*@
+                    <input id="EDT" name="EDT" class="easyui-datetimebox" data-options="formatter:myformatter2,parser:myparser2" style="width: 100%;" value="@(Model.EDT.HasValue?Model.EDT.Value.ToString("yyyy-MM-dd HH:mm"):null)" />
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.EDT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.WEIGHT)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.WEIGHT)*@
+                    <input id="WEIGHT" name="WEIGHT" class="" data-options="" style="width: 100%;" value="@Model.WEIGHT" />
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.WEIGHT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.UNIT_WT)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.UNIT_WT)*@
+                    <input id="UNIT_WT" name="UNIT_WT" class="" data-options="" style="width: 100%;" value="@Model.UNIT_WT" />
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.UNIT_WT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.COUNT_QTY)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.COUNT_QTY)*@
+                    <input id="COUNT_QTY" name="COUNT_QTY" class="" data-options="" style="width: 100%;" value="@Model.COUNT_QTY" />
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.COUNT_QTY)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.END_CODE)：
+                </td>
+                <td style="width:310px">
+                    @Html.CheckBoxFor(model => model.END_CODE)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.END_CODE)</td>
+            </tr>
+
+        </tbody>
+    </table>
+}
+
+@section scripts{
+   
+
+$(function () {
+
+    $("#btnReturn").click(function () {
+         window.parent.frameReturnByClose();
+    });
+});
+    </script>
+
+}

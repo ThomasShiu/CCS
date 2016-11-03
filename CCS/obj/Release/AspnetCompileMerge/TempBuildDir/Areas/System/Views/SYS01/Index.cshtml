@@ -1,0 +1,140 @@
+﻿@using CCS.Common;
+@using CCS.Models.SYS;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+
+}
+
+<div class="mvctool">
+    <input id="txtQuery" type="text" class="searchText" />
+    <a id="btnQuery" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;">查詢</span></span></a><div class="datagrid-btn-separator"></div>
+    <a id="btnDetails" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 20px;">詳細</span></span></a><div class="datagrid-btn-separator"></div>
+    <a id="btnDelete" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;">刪除</span></span></a>
+</div>
+
+<table id="List"></table>
+<div id="Pager"></div>
+<div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+
+@section scripts{
+
+    @*Jqgrid*@
+    <script type="text/javascript">
+    //ifram 返回
+    function frameReturnByClose() {
+        $("#modalwindow").window('close');
+    }
+    function frameReturnByReload(flag) {
+        if (flag)
+            $("#List").datagrid('load');
+        else
+            $("#List").datagrid('reload');
+    }
+    function frameReturnByMes(mes) {
+        $.messageBox5s('提示', mes);
+    }
+
+    $(function () {
+        $(window).resize(function () {
+            $('#List').datagrid('resize', {
+                width: $(window).width() - 10,
+                height: $(window).height() - 35
+            }).datagrid('resize', {
+                width: $(window).width() - 10,
+                height: $(window).height() - 35
+            });
+        });
+
+        $('#List').datagrid({
+            url: 'SYS01/GetList',
+            width: $(window).width() - 10,
+            methord: 'post',
+            height: $(window).height() - 35,
+            fitColumns: true,
+            sortName: 'Id',
+            sortOrder: 'desc',
+            idField: 'Id',
+            pageSize: 20,
+            pageList: [15, 20, 30, 40, 50],
+            pagination: true,
+            striped: true, //奇偶行是否區分
+            singleSelect: true,//單選模式
+            columns: [[
+                { field: 'Id', title: 'ID', width: 40, hidden: true },
+                { field: 'Operator', title: '操作人', width: 40 },
+                { field: 'Message', title: '訊息', width: 280 },
+                { field: 'Result', title: '結果', width: 40, align: 'center' },
+                { field: 'Type', title: '類型', width: 40, align: 'center' },
+                { field: 'Module', title: '模組', width: 60, align: 'center' },
+                { field: 'CreateTime', title: '建立時間', width: 65, align: 'center' }
+            ]]
+        });
+        var pager = $('#List').datagrid('getPager');
+        $(pager).pagination({
+            pageSize: 20,
+            showPageList: true,
+            pageList: [15, 20, 30, 40, 50],
+            beforePageText: '第',
+            afterPageText: '頁,共{pages}頁',
+            displayMsg: '顯示 {from} 到 {to} 筆資料,共 {total} 筆資料'
+        });
+    });
+
+    </script>
+
+    @*operation*@
+    <script type="text/javascript">
+    $(function () {
+        $("#btnDetails").click(function () {
+            var row = $('#List').datagrid('getSelected');
+            if (row != null) {
+
+                $("#modalwindow").html("<iframe width='100%' height='98%' frameborder='0' src='SYS01/Details?id=" + row.Id + "'></iframe>");
+                $("#modalwindow").window({ title: '詳細', width: 500, height: 400, iconCls: 'icon-details' }).window('open');
+            } else { $.messageBox5s('提示', '請選擇要操作的行！'); }
+        });
+
+        $("#btnQuery").click(function () {
+            var queryStr = $("#txtQuery").val();
+            //如果查詢準則為空預設查詢全部
+            if (queryStr == null) {
+                queryStr = "%";
+            }
+            $('#List').datagrid({ url: 'Admin/ADM01/GetList?queryStr=' + encodeURI(queryStr)});
+        });
+
+        $("#btnDelete").click(function () {
+        var row = $('#List').datagrid('getSelections');              //單條記錄用getSelected函數
+                            if (row!=null) {
+                                $.messager.confirm('提示', '確定要刪除嗎?', function (ids) {
+                                    if (ids) {
+
+                                        var i = 0;
+                                        for (; i < select.length; i++) {
+                                            if (i == 0)
+                                                ids = select[i].id;
+                                            else
+                                                ids = ids + "," + select[i].id;
+                                        }
+                                        alert("ids=" + ids);
+                                    }
+
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: 'Admin//ADM01/Delete',
+                                        data: 'ids=' + ids,
+                                        dataType: 'xml',
+                                        success: function callback() { }
+                                    });
+                                    $('#List').datagrid('reload');
+                                });
+
+
+            } else { $.messageBox5s('提示', '請選擇要操作的記錄'); }
+        });
+
+    });
+    </script>
+}

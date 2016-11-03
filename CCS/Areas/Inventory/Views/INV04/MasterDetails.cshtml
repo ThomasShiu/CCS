@@ -96,7 +96,7 @@
                     url: '@Url.Action("GetList")?queryStr=@Model.VCH_NO',
                     width: $(window).width() - 10,
                     methord: 'post',
-                    height: $(window).height() - 230,
+                    height: $(window).height() - 180,
                     fitColumns: true,
                     sortName: 'VCH_SR',
                     sortOrder: 'asc',
@@ -201,7 +201,7 @@
                     if (row != null) {
                         $.messager.confirm('提示', '@Suggestion.YouWantToDeleteTheSelectedRecords', function (r) {
                             if (r) {
-                                $.post("@Url.Action("Delete")?id=" + row.ID, function (data) {
+                                $.post("@Url.Action("Delete")?id=" + row.Id, function (data) {
                                     if (data.type == 1)
                                         $("#List").datagrid('load');
                                     $.messageBox5s('提示', data.message);

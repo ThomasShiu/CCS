@@ -1,0 +1,268 @@
+﻿@model CCS.Models.SAL.cs_codlModel
+@using CCS.Common;
+@using CCS.Core;
+@using CCS.Models.SYS;
+@{
+    ViewBag.Title = "創建-訂單明細";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+
+
+<div class="mvctool bgb">
+    @Html.ToolButton("btnSave", "icon-save", @Suggestion.Save, perm, "Save", true)
+    @Html.ToolButton("btnReturn", "icon-return", @Suggestion.Return, false)
+</div>
+<div style="height:35px"></div>
+@using (Html.BeginForm())
+{
+    <div class="alert alert-danger">
+        @Html.ValidationSummary(false)
+    </div>
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.VCH_NO)：
+                </td>
+                <td style="width:310px">
+                    <input id="VCH_NO" name="VCH_NO" class="easyui-textbox" value="@ViewBag.vch_no" readonly="readonly"/>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.VCH_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.VCH_SR)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.VCH_SR)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.VCH_SR)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.ITEM_NO)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.ITEM_NO)*@
+                    @Html.EditorFor(model => model.ITEM_NO, new { htmlAttributes = new { @class = "easyui-combogrid", style = "width: 100%;", data_options = "" } })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ITEM_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.ITEM_NM)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.ITEM_NM)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ITEM_NM)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.ITEM_SP)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.ITEM_SP)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ITEM_SP)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CS_ITEM_NO)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.CS_ITEM_NO)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CS_ITEM_NO)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.UNIT)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.UNIT)*@
+                    <select id="UNIT" name="UNIT" class="easyui-combobox" style="width:100%;">
+                        <option value="PCS">PCS</option>
+                        <option value="KG">KG</option>
+                        <option value="T">噸</option>
+                    </select>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.UNIT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.QTY)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.QTY)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.QTY)</td>
+            </tr>
+          
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PRC)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.PRC)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PRC)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.AMT)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.AMT)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.AMT)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.PRCV_DT)：
+                </td>
+                <td style="width:310px">
+                    @*@Html.EditorFor(model => model.PRCV_DT, new { htmlAttributes = new { @class = "easyui-datebox" , data_options = "formatter:myformatter,parser:myparser",type ="date"} })*@
+                   <input id="PRCV_DT" name="PRCV_DT" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser"  style = "width: 100%;">
+                     @*@Html.EditorFor(model => model.PRCV_DT)*@
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PRCV_DT)</td>
+            </tr>
+
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.REMK)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.REMK)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.REMK)</td>
+            </tr>
+
+        </tbody>
+    </table>
+}
+@section scripts{
+
+<script src="~/Scripts/math_func.js"></script>    
+    
+<script type="text/javascript">
+    $(document).ready(function () {
+        // 下拉選單，ITEM製 成品
+        $('#ITEM_NO').combogrid({
+            panelWidth: 600,
+            idField: 'ITEM_NO',
+            textField: 'ITEM_NO',
+            url: 'GetItemList',
+            method: 'get',
+            columns: [[
+            { field: 'ITEM_NO', title: '料品編號', width: 80 },
+            { field: 'ITEM_NM', title: '品名', width: 60 },
+            { field: 'ITEM_SP', title: '規格', width: 60 }
+           
+            ]],
+            fitColumns: true,
+            onSelect: function (rec) {
+                // 選定後塞值
+                var grid = $("#ITEM_NO").combogrid("grid");//取得表格物件
+                var row = grid.datagrid('getSelected');//取得資料列
+                $("#ITEM_NM").val(row.ITEM_NM);
+                $("#ITEM_SP").val(row.ITEM_SP);
+              
+            }
+        });
+
+        $("#WEIGHT").change(function () {
+            getAmt();
+        });
+        $("#UNIT_WT").change(function () {
+            getAmt();
+        });
+        function getAmt() {
+            //alert("Handler for .change() called.");
+            var wt = $("#WEIGHT").val();
+            var uwt = $("#UNIT_WT").val();
+
+            if (isNaN(wt)) {
+                alert("請輸入數字!");
+                //清空字串
+                $("#WEIGHT").val('');
+            }
+            if (isNaN(uwt)) {
+                alert("請輸入數字!");
+                //清空字串
+                $("#UNIT_WT").val('');
+            }
+
+            if (wt != "" && uwt != "") {
+                wt = parseFloat(wt) * 1000;
+                uwt = parseFloat(uwt)
+
+                var ttlqty = accDiv(wt, uwt);
+                //取小數點後 2 位數
+                //ttlamt = ttlamt.toFixed(2);
+
+                $("#COUNT_QTY").val(accDiv(wt, uwt).toFixed());
+            }
+        }
+
+      
+    });
+
+
+$(function () {
+    $("#btnSave").click(function () {
+        if ($("form").valid()) {
+            $.ajax({
+                url: "@Url.Action("Create")",
+                type: "Post",
+                data: $("form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data.type == 1) {
+                        window.parent.frameReturnByMes(data.message);
+                        window.parent.frameReturnByReload(true);
+                        window.parent.frameReturnByClose()
+                    }
+                    else {
+                        window.parent.frameReturnByMes(data.message);
+                    }
+                }
+            });
+        }
+        return false;
+    });
+    $("#btnReturn").click(function () {
+         window.parent.frameReturnByClose();
+    });
+
+    
+
+});
+
+    function myformatter(date) {
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1;
+        var d = date.getDate();
+        return y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d);
+    }
+    function myparser(s) {
+        if (!s) return new Date();
+        var ss = (s.split('-'));
+        var y = parseInt(ss[0], 10);
+        var m = parseInt(ss[1], 10);
+        var d = parseInt(ss[2], 10);
+        if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
+            return new Date(y, m - 1, d);
+        } else {
+            return new Date();
+        }
+    }
+</script>
+    }

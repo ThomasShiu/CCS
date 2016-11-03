@@ -201,7 +201,7 @@
                     if (row != null) {
                         $.messager.confirm('提示', '@Suggestion.YouWantToDeleteTheSelectedRecords', function (r) {
                             if (r) {
-                                $.post("@Url.Action("Delete")?id=" + row.ID, function (data) {
+                                $.post("@Url.Action("Delete")?id=" + row.Id, function (data) {
                                     if (data.type == 1)
                                         $("#List").datagrid('load');
                                     $.messageBox5s('提示', data.message);

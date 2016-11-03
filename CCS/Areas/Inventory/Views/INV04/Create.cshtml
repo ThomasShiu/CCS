@@ -160,25 +160,25 @@
     $(document).ready(function () {
         // 下拉選單，ITEM製 成品
         $('#ITEM_NO').combogrid({
-            panelWidth: 750,
+            panelWidth: 850,
             idField: 'ITEM_NO',
             textField: 'ITEM_NO',
             url: 'GetOrdDetailsList',
             method: 'get',
             columns: [[
-                { field: 'CS_NM', title: '客戶', width: 80 },
+                { field: 'CS_NM', title: '客戶', width: 60 },
                 { field: 'VCH_TY', title: '訂單別', width: 50 },
-                { field: 'VCH_NO', title: '訂單號', width: 50 },
-                { field: 'VCH_SR', title: '序號', width: 50 },
-                { field: 'CS_VCH_NO', title: '客戶單號', width: 50 },
-                { field: 'ITEM_NO', title: '料品編號', width: 80 },
-                { field: 'ITEM_NM', title: '品名', width: 60 },
-                { field: 'ITEM_SP', title: '規格', width: 60 },
-                { field: 'UNIT', title: '單位', width: 50 },
-                { field: 'QTY', title: '數量', width: 50 },
-                { field: 'PRC', title: '單價', width: 50 },
-                { field: 'AMT', title: '金額', width: 50 },
-                { field: 'PRCV_DT', title: '預計交期', width: 50 }
+                { field: 'VCH_NO', title: '訂單號', width: 70 },
+                { field: 'VCH_SR', title: '序號', width: 30 },
+                { field: 'CS_VCH_NO', title: '客戶單號', width: 70 },
+                { field: 'ITEM_NO', title: '料品編號', width: 100 },
+                { field: 'ITEM_NM', title: '品名', width: 80 },
+                { field: 'ITEM_SP', title: '規格', width: 80 },
+                { field: 'UNIT', title: '單位', width: 40 },
+                { field: 'QTY', title: '數量', width: 70 , align: 'right' },
+                { field: 'PRC', title: '單價', width: 40 , hidden:true },
+                { field: 'AMT', title: '金額', width: 50, hidden: true },
+                { field: 'PRCV_DT', title: '預計交期', width: 70 }
             ]],
             fitColumns: true,
             onSelect: function (rec) {

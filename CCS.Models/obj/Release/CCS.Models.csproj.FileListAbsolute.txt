@@ -18,5 +18,5 @@ D:\Git_Source\CCM3S_Project\CCS\CCS.Models\bin\Release\Microsoft.Practices.Servi
 D:\Git_Source\CCM3S_Project\CCS\CCS.Models\bin\Release\Microsoft.Practices.Unity.xml
 D:\Git_Source\CCM3S_Project\CCS\CCS.Models\bin\Release\Microsoft.Practices.Unity.Configuration.xml
 D:\Git_Source\CCM3S_Project\CCS\CCS.Models\bin\Release\Microsoft.Practices.Unity.RegistrationByConvention.xml
-D:\Git_Source\CCM3S_Project\CCS\CCS.Models\obj\Release\CCS.Models.csprojResolveAssemblyReference.cache
 D:\Git_Source\CCM3S_Project\CCS\CCS.Models\bin\Release\CCSlocalDB_log.ldf
+D:\Git_Source\CCM3S_Project\CCS\CCS.Models\obj\Release\CCS.Models.csprojResolveAssemblyReference.cache

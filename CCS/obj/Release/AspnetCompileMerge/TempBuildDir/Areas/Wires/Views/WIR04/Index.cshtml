@@ -1,0 +1,218 @@
+﻿@using CCS.Common;
+@using CCS.Models.SYS;
+@using CCS.Core;
+
+@{
+    ViewBag.Title = "主頁-精準線材對帳單";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+@section styles{
+    <link href="~/Content/easyui-1.5/themes/blue/easyui.css" rel="stylesheet" />
+    <style>
+    </style>
+}
+@*<div class="mvctool">
+        <div><input id="txtQuery" type="text" class="searchText easyui-datebox" data-options="formatter:myformatter,parser:myparser" /></div>
+        @Html.ToolButton("btnQuery", "icon-search", @Suggestion.Query, true)
+        @Html.ToolButton("btnCreate", "icon-add", @Suggestion.Create, perm, "Create", true)
+        @Html.ToolButton("btnEdit", "icon-edit", @Suggestion.Edit, perm, "Edit", true)
+        @Html.ToolButton("btnDetails", "icon-details", @Suggestion.Details, perm, "Details", true)
+        @Html.ToolButton("btnDelete", "icon-remove", @Suggestion.Delete, perm, "Delete", true)
+        @Html.ToolButton("btnExport", "icon-export", @Suggestion.Export, perm, "Export", true)
+        @Html.ToolButton("btnReload", "icon-reload", @Suggestion.Reload, true)
+    </div>*@
+<div style="margin: 0 auto; margin-top: 100px; width: 800px;">
+    <table style="width: 400px; margin: 0 auto;">
+        <tr>
+            @*<td><img src="/Content/Images/account.jpg"></td>*@
+            <td style="width: 400px;">
+
+                <table id="LoginTb" style="margin-top: 10px; background: #fff; width: 100%; height: 230px; border: 1px #ccc solid;">
+                    <tr>
+                        <td colspan="2" style="font-size: 18px;  font-weight: bold; padding: 5px 20px;">
+                            精準線材對帳單
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td style="width: 80px; text-align: right">
+                            期  別：
+                        </td>
+                        <td>
+                            <input id="txtDate" name="txtDate" type="text" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser,required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 80px; text-align: right;">
+                            客  戶：
+                        </td>
+                        <td>
+                            <input id="txtCust" name="txtCust" type="text" /><span id="txtCustName" name="txtCustName" style="padding:5px" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width: 80px; text-align: right">
+                            報表格式：
+                        </td>
+                        <td>
+                            <div>
+                                <input id="PDF" type="radio" name="type" value="PDF" checked="checked"> PDF
+                                <input id="Excel" type="radio" name="type" value="Excel"> EXCEL
+                                <input id="Word" type="radio" name="type" value="Word"> WORD
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+
+                        <td colspan="2">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td style="width:40px;">&nbsp;</td>
+                                    <td>
+                                        <div id="mes" class="field-validation-error">
+                                        </div>
+                                        <div id="Loading" style="display: none" class='panel-loading'><font color='#000'>處理中...</font></div>
+                                    </td>
+                                    <td style="width: 100px;">
+                                        @Html.ToolButton("btnExport", "icon-export", @Suggestion.Export, perm, "Export", true)
+
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</div>
+<table id="List"></table>
+
+<div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+@section scripts{
+    @Html.Partial("~/Views/Shared/_Partial_AutoGrid.cshtml")
+    <script src="~/Content/easyui-1.5/locale/easyui-lang-zh_TW.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            // 下拉選單，客戶
+            $('#txtCust').combogrid({
+                required: true,
+                panelWidth: 600,
+                idField: 'CS_NO',
+                textField: 'CS_NO',
+                url: '@Url.Action("GetCustList")',
+                method: 'get',
+                columns: [[
+                { field: 'CS_NO', title: '客戶編號', width: 50 },
+                { field: 'SHORT_NM', title: '客戶簡稱', width: 60 },
+                { field: 'FULL_NM', title: '客戶全名', width: 80 },
+                { field: 'CONTACTER', title: '聯絡人', width: 50, align: 'left' },
+                { field: 'TEL_NO', title: '電話', width: 80, align: 'left' },
+                { field: 'FAX_NO', title: '傳真', width: 80 },
+                { field: 'ADDR_IVC', title: '地址', width: 150, align: 'left' }
+                ]],
+                fitColumns: true,
+                onSelect: function (rec) {
+                    //getGridValue();
+                    var grid = $("#txtCust").combogrid("grid");//取得表格物件
+                    var row = grid.datagrid('getSelected');//取得資料列
+                    $('#txtCustName').text(row.SHORT_NM);
+                    //$("#TO_ADDR").val(row.ADDR_IVC);
+                    //$("#CS_NM").val(row.FULL_NM);
+                    //$("#TEL_NO").val(row.TEL_NO);
+                    //$("#FAX_NO").val(row.FAX_NO);
+                }
+            });
+        });
+    //ifram 返回
+    function frameReturnByClose() {
+        $("#modalwindow").window('close');
+    }
+    function frameReturnByReload(flag) {
+        if (flag)
+            $("#List").datagrid('load');
+        else
+            $("#List").datagrid('reload');
+    }
+    function frameReturnByMes(mes) {
+        $.messageBox5s('提示', mes);
+    }
+    $(function () {
+        $("#btnReload").click(function () {
+            frameReturnByReload();
+        });
+        $("#btnExport").click(function () {
+            var vdate = $('#txtDate').datebox('getValue');
+            var grid = $("#txtCust").combogrid("grid");//取得表格物件
+            var row = grid.datagrid('getSelected');//取得資料列
+            var vcust = row.CS_NO;
+            var vtype = $('input[name=type]:checked').val();
+
+            if (vdate != null) {
+                $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/Wires/WIR04/Reporting?vdate=" + vdate + "&vcust=" + vcust + "&type=" + vtype + "&Ieguid=" + GetGuid() + "'></iframe>");
+                $("#modalwindow").window({ title: '匯出', width: 800, height: 500, iconCls: 'pic_6' }).window('open');
+            } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords'); }
+
+        });
+    });
+
+        function myformatter(date) {
+            var y = date.getFullYear();
+            var m = date.getMonth() + 1;
+            var d = date.getDate();
+
+            var s = date.getSeconds();
+            var mi = date.getMinutes();
+            var h = date.getHours();
+
+            return y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d);
+        }
+
+        function myparser(s) {
+            if (!s) return new Date();
+            var ss = (s.split('-'));
+            var y = parseInt(ss[0], 10);
+            var m = parseInt(ss[1], 10);
+            var d = parseInt(ss[2], 10);
+            if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
+                return new Date(y, m - 1, d);
+            } else {
+                return new Date();
+            }
+        }
+
+        function myformatter2(date) {
+            var y = date.getFullYear();
+            var m = date.getMonth() + 1;
+            var d = date.getDate();
+
+            var s = date.getSeconds();
+            var mi = date.getMinutes();
+            var h = date.getHours();
+
+            return y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d) + ' ' + (h < 10 ? ('0' + h) : h) + ':' + (mi < 10 ? ('0' + mi) : mi);
+        }
+        function myparser2(s) {
+            var t = Date.parse(s);
+            if (!isNaN(t)) {
+                return new Date(t);
+            } else {
+                return new Date();
+            }
+        }
+    </script>
+}

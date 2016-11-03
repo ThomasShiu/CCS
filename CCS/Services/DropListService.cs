@@ -170,8 +170,8 @@ namespace CCS.Services
         public List<SP_GET_CO_Result2> GetOrdDetailsList()
         {
 
-            var model = _db.SP_GET_CO().Where(a=>a.C_CLS=="N").ToList();
-
+            //var model = _db.SP_GET_CO().Where(a=>a.C_CLS=="N").ToList();
+            var model = _db.SP_GET_CO().ToList();
             return model;
         }
         #endregion

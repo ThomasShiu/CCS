@@ -31,13 +31,13 @@ namespace CCS.Areas.Dashboard.Controllers
         //    List<ChartSeriesModel> seriesList = new List<ChartSeriesModel>();
         //    ChartSeriesModel series1 = new ChartSeriesModel()
         //    {
-        //        name = "成本價",
+        //        name = "成本价",
         //        type = "bar",
         //        data = costPrice
         //    };
         //    ChartSeriesModel series2 = new ChartSeriesModel()
         //    {
-        //        name = "零售價",
+        //        name = "零售价",
         //        type = "bar",
         //        data = price
         //    };
@@ -45,9 +45,9 @@ namespace CCS.Areas.Dashboard.Controllers
         //    seriesList.Add(series2);
         //    var option = new
         //    {
-        //        title = new { text = "成本價零售價對照表" },
+        //        title = new { text = "成本价零售价对照表" },
         //        tooltip = new { },
-        //        legend = new { data = "成本價零售價對照表" },
+        //        legend = new { data = "成本价零售价对照表" },
         //        xAxis = new { data = names },
         //        yAxis = new { },
         //        series = seriesList

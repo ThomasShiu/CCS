@@ -40,7 +40,7 @@
                 </td>
                 <td style="width:310px">
                     @*@Html.EditorFor(model => model.VCH_DT)*@
-                    <input id="VCH_DT" name="VCH_DT" value ="@Model.VCH_DT.ToString("yyyy-MM-dd")" style="width:100%;" readonly="readonly">
+                    <input id="VCH_DT" name="VCH_DT" value ="@Model.VCH_DT.ToString("yyyy-MM-dd")" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser,required:true" style="width: 100%;" >
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.VCH_DT)</td>
             </tr>

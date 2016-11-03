@@ -35,7 +35,6 @@ D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\System.Web.Http.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\EntityFramework.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\Microsoft.Owin.Security.Cookies.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\System.Web.Http.WebHost.dll
-D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\Microsoft.Owin.Host.SystemWeb.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\System.Net.Http.Formatting.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\Newtonsoft.Json.xml
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\System.Web.Helpers.xml
@@ -54,7 +53,6 @@ D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\System.Web.Http.xml
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\EntityFramework.xml
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\Microsoft.Owin.Security.Cookies.xml
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\System.Web.Http.WebHost.xml
-D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\Microsoft.Owin.Host.SystemWeb.xml
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\System.Net.Http.Formatting.xml
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\zh-Hant\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\zh-Hant\System.Web.Helpers.resources.dll
@@ -72,7 +70,6 @@ D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\zh-Hant\Microsoft.Owin.Sec
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\zh-Hant\System.Web.Http.resources.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\zh-Hant\EntityFramework.resources.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\zh-Hant\System.Web.Http.WebHost.resources.dll
-D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\zh-Hant\Microsoft.Owin.Host.SystemWeb.resources.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\zh-Hant\System.Net.Http.Formatting.resources.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\obj\Release\CCS.Tests.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\obj\Release\CCS.Tests.pdb
@@ -101,5 +98,14 @@ D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\CCS.IDAL.pdb
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\CCS.DAL.pdb
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\CCS.Common.dll
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\CCS.Common.pdb
-D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\CCSlocalDB.mdf
 D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\CCSlocalDB_log.ldf
+D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\Reports\SAL01_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\Reports\MAN01_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\Reports\WIR04_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\Reports\SAL03_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\Reports\KEG04_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\Reports\WIR06_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\Reports\INV04_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\Reports\SAL06_01.rdlc
+D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\Microsoft.ReportViewer.WebForms.dll
+D:\Git_Source\CCM3S_Project\CCS\CCS.Tests\bin\Release\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll
